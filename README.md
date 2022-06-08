@@ -4,7 +4,7 @@
 
 2/ Installation/Deployment Guide: /documentation/guides/InstallationGuide.pdf
 
-3/ Codelisting (classification criteria), JSON attributes & encondings: /documentation/guides/codelistings.xlsx
+3/ Codelisting (classification criteria), JSON attributes & encodings: /documentation/guides/codelistings.xlsx
 
 4/ Complete data file (JSON format): /src/assets/cases.json
 
