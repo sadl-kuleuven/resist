@@ -30,6 +30,7 @@ export class CasesService {
   private ogcTrendFilter = [];
   private themeAreaFilter = [];
   private publicValueFilter = [];
+  private natureSolutionFilter = [];
 
   public selectedCase = null;
 
@@ -103,7 +104,19 @@ export class CasesService {
       r02: 0,
       r03: 0,
       r04: 0
-    }
+    },
+    solution: {
+      s01: 0,
+      s02: 0,
+      s03: 0,
+      s04: 0,
+      s05: 0,
+      s06: 0,
+      s07: 0,
+      s08: 0,
+      s09: 0
+    },
+
   };
 
 
@@ -180,6 +193,7 @@ export class CasesService {
     this.filterByThemeArea();
     this.filterByTechReady();
     this.filterByPublicValue();
+    this.filterByNatureSolution();
     this.filterByMapExtent(this.lastBounds);
   }
 
@@ -316,6 +330,16 @@ export class CasesService {
     this.applyFilters();
   }
 
+  filterByNatureSolution() {
+    this.natureSolutionFilter= [];
+    this.tas.natureSolution.forEach(a => {
+      if (a.active) {
+        this.natureSolutionFilter.push(a.name);
+      }
+    });
+    this.applyFilters();
+  }
+
 
   applyFilters() {
     this.pagination = 1;
@@ -385,6 +409,23 @@ export class CasesService {
         });
         this.filteredCases = filterEmerging;
       }
+            // console.log('Filtering by nature solution: ' + this.natureSolutionFilter);
+
+            if (this.natureSolutionFilter.length > 0) {
+              const filterSolution = [];
+              this.filteredCases.forEach(fc => {
+                fc.nature_solution.forEach(em => {
+                  this.natureSolutionFilter.forEach(f => {
+                    if (em === f) {
+                      if (!filterSolution.includes(fc)) {
+                        filterSolution.push(fc);
+                      }
+                    }
+                  });
+                });
+              });
+              this.filteredCases = filterSolution;
+            }
 
       // console.log('Filtering by OGC: ' + this.ogcTrendFilter);
 
@@ -463,6 +504,8 @@ export class CasesService {
 
   }
 
+  
+
   applyFiltersText(toFilter) {
     if (this.textFilter) {
       // tslint:disable-next-line:max-line-length
@@ -528,6 +571,26 @@ export class CasesService {
         });
       });
       return filterEmerging;
+    } else {
+      return toFilter;
+    }
+  }
+
+  applyFiltersNatureSolution(toFilter) {
+    if (this.natureSolutionFilter.length > 0) {
+      const filterSolution = [];
+      toFilter.forEach(fc => {
+        fc.nature_solution.forEach(em => {
+          this.natureSolutionFilter.forEach(f => {
+            if (em === f) {
+              if (!filterSolution.includes(fc)) {
+                filterSolution.push(fc);
+              }
+            }
+          });
+        });
+      });
+      return filterSolution;
     } else {
       return toFilter;
     }
@@ -718,6 +781,18 @@ export class CasesService {
         r03: 0,
         r04: 0
       };
+      this.resultCases.solution = {
+        s01: 0,
+        s02: 0,
+        s03: 0,
+        s04: 0,
+        s05: 0,
+        s06: 0,
+        s07: 0,
+        s08: 0,
+        s09: 0
+      };
+
 
       let casesScope = this.allCases;
 
@@ -728,6 +803,7 @@ export class CasesService {
       casesScope = this.applyFiltersOGC(casesScope);
       casesScope = this.applyFiltersPublicValue(casesScope);
       casesScope = this.applyFiltersTechReady(casesScope);
+      casesScope = this.applyFiltersNatureSolution(casesScope);
 
       casesScope.forEach(c => {
         if (c.scope && c.scope === 'local') {
@@ -746,6 +822,7 @@ export class CasesService {
       casesThemeArea = this.applyFiltersPublicValue(casesThemeArea);
       casesThemeArea = this.applyFiltersTechReady(casesThemeArea);
       casesThemeArea = this.applyFiltersScope(casesThemeArea);
+      casesThemeArea = this.applyFiltersNatureSolution(casesThemeArea);
 
       let uniqueAreas = [];
       // subsections of thematic areas can be repeated
@@ -802,6 +879,7 @@ export class CasesService {
       casesTrend = this.applyFiltersThemeArea(casesTrend);
       casesTrend = this.applyFiltersEmergingTech(casesTrend);
       casesTrend = this.applyFiltersScope(casesTrend);
+      casesTrend = this.applyFiltersNatureSolution(casesTrend);
 
       casesTrend.forEach(c => {
         if (c.tech_trend.includes('Location & Position')) {
@@ -839,6 +917,7 @@ export class CasesService {
       casesEmerging = this.applyFiltersPublicValue(casesEmerging);
       casesEmerging = this.applyFiltersTechReady(casesEmerging);
       casesEmerging = this.applyFiltersScope(casesEmerging);
+      casesEmerging = this.applyFiltersNatureSolution(casesEmerging);
 
       casesEmerging.forEach(c => {
         if (c.emerging_tech.includes('Artificial Intelligence and Machine Learning')) {
@@ -879,6 +958,7 @@ export class CasesService {
       casesPV = this.applyFiltersOGC(casesPV);
       casesPV = this.applyFiltersTechReady(casesPV);
       casesPV = this.applyFiltersScope(casesPV);
+      casesPV = this.applyFiltersNatureSolution(casesPV);
 
       casesPV.forEach(c => {
         let pvOp = false;
@@ -969,6 +1049,7 @@ export class CasesService {
       casesTechReady = this.applyFiltersOGC(casesTechReady);
       casesTechReady = this.applyFiltersPublicValue(casesTechReady);
       casesTechReady = this.applyFiltersScope(casesTechReady);
+      casesTechReady = this.applyFiltersNatureSolution(casesTechReady);
 
       casesTechReady.forEach(c => {
         if (c.tech_readiness_level === 1) {
@@ -979,6 +1060,48 @@ export class CasesService {
           this.resultCases.readiness.r03++;
         } else if (c.tech_readiness_level === 4) {
           this.resultCases.readiness.r04++;
+        }
+      });
+
+      let casesNatureSolution = this.allCases;
+
+      casesNatureSolution = this.applyFiltersText(casesNatureSolution);
+      casesNatureSolution = this.applyFiltersGeo(casesNatureSolution);
+      casesNatureSolution = this.applyFiltersThemeArea(casesNatureSolution);
+      casesNatureSolution = this.applyFiltersEmergingTech(casesNatureSolution);
+      casesNatureSolution = this.applyFiltersOGC(casesNatureSolution);
+      casesNatureSolution = this.applyFiltersTechReady(casesNatureSolution);
+      casesNatureSolution = this.applyFiltersPublicValue(casesNatureSolution);
+      casesNatureSolution = this.applyFiltersScope(casesNatureSolution);
+    
+
+      casesNatureSolution.forEach(c => {
+        if (c.nature_solution.includes('Green Infrastructure')) {
+          this.resultCases.solution.s01++;
+        }
+        if (c.nature_solution.includes('Ecosystem Restoration')) {
+          this.resultCases.solution.s02++;
+        }
+        if (c.nature_solution.includes('Sustainable Agriculture')) {
+          this.resultCases.solution.s03++;
+        }
+        if (c.nature_solution.includes('Sustainable Land Management')) {
+          this.resultCases.solution.s04++;
+        }
+        if (c.nature_solution.includes('Nature-Based Tourism')) {
+          this.resultCases.solution.s05++;
+        }
+        if (c.nature_solution.includes('Biodiversity Conservation')) {
+          this.resultCases.solution.s06++;
+        }
+        if (c.nature_solution.includes('Renewable energy')) {
+          this.resultCases.solution.s07++;
+        }
+        if (c.nature_solution.includes('Nature-Based Flood Management')) {
+          this.resultCases.solution.s08++;
+        }
+        if (c.nature_solution.includes('Reforestation and Afforestation')) {
+          this.resultCases.solution.s09++;
         }
       });
     }
@@ -998,6 +1121,9 @@ export class CasesService {
     this.tas.publicValue.forEach(pv => {
       pv.active = false;
     });
+    this.tas.natureSolution.forEach(a => {
+      a.active = false;
+    });
 
     this.ns.nuts0Active = [];
     this.ns.nuts1Active = [];
@@ -1012,6 +1138,8 @@ export class CasesService {
     this.ogcTrendFilter = [];
     this.themeAreaFilter = [];
     this.publicValueFilter = [];
+    this.natureSolutionFilter = [];
+
 
     this.applyFilters();
     this.calculateResults();

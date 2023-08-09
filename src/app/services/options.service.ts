@@ -13,6 +13,7 @@ export class OptionsService {
   trendVisible = true;
   publicValVisible = true;
   techReadVisible = true;
+  natureVisible= true;
 
   textFilter = '';
 
@@ -171,6 +172,17 @@ export class OptionsService {
     r04: false
   };
 
+  natureSolution =[
+    { name: 'Green Infrastructure', active: false, icon: 'tree', result: 's01', class: 'color1' },
+    { name: 'Ecosystem Restoration', active: false, icon: 'cloud', result: 's02', class: 'color2' },
+    { name: 'Sustainable Agriculture', active: false, icon: 'laptop', result: 's03', class: 'color3' },
+    { name: 'Sustainable Land Management', active: false, icon: 'link', result: 's04', class: 'color4' },
+    { name: 'Nature-Based Tourism', active: false, icon: 'eye', result: 's05', class: 'color5' },
+    { name: 'Biodiversity Conservation', active: false, icon: 'seeding', result: 's06', class: 'color6' },
+    { name: 'Renewable energy', active: false, icon: 'wind', result: 's07', class: 'color7' },
+    { name: 'Nature-Based Flood Management', active: false, icon: 'water', result: 's08', class: 'color8' },
+    { name: 'Reforestation and Afforestation', active: false, icon: 'trees', result: 's09', class: 'color9' }
+  ];
 
   constructor() {}
 

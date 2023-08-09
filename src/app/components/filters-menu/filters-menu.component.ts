@@ -48,6 +48,7 @@ export class FiltersMenuComponent implements OnInit, AfterViewInit {
   trendGraph = [];
   pvGraph = [];
   trGraph = [];
+  natureGraph = [];
 
   @ViewChild('filters') filters: ElementRef;
 
@@ -244,6 +245,50 @@ export class FiltersMenuComponent implements OnInit, AfterViewInit {
       }
     ];
 
+    this.natureGraph = [
+      {
+        'name': 'Nature-Based Solutions',
+        'series': [
+          {
+            'name': 'Green Infrastructure',
+            'value': this.cs.resultCases.solution.s01
+          },
+          {
+            'name': 'Ecosystem Restoration',
+            'value': this.cs.resultCases.solution.s02
+          },
+          {
+            'name': 'Sustainable Agriculture',
+            'value': this.cs.resultCases.solution.s03
+          },
+          {
+            'name': 'Sustainable Land Management',
+            'value': this.cs.resultCases.solution.s04
+          },
+          {
+            'name': 'Nature-Based Tourism',
+            'value': this.cs.resultCases.solution.s05
+          },
+          {
+            'name': 'Biodiversity Conservation',
+            'value': this.cs.resultCases.solution.s06
+          },
+          {
+            'name': 'Renewable energy',
+            'value': this.cs.resultCases.solution.s07
+          },
+          {
+            'name': 'Nature-Based Flood Management',
+            'value': this.cs.resultCases.solution.s08
+          },
+          {
+            'name': 'Reforestation and Afforestation',
+            'value': this.cs.resultCases.solution.s09
+
+          }
+        ]
+      }
+    ];
 
     // refresh graphs
     this.cs.filteredCasesChange.subscribe(() => {
@@ -436,6 +481,51 @@ export class FiltersMenuComponent implements OnInit, AfterViewInit {
           ]
         }
       ];
+      this.natureGraph = [
+        {
+          'name': 'Nature-Based Solutions',
+          'series': [
+            {
+              'name': 'Green Infrastructure',
+              'value': this.cs.resultCases.solution.s01
+            },
+            {
+              'name': 'Ecosystem Restoration',
+              'value': this.cs.resultCases.solution.s02
+            },
+            {
+              'name': 'Sustainable Agriculture',
+              'value': this.cs.resultCases.solution.s03
+            },
+            {
+              'name': 'Sustainable Land Management',
+              'value': this.cs.resultCases.solution.s04
+            },
+            {
+              'name': 'Nature-Based Tourism',
+              'value': this.cs.resultCases.solution.s05
+            },
+            {
+              'name': 'Biodiversity Conservation',
+              'value': this.cs.resultCases.solution.s06
+            },
+            {
+              'name': 'Renewable energy',
+              'value': this.cs.resultCases.solution.s07
+            },
+            {
+              'name': 'Nature-Based Flood Management',
+              'value': this.cs.resultCases.solution.s08
+            },
+            {
+              'name': 'Reforestation and Afforestation',
+              'value': this.cs.resultCases.solution.s09
+  
+            }
+          ]
+        }
+      ];
+
 
     });
 
@@ -551,6 +641,11 @@ export class FiltersMenuComponent implements OnInit, AfterViewInit {
     this.tas.emergingTech.forEach(em => {
       if (em.active) {
         params += 'em=' + em.result + '&';
+      }
+    });
+    this.tas.natureSolution.forEach(na => {
+      if (na.active) {
+        params += 'na=' + na.result + '&';
       }
     });
     this.tas.publicValue.forEach(pv => {

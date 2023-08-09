@@ -355,3 +355,38 @@
 
 <br>
 <span *ngIf="isURLCopied" class="w3-margin-left w3-margin-bottom"> Copied to Clipboard! </span> -->
+
+
+
+
+
+<!-- This part was added in order to test the UI (08/08/2023) 
+
+-->
+
+<div>
+    <button type="button" class="btn btn-default btn-sm btn-link  btn-icon" (click)="nature.toggle()"
+        [attr.aria-expanded]="!tas.natureVisible" placement="bottom"
+        ngbTooltip="Filter by type of nature-based solutions.">
+        Nature-Based Solutions
+        <i [ngClass]="tas.natureVisible? 'fa fa-chevron-down' : 'fa fa-chevron-up'"> </i></button>
+</div>
+<div #nature="ngbCollapse" [(ngbCollapse)]="tas.natureVisible">
+
+    <div class="row right-chart">
+        <ngx-charts-bar-horizontal-stacked *ngIf="!tas.natureVisible" [view]="view" [results]="natureGraph"
+            [scheme]="colorScheme10" (select)="onSelect($event)">
+        </ngx-charts-bar-horizontal-stacked>
+        <br>
+    </div>
+
+    <div *ngFor=" let na of tas.natureSolution" class="form-check">
+        <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" value="" [(ngModel)]="na.active"
+                (change)="cs.filterByNatureSolution()">
+            <span class="form-check-sign"></span>
+            <i class="fa fa-circle" class="{{na.class}}"> </i>
+            <i class="fa fa-{{na.icon}}"> </i> {{na.name}} ({{cs.resultCases.solution[na.result]}})
+        </label>
+    </div>
+</div>
