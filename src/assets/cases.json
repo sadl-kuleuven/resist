@@ -110,11 +110,7 @@
                 "IT024116"
             ]
         ],
-<<<<<<< HEAD
         "nature_solution": ["Green Infrastructure"],
-=======
-        "nature_solution": [],
->>>>>>> 1759cd1d734c38a9d7923842308d2770823b9855
         "emerging_tech": [
             "Immersive Visualisation(VR, MR, AR)"
         ],
@@ -161,11 +157,8 @@
                 "NL0344   "
             ]
         ],
-<<<<<<< HEAD
+
         "nature_solution": ["Green Infrastructure"],
-=======
-        "nature_solution": [],
->>>>>>> 1759cd1d734c38a9d7923842308d2770823b9855
         "emerging_tech": [
             "Artificial Intelligence and Machine Learning",
             "Cloud Native Computing"
@@ -212,11 +205,8 @@
                 "DE09162000"
             ]
         ],
-<<<<<<< HEAD
+
         "nature_solution": ["Ecosystem Restoration"],
-=======
-        "nature_solution": [],
->>>>>>> 1759cd1d734c38a9d7923842308d2770823b9855
         "emerging_tech": [
             "Cloud Native Computing",
             "Blockchain",
@@ -261,11 +251,9 @@
                 "PT170"
             ]
         ],
-<<<<<<< HEAD
+
         "nature_solution": ["Ecosystem Restoration"],
-=======
-        "nature_solution": [],
->>>>>>> 1759cd1d734c38a9d7923842308d2770823b9855
+
         "emerging_tech": [
             "Connected Autonomous Vehicles"
         ],
@@ -318,11 +306,8 @@
                 "ES28079"
             ]
         ],
-<<<<<<< HEAD
+
         "nature_solution": ["Ecosystem Restoration"],
-=======
-        "nature_solution": [],
->>>>>>> 1759cd1d734c38a9d7923842308d2770823b9855
         "emerging_tech": [
             "Artificial Intelligence and Machine Learning",
             "Cloud Native Computing",
@@ -370,11 +355,8 @@
                 "DE02000000"
             ]
         ],
-<<<<<<< HEAD
+
         "nature_solution": ["Sustainable Agriculture"],
-=======
-        "nature_solution": [],
->>>>>>> 1759cd1d734c38a9d7923842308d2770823b9855
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "local",
@@ -416,11 +398,8 @@
                 "FR75056"
             ]
         ],
-<<<<<<< HEAD
+
         "nature_solution": ["Sustainable Agriculture"],
-=======
-        "nature_solution": [],
->>>>>>> 1759cd1d734c38a9d7923842308d2770823b9855
         "emerging_tech": [
             "Artificial Intelligence and Machine Learning"
         ],
@@ -494,11 +473,8 @@
                 "ES39075"
             ]
         ],
-<<<<<<< HEAD
+
         "nature_solution": ["Sustainable Agriculture"],
-=======
-        "nature_solution": [],
->>>>>>> 1759cd1d734c38a9d7923842308d2770823b9855
         "emerging_tech": [
             "Cloud Native Computing"
         ],
@@ -661,11 +637,8 @@
                 "ES08019"
             ]
         ],
-<<<<<<< HEAD
+
         "nature_solution": ["Nature-Based Tourism"],
-=======
-        "nature_solution": [],
->>>>>>> 1759cd1d734c38a9d7923842308d2770823b9855
         "emerging_tech": [
             "Cloud Native Computing"
         ],
@@ -735,11 +708,9 @@
                 "FI091   "
             ]
         ],
-<<<<<<< HEAD
+
         "nature_solution": ["Nature-Based Tourism"],
-=======
-        "nature_solution": [],
->>>>>>> 1759cd1d734c38a9d7923842308d2770823b9855
+
         "emerging_tech": [
             "Artificial Intelligence and Machine Learning"
         ],
@@ -856,11 +827,8 @@
                 "FRJ22"
             ]
         ],
-<<<<<<< HEAD
+
         "nature_solution": ["Nature-Based Tourism"],
-=======
-        "nature_solution": [],
->>>>>>> 1759cd1d734c38a9d7923842308d2770823b9855
         "emerging_tech": [
             "Artificial Intelligence and Machine Learning"
         ],
