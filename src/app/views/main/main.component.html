@@ -24,12 +24,12 @@
         -->
         <div class="row elise-header">
             <div class="col-md-10">
-                <h3>Innovative use of location data and technologies for public services <br> Collection of case studies
+                <h3>Information on Climate Change Adaptation tools, technologies and solutions <br> Collection of case studies
                 </h3>
                 <br>
                 <h4 style="margin-top: -5px; margin-bottom: 20px;"> <a
-                        href="https://joinup.ec.europa.eu/collection/elise-european-location-interoperability-solutions-e-government/about"
-                        target="_blank" rel="noopener noreferrer">ELISE</a> action prototype visualisation tool</h4>
+                        href="https://resist-project.eu/"
+                        target="_blank" rel="noopener noreferrer">RESIST</a> visualisation tool of CCA solutions</h4>
             </div>
             <div class="col-md-2 text-right" style="margin-top: 40px !important;">
                 <ng-template #tipContent>
@@ -151,6 +151,11 @@
                     <span *ngFor="let tech of cs.selectedCase.tech_trend">
                         <span placement="bottom" class="label label-default label-icon"><i
                                 class="fa fa-{{iconsOGC[tech]}}"></i>{{tech}}</span>
+                    </span>
+                    <p *ngIf="cs.selectedCase.solu_nature.length > 0" class="label-description">Nature-based Solutions </p>
+                    <span *ngFor="let solu of cs.selectedCase.solu_nature">
+                        <span placement="bottom" class="label label-default label-icon"><i
+                                class="fa fa-{{iconsNature[solu]}}"></i>{{solu}}</span>
                     </span>
                     <p *ngIf="cs.selectedCase.emerging_tech.length > 0" class="label-description">Emerging
                         Technologies
@@ -287,6 +292,11 @@
                         <span placement="bottom" class="label label-default label-icon"><i
                                 class="fa fa-{{iconsOGC[tech]}}"></i>{{tech}}</span>
                     </span>
+                    <p *ngIf="pinnedCase.solu_nature.length > 0" class="label-description">Nature-based Solutions </p>
+                    <span *ngFor="let solu of pinnedCase.solu_nature">
+                        <span placement="bottom" class="label label-secondary label-icon"><i
+                                class="fa fa-{{iconsNature[solu]}}"></i>{{solu}}</span>
+                    </span>
                     <p *ngIf="pinnedCase.emerging_tech.length > 0" class="label-description">Emerging Technologies
                     </p>
                     <span *ngFor="let tech of pinnedCase.emerging_tech">
@@ -365,6 +375,13 @@
                                 {{em.name}}
                                 <i class="nc-icon nc-simple-remove"></i> </span>
                         </span>
+                        <span *ngFor="let so of tas.natureSolution">
+                            <span *ngIf="so.active" class="label label-secondary label-close"
+                                (click)="so.active = false; cs.filterByNatureSolution()">
+                                <i class="fa fa-{{iconsNature[so.name]}}"></i>
+                                {{so.name}}
+                                <i class="nc-icon nc-simple-remove"></i> </span>
+                        </span>
                         <span *ngFor="let pv of tas.publicValue">
                             <span *ngIf="pv.active" class="label label-secondary label-close"
                                 (click)="pv.active = false; cs.filterByPublicValue()">{{pv.name}}
@@ -427,6 +444,11 @@
                                             <span placement="bottom" ngbTooltip="{{tech}}"
                                                 class="label label-danger label-icon"><i
                                                     class="fa fa-{{iconsTrend[tech]}}"></i></span>
+                                        </span>
+                                        <span *ngFor="let solu of c.solu_nature">
+                                            <span placement="bottom" ngbTooltip="{{solu}}"
+                                                class="label label-secondary label-icon"><i
+                                                    class="fa fa-{{iconsNature[solu]}}"></i></span>
                                         </span>
                                     </div>
                                     <div class="col-8">
