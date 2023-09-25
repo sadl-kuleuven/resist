@@ -16,6 +16,7 @@
                 "EE0794"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "regional",
@@ -60,6 +61,7 @@
                 "PL911"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [
             "Artificial Intelligence and Machine Learning"
         ],
@@ -108,6 +110,11 @@
                 "IT024116"
             ]
         ],
+<<<<<<< HEAD
+        "nature_solution": ["Green Infrastructure"],
+=======
+        "nature_solution": [],
+>>>>>>> 1759cd1d734c38a9d7923842308d2770823b9855
         "emerging_tech": [
             "Immersive Visualisation(VR, MR, AR)"
         ],
@@ -154,6 +161,11 @@
                 "NL0344   "
             ]
         ],
+<<<<<<< HEAD
+        "nature_solution": ["Green Infrastructure"],
+=======
+        "nature_solution": [],
+>>>>>>> 1759cd1d734c38a9d7923842308d2770823b9855
         "emerging_tech": [
             "Artificial Intelligence and Machine Learning",
             "Cloud Native Computing"
@@ -200,6 +212,11 @@
                 "DE09162000"
             ]
         ],
+<<<<<<< HEAD
+        "nature_solution": ["Ecosystem Restoration"],
+=======
+        "nature_solution": [],
+>>>>>>> 1759cd1d734c38a9d7923842308d2770823b9855
         "emerging_tech": [
             "Cloud Native Computing",
             "Blockchain",
@@ -244,6 +261,11 @@
                 "PT170"
             ]
         ],
+<<<<<<< HEAD
+        "nature_solution": ["Ecosystem Restoration"],
+=======
+        "nature_solution": [],
+>>>>>>> 1759cd1d734c38a9d7923842308d2770823b9855
         "emerging_tech": [
             "Connected Autonomous Vehicles"
         ],
@@ -296,6 +318,11 @@
                 "ES28079"
             ]
         ],
+<<<<<<< HEAD
+        "nature_solution": ["Ecosystem Restoration"],
+=======
+        "nature_solution": [],
+>>>>>>> 1759cd1d734c38a9d7923842308d2770823b9855
         "emerging_tech": [
             "Artificial Intelligence and Machine Learning",
             "Cloud Native Computing",
@@ -343,6 +370,11 @@
                 "DE02000000"
             ]
         ],
+<<<<<<< HEAD
+        "nature_solution": ["Sustainable Agriculture"],
+=======
+        "nature_solution": [],
+>>>>>>> 1759cd1d734c38a9d7923842308d2770823b9855
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "local",
@@ -384,6 +416,11 @@
                 "FR75056"
             ]
         ],
+<<<<<<< HEAD
+        "nature_solution": ["Sustainable Agriculture"],
+=======
+        "nature_solution": [],
+>>>>>>> 1759cd1d734c38a9d7923842308d2770823b9855
         "emerging_tech": [
             "Artificial Intelligence and Machine Learning"
         ],
@@ -457,6 +494,11 @@
                 "ES39075"
             ]
         ],
+<<<<<<< HEAD
+        "nature_solution": ["Sustainable Agriculture"],
+=======
+        "nature_solution": [],
+>>>>>>> 1759cd1d734c38a9d7923842308d2770823b9855
         "emerging_tech": [
             "Cloud Native Computing"
         ],
@@ -504,6 +546,7 @@
                 "ES30030"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [
             "Cloud Native Computing"
         ],
@@ -556,6 +599,7 @@
                 "RO"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 3,
         "scope": "regional",
@@ -617,6 +661,11 @@
                 "ES08019"
             ]
         ],
+<<<<<<< HEAD
+        "nature_solution": ["Nature-Based Tourism"],
+=======
+        "nature_solution": [],
+>>>>>>> 1759cd1d734c38a9d7923842308d2770823b9855
         "emerging_tech": [
             "Cloud Native Computing"
         ],
@@ -686,6 +735,11 @@
                 "FI091   "
             ]
         ],
+<<<<<<< HEAD
+        "nature_solution": ["Nature-Based Tourism"],
+=======
+        "nature_solution": [],
+>>>>>>> 1759cd1d734c38a9d7923842308d2770823b9855
         "emerging_tech": [
             "Artificial Intelligence and Machine Learning"
         ],
@@ -802,6 +856,11 @@
                 "FRJ22"
             ]
         ],
+<<<<<<< HEAD
+        "nature_solution": ["Nature-Based Tourism"],
+=======
+        "nature_solution": [],
+>>>>>>> 1759cd1d734c38a9d7923842308d2770823b9855
         "emerging_tech": [
             "Artificial Intelligence and Machine Learning"
         ],
@@ -853,6 +912,7 @@
                 "DE11000000"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 1,
         "scope": "local",
@@ -894,6 +954,7 @@
                 "ES05019"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 3,
         "scope": "local",
@@ -989,6 +1050,7 @@
                 "IT024116"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [
             "Artificial Intelligence and Machine Learning"
         ],
@@ -1074,6 +1136,7 @@
                 "SI041"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 1,
         "scope": "local",
@@ -1136,6 +1199,7 @@
                 "CZ554791"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 3,
         "scope": "local",
@@ -1212,6 +1276,7 @@
                 "EL644"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [
             "Connected Autonomous Vehicles"
         ],
@@ -1255,6 +1320,7 @@
                 "ES29067"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "local",
@@ -1311,6 +1377,7 @@
                 "UKN06"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "local",
@@ -1355,6 +1422,7 @@
                 "AT90001"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 3,
         "scope": "local",
@@ -1397,6 +1465,7 @@
                 "ES511"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "regional",
@@ -1465,6 +1534,7 @@
                 "ES47186"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 3,
         "scope": "local",
@@ -1521,6 +1591,7 @@
                 "CZ554791"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [
             "Cloud Native Computing",
             "Urban Digital Twins"
@@ -1586,6 +1657,7 @@
                 "NL0363"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "local",
@@ -1638,6 +1710,7 @@
                 "NL0917"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [
             "Blockchain"
         ],
@@ -1683,6 +1756,7 @@
                 "ES618"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "regional",
@@ -1769,6 +1843,7 @@
                 "ES08221"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "local",
@@ -1810,6 +1885,7 @@
                 "EE0794"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "local",
@@ -1851,6 +1927,7 @@
                 "BE3"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "regional",
@@ -1897,6 +1974,7 @@
                 "EL540100"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 3,
         "scope": "local",
@@ -1940,6 +2018,7 @@
                 "FI091   "
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [
             "Edge Computing",
             "Connected Autonomous Vehicles"
@@ -1983,6 +2062,7 @@
                 "UKL16"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "local",
@@ -2026,6 +2106,7 @@
                 "ES46250"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "local",
@@ -2075,6 +2156,7 @@
                 "PT1105"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "local",
@@ -2124,6 +2206,7 @@
                 "PT1105"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "local",
@@ -2165,6 +2248,7 @@
                 "ITH10"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [
             "Artificial Intelligence and Machine Learning",
             "Cloud Native Computing"
@@ -2213,6 +2297,7 @@
                 "FI905   "
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [
             "Cloud Native Computing"
         ],
@@ -2272,6 +2357,7 @@
                 "UKE13"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [
             "Cloud Native Computing"
         ],
@@ -2317,6 +2403,7 @@
                 "UKJ43"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "regional",
@@ -2366,6 +2453,7 @@
                 "UKG"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "regional",
@@ -2405,6 +2493,7 @@
                 "UKN"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "regional",
@@ -2444,6 +2533,7 @@
                 "UKJ14"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "regional",
@@ -2487,6 +2577,7 @@
                 "UKG"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "regional",
@@ -2530,6 +2621,7 @@
                 "UKL"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "regional",
@@ -2574,6 +2666,7 @@
                 "UKI3"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "regional",
@@ -2614,6 +2707,7 @@
                 "UKJ14"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "regional",
@@ -2658,6 +2752,7 @@
                 "UKG12"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "regional",
@@ -2703,6 +2798,7 @@
                 "UKH1"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "regional",
@@ -2746,6 +2842,7 @@
                 "UKC21"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [
             "UxS / Drones"
         ],
@@ -2796,6 +2893,7 @@
                 "IE061"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "regional",
@@ -2841,6 +2939,7 @@
                 "IE18253"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "local",
@@ -2888,6 +2987,7 @@
                 "IE33016"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "local",
@@ -2936,6 +3036,7 @@
                 "UKN"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "regional",
@@ -2977,6 +3078,7 @@
                 "UKI"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "regional",
@@ -3024,6 +3126,7 @@
                 "UKI45"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "regional",
@@ -3061,6 +3164,7 @@
                 "UKL"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "regional",
@@ -3112,6 +3216,7 @@
                 "UKK12"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "regional",
@@ -3149,6 +3254,7 @@
                 "UKM6"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "regional",
@@ -3188,6 +3294,7 @@
                 "UKK"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "regional",
@@ -3229,6 +3336,7 @@
                 "UKH16"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "regional",
@@ -3272,6 +3380,7 @@
                 "UKM94"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "regional",
@@ -3316,6 +3425,7 @@
                 "IE1001"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "local",
@@ -3360,6 +3470,7 @@
                 "DE21L"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "regional",
@@ -3401,6 +3512,7 @@
                 "DE25B"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "regional",
@@ -3440,6 +3552,7 @@
                 "DEA2"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "regional",
@@ -3480,6 +3593,7 @@
                 "DE7"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "regional",
@@ -3516,6 +3630,7 @@
                 "DK011"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "regional",
@@ -3559,6 +3674,7 @@
                 "NL0599"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [
             "Connected Autonomous Vehicles",
             "Urban Digital Twins"
@@ -3606,6 +3722,7 @@
                 "ITI1"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "regional",
@@ -3645,6 +3762,7 @@
                 "IT015146"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "local",
@@ -3687,6 +3805,7 @@
                 "ITF4"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "regional",
@@ -3726,6 +3845,7 @@
                 "IT058091"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [
             "Cloud Native Computing"
         ],
@@ -3772,6 +3892,7 @@
                 "IT058091"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "local",
@@ -3817,6 +3938,7 @@
                 "IT058091"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "local",
@@ -3855,6 +3977,7 @@
                 "IT058091"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "local",
@@ -3898,6 +4021,7 @@
                 "FI091   "
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "local",
@@ -3940,6 +4064,7 @@
                 "ES28092"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "local",
@@ -3986,6 +4111,7 @@
                 "ES47186"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "local",
@@ -4032,6 +4158,7 @@
                 "ES18087"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "local",
@@ -4082,6 +4209,7 @@
                 "ES15078"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "local",
@@ -4123,6 +4251,7 @@
                 "ES61"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "regional",
@@ -4168,6 +4297,7 @@
                 "ES28079"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "local",
@@ -4206,6 +4336,7 @@
                 "ES46250"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 3,
         "scope": "local",
@@ -4250,6 +4381,7 @@
                 "ES46250"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "local",
@@ -4293,6 +4425,7 @@
                 "ES46250"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 3,
         "scope": "local",
@@ -4338,6 +4471,7 @@
                 "ES46250"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "local",
@@ -4384,6 +4518,7 @@
                 "ES46250"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 3,
         "scope": "local",
@@ -4426,6 +4561,7 @@
                 "ES46250"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "local",
@@ -4467,6 +4603,7 @@
                 "ES46250"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 3,
         "scope": "local",
@@ -4509,6 +4646,7 @@
                 "NL0363"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 3,
         "scope": "local",
@@ -4556,6 +4694,7 @@
                 "NL0363"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "local",
@@ -4598,6 +4737,7 @@
                 "NL0363"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "local",
@@ -4634,6 +4774,7 @@
                 "NL0363"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 2,
         "scope": "local",
@@ -4674,6 +4815,7 @@
                 "ES617"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "regional",
@@ -4718,6 +4860,7 @@
                 "HR05"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "local",
@@ -4756,6 +4899,7 @@
                 "FR35238"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "local",
@@ -4792,6 +4936,7 @@
                 "UKM"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "regional",
@@ -4830,6 +4975,7 @@
                 "EE008"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "local",
@@ -4870,6 +5016,7 @@
                 "DE2"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [
             "Artificial Intelligence and Machine Learning"
         ],
@@ -4911,6 +5058,7 @@
                 "NL0772"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 3,
         "scope": "local",
@@ -4962,6 +5110,7 @@
                 "FRJ23"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 3,
         "scope": "regional",
@@ -5002,6 +5151,7 @@
                 "UK00PBPG"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "local",
@@ -5039,6 +5189,7 @@
                 "CH0261"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "local",
@@ -5086,6 +5237,7 @@
                 "UKF24"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "regional",
@@ -5128,6 +5280,7 @@
                 "LT13   "
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "local",
@@ -5178,6 +5331,7 @@
                 "DE128"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "regional",
@@ -5214,6 +5368,7 @@
                 "UKJ4"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [
             "Artificial Intelligence and Machine Learning"
         ],
@@ -5264,6 +5419,7 @@
                 "UK21UFGL"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [
             "Cloud Native Computing",
             "Immersive Visualisation(VR, MR, AR)",
@@ -5315,6 +5471,7 @@
                 "DE02000000"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [
             "Urban Digital Twins"
         ],
@@ -5364,6 +5521,7 @@
                 "NO0A2"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [
             "UxS / Drones"
         ],
@@ -5405,6 +5563,7 @@
                 "ES29070"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [
             "UxS / Drones"
         ],
@@ -5460,6 +5619,7 @@
                 "UKM75"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "regional",
@@ -5501,6 +5661,7 @@
                 "UKG31"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "regional",
@@ -5538,6 +5699,7 @@
                 "UKK23"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "regional",
@@ -5579,6 +5741,7 @@
                 "UKN06"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 3,
         "scope": "regional",
@@ -5622,6 +5785,7 @@
                 "BE2"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "regional",
@@ -5659,6 +5823,7 @@
                 "UKI"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 3,
         "scope": "regional",
@@ -5703,6 +5868,7 @@
                 "BE2"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "regional",
@@ -5837,6 +6003,7 @@
                 "BE23002"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "local",
@@ -5890,6 +6057,7 @@
                 "BE"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "regional",
@@ -5931,6 +6099,7 @@
                 "BE11002"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "local",
@@ -5973,6 +6142,7 @@
                 "DE08221000"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [
             "Cloud Native Computing"
         ],
@@ -6017,6 +6187,7 @@
                 "NL0363"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "local",
@@ -6056,6 +6227,7 @@
                 "FRD22"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "regional",
@@ -6100,6 +6272,7 @@
                 "FR103"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "regional",
@@ -6139,6 +6312,7 @@
                 "FRB06"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "regional",
@@ -6176,6 +6350,7 @@
                 "FRE11"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [
             "Connected Autonomous Vehicles"
         ],
@@ -6217,6 +6392,7 @@
                 "FI091   "
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 3,
         "scope": "local",
@@ -6264,6 +6440,7 @@
                 "FR75056"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 3,
         "scope": "local",
@@ -6308,6 +6485,7 @@
                 "DE11000000"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "local",
@@ -6346,6 +6524,7 @@
                 "BE234"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "regional",
@@ -6403,6 +6582,7 @@
                 "BE34022"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "regional",
@@ -6445,6 +6625,7 @@
                 "DEB12"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "regional",
@@ -6484,6 +6665,7 @@
                 "IT039014"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [
             "Artificial Intelligence and Machine Learning"
         ],
@@ -6531,6 +6713,7 @@
                 "ES220"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "regional",
@@ -6563,7 +6746,7 @@
             "Location & Position",
             "Human Interfaces"
         ],
-        "details" : "https://www.dropbox.com/s/hab0fhw3cn5rtyu/ELISE_L1%20-%20Navarra.pdf?dl=0"
+        "details": "https://www.dropbox.com/s/hab0fhw3cn5rtyu/ELISE_L1%20-%20Navarra.pdf?dl=0"
     },
     {
         "_id": {
@@ -6580,6 +6763,7 @@
                 "BE10"
             ]
         ],
+        "nature_solution": [],
         "emerging_tech": [],
         "tech_readiness_level": 4,
         "scope": "regional",
@@ -6615,6 +6799,6 @@
             "Societal Geosciences",
             "Sensing and Observations"
         ],
-        "details" : "https://www.dropbox.com/s/ue93mmkjd1ciq4p/ELISE_L1%20-%20Brussels.pdf?dl=0"
+        "details": "https://www.dropbox.com/s/ue93mmkjd1ciq4p/ELISE_L1%20-%20Brussels.pdf?dl=0"
     }
 ]
