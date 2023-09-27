@@ -73,6 +73,17 @@ export class MainComponent implements OnInit, AfterContentInit {
     'Urban Digital Twins': 'building',
     '5G Cellular': 'signal'
   };
+  iconsTools = {
+    'Green Infrastructure' : 'tree',
+    'Ecosystem Restoration' : 'cloud',
+    'Sustainable Agriculture' : 'tree',
+    'Sustainable Land Management' : 'globe',
+    'Nature-Based Tourism' : 'eye',
+    'Biodiversity Conservation' : 'connectdevelop',
+    'Renewable energy' : 'arrows-alt',
+    'Nature-Based Flood Management' : 'tint',
+    'Reforestation and Afforestation' : 'pagelines'
+  };
   iconsNature = {
     'Green Infrastructure' : 'tree',
     'Ecosystem Restoration' : 'cloud',
@@ -313,6 +324,23 @@ export class MainComponent implements OnInit, AfterContentInit {
             });
           }
 
+          if (params.to) {
+            this.tas.toolsVisible = false;
+
+            this.tas.toolsPlatforms.forEach(to => {
+              if (typeof params.to === 'string') {
+                if (to.result === params.to) {
+                  to.active = true;
+                }
+              } else {
+                params.to.forEach(p => {
+                  if (to.result === p) {
+                    to.active = true;
+                  }
+                });
+              }
+            });
+          }
           if (params.so) {
             this.tas.natureVisible = false;
 

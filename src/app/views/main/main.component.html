@@ -152,8 +152,13 @@
                         <span placement="bottom" class="label label-default label-icon"><i
                                 class="fa fa-{{iconsOGC[tech]}}"></i>{{tech}}</span>
                     </span>
-                    <p *ngIf="cs.selectedCase.solu_nature.length > 0" class="label-description">Nature-based Solutions </p>
-                    <span *ngFor="let solu of cs.selectedCase.solu_nature">
+                    <p *ngIf="cs.selectedCase.tools_platforms.length > 0" class="label-description">Tools/Platforms </p>
+                    <span *ngFor="let too of cs.selectedCase.tools_platforms">
+                        <span placement="bottom" class="label label-default label-icon"><i
+                                class="fa fa-{{iconsTools[too]}}"></i>{{too}}</span>
+                    </span>
+                    <p *ngIf="cs.selectedCase.nature_solution.length > 0" class="label-description">Nature-based Solutions </p>
+                    <span *ngFor="let solu of cs.selectedCase.nature_solution">
                         <span placement="bottom" class="label label-default label-icon"><i
                                 class="fa fa-{{iconsNature[solu]}}"></i>{{solu}}</span>
                     </span>
@@ -292,8 +297,14 @@
                         <span placement="bottom" class="label label-default label-icon"><i
                                 class="fa fa-{{iconsOGC[tech]}}"></i>{{tech}}</span>
                     </span>
-                    <p *ngIf="pinnedCase.solu_nature.length > 0" class="label-description">Nature-based Solutions </p>
-                    <span *ngFor="let solu of pinnedCase.solu_nature">
+                    <p *ngIf="pinnedCase.tools_platforms.length > 0" class="label-description">Tools_Platforms </p>
+                    <span *ngFor="let too of pinnedCase.tools_platforms">
+                        <span placement="bottom" class="label label-secondary label-icon"><i
+                                class="fa fa-{{iconsTools[too]}}"></i>{{too}}</span>
+                    </span>
+
+                    <p *ngIf="pinnedCase.nature_solution.length > 0" class="label-description">Nature-based Solutions </p>
+                    <span *ngFor="let solu of pinnedCase.nature_solution">
                         <span placement="bottom" class="label label-secondary label-icon"><i
                                 class="fa fa-{{iconsNature[solu]}}"></i>{{solu}}</span>
                     </span>
@@ -375,6 +386,13 @@
                                 {{em.name}}
                                 <i class="nc-icon nc-simple-remove"></i> </span>
                         </span>
+                        <span *ngFor="let to of tas.toolsPlatforms">
+                            <span *ngIf="to.active" class="label label-danger label-close"
+                                (click)="to.active = false; cs.filterByToolsPlatforms()">
+                                <i class="fa fa-{{iconsTrend[to.name]}}"></i>
+                                {{so.name}}
+                                <i class="nc-icon nc-simple-remove"></i> </span>
+                        </span>
                         <span *ngFor="let so of tas.natureSolution">
                             <span *ngIf="so.active" class="label label-secondary label-close"
                                 (click)="so.active = false; cs.filterByNatureSolution()">
@@ -445,7 +463,12 @@
                                                 class="label label-danger label-icon"><i
                                                     class="fa fa-{{iconsTrend[tech]}}"></i></span>
                                         </span>
-                                        <span *ngFor="let solu of c.solu_nature">
+                                        <span *ngFor="let too of c.tools_platforms">
+                                            <span placement="bottom" ngbTooltip="{{too}}"
+                                                class="label label-secondary label-icon"><i
+                                                    class="fa fa-{{iconsTools[too]}}"></i></span>
+                                        </span>
+                                        <span *ngFor="let solu of c.nature_solution">
                                             <span placement="bottom" ngbTooltip="{{solu}}"
                                                 class="label label-secondary label-icon"><i
                                                     class="fa fa-{{iconsNature[solu]}}"></i></span>

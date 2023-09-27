@@ -30,6 +30,7 @@ export class CasesService {
   private ogcTrendFilter = [];
   private themeAreaFilter = [];
   private publicValueFilter = [];
+  private toolsPlatformsFilter = [];
   private natureSolutionFilter = [];
 
   public selectedCase = null;
@@ -105,6 +106,19 @@ export class CasesService {
       r03: 0,
       r04: 0
     },
+    
+    tools: {
+      tp01: 0,
+      tp02: 0,
+      tp03: 0,
+      tp04: 0,
+      tp05: 0,
+      tp06: 0,
+      tp07: 0,
+      tp08: 0,
+      tp09: 0
+    }, 
+
     solution: {
       s01: 0,
       s02: 0,
@@ -193,6 +207,7 @@ export class CasesService {
     this.filterByThemeArea();
     this.filterByTechReady();
     this.filterByPublicValue();
+    this.filterByToolsPlatforms();
     this.filterByNatureSolution();
     this.filterByMapExtent(this.lastBounds);
   }
@@ -330,6 +345,16 @@ export class CasesService {
     this.applyFilters();
   }
 
+  filterByToolsPlatforms() {
+    this.toolsPlatformsFilter= [];
+    this.tas.toolsPlatforms.forEach(a => {
+      if (a.active) {
+        this.toolsPlatformsFilter.push(a.name);
+      }
+    });
+    this.applyFilters();
+  }
+
   filterByNatureSolution() {
     this.natureSolutionFilter= [];
     this.tas.natureSolution.forEach(a => {
@@ -410,6 +435,22 @@ export class CasesService {
         this.filteredCases = filterEmerging;
       }
             // console.log('Filtering by nature solution: ' + this.natureSolutionFilter);
+            if (this.toolsPlatformsFilter.length > 0) {
+              const filterTools = [];
+              this.filteredCases.forEach(fc => {
+                fc.tools_platforms.forEach(em => {
+                  this.toolsPlatformsFilter.forEach(f => {
+                    if (em === f) {
+                      if (!filterTools.includes(fc)) {
+                        filterTools.push(fc);
+                      }
+                    }
+                  });
+                });
+              });
+              this.filteredCases = filterTools;
+            }
+
 
             if (this.natureSolutionFilter.length > 0) {
               const filterSolution = [];
@@ -571,6 +612,26 @@ export class CasesService {
         });
       });
       return filterEmerging;
+    } else {
+      return toFilter;
+    }
+  }
+
+  applyFiltersToolsPlatforms(toFilter) {
+    if (this.toolsPlatformsFilter.length > 0) {
+      const filterTools = [];
+      toFilter.forEach(fc => {
+        fc.tools_platforms.forEach(em => {
+          this.toolsPlatformsFilter.forEach(f => {
+            if (em === f) {
+              if (!filterTools.includes(fc)) {
+                filterTools.push(fc);
+              }
+            }
+          });
+        });
+      });
+      return filterTools;
     } else {
       return toFilter;
     }
@@ -781,6 +842,19 @@ export class CasesService {
         r03: 0,
         r04: 0
       };
+
+      this.resultCases.tools= {
+        tp01: 0,
+        tp02: 0,
+        tp03: 0,
+        tp04: 0,
+        tp05: 0,
+        tp06: 0,
+        tp07: 0,
+        tp08: 0,
+        tp09: 0
+      }, 
+
       this.resultCases.solution = {
         s01: 0,
         s02: 0,
@@ -803,6 +877,7 @@ export class CasesService {
       casesScope = this.applyFiltersOGC(casesScope);
       casesScope = this.applyFiltersPublicValue(casesScope);
       casesScope = this.applyFiltersTechReady(casesScope);
+      casesScope = this.applyFiltersToolsPlatforms(casesScope);
       casesScope = this.applyFiltersNatureSolution(casesScope);
 
       casesScope.forEach(c => {
@@ -822,6 +897,7 @@ export class CasesService {
       casesThemeArea = this.applyFiltersPublicValue(casesThemeArea);
       casesThemeArea = this.applyFiltersTechReady(casesThemeArea);
       casesThemeArea = this.applyFiltersScope(casesThemeArea);
+      casesThemeArea = this.applyFiltersToolsPlatforms(casesThemeArea);
       casesThemeArea = this.applyFiltersNatureSolution(casesThemeArea);
 
       let uniqueAreas = [];
@@ -879,6 +955,7 @@ export class CasesService {
       casesTrend = this.applyFiltersThemeArea(casesTrend);
       casesTrend = this.applyFiltersEmergingTech(casesTrend);
       casesTrend = this.applyFiltersScope(casesTrend);
+      casesTrend = this. applyFiltersToolsPlatforms(casesTrend);
       casesTrend = this.applyFiltersNatureSolution(casesTrend);
 
       casesTrend.forEach(c => {
@@ -917,6 +994,7 @@ export class CasesService {
       casesEmerging = this.applyFiltersPublicValue(casesEmerging);
       casesEmerging = this.applyFiltersTechReady(casesEmerging);
       casesEmerging = this.applyFiltersScope(casesEmerging);
+      casesEmerging = this.applyFiltersToolsPlatforms(casesEmerging);
       casesEmerging = this.applyFiltersNatureSolution(casesEmerging);
 
       casesEmerging.forEach(c => {
@@ -958,6 +1036,7 @@ export class CasesService {
       casesPV = this.applyFiltersOGC(casesPV);
       casesPV = this.applyFiltersTechReady(casesPV);
       casesPV = this.applyFiltersScope(casesPV);
+      casesPV = this.applyFiltersToolsPlatforms(casesPV);
       casesPV = this.applyFiltersNatureSolution(casesPV);
 
       casesPV.forEach(c => {
@@ -1049,6 +1128,7 @@ export class CasesService {
       casesTechReady = this.applyFiltersOGC(casesTechReady);
       casesTechReady = this.applyFiltersPublicValue(casesTechReady);
       casesTechReady = this.applyFiltersScope(casesTechReady);
+      casesTechReady = this.applyFiltersToolsPlatforms(casesTechReady);
       casesTechReady = this.applyFiltersNatureSolution(casesTechReady);
 
       casesTechReady.forEach(c => {
@@ -1063,6 +1143,48 @@ export class CasesService {
         }
       });
 
+      let casesToolsPlatforms = this.allCases;
+
+      casesToolsPlatforms = this.applyFiltersText(casesToolsPlatforms);
+      casesToolsPlatforms = this.applyFiltersGeo(casesToolsPlatforms);
+      casesToolsPlatforms = this.applyFiltersThemeArea(casesToolsPlatforms);
+      casesToolsPlatforms = this.applyFiltersEmergingTech(casesToolsPlatforms);
+      casesToolsPlatforms = this.applyFiltersOGC(casesToolsPlatforms);
+      casesToolsPlatforms = this.applyFiltersTechReady(casesToolsPlatforms);
+      casesToolsPlatforms = this.applyFiltersPublicValue(casesToolsPlatforms);
+      casesToolsPlatforms = this.applyFiltersScope(casesToolsPlatforms);
+      casesToolsPlatforms = this.applyFiltersNatureSolution(casesToolsPlatforms);
+
+      casesToolsPlatforms.forEach(c => {
+        if (c.tools_platforms.includes('Green Infrastructure')) {
+          this.resultCases.tools.tp01++;
+        }
+        if (c.tools_platforms.includes('Ecosystem Restoration')) {
+          this.resultCases.tools.tp02++;
+        }
+        if (c.tools_platforms.includes('Sustainable Agriculture')) {
+          this.resultCases.tools.tp03++;
+        }
+        if (c.tools_platforms.includes('Sustainable Land Management')) {
+          this.resultCases.tools.tp04++;
+        }
+        if (c.tools_platforms.includes('Nature-Based Tourism')) {
+          this.resultCases.tools.tp05++;
+        }
+        if (c.tools_platforms.includes('Biodiversity Conservation')) {
+          this.resultCases.tools.tp06++;
+        }
+        if (c.tools_platforms.includes('Renewable energy')) {
+          this.resultCases.tools.tp07++;
+        }
+        if (c.tools_platforms.includes('Nature-Based Flood Management')) {
+          this.resultCases.tools.tp08++;
+        }
+        if (c.tools_platforms.includes('Reforestation and Afforestation')) {
+          this.resultCases.tools.tp09++;
+        }
+      });
+
       let casesNatureSolution = this.allCases;
 
       casesNatureSolution = this.applyFiltersText(casesNatureSolution);
@@ -1073,6 +1195,7 @@ export class CasesService {
       casesNatureSolution = this.applyFiltersTechReady(casesNatureSolution);
       casesNatureSolution = this.applyFiltersPublicValue(casesNatureSolution);
       casesNatureSolution = this.applyFiltersScope(casesNatureSolution);
+      casesNatureSolution = this.applyFiltersToolsPlatforms(casesNatureSolution);
     
 
       casesNatureSolution.forEach(c => {
@@ -1121,6 +1244,9 @@ export class CasesService {
     this.tas.publicValue.forEach(pv => {
       pv.active = false;
     });
+    this.tas.toolsPlatforms.forEach(a => {
+      a.active = false;
+    });
     this.tas.natureSolution.forEach(a => {
       a.active = false;
     });
@@ -1138,6 +1264,7 @@ export class CasesService {
     this.ogcTrendFilter = [];
     this.themeAreaFilter = [];
     this.publicValueFilter = [];
+    this.toolsPlatformsFilter = [];
     this.natureSolutionFilter = [];
 
 

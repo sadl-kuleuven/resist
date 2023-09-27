@@ -1,9 +1,9 @@
 .color-default {
-    color: #66615b
+    color: #a00a78
 }
 
 .label-year {
-    color: #8a837b;
+    color: #1919c2;
     text-align: right;
     font-size: smaller;
     font-weight: bold;
@@ -15,7 +15,7 @@
 }
 
 .label-description {
-    color: #8a837b;
+    color: #aa1b8e;
     text-align: left;
     font-size: smaller;
     padding-top: 5px;
@@ -35,7 +35,7 @@ section.leaflet-control-layers-list {
 }
 
 .label-secondary {
-    background-color: #ff9800
+    background-color: #a12334
 }
 
 .label-tertiary {
@@ -43,7 +43,7 @@ section.leaflet-control-layers-list {
 }
 
 .label-nuts0 {
-    background-color: #0A6158
+    background-color: #309b39
 }
 
 .label-nuts1 {
@@ -63,7 +63,7 @@ section.leaflet-control-layers-list {
 }
 
 .card-selected {
-    border: 5px solid #128570 !important;
+    border: 5px solid #127285 !important;
 }
 
 h3 {

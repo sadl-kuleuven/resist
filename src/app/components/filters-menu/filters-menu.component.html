@@ -40,7 +40,7 @@
         (change)="cs.filterByGeoExtent()" notFoundText="Not found, try with a broader search">
         <ng-option *ngFor="let n of ns.nuts2Labels" [value]="n">{{n.NAME_LATN}} - {{n.NUTS_ID}}</ng-option>
     </ng-select>
-
+<!-- 
     <p>Sub-regions</p>
     <ng-select [(ngModel)]="ns.nuts3Active" [multiple]="true" [clearable]="false" groupBy="NAME_ENGLISH"
         (change)="cs.filterByGeoExtent()" notFoundText="Not found, try with a broader search">
@@ -86,7 +86,7 @@
         </div>
     </div>-->
 </div>
-
+<!--
 <div>
     <button type="button" class="btn btn-default btn-sm btn-link  btn-icon" (click)="scope.toggle()"
         [attr.aria-expanded]="!tas.scopeVisible" placement="bottom" ngbTooltip="Filter by local or regional extent.">
@@ -135,6 +135,8 @@
 <!--             <bSwitch [switch-on-color]="'primary'" [(ngModel)]="state_default"> Toggle is off
                 </bSwitch>
  -->
+
+ 
 <div>
     <button type="button" class="btn btn-default btn-sm btn-link  btn-icon" (click)="theme.toggle()"
         [attr.aria-expanded]="!tas.themAreaVisible" placement="bottom"
@@ -359,7 +361,32 @@
 <!-- This part was added in order to test the UI (08/08/2023) 
 
 -->
+<div>
+    <button type="button" class="btn btn-default btn-sm btn-link  btn-icon" (click)="tools.toggle()"
+        [attr.aria-expanded]="!tas.toolsVisible" placement="bottom"
+        ngbTooltip="Filter by type of tools/platforms.">
+        Tools/Platforms
+        <i [ngClass]="tas.toolsVisible 'fa fa-chevron-down' : 'fa fa-chevron-up'"> </i></button>
+</div>
+<div #tools="ngbCollapse" [(ngbCollapse)]="tas.toolsVisible">
 
+    <div class="row right-chart">
+        <ngx-charts-bar-horizontal-stacked *ngIf="!tas.toolsVisible" [view]="view" [results]="toolsGraph"
+            [scheme]="colorScheme10" (select)="onSelect($event)">
+        </ngx-charts-bar-horizontal-stacked>
+        <br>
+    </div>
+
+    <div *ngFor=" let to of tas.toolsPlatforms" class="form-check">
+        <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" value="" [(ngModel)]="to.active"
+                (change)="cs.filterByToolsPlatforms()">
+            <span class="form-check-sign"></span>
+            <i class="fa fa-circle" class="{{to.class}}"> </i>
+            <i class="fa fa-{{to.icon}}"> </i> {{to.name}} ({{cs.resultCases.tools[to.result]}})
+        </label>
+    </div>
+</div>
 <div>
     <button type="button" class="btn btn-default btn-sm btn-link  btn-icon" (click)="nature.toggle()"
         [attr.aria-expanded]="!tas.natureVisible" placement="bottom"
