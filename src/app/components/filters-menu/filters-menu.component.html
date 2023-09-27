@@ -366,7 +366,7 @@
         [attr.aria-expanded]="!tas.toolsVisible" placement="bottom"
         ngbTooltip="Filter by type of tools/platforms.">
         Tools/Platforms
-        <i [ngClass]="tas.toolsVisible 'fa fa-chevron-down' : 'fa fa-chevron-up'"> </i></button>
+        <i [ngClass]="tas.toolsVisible? 'fa fa-chevron-down' : 'fa fa-chevron-up'"> </i></button>
 </div>
 <div #tools="ngbCollapse" [(ngbCollapse)]="tas.toolsVisible">
 
