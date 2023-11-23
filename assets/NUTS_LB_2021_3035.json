@@ -26010,8 +26010,30 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    24.3217,
-                    60.9288
+                    22.2802,
+                    60.4052
+                ]
+            },
+            "properties": {
+                "NUTS_ID": "FI1C12",
+                "LEVL_CODE": 3,
+                "CNTR_CODE": "FI",
+                "NAME_LATN": "Rauvolanlahti",
+                "NUTS_NAME": "Rauvolanlahti",
+                "MOUNT_TYPE": 4,
+                "URBN_TYPE": 2,
+                "COAST_TYPE": 1,
+                "FID": "FI1C12"
+            },
+            "id": "FI1C12"
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    22.2729,
+                    60.4052
                 ]
             },
             "properties": {

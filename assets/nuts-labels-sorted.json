@@ -2541,6 +2541,16 @@
     },
     {
         "CNTR_CODE": "FI",
+        "NUTS_ID": "FI1C12",
+        "NAME_LATN": "Rauvolanlahti",
+        "NUTS_NAME": "Rauvolanlahti",
+        "MOUNT_TYPE": 4,
+        "URBN_TYPE": 2,
+        "COAST_TYPE": 1,
+        "NAME_ENGLISH": "Finland"
+    },
+    {
+        "CNTR_CODE": "FI",
         "NUTS_ID": "FI1C2",
         "NAME_LATN": "Kanta-Häme",
         "NUTS_NAME": "Kanta-Häme",
