@@ -2,9 +2,16 @@
     color: #a00a78
 }
 
-.label-year {
+.label-text{
     color: #1919c2;
     text-align: right;
+    font-size: smaller;
+    font-weight: bold;
+}
+
+.solution-text{
+    color: #1919c2;
+    text-align: left;
     font-size: smaller;
     font-weight: bold;
 }
@@ -15,7 +22,7 @@
 }
 
 .label-description {
-    color: #aa1b8e;
+    color: #1f031a;
     text-align: left;
     font-size: smaller;
     padding-top: 5px;
@@ -86,4 +93,44 @@ h3 {
 .x-large {
     font-size: x-large !important;
     width: 30px !important;
+}
+
+.data-label {
+    color: blue;
+    font-size: 12px; 
+    font-weight: bold;
+}
+
+
+.data-link {
+    color: red;
+    font-size: 12px; 
+}
+
+.format-text {
+    color: blue;
+    font-size: smaller;
+}
+
+
+.tool-label {
+    font-size: 12px; 
+    font-weight: bold; 
+    color: rgb(134, 73, 13); 
+}
+
+.tool-desc {
+    font-size: 12px; 
+    color: black; 
+}
+
+.tool-link {
+    font-size: 12px; 
+    color: red; 
+}
+
+
+
+.card:hover .solution-text {
+    color: rgb(113, 220, 230); 
 }

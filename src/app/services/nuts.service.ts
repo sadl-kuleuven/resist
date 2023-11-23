@@ -166,17 +166,5 @@ export class NutsService {
     });
 
   }
-  /* 
-    resetGeometryColors() {
-      this.nuts0Geometry.features.forEach(f => {
-        f.properties.color = '#ffffff00';
-      });
-      this.nuts2Geometry.features.forEach(f => {
-        f.properties.color = '#ffffff00';
-      });
-      this.nuts3Geometry.features.forEach(f => {
-        f.properties.color = '#ffffff00';
-      });
-    } */
 
 }

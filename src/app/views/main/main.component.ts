@@ -36,7 +36,7 @@ export class MainComponent implements OnInit, AfterContentInit {
   selectedCaseMap = -1;
   selectedIndex = -1;
 
-  pageLength = 5;
+  pageLength = 3;
 
   mapBounds = null;
   mapZoom = null;
@@ -50,63 +50,39 @@ export class MainComponent implements OnInit, AfterContentInit {
 
   listMapVisible = 1; // 1 is half, 0 - only list, 2 - only map
 
-  iconsOGC = {
-    'Location & Position': 'map-marker',
-    'Spatial-Temporal Models': 'map',
-    'Data Science': 'flask',
-    'Human Interfaces': 'user',
-    'Physical Geosciences': 'image',
-    'Societal Geosciences': 'users',
-    'Sensing and Observations': 'thermometer',
-    'Computer Engineering': 'desktop'
+  iconsServices = {
+    'Water Retention': 'tint',
+    'Biodiversity Conservation': 'globe',
+    'Pollution Control': 'flask',
+    'Flood Control': 'home',
+    'Sustainable Forestry': 'tree'
   };
 
 
-  iconsTrend = {
-    'Artificial Intelligence and Machine Learning': 'cogs',
-    'Cloud Native Computing': 'cloud',
-    'Edge Computing': 'laptop',
-    'Blockchain': 'link',
-    'Immersive Visualisation(VR, MR, AR)': 'eye',
-    'Connected Autonomous Vehicles': 'car',
-    'UxS / Drones': 'paper-plane',
-    'Urban Digital Twins': 'building',
-    '5G Cellular': 'signal'
+  iconsData = {
+    'Geospatial Data': 'map-marker',
+    'Hydrological Data': 'tint',
+    'Meteorological Data': 'cloud',
+    'Statistical and Population Data': 'bar-chart',
+    'Land Use Data': 'square'
   };
   iconsTools = {
-    'Green Infrastructure' : 'tree',
-    'Ecosystem Restoration' : 'cloud',
-    'Sustainable Agriculture' : 'tree',
-    'Sustainable Land Management' : 'globe',
-    'Nature-Based Tourism' : 'eye',
-    'Biodiversity Conservation' : 'connectdevelop',
-    'Renewable energy' : 'arrows-alt',
-    'Nature-Based Flood Management' : 'tint',
-    'Reforestation and Afforestation' : 'pagelines'
+    'Web Application' : 'laptop ',
+    'Data Portal' : 'database',
+    'Mapping and Visualization Tools' : 'map-o',
+    'Modeling Tools' : 'desktop ',
+    'Other Tools' : 'cogs '
   };
   iconsNature = {
-    'Green Infrastructure' : 'tree',
-    'Ecosystem Restoration' : 'cloud',
-    'Sustainable Agriculture' : 'tree',
-    'Sustainable Land Management' : 'globe',
-    'Nature-Based Tourism' : 'eye',
-    'Biodiversity Conservation' : 'connectdevelop',
-    'Renewable energy' : 'arrows-alt',
-    'Nature-Based Flood Management' : 'tint',
-    'Reforestation and Afforestation' : 'pagelines'
-  };
-
-  iconsTheme = {
-    '1 - General public services': 'road',
-    '2 - Defence': 'shield',
-    '3 - Public order and safety': 'fire-extinguisher',
-    '4 - Economic affairs': 'money',
-    '5 - Environmental protection': 'tree',
-    '6 - Housing and community amenities': 'home',
-    '7 - Health': 'heartbeat',
-    '8 - Recreation, culture and religion': 'glass',
-    '9 - Education': 'graduation-cap',
-    '10 - Social protection': 'street-view'
+    'Flood Prevention' : 'bars',
+    'Nature Conservation' : 'leaf',
+    'Pollution Reduction' : 'fire',
+    'Hydrological Balance' : 'balance-scale',
+    'Advocacy and Awareness' : 'eye',
+    'Economic Protection' : 'eur',
+    'Community Engagement' : 'users',
+    'Sustainable Land Use' : 'square ',
+    'Biomass Management' : 'pagelines'
   };
 
   data = {
@@ -257,41 +233,36 @@ export class MainComponent implements OnInit, AfterContentInit {
               });
             }
           }
-
-          if (params.scope) {
-            this.tas.scopeVisible = false;
-
-            if (params.scope === 'local') {
-              this.tas.scope.local = true;
-              this.tas.scope.regional = false;
-            } else if (params.scope === 'regional') {
-              this.tas.scope.local = false;
-              this.tas.scope.regional = true;
+          if (params.solutiontype) {
+            this.tas.solutiontypeVisible = false;
+          
+            if (params.solutiontype === 'Nature-based') {
+              this.tas.solutiontype.naturebased = true;
+              this.tas.solutiontype.grey = false;
+              this.tas.solutiontype.technological = false;
+              this.tas.solutiontype.nontechnological = false;
+            } else if (params.solutiontype === 'Grey') {
+              this.tas.solutiontype.naturebased = false;
+              this.tas.solutiontype.grey = true;
+              this.tas.solutiontype.technological = false;
+              this.tas.solutiontype.nontechnological = false;
+            } else if (params.solutiontype === 'Technological') {
+              this.tas.solutiontype.naturebased = false;
+              this.tas.solutiontype.grey = false;
+              this.tas.solutiontype.technological = true;
+              this.tas.solutiontype.nontechnological = false;
+            } else if (params.solutiontype === 'Non-technological') {
+              this.tas.solutiontype.naturebased = false;
+              this.tas.solutiontype.grey = false;
+              this.tas.solutiontype.technological = false;
+              this.tas.solutiontype.nontechnological = true;
             }
           }
 
-          if (params.ta) {
-            this.tas.themAreaVisible = false;
-
-            this.tas.thematicAreas.forEach(ta => {
-              if (typeof params.ta === 'string') {
-                if (ta.result === params.ta) {
-                  ta.active = true;
-                }
-              } else {
-                params.ta.forEach(p => {
-                  if (ta.result === p) {
-                    ta.active = true;
-                  }
-                });
-              }
-            });
-          }
-
           if (params.tec) {
-            this.tas.ogcVisible = false;
+            this.tas.ecosystemVisible = false;
 
-            this.tas.ogcAreas.forEach(tec => {
+            this.tas.ecosystemServices.forEach(tec => {
               if (typeof params.tec === 'string') {
                 if (tec.result === params.tec) {
                   tec.active = true;
@@ -309,7 +280,7 @@ export class MainComponent implements OnInit, AfterContentInit {
           if (params.em) {
             this.tas.trendVisible = false;
 
-            this.tas.emergingTech.forEach(em => {
+            this.tas.dataCategories.forEach(em => {
               if (typeof params.em === 'string') {
                 if (em.result === params.em) {
                   em.active = true;
@@ -358,48 +329,31 @@ export class MainComponent implements OnInit, AfterContentInit {
               }
             });
           }
-          
-          if (params.pv) {
-            this.tas.publicValVisible = false;
 
-            this.tas.publicValue.forEach(pv => {
-              if (typeof params.pv === 'string') {
-                if (pv.result === params.pv) {
-                  pv.active = true;
-                }
-              } else {
-                params.pv.forEach(p => {
-                  if (pv.result === p) {
-                    pv.active = true;
-                  }
-                });
-              }
-            });
-          }
 
           if (params.ready) {
-            this.tas.techReadVisible = false;
+            this.tas.regiHazardVisible = false;
 
             if (params.ready === 'r01') {
-              this.tas.readiness.r01 = true;
-              this.tas.readiness.r02 = false;
-              this.tas.readiness.r03 = false;
-              this.tas.readiness.r04 = false;
+              this.tas.hazardss.r01 = true;
+              this.tas.hazardss.r02 = false;
+              this.tas.hazardss.r03 = false;
+              this.tas.hazardss.r04 = false;
             } else if (params.ready === 'r02') {
-              this.tas.readiness.r01 = false;
-              this.tas.readiness.r02 = true;
-              this.tas.readiness.r03 = false;
-              this.tas.readiness.r04 = false;
+              this.tas.hazardss.r01 = false;
+              this.tas.hazardss.r02 = true;
+              this.tas.hazardss.r03 = false;
+              this.tas.hazardss.r04 = false;
             } else if (params.ready === 'r03') {
-              this.tas.readiness.r01 = false;
-              this.tas.readiness.r02 = false;
-              this.tas.readiness.r03 = true;
-              this.tas.readiness.r04 = false;
+              this.tas.hazardss.r01 = false;
+              this.tas.hazardss.r02 = false;
+              this.tas.hazardss.r03 = true;
+              this.tas.hazardss.r04 = false;
             } else if (params.ready === 'r04') {
-              this.tas.readiness.r01 = false;
-              this.tas.readiness.r02 = false;
-              this.tas.readiness.r03 = false;
-              this.tas.readiness.r04 = true;
+              this.tas.hazardss.r01 = false;
+              this.tas.hazardss.r02 = false;
+              this.tas.hazardss.r03 = false;
+              this.tas.hazardss.r04 = true;
             }
           }
 
@@ -435,9 +389,6 @@ export class MainComponent implements OnInit, AfterContentInit {
               ]);
             }
 
-            /*        if (this.paramsObj && this.paramsObj.mz) {
-                     this.map.setZoom(this.paramsObj.mz);
-                   } */
 
           } else {
             // first time loading cases
@@ -475,9 +426,7 @@ export class MainComponent implements OnInit, AfterContentInit {
       ]);
     }
 
-    /*     if (this.paramsObj && this.paramsObj.mz) {
-          this.map.setZoom(this.paramsObj.mz);
-        } */
+
 
     if (this.paramsObj && this.paramsObj.nelat) {
       this.cs.pagination = this.paramsObj.page;
@@ -494,41 +443,6 @@ export class MainComponent implements OnInit, AfterContentInit {
 
     // refresh cases when params
     if (this.params) {
-
-      /*   setTimeout(() => {
-          this.cs.applyAllFilters();
-  
-          if (this.paramsObj.sc) {
-            this.cs.filteredCases.forEach(c => {
-              if (c._id.$oid == this.paramsObj.sc) {
-                this.cs.selectedCase = c;
-              }
-            });
-          }
-  
-          if (this.paramsObj.pc) {
-            this.cs.filteredCases.forEach(c => {
-              if (c._id.$oid == this.paramsObj.pc) {
-                this.pinnedCase = c;
-              }
-            });
-          }
-        }, 3000) */
-
-      /*            if (params.sc || params.pc) {
-          this.cs.filteredCases.forEach(c => {
-            if (params.sc) {
-              if (c._id.$oid == this.paramsObj.sc) {
-                this.cs.selectedCase = c;
-              }
-            }
-            if (params.pc) {
-              if (c._id.$oid == this.paramsObj.pc) {
-                this.pinnedCase = c;
-              }
-            }
-          });
-        } */
     }
 
     this.loadMap();
@@ -779,7 +693,7 @@ export class MainComponent implements OnInit, AfterContentInit {
                       {
                         label: 'Countries',
                         geojson: [{
-                          data: ['/elise/assets/NUTS_RG_01M_2021_4326_LEVL_0.json'],
+                          data: ['assets/NUTS_RG_01M_2021_4326_LEVL_0.json'],
                           options: {
                             color: 'black',
                             style: {
@@ -799,9 +713,9 @@ export class MainComponent implements OnInit, AfterContentInit {
                         }]
                       },
                       {
-                        label: 'Greater Regions',
+                        label: 'Regions',
                         geojson: [{
-                          data: ['/elise/assets/NUTS_RG_01M_2021_4326_LEVL_1.json'],
+                          data: ['assets/NUTS_RG_01M_2021_4326_LEVL_1.json'],
                           options: {
                             color: 'blue',
                             style: {
@@ -821,9 +735,9 @@ export class MainComponent implements OnInit, AfterContentInit {
                         }]
                       },
                       {
-                        label: 'Regions',
+                        label: 'Sub-regions',
                         geojson: [{
-                          data: ['/elise/assets/NUTS_RG_01M_2021_4326_LEVL_2.json'],
+                          data: ['assets/NUTS_RG_01M_2021_4326_LEVL_2.json'],
                           options: {
                             color: 'green',
                             style: {
@@ -842,10 +756,11 @@ export class MainComponent implements OnInit, AfterContentInit {
                           }
                         }]
                       },
+                      
                       {
-                        label: 'Sub-Regions',
+                        label: 'Locals',
                         geojson: [{
-                          data: ['/elise/assets/NUTS_RG_01M_2021_4326_LEVL_3.json'],
+                          data: ['assets/NUTS_RG_01M_2021_4326_LEVL_3.json'],
                           options: {
                             color: 'red',
                             style: {
@@ -863,7 +778,9 @@ export class MainComponent implements OnInit, AfterContentInit {
                             }
                           }
                         }]
+                        
                       }
+                      
                     ]
 
                   }
@@ -896,17 +813,6 @@ export class MainComponent implements OnInit, AfterContentInit {
         this.loadMap();
       }
     }, 1000);
-  }
-
-
-  filterByTheme() {
-    const themeActives = [];
-    this.tas.thematicAreas.forEach((ta: { active: any; number: any; }) => {
-      if (ta.active) {
-        themeActives.push(ta.number);
-      }
-    });
-    this.cs.filterByThemeArea();
   }
 
 
@@ -980,7 +886,7 @@ export class MainComponent implements OnInit, AfterContentInit {
     const blob = new Blob([sJson], { type: 'text/json' }),
       url = window.URL.createObjectURL(blob);
     a.href = url;
-    a.download = 'elise-filtered-cases.json';
+    a.download = 'resist-filtered-cases.json';
 
     let isSafariBrowser = navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1;
     if (isSafariBrowser) {  //if Safari open in new window to save file with random filename.
@@ -1000,7 +906,7 @@ export class MainComponent implements OnInit, AfterContentInit {
   dowloadCasesCSV() {
     this.showDownloadMsg = true;
 
-    var csv = 'NAME,DESCRIPTION,SOURCE,PUB_DATE,GEOGRAPPHIC_EXTENT,THEME_AREA,SCOPE,TECH_READINESS_LEVEL,TECTREND_Location & Position,TECTREND_Spatial-Temporal Models,TECTREND_Data Science,TECTREND_Human Interfaces,TECTREND_Physical Geosciences,TECTREND_Societal Geosciences,TECTREND_Sensing and Observations,TECTREND_Computer Engineering,EMTECH_Artificial Intelligence and Machine Learning,EMTECH_Cloud Native Computing,EMTECH_Edge Computing,EMTECH_Blockchain,"EMTECH_Immersive Visualisation (VR, MR, AR)",EMTECH_Connected Autonomous Vehicles,EMTECH_UxS/Drones,EMTECH_Urban Digital Twin,EMTECH_5G Cellular,PV_Collaboration,PV_Effectiveness,PV_Efficiency,PV_User-oriented,PV_Transparency,PV_Accountability,PV_Citizen Participation,PV_Equity in accessibility,PV_Openness,PV_Economic Development,PV_Trust,PV_Self Development,PV_Quality of life,PV_Inclusiveness,PV_Environmental sustainability\n';
+    var csv = 'NAME,DESCRIPTION,SOURCE,PUB_DATE,GEOGRAPPHIC_EXTENT,solution_goals,solutiontype,region_hazard_level,TECTREND_Location & Position,TECTREND_Spatial-Temporal Models,TECTREND_Data Science,TECTREND_Human Interfaces,TECTREND_Physical Geosciences,TECTREND_Societal Geosciences,TECTREND_Sensing and Observations,TECTREND_Computer Engineering,EMTECH_Artificial Intelligence and Machine Learning,EMTECH_Cloud Native Computing,EMTECH_Edge Computing,EMTECH_Blockchain,"EMTECH_Immersive Visualisation (VR, MR, AR)",EMTECH_Connected Autonomous Vehicles,EMTECH_UxS/Drones,EMTECH_Urban Digital Twin,EMTECH_5G Cellular,PV_Collaboration,PV_Effectiveness,PV_Efficiency,PV_User-oriented,PV_Transparency,PV_Accountability,PV_Citizen Participation,PV_Equity in accessibility,PV_Openness,PV_Economic Development,PV_Trust,PV_Self Development,PV_Quality of life,PV_Inclusiveness,PV_Environmental sustainability\n';
 
     this.cs.filteredCases.forEach(c => {
       csv += '"' + c.name + '",';
@@ -1008,92 +914,58 @@ export class MainComponent implements OnInit, AfterContentInit {
       csv += '"' + c.source + '",';
       csv += c.pub_date + ',';
       csv += '"' + c.geographic_extent + '",';
-      csv += '"' + c.theme_area + '",';
-      csv += c.scope + ',';
-      csv += c.tech_readiness_level + ',';
+      csv += '"' + c.solution_goals + '",';
+      csv += c.solution_type + ',';
+      csv += c.region_hazard_level + ',';
 
-      if (c.tech_trend.includes('Location & Position')) {
+      if (c.ecosystem_service.includes('Water Retention')) {
         csv += '1,';
       } else {
         csv += '0,';
       }
-      if (c.tech_trend.includes('Spatial-Temporal Models')) {
+      if (c.ecosystem_service.includes('Biodiversity Conservation')) {
         csv += '1,';
       } else {
         csv += '0,';
       }
-      if (c.tech_trend.includes('Data Science')) {
+      if (c.ecosystem_service.includes('Pollution Control')) {
         csv += '1,';
       } else {
         csv += '0,';
       }
-      if (c.tech_trend.includes('Human Interfaces')) {
+      if (c.ecosystem_service.includes('Flood Control')) {
         csv += '1,';
       } else {
         csv += '0,';
       }
-      if (c.tech_trend.includes('Physical Geosciences')) {
+      if (c.ecosystem_service.includes('Sustainable Forestry')) {
         csv += '1,';
       } else {
         csv += '0,';
       }
-      if (c.tech_trend.includes('Societal Geosciences')) {
-        csv += '1,';
-      } else {
-        csv += '0,';
-      }
-      if (c.tech_trend.includes('Sensing and Observations')) {
-        csv += '1,';
-      } else {
-        csv += '0,';
-      }
-      if (c.tech_trend.includes('Computer Engineering')) {
-        csv += '1,';
-      } else {
-        csv += '0,';
-      }
+      
 
-      if (c.emerging_tech.includes('Artificial Intelligence and Machine Learning')) {
+      if (c.data_categories.includes('Geospatial Data')) {
         csv += '1,';
       } else {
         csv += '0,';
       }
-      if (c.emerging_tech.includes('Cloud Native Computing')) {
+      if (c.data_categories.includes('Hydrological Data')) {
         csv += '1,';
       } else {
         csv += '0,';
       }
-      if (c.emerging_tech.includes('Edge Computing')) {
+      if (c.data_categories.includes('Meteorological Data')) {
         csv += '1,';
       } else {
         csv += '0,';
       }
-      if (c.emerging_tech.includes('Blockchain')) {
+      if (c.data_categories.includes('Statistical and Population Data')) {
         csv += '1,';
       } else {
         csv += '0,';
       }
-      if (c.emerging_tech.includes('Immersive Visualisation(VR, MR, AR)')) {
-        csv += '1,';
-      } else {
-        csv += '0,';
-      }
-      if (c.emerging_tech.includes('Connected Autonomous Vehicles')) {
-        csv += '1,';
-      } else {
-        csv += '0,';
-      }
-      if (c.emerging_tech.includes('UxS / Drones')) {
-        csv += '1,';
-      } else {
-        csv += '0,';
-      }
-      if (c.emerging_tech.includes('Urban Digital Twins')) {
-        csv += '1,';
-      } else {
-        csv += '0,';
-      }
-      if (c.emerging_tech.includes('5G Cellular')) {
+      if (c.data_categories.includes('Land Use Data')) {
         csv += '1,';
       } else {
         csv += '0,';
@@ -1184,7 +1056,7 @@ export class MainComponent implements OnInit, AfterContentInit {
     const blob = new Blob([csv], { type: 'text/csv' }),
       url = window.URL.createObjectURL(blob);
     a.href = url;
-    a.download = 'elise-filtered-cases.csv';
+    a.download = 'resist-filtered-cases.csv';
 
     let isSafariBrowser = navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1;
     if (isSafariBrowser) {  //if Safari open in new window to save file with random filename.
