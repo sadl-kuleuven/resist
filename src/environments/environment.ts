@@ -7,7 +7,7 @@
 
 export const environment = {
   production: false,
-  base_url: 'https://VidaFarBan.github.io/Testingelise/#/home',
- //cases_json_url: 'https://raw.githubusercontent.com/VidaFarBan/Testingelise/main/src/assets/cases.json'
- cases_json_url: 'assets/cases.json'
+  base_url: 'https://VidaFarBan.github.io/RESIST/#/home',
+ cases_json_url: 'https://raw.githubusercontent.com/VidaFarBan/RESIST/main/src/assets/cases.json'
+ //cases_json_url: 'assets/cases.json'
 };

@@ -350,13 +350,6 @@
                                 <i class="nc-icon nc-simple-remove"></i>
                             </span>
                         </span>
-                        <span *ngFor="let ta of tas.solutionGoals">
-                            <span *ngIf="ta.active" class="label label-warning label-close"
-                                (click)="ta.active = false; cs.filterBysolutionGoal()">
-                                <i class="fa fa-{{iconsGoal[ta.name]}}"></i>
-                                {{ta.name}}
-                                <i class="nc-icon nc-simple-remove"></i> </span>
-                        </span>
                         <span *ngFor="let ogc of tas.ecosystemServices">
                             <span *ngIf="ogc.active" class="label label-default label-close"
                                 (click)="ogc.active = false; cs.filterByEcosystemService()">
