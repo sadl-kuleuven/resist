@@ -138,6 +138,94 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    9.6994,
+                    55.7705
+                ]
+            },
+            "properties": {
+                "NUTS_ID": "DK7971",
+                "LEVL_CODE": 2,
+                "CNTR_CODE": "DK",
+                "NAME_LATN": "Hedensted Sogn",
+                "NUTS_NAME": "Hedensted Sogn",
+                "MOUNT_TYPE": 0,
+                "URBN_TYPE": null,
+                "COAST_TYPE": 0,
+                "FID": "DK7971"
+            },
+            "id": "DK7971"
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    9.8444,
+                    55.8611
+                ]
+            },
+            "properties": {
+                "NUTS_ID": "DK8383",
+                "LEVL_CODE": 2,
+                "CNTR_CODE": "DK",
+                "NAME_LATN": "Horsens Sogn",
+                "NUTS_NAME": "Horsens Sogn",
+                "MOUNT_TYPE": 0,
+                "URBN_TYPE": null,
+                "COAST_TYPE": 0,
+                "FID": "DK8383"
+            },
+            "id": "DK8383"
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    8.3046,
+                    56.5486
+                ]
+            },
+            "properties": {
+                "NUTS_ID": "DK8840",
+                "LEVL_CODE": 2,
+                "CNTR_CODE": "DK",
+                "NAME_LATN": "Lemvig Sogn",
+                "NUTS_NAME": "Lemvig Sogn",
+                "MOUNT_TYPE": 0,
+                "URBN_TYPE": null,
+                "COAST_TYPE": 0,
+                "FID": "DK8840"
+            },
+            "id": "DK8840"
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.0365,
+                    56.4606
+                ]
+            },
+            "properties": {
+                "NUTS_ID": "DK9171",
+                "LEVL_CODE": 2,
+                "CNTR_CODE": "DK",
+                "NAME_LATN": "Randers Sogn",
+                "NUTS_NAME": "Randers Sogn",
+                "MOUNT_TYPE": 0,
+                "URBN_TYPE": null,
+                "COAST_TYPE": 0,
+                "FID": "DK9171"
+            },
+            "id": "DK9171"
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     9.953,
                     57.2719
                 ]
@@ -726,6 +814,50 @@
                 "FID": "ES51"
             },
             "id": "ES51"
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    2.0055,
+                    41.5631
+                ]
+            },
+            "properties": {
+                "NUTS_ID": "ES08279",
+                "LEVL_CODE": 3,
+                "CNTR_CODE": "ES",
+                "NAME_LATN": "Terrassa",
+                "NUTS_NAME": "Terrassa",
+                "MOUNT_TYPE": 0,
+                "URBN_TYPE": null,
+                "COAST_TYPE": 0,
+                "FID": "ES08279"
+            },
+            "id": "ES08279"
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    2.7902,
+                    41.6760
+                ]
+            },
+            "properties": {
+                "NUTS_ID": "ES17023",
+                "LEVL_CODE": 3,
+                "CNTR_CODE": "ES",
+                "NAME_LATN": "Blanes",
+                "NUTS_NAME": "Blanes",
+                "MOUNT_TYPE": 0,
+                "URBN_TYPE": null,
+                "COAST_TYPE": 0,
+                "FID": "ES17023"
+            },
+            "id": "ES17023"
         },
         {
             "type": "Feature",
@@ -26015,7 +26147,7 @@
                 ]
             },
             "properties": {
-                "NUTS_ID": "FI1C12",
+                "NUTS_ID": "FI993",
                 "LEVL_CODE": 3,
                 "CNTR_CODE": "FI",
                 "NAME_LATN": "Rauvolanlahti",
@@ -26023,9 +26155,53 @@
                 "MOUNT_TYPE": 4,
                 "URBN_TYPE": 2,
                 "COAST_TYPE": 1,
-                "FID": "FI1C12"
+                "FID": "FI993"
             },
-            "id": "FI1C12"
+            "id": "FI993"
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    22.3117,
+                    60.4830
+                ]
+            },
+            "properties": {
+                "NUTS_ID": "FI994",
+                "LEVL_CODE": 3,
+                "CNTR_CODE": "FI",
+                "NAME_LATN": "Oriketo",
+                "NUTS_NAME": "Oriketo",
+                "MOUNT_TYPE": 4,
+                "URBN_TYPE": 2,
+                "COAST_TYPE": 1,
+                "FID": "FI994"
+            },
+            "id": "FI994"
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    22.4763,
+                    60.5036
+                ]
+            },
+            "properties": {
+                "NUTS_ID": "FI995",
+                "LEVL_CODE": 3,
+                "CNTR_CODE": "FI",
+                "NAME_LATN": "Savijoki",
+                "NUTS_NAME": "Savijoki",
+                "MOUNT_TYPE": 4,
+                "URBN_TYPE": 2,
+                "COAST_TYPE": 1,
+                "FID": "FI995"
+            },
+            "id": "FI995"
         },
         {
             "type": "Feature",
