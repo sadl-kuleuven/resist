@@ -11,6 +11,17 @@
     margin-top: -15px;
     margin-left: 10px;
 }
+.btn-custom {
+    background-color: #0453a2; 
+    border-color: #004488; 
+    color: #ffffff; 
+}
+
+.btn-custom:hover {
+    background-color: #063a72; /* Change this hex code to a darker shade for hover effect */
+    border-color: #003366; /* Set hover border color if needed */
+}
+
 
 
 .color1 {

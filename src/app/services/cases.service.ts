@@ -28,8 +28,6 @@ export class CasesService {
   private regiHazardFilter = null;
   private dataCategoryFilter = [];
   private ogcTrendFilter = [];
-  private solutionGoalFilter = [];
-  private publicValueFilter = [];
   private toolsPlatformsFilter = [];
   private natureSolutionFilter = [];
 
@@ -838,28 +836,7 @@ export class CasesService {
         e04: 0,
         e05: 0
       };
-      /*
-      this.resultCases.publicValue = {
-        p01: 0,
-        p02: 0,
-        p03: 0,
-        p04: 0,
-        p05: 0,
-        p06: 0,
-        p07: 0,
-        p08: 0,
-        p09: 0,
-        p10: 0,
-        p11: 0,
-        p12: 0,
-        p13: 0,
-        p14: 0,
-        p15: 0,
-        p16: 0,
-        p17: 0,
-        p18: 0
-      };
-      */
+
       this.resultCases.hazardss = {
         r01: 0,
         r02: 0,
@@ -915,65 +892,7 @@ export class CasesService {
           }
         }
       });
-/*
-      let casessolutionGoal = this.allCases;
 
-      casessolutionGoal = this.applyFiltersText(casessolutionGoal);
-      casessolutionGoal = this.applyFiltersGeo(casessolutionGoal);
-      casessolutionGoal = this.applyFiltersEmergingTech(casessolutionGoal);
-      casessolutionGoal = this.applyFiltersOGC(casessolutionGoal);
-      casessolutionGoal = this.applyFiltersPublicValue(casessolutionGoal);
-      casessolutionGoal = this.applyFiltersTechReady(casessolutionGoal);
-      casessolutionGoal = this.applyFiltersScope(casessolutionGoal);
-      casessolutionGoal = this.applyFiltersToolsPlatforms(casessolutionGoal);
-      casessolutionGoal = this.applyFiltersNatureSolution(casessolutionGoal);
-
-      let uniqueGoals = [];
-      // subsections of thematic areas can be repeated
-      casessolutionGoal.forEach(c => {
-        uniqueGoals = [];
-        c.solution_goal.forEach(ta => {
-          if (!uniqueGoals.includes(Math.floor(ta))) {
-            uniqueGoals.push(Math.floor(ta));
-          }
-        });
-
-        uniqueGoals.forEach(ta => {
-          switch (Math.floor(ta)) {
-            case 1:
-              this.resultCases.solutionGoal.t01++;
-              break;
-            case 2:
-              this.resultCases.solutionGoal.t02++;
-              break;
-            case 3:
-              this.resultCases.solutionGoal.t03++;
-              break;
-            case 4:
-              this.resultCases.solutionGoal.t04++;
-              break;
-            case 5:
-              this.resultCases.solutionGoal.t05++;
-              break;
-            case 6:
-              this.resultCases.solutionGoal.t06++;
-              break;
-            case 7:
-              this.resultCases.solutionGoal.t07++;
-              break;
-            case 8:
-              this.resultCases.solutionGoal.t08++;
-              break;
-            case 9:
-              this.resultCases.solutionGoal.t09++;
-              break;
-            case 10:
-              this.resultCases.solutionGoal.t10++;
-              break;
-          }
-        });
-      });
-*/
       let casesTrend = this.allCases;
 
       casesTrend = this.applyFiltersText(casesTrend);
@@ -1029,99 +948,7 @@ export class CasesService {
           this.resultCases.emerging.e05++;
         }
       });
-/*
-      let casesPV = this.allCases;
 
-      casesPV = this.applyFiltersText(casesPV);
-      casesPV = this.applyFiltersGeo(casesPV);
-      casesPV = this.applyFilterssolutionGoal(casesPV);
-      casesPV = this.applyFiltersEmergingTech(casesPV);
-      casesPV = this.applyFiltersOGC(casesPV);
-      casesPV = this.applyFiltersTechReady(casesPV);
-      casesPV = this.applyFiltersScope(casesPV);
-      casesPV = this.applyFiltersToolsPlatforms(casesPV);
-      casesPV = this.applyFiltersNatureSolution(casesPV);
-
-      casesPV.forEach(c => {
-        let pvOp = false;
-        let pvPol = false;
-        let pvSoc = false;
-
-        // Operational
-        if (c.public_value[0].includes('Collaboration')) {
-          this.resultCases.publicValue.p02++;
-          pvOp = true;
-        }
-        if (c.public_value[0].includes('Effectiveness')) {
-          this.resultCases.publicValue.p03++;
-          pvOp = true;
-        }
-        if (c.public_value[0].includes('Efficiency')) {
-          this.resultCases.publicValue.p04++;
-          pvOp = true;
-        }
-        if (c.public_value[0].includes('User-Oriented')) {
-          this.resultCases.publicValue.p05++;
-          pvOp = true;
-        }
-        // Political
-        if (c.public_value[1].includes('Transparency')) {
-          this.resultCases.publicValue.p07++;
-          pvPol = true;
-        }
-        if (c.public_value[1].includes('Accountability')) {
-          this.resultCases.publicValue.p08++;
-          pvPol = true;
-        }
-        if (c.public_value[1].includes('Citizen Participation')) {
-          this.resultCases.publicValue.p09++;
-          pvPol = true;
-        }
-        if (c.public_value[1].includes('Equity in accessibility')) {
-          this.resultCases.publicValue.p10++;
-          pvPol = true;
-        }
-        if (c.public_value[1].includes('Openness')) {
-          this.resultCases.publicValue.p11++;
-          pvPol = true;
-        }
-        if (c.public_value[1].includes('Economic Development')) {
-          this.resultCases.publicValue.p12++;
-          pvPol = true;
-        }
-        // Social
-        if (c.public_value[2].includes('Trust')) {
-          this.resultCases.publicValue.p14++;
-          pvSoc = true;
-        }
-        if (c.public_value[2].includes('Self Development')) {
-          this.resultCases.publicValue.p15++;
-          pvSoc = true;
-        }
-        if (c.public_value[2].includes('Quality of life')) {
-          this.resultCases.publicValue.p16++;
-          pvSoc = true;
-        }
-        if (c.public_value[2].includes('Inclusiveness')) {
-          this.resultCases.publicValue.p17++;
-          pvSoc = true;
-        }
-        if (c.public_value[2].includes('Environmental sustainability')) {
-          this.resultCases.publicValue.p18++;
-          pvSoc = true;
-        }
-
-        if (pvOp) {
-          this.resultCases.publicValue.p01++;
-        }
-        if (pvPol) {
-          this.resultCases.publicValue.p06++;
-        }
-        if (pvSoc) {
-          this.resultCases.publicValue.p13++;
-        }
-      });
-*/
       let casesRegionHazard = this.allCases;
 
       casesRegionHazard = this.applyFiltersText(casesRegionHazard);
@@ -1242,8 +1069,6 @@ export class CasesService {
     this.regiHazardFilter = null;
     this.dataCategoryFilter = [];
     this.ogcTrendFilter = [];
-    this.solutionGoalFilter = [];
-    this.publicValueFilter = [];
     this.toolsPlatformsFilter = [];
     this.natureSolutionFilter = [];
 

@@ -501,7 +501,7 @@ export class MainComponent implements OnInit, AfterContentInit {
 
           if (map) {
             this.map = map;
-            map.setMaxZoom(9);
+            map.setMaxZoom(12);
             this.loadingMap = false;
 
             this.setBoundsFromURL();
@@ -905,173 +905,67 @@ export class MainComponent implements OnInit, AfterContentInit {
 
   dowloadCasesCSV() {
     this.showDownloadMsg = true;
-
-    var csv = 'NAME,DESCRIPTION,SOURCE,PUB_DATE,GEOGRAPPHIC_EXTENT,solution_goals,solutiontype,region_hazard_level,TECTREND_Location & Position,TECTREND_Spatial-Temporal Models,TECTREND_Data Science,TECTREND_Human Interfaces,TECTREND_Physical Geosciences,TECTREND_Societal Geosciences,TECTREND_Sensing and Observations,TECTREND_Computer Engineering,EMTECH_Artificial Intelligence and Machine Learning,EMTECH_Cloud Native Computing,EMTECH_Edge Computing,EMTECH_Blockchain,"EMTECH_Immersive Visualisation (VR, MR, AR)",EMTECH_Connected Autonomous Vehicles,EMTECH_UxS/Drones,EMTECH_Urban Digital Twin,EMTECH_5G Cellular,PV_Collaboration,PV_Effectiveness,PV_Efficiency,PV_User-oriented,PV_Transparency,PV_Accountability,PV_Citizen Participation,PV_Equity in accessibility,PV_Openness,PV_Economic Development,PV_Trust,PV_Self Development,PV_Quality of life,PV_Inclusiveness,PV_Environmental sustainability\n';
-
+  
+    let csv = 'SOLUTION_NAME,PILOT_NAME,REGION_NAME,REGION_HAZARD_LEVEL,DESCRIPTION,GEOGRAPHIC_EXTENT,SOLUTION_TYPE,SOLUTION_GOALS,ECOSYSTEM_SERVICE,DATA_CATEGORIES,TOOLS_PLATFORMS,DATA,TOOLS\n';
+  
     this.cs.filteredCases.forEach(c => {
-      csv += '"' + c.name + '",';
-      csv += '"' + c.description + '",';
-      csv += '"' + c.source + '",';
-      csv += c.pub_date + ',';
-      csv += '"' + c.geographic_extent + '",';
-      csv += '"' + c.solution_goals + '",';
-      csv += c.solution_type + ',';
-      csv += c.region_hazard_level + ',';
-
-      if (c.ecosystem_service.includes('Water Retention')) {
-        csv += '1,';
-      } else {
-        csv += '0,';
-      }
-      if (c.ecosystem_service.includes('Biodiversity Conservation')) {
-        csv += '1,';
-      } else {
-        csv += '0,';
-      }
-      if (c.ecosystem_service.includes('Pollution Control')) {
-        csv += '1,';
-      } else {
-        csv += '0,';
-      }
-      if (c.ecosystem_service.includes('Flood Control')) {
-        csv += '1,';
-      } else {
-        csv += '0,';
-      }
-      if (c.ecosystem_service.includes('Sustainable Forestry')) {
-        csv += '1,';
-      } else {
-        csv += '0,';
-      }
+      csv += `"${c.solution_name}",`;
+      csv += `"${c.pilot_name}",`;
+      csv += `"${c.region_name}",`;
+      csv += `${c.region_hazard_level},`;
+      csv += `"${c.description}",`;
       
-
-      if (c.data_categories.includes('Geospatial Data')) {
-        csv += '1,';
-      } else {
-        csv += '0,';
-      }
-      if (c.data_categories.includes('Hydrological Data')) {
-        csv += '1,';
-      } else {
-        csv += '0,';
-      }
-      if (c.data_categories.includes('Meteorological Data')) {
-        csv += '1,';
-      } else {
-        csv += '0,';
-      }
-      if (c.data_categories.includes('Statistical and Population Data')) {
-        csv += '1,';
-      } else {
-        csv += '0,';
-      }
-      if (c.data_categories.includes('Land Use Data')) {
-        csv += '1,';
-      } else {
-        csv += '0,';
-      }
-
-      // Operational
-      if (c.public_value[0].includes('Collaboration')) {
-        csv += '1,';
-      } else {
-        csv += '0,';
-      }
-      if (c.public_value[0].includes('Effectiveness')) {
-        csv += '1,';
-      } else {
-        csv += '0,';
-      }
-      if (c.public_value[0].includes('Efficiency')) {
-        csv += '1,';
-      } else {
-        csv += '0,';
-      }
-      if (c.public_value[0].includes('User-Oriented')) {
-        csv += '1,';
-      } else {
-        csv += '0,';
-      }
-      // Political
-      if (c.public_value[1].includes('Transparency')) {
-        csv += '1,';
-      } else {
-        csv += '0,';
-      }
-      if (c.public_value[1].includes('Accountability')) {
-        csv += '1,';
-      } else {
-        csv += '0,';
-      }
-      if (c.public_value[1].includes('Citizen Participation')) {
-        csv += '1,';
-      } else {
-        csv += '0,';
-      }
-      if (c.public_value[1].includes('Equity in accessibility')) {
-        csv += '1,';
-      } else {
-        csv += '0,';
-      }
-      if (c.public_value[1].includes('Openness')) {
-        csv += '1,';
-      } else {
-        csv += '0,';
-      }
-      if (c.public_value[1].includes('Economic Development')) {
-        csv += '1,';
-      } else {
-        csv += '0,';
-      }
-      // Social
-      if (c.public_value[2].includes('Trust')) {
-        csv += '1,';
-      } else {
-        csv += '0,';
-      }
-      if (c.public_value[2].includes('Self Development')) {
-        csv += '1,';
-      } else {
-        csv += '0,';
-      }
-      if (c.public_value[2].includes('Quality of life')) {
-        csv += '1,';
-      } else {
-        csv += '0,';
-      }
-      if (c.public_value[2].includes('Inclusiveness')) {
-        csv += '1,';
-      } else {
-        csv += '0,';
-      }
-      if (c.public_value[2].includes('Environmental sustainability')) {
-        csv += '1\n';
-      } else {
-        csv += '0\n';
-      }
-
+      
+      let geographicExtentString = '';
+      c.geographic_extent.forEach(extent => {
+        geographicExtentString += extent.join('-') + '; ';
+      });
+      geographicExtentString = geographicExtentString.slice(0, -2); 
+      csv += `"${geographicExtentString}",`;
+      
+      csv += `"${c.solution_type}",`;
+      csv += `"${c.solution_goals.join(', ')}",`;
+      csv += `"${c.ecosystem_service.join(', ')}",`;
+      csv += `"${c.data_categories}",`;
+      csv += `"${c.tools_platforms}",`;
+  
+      
+      let dataCategories = c.data.map(dataItem => {
+        return `Type: ${dataItem.type}, Format: ${dataItem.format}, Link: ${dataItem.link}`;
+      });
+      csv += `"${dataCategories.join('; ')}",`;
+  
+      
+      let toolsInfo = c.tools.map(tool => {
+        return `Name: ${tool.name}, Description: ${tool.description}, Link: ${tool.link}`;
+      });
+      csv += `"${toolsInfo.join('; ')}",`; 
+  
+      csv += '\n';
     });
-
+  
     const a = document.createElement('a');
-    const blob = new Blob([csv], { type: 'text/csv' }),
-      url = window.URL.createObjectURL(blob);
+    const blob = new Blob([csv], { type: 'text/csv' });
+    const url = window.URL.createObjectURL(blob);
     a.href = url;
     a.download = 'resist-filtered-cases.csv';
-
+  
     let isSafariBrowser = navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1;
-    if (isSafariBrowser) {  //if Safari open in new window to save file with random filename.
-      a.setAttribute("target", "_blank");
+    if (isSafariBrowser) {
+      a.setAttribute('target', '_blank');
     }
+  
     setTimeout(() => {
       a.click();
     }, 1000);
-
+  
     setTimeout(() => {
       this.showDownloadMsg = false;
       window.URL.revokeObjectURL(url);
       a.remove();
     }, 2000);
   }
+  
 
 
 

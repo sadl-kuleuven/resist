@@ -63,7 +63,7 @@
                         <!-- (~ TLR8 - TLR9) -->
                     </p>
                     <p *ngIf="collapseSelDesc" style="white-space: break-spaces;">
-                        {{cs.selectedCase.description |slice:0:200}} [...]
+                        {{cs.selectedCase.description |slice:0:150}} [...]
                         <a href="#" (click)="collapseSelDesc = !collapseSelDesc"> Show more </a>
                     </p>
                     <p *ngIf="!collapseSelDesc" style="white-space: break-spaces;">
@@ -94,7 +94,7 @@
                             </span>
                         </p>
                         <p class="text-right">
-                            <a *ngIf="cs.selectedCase.geographic_extent.length > 3" href="#"
+                            <a *ngIf="cs.selectedCase.geographic_extent.length > 2" href="#"
                                 (click)="collapseLocSelDesc = !collapseLocSelDesc"> Show more </a>
                         </p>
                     </span>
@@ -171,31 +171,10 @@
                         </div>
                     </div>
                     
-                    
-                    
-                        
-                    <div *ngIf="cs.selectedCase.details" class="float-right">
-                        <a href="{{cs.selectedCase.details}}" target="_blank" rel="noopener noreferrer"><button
-                                type="button" class="btn btn-outline-default btn-sm" placement="bottom"
-                                ngbTooltip="Open link {{cs.selectedCase.details}}"> Link to details</button></a>
-                    </div>
-                    <div class="float-right">
-                        <a href="{{cs.selectedCase.source}}" target="_blank" rel="noopener noreferrer"><button
-                                type="button" class="btn btn-outline-default btn-sm" placement="bottom"
-                                ngbTooltip="Open link {{cs.selectedCase.source}}"> Link to Source</button></a>
-                    </div>
+      
                 </div>
             </div>
-            <!-- 
-            <ngb-alert [type]="danger" [dismissible]="false">
-                <div class="container">
-                    <i class="nc-icon nc-bell-55"></i>
-                    Warning, if you pin this case, the previously pinned one will be replaced.
-                    <button type="button" name="button" class="close" (click)="closeAlert(alert)">
-                        <i class="nc-icon nc-simple-remove"></i>
-                    </button>
-                </div>
-            </ngb-alert> -->
+
 
             <div *ngIf="pinnedCase"
                 [ngClass]="!cs.selectedCase ? 'col-md-5 offset-md-6 card' : 'col-md-5 offset-md-1 card'">
@@ -223,7 +202,7 @@
                         <!-- (~ TLR8 - TLR9) -->
                     </p>
                     <p *ngIf="collapsePinDesc" style="white-space: break-spaces;">
-                        {{pinnedCase.description |slice:0:200}} [...]
+                        {{pinnedCase.description |slice:0:150}} [...]
                         <a href="#" (click)="collapsePinDesc = !collapsePinDesc"> Show more </a>
                     </p>
                     <p *ngIf="!collapsePinDesc" style="white-space: break-spaces;">
@@ -254,7 +233,7 @@
                             </span>
                         </p>
                         <p class="text-right">
-                            <a *ngIf="pinnedCase.geographic_extent.length > 3" href="#"
+                            <a *ngIf="pinnedCase.geographic_extent.length > 2" href="#"
                                 (click)="collapseLocPinDesc = !collapseLocPinDesc"> Show more </a>
                         </p>
                     </span>
@@ -302,17 +281,6 @@
                                 class="fa fa-{{iconsData[tech]}}"></i>{{tech}}</span>
                     </span>
 
-
-                    <div *ngIf="pinnedCase.details" class="float-right">
-                        <a href="{{pinnedCase.details}}" target="_blank" rel="noopener noreferrer"><button type="button"
-                                class="btn btn-outline-default btn-sm" placement="bottom"
-                                ngbTooltip="Open link {{pinnedCase.details}}"> Link to details</button></a>
-                    </div>
-                    <div class="float-right">
-                        <a href="{{pinnedCase.source}}" target="_blank" rel="noopener noreferrer"><button type="button"
-                                class="btn btn-outline-default btn-sm" placement="bottom"
-                                ngbTooltip="Open link {{pinnedCase.source}}"> Link to Source</button></a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -400,7 +368,7 @@
                         <div #webtoolsMap id="webtoolsMap"> </div>
                     </div>
                     <div *ngIf="cs.allFilteredCases" [ngClass]="listMapVisible === 1 ? 'col-md-6' : 'col-md-12'"
-                        class="text-center elise-list" [ngStyle]="{'display':listMapVisible !== 2 ? 'block' : 'none'}">
+                        class="text-center resist-list" [ngStyle]="{'display':listMapVisible !== 2 ? 'block' : 'none'}">
                         <button *ngIf="listMapVisible === 1" type="button"
                             class="btn btn-default btn-sm btn-outline-default btn-icon mb-2"
                             (click)="listMapVisible = 0;" placement="top" ngbTooltip="Show list full screen">
@@ -496,14 +464,14 @@
 
 <ng-template #contentAbout let-modal>
     <div class="modal-header">
-        <h4 class="modal-title">About the project</h4>
+        <h4 class="modal-title">About the Tool</h4>
     </div>
     <div class="modal-body">
-        The RESIST visualisation tool shows a set of solution, tools and technologies which has been used towards the climate change adaptation in different regions in Europe. It was developed as part of the RESIST project.
+        The RESIST visualisation tool shows a set of solution, tools and technologies which has been used towards the climate change adaptation in different regions in Europe. It was developed as part of the
         <a href="https://resist-project.eu/"
-            target="_blank" rel="noopener noreferrer">Information on Climate Change Adaptation Solutions, Tools and Technologies </a>, performed under the <a
-            href="https://resist-project.eu/"
-            target="_blank" rel="noopener noreferrer">RESIST</a> Part of the RESIST study
+            target="_blank" rel="noopener noreferrer">RESIST </a> project by <a
+            href="hhttps://www.kuleuven.be/kuleuven"
+            target="_blank" rel="noopener noreferrer">KU Leuven.</a>
         <br>
         <br>
         This tool is best viewed using Google Chrome or Firefox.

@@ -42,7 +42,7 @@ section.leaflet-control-layers-list {
 }
 
 .label-secondary {
-    background-color: #a12334
+    background-color: #0453a2
 }
 
 .label-tertiary {
@@ -75,6 +75,7 @@ section.leaflet-control-layers-list {
 
 h3 {
     line-height: 1.1 !important;
+    
 }
 
 .modal-footer {
@@ -132,5 +133,5 @@ h3 {
 
 
 .card:hover .solution-text {
-    color: rgb(113, 220, 230); 
+    color: rgb(87, 181, 200); 
 }

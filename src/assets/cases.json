@@ -12,8 +12,8 @@
             [
                 "FI",
                 "FI1",
-                "FI1C",
-                "FI1C1"
+                "FI1C1",
+                "FI993"
             ]
         ],
         
@@ -78,9 +78,8 @@
             [
                 "FI",
                 "FI1",
-                "FI1C",
                 "FI1C1",
-                "FI1C12   "
+                "FI994"
             ]
         ],
         
@@ -157,9 +156,8 @@
             [
                 "FI",
                 "FI1",
-                "FI1C",
                 "FI1C1",
-                "FI995   "
+                "FI995"
             ]
         ],
         
@@ -231,7 +229,7 @@
             "$oid": "4"
         },
         "solution_name":"Flood-resistant infrastructures (houses on water and houses close to water)",
-        "pilot_name":["Lemvig", "Hedensted", "Horsens",  "Randers"],
+        "pilot_name":["Lemvig","Hedensted","Horsens","Randers"],
         "region_name": "Central Denmark",
         "region_hazard_level": 1,
         "description": "The solution involves investigating flood-resistant construction techniques and promoting their adoption among the construction sector and property owners. Two types of houses showcased: those on water and those near it.",
@@ -316,19 +314,19 @@
                 "DK",
                 "DK0",
                 "DK04",
-                "DK8840  " 
+                "DK8840" 
             ],
             [
                 "DK",
                 "DK0",
                 "DK04",
-                "DK7971   "
+                "DK7971"
             ],
             [
                 "DK",
                 "DK0",
                 "DK04",
-                "DK8383   " 
+                "DK8383" 
             ]
         ],
         

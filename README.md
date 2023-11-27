@@ -1,6 +1,6 @@
-# RESIST Lot 1 Visualization Tool
+# RESIST Visualization Tool of CCA Solutions, Tools and Platforms
 
-1/ Code repository as delivered at end of project: https://github.com/GeoTecINIT/elise/ (15/06/2022)
+1/ Code repository as delivered at end of project: https://github.com/VidaFarBan/resist/  (27/11/2023)
 
 2/ Installation/Deployment Guide: /documentation/guides/InstallationGuide.pdf
 
