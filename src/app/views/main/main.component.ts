@@ -50,39 +50,41 @@ export class MainComponent implements OnInit, AfterContentInit {
 
   listMapVisible = 1; // 1 is half, 0 - only list, 2 - only map
 
-  iconsServices = {
-    'Water Retention': 'tint',
-    'Biodiversity Conservation': 'globe',
-    'Pollution Control': 'flask',
-    'Flood Control': 'home',
-    'Sustainable Forestry': 'tree'
-  };
+// iconsServices = {
+    //'Water Retention': 'tint',
+    //'Biodiversity Conservation': 'globe',
+    //'Pollution Control': 'flask',
+    //'Flood Control': 'home',
+    //'Sustainable Forestry': 'tree'
+  //};
 
 
   iconsData = {
-    'Geospatial Data': 'map-marker',
-    'Hydrological Data': 'tint',
-    'Meteorological Data': 'cloud',
-    'Statistical and Population Data': 'bar-chart',
-    'Land Use Data': 'square'
+    'Meteorological Geographical Features': 'map-marker',
+    'Environmental Monitoring Facilities': 'tint',
+    'Population Distribution - Demography': 'cloud',
+    'Atmospheric Conditions': 'bar-chart',
+    'Natural Risk Zones': 'square',
+    'Transport Networks': 'road',
+    'Protected Sites': 'map-marker',
+    'Orthoimagery': 'file-image-o',
+    'Elevation': 'area-chart',
+    'Land Use': 'th-large',
+    'Land Cover': 'globe',
+    'Geology': 'map',
+    'Hydrography': 'tint',
+    'Soil': 'circle-o'
   };
-  iconsTools = {
-    'Web Application' : 'laptop ',
-    'Data Portal' : 'database',
-    'Mapping and Visualization Tools' : 'map-o',
-    'Modeling Tools' : 'desktop ',
-    'Other Tools' : 'cogs '
-  };
-  iconsNature = {
-    'Flood Prevention' : 'bars',
-    'Nature Conservation' : 'leaf',
-    'Pollution Reduction' : 'fire',
-    'Hydrological Balance' : 'balance-scale',
-    'Advocacy and Awareness' : 'eye',
-    'Economic Protection' : 'eur',
-    'Community Engagement' : 'users',
-    'Sustainable Land Use' : 'square ',
-    'Biomass Management' : 'pagelines'
+
+  iconsSolution = {
+    '1 - Water Management and Flood Prevention' : 'bars',
+    '2 - Community Engagement and Advocacy' : 'leaf',
+    '3 - Nature Conservation and Biodiversity' : 'eur',
+    '4 - Climate Risk Identification and Adaptation' : 'balance-scale',
+    '5 - Pollution Reduction and Environmental Enhancement' : 'eye',
+    '6 - Forest Fire Reduction and Management' : 'fire',
+    '7 - Urban Planning' : 'users',
+    '8 - Other Solutions' : 'square'
   };
 
   data = {
@@ -233,97 +235,113 @@ export class MainComponent implements OnInit, AfterContentInit {
               });
             }
           }
+
+
           if (params.solutiontype) {
             this.tas.solutiontypeVisible = false;
           
-            if (params.solutiontype === 'Nature-based') {
-              this.tas.solutiontype.naturebased = true;
-              this.tas.solutiontype.grey = false;
-              this.tas.solutiontype.technological = false;
-              this.tas.solutiontype.nontechnological = false;
-            } else if (params.solutiontype === 'Grey') {
-              this.tas.solutiontype.naturebased = false;
-              this.tas.solutiontype.grey = true;
-              this.tas.solutiontype.technological = false;
-              this.tas.solutiontype.nontechnological = false;
-            } else if (params.solutiontype === 'Technological') {
-              this.tas.solutiontype.naturebased = false;
-              this.tas.solutiontype.grey = false;
-              this.tas.solutiontype.technological = true;
-              this.tas.solutiontype.nontechnological = false;
-            } else if (params.solutiontype === 'Non-technological') {
-              this.tas.solutiontype.naturebased = false;
-              this.tas.solutiontype.grey = false;
-              this.tas.solutiontype.technological = false;
-              this.tas.solutiontype.nontechnological = true;
+            if (params.solutiontype === 'Governance and Institutional ') {
+              this.tas.solutiontype.governanceAndInstitutional = true;
+              this.tas.solutiontype.economicAndFinance = false;
+              this.tas.solutiontype.physicalAndTechnological = false;
+              this.tas.solutiontype.natureBasedSolutionsAndEcosystemBasedApproaches = false;
+              this.tas.solutiontype.knowledgeAndBehaviouralChange = false;
+            } else if (params.solutiontype === 'Economic and Finance') {
+              this.tas.solutiontype.governanceAndInstitutional = false;
+              this.tas.solutiontype.economicAndFinance = true;
+              this.tas.solutiontype.physicalAndTechnological = false;
+              this.tas.solutiontype.natureBasedSolutionsAndEcosystemBasedApproaches = false;
+              this.tas.solutiontype.knowledgeAndBehaviouralChange = false;
+            } else if (params.solutiontype === 'Physical and Technological') {
+              this.tas.solutiontype.governanceAndInstitutional = false;
+              this.tas.solutiontype.economicAndFinance = false;
+              this.tas.solutiontype.physicalAndTechnological = true;
+              this.tas.solutiontype.natureBasedSolutionsAndEcosystemBasedApproaches = false;
+              this.tas.solutiontype.knowledgeAndBehaviouralChange = false;
+            } else if (params.solutiontype === 'Nature Based Solutions and Ecosystem-based Approaches') {
+              this.tas.solutiontype.governanceAndInstitutional = false;
+              this.tas.solutiontype.economicAndFinance = false;
+              this.tas.solutiontype.physicalAndTechnological = false;
+              this.tas.solutiontype.natureBasedSolutionsAndEcosystemBasedApproaches = true;
+              this.tas.solutiontype.knowledgeAndBehaviouralChange = false;
+            } else if (params.solutiontype === 'Knowledge and Behavioural change') {
+              this.tas.solutiontype.governanceAndInstitutional = false;
+              this.tas.solutiontype.economicAndFinance = false;
+              this.tas.solutiontype.physicalAndTechnological = false;
+              this.tas.solutiontype.natureBasedSolutionsAndEcosystemBasedApproaches = false;
+              this.tas.solutiontype.knowledgeAndBehaviouralChange = true;
             }
           }
 
-          if (params.tec) {
+          
+
+          
+
+          if (params.eco) {
             this.tas.ecosystemVisible = false;
 
-            this.tas.ecosystemServices.forEach(tec => {
-              if (typeof params.tec === 'string') {
-                if (tec.result === params.tec) {
-                  tec.active = true;
+            this.tas.ecosystemServices.forEach(eco => {
+              if (typeof params.eco === 'string') {
+                if (eco.result === params.eco) {
+                  eco.active = true;
                 }
               } else {
-                params.tec.forEach(p => {
-                  if (tec.result === p) {
-                    tec.active = true;
+                params.eco.forEach(p => {
+                  if (eco.result === p) {
+                    eco.active = true;
                   }
                 });
               }
             });
           }
 
-          if (params.em) {
-            this.tas.trendVisible = false;
+          if (params.da) {
+            this.tas.dataVisible = false;
 
-            this.tas.dataCategories.forEach(em => {
-              if (typeof params.em === 'string') {
-                if (em.result === params.em) {
-                  em.active = true;
+            this.tas.dataCategories.forEach(da => {
+              if (typeof params.da === 'string') {
+                if (da.result === params.da) {
+                  da.active = true;
                 }
               } else {
-                params.em.forEach(p => {
-                  if (em.result === p) {
-                    em.active = true;
+                params.da.forEach(p => {
+                  if (da.result === p) {
+                    da.active = true;
                   }
                 });
               }
             });
           }
 
-          if (params.to) {
+          if (params.too) {
             this.tas.toolsVisible = false;
 
-            this.tas.toolsPlatforms.forEach(to => {
-              if (typeof params.to === 'string') {
-                if (to.result === params.to) {
-                  to.active = true;
+            this.tas.toolsPlatforms.forEach(too => {
+              if (typeof params.too === 'string') {
+                if (too.result === params.too) {
+                  too.active = true;
                 }
               } else {
-                params.to.forEach(p => {
-                  if (to.result === p) {
-                    to.active = true;
+                params.too.forEach(p => {
+                  if (too.result === p) {
+                    too.active = true;
                   }
                 });
               }
             });
           }
-          if (params.so) {
-            this.tas.natureVisible = false;
+          if (params.sol) {
+            this.tas.solutionVisible = false;
 
-            this.tas.natureSolution.forEach(so => {
-              if (typeof params.so === 'string') {
-                if (so.result === params.so) {
-                  so.active = true;
+            this.tas.solutionGoals.forEach(sol => {
+              if (typeof params.sol === 'string') {
+                if (sol.result === params.sol) {
+                  sol.active = true;
                 }
               } else {
-                params.so.forEach(p => {
-                  if (so.result === p) {
-                    so.active = true;
+                params.sol.forEach(p => {
+                  if (sol.result === p) {
+                    sol.active = true;
                   }
                 });
               }
@@ -906,7 +924,7 @@ export class MainComponent implements OnInit, AfterContentInit {
   dowloadCasesCSV() {
     this.showDownloadMsg = true;
   
-    let csv = 'SOLUTION_NAME,PILOT_NAME,REGION_NAME,REGION_HAZARD_LEVEL,DESCRIPTION,GEOGRAPHIC_EXTENT,SOLUTION_TYPE,SOLUTION_GOALS,ECOSYSTEM_SERVICE,DATA_CATEGORIES,TOOLS_PLATFORMS,DATA,TOOLS\n';
+    let csv = 'SOLUTION_NAME,PILOT_NAME,REGION_NAME,REGION_HAZARD_LEVEL,DESCRIPTION,GEOGRAPHIC_EXTENT,SOLUTION_TYPE,SOLUTION_GOALS,ECOSYSTEM_SERVICE,DATA_CATEGORIES,TOOLS_PLATFORMS,DATA,TOO_Web map application,TOO_Geoportal,TOO_Story map,TOO_Map viewer,TOO_Web portal,TOO_Software,TOO_Decision support tool,TOO_Hydrological design tool,TOO_Machine Learning/IoT/Extended Reality (XR),TOO_Software (fire modelling),TOO_Data analysis tools,TOO_Master plan/ Action plan,TOO_Support program,TOO_Website (video),TOO_Project website,TOO_Data portal,TOO_Sensor network\n';
   
     this.cs.filteredCases.forEach(c => {
       csv += `"${c.solution_name}",`;
@@ -935,13 +953,96 @@ export class MainComponent implements OnInit, AfterContentInit {
       });
       csv += `"${dataCategories.join('; ')}",`;
   
-      
-      let toolsInfo = c.tools.map(tool => {
-        return `Name: ${tool.name}, Description: ${tool.description}, Link: ${tool.link}`;
-      });
-      csv += `"${toolsInfo.join('; ')}",`; 
-  
-      csv += '\n';
+      //Mapping and Visualization Tools
+      if (c.tools_platforms[0].includes('Web map application')) {
+        csv += '1,';
+      } else {
+        csv += '0,';
+      }
+      if (c.tools_platforms[0].includes('Geoportal')) {
+        csv += '1,';
+      } else {
+        csv += '0,';
+      }
+      if (c.tools_platforms[0].includes('Story map')) {
+        csv += '1,';
+      } else {
+        csv += '0,';
+      }
+      if (c.tools_platforms[0].includes('Map viewer')) {
+        csv += '1,';
+      } else {
+        csv += '0,';
+      }
+      if (c.tools_platforms[0].includes('Web portal')) {
+        csv += '1,';
+      } else {
+        csv += '0,';
+      }
+      //Software and Modeling Tools
+      if (c.tools_platforms[1].includes('Software')) {
+        csv += '1,';
+      } else {
+        csv += '0,';
+      }
+      if (c.tools_platforms[1].includes('Decision support tool')) {
+        csv += '1,';
+      } else {
+        csv += '0,';
+      }
+      if (c.tools_platforms[1].includes('Hydrological design tool')) {
+        csv += '1,';
+      } else {
+        csv += '0,';
+      }
+      if (c.tools_platforms[1].includes('Machine Learning/IoT/Extended Reality (XR)')) {
+        csv += '1,';
+      } else {
+        csv += '0,';
+      }
+      if (c.tools_platforms[1].includes('Software (fire modelling)')) {
+        csv += '1,';
+      } else {
+        csv += '0,';
+      }
+      if (c.tools_platforms[1].includes('Data analysis tools')) {
+        csv += '1,';
+      } else {
+        csv += '0,';
+      }
+      //Planning and Management Documents
+      if (c.tools_platforms[2].includes('Master plan/ Action plan')) {
+        csv += '1,';
+      } else {
+        csv += '0,';
+      }
+      if (c.tools_platforms[2].includes('Support program')) {
+        csv += '1,';
+      } else {
+        csv += '0,';
+      }
+      //Data Management Platforms
+      if (c.tools_platforms[3].includes('Website (video)')) {
+        csv += '1,';
+      } else {
+        csv += '0,';
+      }
+      if (c.tools_platforms[3].includes('Project website')) {
+        csv += '1,';
+      } else {
+        csv += '0,';
+      }
+      if (c.tools_platforms[3].includes('Data portal')) {
+        csv += '1,';
+      } else {
+        csv += '0,';
+      }
+      if (c.tools_platforms[3].includes('Sensor network')) {
+        csv += '1,';
+      } else {
+        csv += '0,';
+      }
+
     });
   
     const a = document.createElement('a');

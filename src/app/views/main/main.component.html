@@ -33,120 +33,284 @@
 
             </div>
         </div>
+
+        
         <div class="row">
             <div *ngIf="cs.selectedCase"
                 [ngClass]="!pinnedCase ? 'col-md-10 offset-md-1 card' : 'col-md-5 offset-md-1 card'">
                 <div class="card-body">
-                    <button type="button" class="btn btn-outline-default btn-sm float-right"
-                        (click)="cs.selectedCase = null; updateMarkerSel(); selectedIndex = -1" placement="bottom"
-                        ngbTooltip="Close this item."><i class="fa fa-times" aria-hidden="true"></i></button>
-                    <button type="button" class="btn btn-outline-default btn-sm float-right"
-                        (click)="openModalWarning(contentWarning);" placement="bottom"
-                        ngbTooltip="Click this button to pin this item. If there was a previously pinned item it will be closed. Select another case to compare them.">
-                        <i class="fa fa-thumb-tack" aria-hidden="true"></i></button>
-                    <div class="tim-title">
-                        <h3>{{cs.selectedCase.solution_name}} </h3>
+                    <!-- Tabbed interface -->
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="solution-tab" data-toggle="tab" href="#solution" role="tab" aria-controls="solution" aria-selected="true">Solution Details</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="data-tab" data-toggle="tab" href="#data" role="tab" aria-controls="data" aria-selected="false">Data Information</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="tools-tab" data-toggle="tab" href="#tools" role="tab" aria-controls="tools" aria-selected="false">Tools/Platforms Information</a>
+                        </li>
+                    </ul>
+
+                    <!-- Tab content sections -->
+                    <!-- Solution Details Tab Content -->
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="solution" role="tabpanel" aria-labelledby="solution-tab">
+                            <!-- Close and Pin Buttons -->
+                            <button type="button" class="btn btn-outline-default btn-sm float-right"
+                                (click)="cs.selectedCase = null; updateMarkerSel(); selectedIndex = -1" placement="bottom"
+                                ngbTooltip="Close this item.">
+                                <i class="fa fa-times" aria-hidden="true"></i>
+                            </button>
+                            <button type="button" class="btn btn-outline-default btn-sm float-right"
+                                (click)="openModalWarning(contentWarning);" placement="bottom"
+                                ngbTooltip="Pin this item.">
+                                <i class="fa fa-thumb-tack" aria-hidden="true"></i>
+                            </button>
+                    
+                            <!-- Title -->
+                            <div class="tim-title">
+                                <h3>{{cs.selectedCase.solution_name}}</h3>
+                            </div>
+                    
+                            <!-- Pilot and Region Information -->
+                            <p *ngIf="cs.selectedCase.pilot_name" class="text-left">Pilot: {{cs.selectedCase.pilot_name}}</p>
+                            <p *ngIf="cs.selectedCase.region_name" class="text-left">Region: {{cs.selectedCase.region_name}}</p>
+                    
+                            <!-- Region-specific Hazard -->
+                            <p *ngIf="cs.selectedCase.region_hazard_level === 1" class="data-label">Region-specific hazard: Flood</p>
+                            <p *ngIf="cs.selectedCase.region_hazard_level === 2" class="data-label">Region-specific hazard: Drought</p>
+                            <p *ngIf="cs.selectedCase.region_hazard_level === 3" class="data-label">Region-specific hazard: Wildfire</p>
+                            <p *ngIf="cs.selectedCase.region_hazard_level === 4" class="data-label">Region-specific hazard: Heat Stress</p>
+                    
+                            <!-- Description -->
+                            <p *ngIf="collapseSelDesc" style="white-space: break-spaces;">
+                                {{cs.selectedCase.description | slice:0:150}} [...]
+                                <a href="#" (click)="collapseSelDesc = !collapseSelDesc">Show more</a>
+                            </p>
+                            <p *ngIf="!collapseSelDesc" style="white-space: break-spaces;">
+                                {{cs.selectedCase.description}}
+                                <a href="#" (click)="collapseSelDesc = !collapseSelDesc">Show less</a>
+                            </p>
+                            <br>
+
+                            <p *ngIf="cs.selectedCase.solution_type" class="text-right data-label">
+                                <strong>Solution Type:</strong> {{cs.selectedCase.solution_type | titlecase}}
+                            </p>
+                            
+                            <span *ngIf="collapseLocSelDesc">
+                                <p *ngFor="let extent of cs.selectedCase.geographic_extent | slice:0:3" class="text-right text-muted">
+                                    <span *ngFor="let item of extent">
+                                        <span *ngIf="item.length == 2">
+                                            {{ns.nuts0GeometryHash[item].properties.NAME_LATN}}
+                                        </span>
+                                        <span *ngIf="ns.nuts1GeometryHash[item]">, </span>
+                                        <span *ngIf="item.length == 3">
+                                            {{ns.nuts1GeometryHash[item].properties.NAME_LATN}}
+                                        </span>
+                                        <span *ngIf="ns.nuts2GeometryHash[item]">, </span>
+                                        <span *ngIf="item.length == 4">
+                                            {{ns.nuts2GeometryHash[item].properties.NAME_LATN}}
+                                        </span>
+                                        <span *ngIf="ns.nuts3GeometryHash[item]">, </span>
+                                        <span *ngIf="item.length == 5">
+                                            {{ns.nuts3GeometryHash[item].properties.NAME_LATN}}
+                                        </span>
+                                        <span *ngIf="ns.lauNamesHash[item.trim()]">, </span>
+                                        <span *ngIf="item.length > 5">
+                                            {{ns.lauNamesHash[item.trim()]}}
+                                        </span>
+                                    </span>
+                                </p>
+                                <p class="text-right">
+                                    <a *ngIf="cs.selectedCase.geographic_extent.length > 2" href="#" (click)="collapseLocSelDesc = !collapseLocSelDesc">
+                                        Show more
+                                    </a>
+                                </p>
+                            </span>
+
+                            <span *ngIf="!collapseLocSelDesc">
+                                <p *ngFor="let extent of cs.selectedCase.geographic_extent" class="text-right text-muted">
+                                    <span *ngFor="let item of extent">
+                                        <span *ngIf="item.length == 2">
+                                            {{ns.nuts0GeometryHash[item].properties.NAME_LATN}}
+                                        </span>
+                                        <span *ngIf="ns.nuts1GeometryHash[item]">, </span>
+                                        <span *ngIf="item.length == 3">
+                                            {{ns.nuts1GeometryHash[item].properties.NAME_LATN}}
+                                        </span>
+                                        <span *ngIf="ns.nuts2GeometryHash[item]">, </span>
+                                        <span *ngIf="item.length == 4">
+                                            {{ns.nuts2GeometryHash[item].properties.NAME_LATN}}
+                                        </span>
+                                        <span *ngIf="ns.nuts3GeometryHash[item]">, </span>
+                                        <span *ngIf="item.length == 5">
+                                            {{ns.nuts3GeometryHash[item].properties.NAME_LATN}}
+                                        </span>
+                                        <span *ngIf="ns.lauNamesHash[item.trim()]">, </span>
+                                        <span *ngIf="item.length > 5">
+                                            {{ns.lauNamesHash[item.trim()]}}
+                                        </span>
+                                    </span>
+                                </p>
+                                <p class="text-right">
+                                    <a href="#" (click)="collapseLocSelDesc = !collapseLocSelDesc" class="text-right">Show less</a>
+                                </p>
+                            </span>
+                            
+                            <!-- Solution Goals -->
+                            <p *ngIf="cs.selectedCase.solution_goals && cs.selectedCase.solution_goals.length > 0" class="label-description">
+                                Solution Goals
+                            </p>
+                            <span *ngFor="let sol of cs.selectedCase.solution_goals">
+                                <span placement="bottom" class="label label-icon label-warning">
+                                    {{sol}} - {{tas.solutionGoalExpanded[sol.toString()]}}
+                                </span>
+                            </span>
+                            
+                            <!-- Supported Ecosystem Services -->
+                            <p class="label-description">Supported Ecosystem Services</p>
+                            <span *ngFor="let eco of cs.selectedCase.ecosystem_service[0]" class="label label-secondary">REG/{{eco}}</span>
+                            <span *ngFor="let eco of cs.selectedCase.ecosystem_service[1]" class="label label-secondary">PRO/{{eco}}</span>
+                            <span *ngFor="let eco of cs.selectedCase.ecosystem_service[2]" class="label label-secondary">CUL/{{eco}}</span>
+
+                            
+                             <!-- Tools/Platforms -->
+                            <p class="label-description">Tools/Platforms</p>
+                            <span *ngFor="let too of cs.selectedCase.tools_platforms[0]" class="label label-secondary">MAP/{{too}}</span>
+                            <span *ngFor="let too of cs.selectedCase.tools_platforms[1]" class="label label-secondary">SOFT/{{too}}</span>
+                            <span *ngFor="let too of cs.selectedCase.tools_platforms[2]" class="label label-secondary">PLAN/{{too}}</span>
+                            <span *ngFor="let too of cs.selectedCase.tools_platforms[3]" class="label label-secondary">DATA/{{too}}</span>
+
+                            <!-- Data Categories -->
+                            <p *ngIf="cs.selectedCase.data_categories.length > 0" class="label-description">Data Categories</p>
+                            <span *ngFor="let dat of cs.selectedCase.data_categories">
+                                <span placement="bottom" class="label label-default label-icon">
+                                      <i class="fa fa-{{iconsData[dat]}}"></i>{{dat}}
+                                </span>
+                            </span>
+                        </div>
+
+                        
+                    
+                        <!-- Data tab -->
+                        <div class="tab-pane fade show active" id="data" role="tabpanel" aria-labelledby="data-tab">
+                            <!-- Data table -->
+                            <div *ngIf="cs.selectedCase?.data">
+                                <h4>Data Information</h4>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Data Type</th>
+                                            <th>Format</th>
+                                            <th>Data Source Providers</th>
+                                            <th>Contact Information</th>
+                                            <th>Access to Data</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let dataItem of cs.selectedCase.data">
+                                            <td>{{ dataItem.type }}</td>
+                                            <td>{{ dataItem.format }}</td>
+                                            <td>{{ dataItem.provider }}</td>
+                                            <td>{{ dataItem.contact }}</td>
+                                            <td><a href="{{ dataItem.link }}" target="_blank">Link</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Tools tab -->
+                                                           
+                        <div class="tab-pane fade show active" id="tools" role="tabpanel" aria-labelledby="tools-tab">
+                            <!-- Tools table -->
+                            <div *ngIf="cs.selectedCase?.tools">
+                                <h4>Tools/Platforms Information</h4>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Tool Name</th>
+                                            <th>Description</th>
+                                            <th>Contact Information</th>
+                                            <th>Acess to Tool/Platform</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let toolItem of cs.selectedCase.tools">
+                                            <td>{{ toolItem.name }}</td>
+                                            <td>{{ toolItem.description }}</td>
+                                            <td>{{ toolItem.contact}}</td>
+                                            <td><a href="{{ toolItem.link }}" target="_blank">Link</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
-                    <p *ngIf="cs.selectedCase.pilot_name" class="text-left"> {{cs.selectedCase.pilot_name}}</p>
-                    <p *ngIf="cs.selectedCase.region_name" class="text-left"> {{cs.selectedCase.region_name}}</p>
-                    <p *ngIf="cs.selectedCase.region_hazard_level === 1" class="data-label"> Region-specific hazard: Flood
-                        <!--  (~ TLR1 - TLR2) -->
-                    </p>
-                    <p *ngIf="cs.selectedCase.region_hazard_level === 2" class="data-label"> Region-specific hazard: Drought
-                        <!-- (~ TLR3 - TLR4) -->
-                    </p>
-                    <p *ngIf="cs.selectedCase.region_hazard_level === 3" class="data-label"> Region-specific hazard: Wildfire
-                        <!-- (~ TLR5
-                        - TLR7) -->
-                    </p>
-                    <p *ngIf="cs.selectedCase.region_hazard_level === 4" class="data-label"> Region-specific hazard: Heat Stress
-                        <!-- (~ TLR8 - TLR9) -->
-                    </p>
-                    <p *ngIf="collapseSelDesc" style="white-space: break-spaces;">
-                        {{cs.selectedCase.description |slice:0:150}} [...]
-                        <a href="#" (click)="collapseSelDesc = !collapseSelDesc"> Show more </a>
-                    </p>
-                    <p *ngIf="!collapseSelDesc" style="white-space: break-spaces;">
-                        {{cs.selectedCase.description}}
-                        <a href="#" (click)="collapseSelDesc = !collapseSelDesc"> Show less </a>
-                    </p>
-                    <br>
-                    
-                    <p *ngIf="cs.selectedCase.solution_type" class="text-right data-label"> {{cs.selectedCase.solution_type |
-                        titlecase}}</p>
-                    <span *ngIf="collapseLocSelDesc">
-                        <p *ngFor="let extent of cs.selectedCase.geographic_extent | slice:0:3"
-                            class="text-right text-muted">
-                            <span *ngFor="let item of extent">
-                                <span *ngIf="item.length == 2">
-                                    {{ns.nuts0GeometryHash[item].properties.NAME_LATN}}</span>
-                                <span *ngIf="ns.nuts1GeometryHash[item]">, </span>
-                                <span *ngIf="item.length == 3">
-                                    {{ns.nuts1GeometryHash[item].properties.NAME_LATN}}</span>
-                                <span *ngIf="ns.nuts2GeometryHash[item]">, </span>
-                                <span *ngIf="item.length == 4">
-                                    {{ns.nuts2GeometryHash[item].properties.NAME_LATN}}</span>
-                                <span *ngIf="ns.nuts3GeometryHash[item]">, </span>
-                                <span *ngIf="item.length == 5">
-                                    {{ns.nuts3GeometryHash[item].properties.NAME_LATN}}</span>
-                                <span *ngIf="ns.lauNamesHash[item.trim()]">, </span>
-                                <span *ngIf="item.length > 5"> {{ns.lauNamesHash[item.trim()]}} </span>
-                            </span>
-                        </p>
-                        <p class="text-right">
-                            <a *ngIf="cs.selectedCase.geographic_extent.length > 2" href="#"
-                                (click)="collapseLocSelDesc = !collapseLocSelDesc"> Show more </a>
-                        </p>
-                    </span>
-                    <span *ngIf="!collapseLocSelDesc">
-                        <p *ngFor="let extent of cs.selectedCase.geographic_extent" class="text-right text-muted">
-                            <span *ngFor="let item of extent">
-                                <span *ngIf="item.length == 2">
-                                    {{ns.nuts0GeometryHash[item].properties.NAME_LATN}}</span>
-                                <span *ngIf="ns.nuts1GeometryHash[item]">, </span>
-                                <span *ngIf="item.length == 3">
-                                    {{ns.nuts1GeometryHash[item].properties.NAME_LATN}}</span>
-                                <span *ngIf="ns.nuts2GeometryHash[item]">, </span>
-                                <span *ngIf="item.length == 4">
-                                    {{ns.nuts2GeometryHash[item].properties.NAME_LATN}}</span>
-                                <span *ngIf="ns.nuts3GeometryHash[item]">, </span>
-                                <span *ngIf="item.length == 5">
-                                    {{ns.nuts3GeometryHash[item].properties.NAME_LATN}}</span>
-                                <span *ngIf="ns.lauNamesHash[item.trim()]">, </span>
-                                <span *ngIf="item.length > 5"> {{ns.lauNamesHash[item.trim()]}} </span>
-                            </span>
-                        </p>
-                        <p class="text-right">
-                            <a href="#" (click)="collapseLocSelDesc = !collapseLocSelDesc" class="text-right"> Show less
-                            </a>
-                        </p>
-                    </span>
-                    <p *ngIf="cs.selectedCase.solution_goals && cs.selectedCase.solution_goals.length > 0"
-                        class="label-description">
-                        Solution Goals </p>
-                    <span *ngFor="let solu of cs.selectedCase.solution_goals">
-                        <span placement="bottom" class="label label-icon label-warning">{{solu}} -
-                            {{tas.natureSolution[solu.toString()]}}</span>
-                    </span>
-                    <p *ngIf="cs.selectedCase.ecosystem_service.length > 0" class="label-description">Ecosystem Services </p>
-                    <span *ngFor="let tech of cs.selectedCase.ecosystem_service">
-                        <span placement="bottom" class="label label-default label-icon"><i
-                                class="fa fa-{{iconsServices[tech]}}"></i>{{tech}}</span>
-                    </span>
-                    <p *ngIf="cs.selectedCase.tools_platforms.length > 0" class="label-description">Tools/Platforms </p>
-                    <span *ngFor="let too of cs.selectedCase.tools_platforms">
-                        <span placement="bottom" class="label label-icon label-warning"><i
-                                class="fa fa-{{iconsTools[too]}}"></i>{{too}}</span>
-                    
+                </div>
+            </div>
 
-                    </span>
-                    <p *ngIf="cs.selectedCase.data_categories.length > 0" class="label-description">Data Categories
-                    </p>
-                    <span *ngFor="let tech of cs.selectedCase.data_categories">
-                        <span placement="bottom" class="label label-default label-icon"><i
-                                class="fa fa-{{iconsData[tech]}}"></i>{{tech}}</span>
-                    </span>
+        
 
+               
+                          
+                                  
+                
+     
+
+                    <!-- Data table 
+                    <div *ngIf="cs.selectedCase?.data">
+                        <h4>Data Information</h4>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Data Type</th>
+                                    <th>Format</th>
+                                    <th>Data Source Providers</th>
+                                    <th>Contact Information</th>
+                                    <th>Access to Data</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let dataItem of cs.selectedCase.data">
+                                    <td>{{ dataItem.type }}</td>
+                                    <td>{{ dataItem.format }}</td>
+                                    <td>{{ dataItem.provider }}</td>
+                                    <td>{{ dataItem.contact }}</td>
+                                    <td><a href="{{ dataItem.link }}" target="_blank">Link</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                     Tools table 
+
+                    <div *ngIf="cs.selectedCase?.tools">
+                        <h4>Tools/Platforms Information</h4>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Tool Name</th>
+                                    <th>Description</th>
+                                    <th>Contact Information</th>
+                                    <th>Acess to Tool/Platform</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let toolItem of cs.selectedCase.tools">
+                                    <td>{{ toolItem.name }}</td>
+                                    <td>{{ toolItem.description }}</td>
+                                    <td>{{ toolItem.contact}}</td>
+                                    <td><a href="{{ toolItem.link }}" target="_blank">Link</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+-->
+                    
+<!--
 
                     <div *ngIf="cs.selectedCase?.data">
                         <div *ngFor="let dataItem of cs.selectedCase.data">
@@ -174,7 +338,7 @@
       
                 </div>
             </div>
-
+-->
 
             <div *ngIf="pinnedCase"
                 [ngClass]="!cs.selectedCase ? 'col-md-5 offset-md-6 card' : 'col-md-5 offset-md-1 card'">
@@ -261,24 +425,29 @@
                         </p>
                     </span>
 
-                    
-                    <p *ngIf="pinnedCase.ecosystem_service.length > 0" class="label-description">Ecosystem Services </p>
-                    <span *ngFor="let tech of pinnedCase.ecosystem_service">
-                        <span placement="bottom" class="label label-default label-icon"><i
-                                class="fa fa-{{iconsServices[tech]}}"></i>{{tech}}</span>
+                    <p *ngIf="cs.selectedCase.solution_goals && cs.selectedCase.solution_goals.length > 0 " class="label-description">
+                        Solution Goals </p>
+                    <span *ngFor="let sol of pinnedCase.solution_goals">
+                        <span placement="bottom" class="label label-icon label-warning">
+                            {{sol}} - {{tas.solutionGoalExpanded[sol.toString()]}}</span>
                     </span>
-                    <p *ngIf="pinnedCase.tools_platforms.length > 0" class="label-description">Tools_Platforms </p>
-                    <span *ngFor="let too of pinnedCase.tools_platforms">
-                        <span placement="bottom" class="label label-secondary label-icon"><i
-                                class="fa fa-{{iconsTools[too]}}"></i>{{too}}</span>
-                    </span>
+                    <p class="label-description">Supported Ecosystem Services</p>
+                    <span *ngFor="let eco of cs.selectedCase.ecosystem_service[0]" class="label label-secondary">REG/{{eco}}</span>
+                    <span *ngFor="let eco of cs.selectedCase.ecosystem_service[1]" class="label label-secondary">PRO/{{eco}}</span>
+                    <span *ngFor="let eco of cs.selectedCase.ecosystem_service[2]" class="label label-secondary">CUL/{{eco}}</span>
+
+                    <p class="label-description">Tools/Platforms </p>
+                    <span *ngFor="let too of cs.selectedCase.tools_platforms[0]" class="label label-secondary">MAP/ {{too}}</span>
+                    <span *ngFor="let too of cs.selectedCase.tools_platforms[1]" class="label label-secondary">SOFT/ {{too}}</span>
+                    <span *ngFor="let too of cs.selectedCase.tools_platforms[2]" class="label label-secondary">PLAN/ {{too}}</span> 
+                    <span *ngFor="let too of cs.selectedCase.tools_platforms[3]" class="label label-secondary">DATA/ {{too}}</span> 
 
 
                     <p *ngIf="pinnedCase.data_categories.length > 0" class="label-description">Data Categories
                     </p>
-                    <span *ngFor="let tech of pinnedCase.data_categories">
+                    <span *ngFor="let dat of pinnedCase.data_categories">
                         <span placement="bottom" class="label label-danger label-icon"><i
-                                class="fa fa-{{iconsData[tech]}}"></i>{{tech}}</span>
+                                class="fa fa-{{iconsData[dat]}}"></i>{{dat}}</span>
                     </span>
 
                 </div>
@@ -318,32 +487,28 @@
                                 <i class="nc-icon nc-simple-remove"></i>
                             </span>
                         </span>
-                        <span *ngFor="let ogc of tas.ecosystemServices">
-                            <span *ngIf="ogc.active" class="label label-default label-close"
-                                (click)="ogc.active = false; cs.filterByEcosystemService()">
-                                <i class="fa fa-{{iconsServices[ogc.name]}}"></i>
-                                {{ogc.name}}
+                        <span *ngFor="let eco of tas.ecosystemServices">
+                            <span *ngIf="eco.active" class="label label-secondary label-close"
+                                (click)="eco.active = false; cs.filterByEcosystemService()">{{eco.name}}
                                 <i class="nc-icon nc-simple-remove"></i> </span>
                         </span>
-                        <span *ngFor="let em of tas.dataCategories">
-                            <span *ngIf="em.active" class="label label-danger label-close"
-                                (click)="em.active = false; cs.filterByDataCategory()">
-                                <i class="fa fa-{{iconsData[em.name]}}"></i>
-                                {{em.name}}
+                        <span *ngFor="let da of tas.dataCategories">
+                            <span *ngIf="da.active" class="label label-danger label-close"
+                                (click)="da.active = false; cs.filterByDataCategory()">
+                                <i class="fa fa-{{iconsData[da.name]}}"></i>
+                                {{da.name}}
                                 <i class="nc-icon nc-simple-remove"></i> </span>
                         </span>
                         <span *ngFor="let too of tas.toolsPlatforms">
-                            <span *ngIf="too.active" class="label label-danger label-close"
-                                (click)="too.active = false; cs.filterByToolsPlatforms()">
-                                <i class="fa fa-{{iconsTools[too.name]}}"></i>
-                                {{too.name}}
+                            <span *ngIf="too.active" class="label label-secondary label-close"
+                                (click)="too.active = false; cs.filterByToolsPlatforms()">{{too.name}}
                                 <i class="nc-icon nc-simple-remove"></i> </span>
                         </span>
-                        <span *ngFor="let so of tas.natureSolution">
-                            <span *ngIf="so.active" class="label label-secondary label-close"
-                                (click)="so.active = false; cs.filterByNatureSolution()">
-                                <i class="fa fa-{{iconsNature[so.name]}}"></i>
-                                {{so.name}}
+                        <span *ngFor="let sol of tas.solutionGoals">
+                            <span *ngIf="sol.active" class="label label-warning label-close"
+                                (click)="sol.active = false; cs.filterBySolutionGoals()">
+                                <i class="fa fa-{{iconsSolution[sol.name]}}"></i>
+                                {{sol.name}}
                                 <i class="nc-icon nc-simple-remove"></i> </span>
                         </span>
 
@@ -390,37 +555,40 @@
                                         <p *ngIf="c.region_name" class="label-text">
                                             {{c.region_name}}</p><!-- TODO: add id? {{c._id.$oid}} -  -->
                                     </div>
+                                    
 
-                                    <div class="col-5">
-                                        <span *ngFor="let solu of c.solution_goals">
-                                            <span placement="bottom" ngbTooltip="{{solu}}"
-                                                class="label label-warning label-icon"><i
-                                                    class="fa fa-{{iconsNature[solu]}}"></i></span>
-                                        </span>
-                                        <span *ngFor="let tech of c.ecosystem_service">
-                                            <span placement="bottom" ngbTooltip="{{tech}}"
+                                    <div class="col-4">
+
+                                        <span *ngFor="let dat of c.data_categories">
+                                            <span placement="bottom" ngbTooltip="{{dat}}"
                                                 class="label label-default label-icon"><i
-                                                    class="fa fa-{{iconsServices[tech]}}"></i></span>
+                                                    class="fa fa-{{iconsData[dat]}}"></i></span>
                                         </span>
-                                        <span *ngFor="let too of c.tools_platforms">
-                                            <span placement="bottom" ngbTooltip="{{too}}"
-                                                class="label label-warning label-icon"><i
-                                                    class="fa fa-{{iconsTools[too]}}"></i></span>
-                                        </span>
-                                        <span *ngFor="let tech of c.data_categories">
-                                            <span placement="bottom" ngbTooltip="{{tech}}"
-                                                class="label label-default label-icon"><i
-                                                    class="fa fa-{{iconsData[tech]}}"></i></span>
-                                        </span>
- 
- 
                                     </div>
-                                    <div class="col-7">
+ 
+                                    <div class="col-8">
                                         <p *ngIf="c.description" class="label-description">{{c.description |
                                             slice:0:120}}
                                             [...]</p>
+                                    </div> 
+                                    <div class="col-4">
+                                      <span *ngFor="let sol of c.solution_goals">
+                                        <span placement="bottom" 
+                                            ngbTooltip="{{tas.solutionGoalExpanded[sol.toString()]}}"
+                                            class="label label-warning label-icon">{{sol}}</span>
+                                      </span>
                                     </div>
-
+                                    <div class="col-12">
+                                        <!--    <p class="label-description">Value:</p>  -->
+                                        <span *ngIf="c.ecosystem_service[0].length > 0"
+                                             class="label label-secondary">Regulation and Maintenance Services</span>
+                                        <span *ngIf="c.ecosystem_service[1].length > 0"
+                                            class="label label-secondary">Provisioning Services</span>
+                                        <span *ngIf="c.ecosystem_service[2].length > 0"
+                                            class="label label-secondary">Cultural Services</span>
+    
+                                        
+                                    </div>  
                                     <div class="col-5">
                                         <span *ngIf="c.region_hazard_level === 1"
                                         class="label label-secondary" >Flood</span>
@@ -431,8 +599,24 @@
                                         <span *ngIf="c.region_hazard_level === 4"
                                         class="label label-secondary">Heat Stress</span>
                                     </div>
+                                    <!--
+                                    <div class="col-12">
+                                        <p class="label-description">Value:</p> 
+                                        <span *ngIf="c.tools_platforms[0].length > 0"
+                                            class="label label-secondary">Mapping and Visualization Tools</span>
+                                        <span *ngIf="c.tools_platforms[1].length > 0"
+                                            class="label label-secondary">Software and Modeling Tools</span>
+                                        <span *ngIf="c.tools_platforms[2].length > 0"
+                                            class="label label-secondary">Planning and Management Documents</span>
+                                        <span *ngIf="c.tools_platforms[3].length > 0"
+                                            class="label label-secondary">Data Management Platforms</span>
 
-                                    <div class="col-7">
+                                    </div>
+                                -->
+
+
+
+                                    <div class="col-12">
                                         <p *ngIf="c.solution_type" class="label-text"
                                             [ngClass]="c.geographic_extent.length > 1? 'locations-span' : ''">{{c.solution_type
                                             | titlecase}} <i *ngIf="c.features && c.features.length > 0"
@@ -445,7 +629,7 @@
                                 </div>
                             </a>
                         </div>
-                        <div *ngIf="cs.filteredCases && cs.filteredCases.length > 4" class="col-md-12"
+                        <div *ngIf="cs.filteredCases && cs.filteredCases.length > 3" class="col-md-12"
                             class="text-center mt-2">
                             <ngb-pagination [collectionSize]="cs.filteredCases.length" [(page)]="cs.pagination"
                                 [maxSize]="3" [pageSize]="pageLength" [rotate]="true">

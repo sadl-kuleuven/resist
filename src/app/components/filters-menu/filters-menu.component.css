@@ -22,7 +22,9 @@
     border-color: #003366; /* Set hover border color if needed */
 }
 
-
+.smaller-text {
+    font-size: 0.8rem;
+}
 
 .color1 {
     color: #61751a;
@@ -53,13 +55,27 @@
 }
 
 .color8 {
-    color: #005F73;
+    color: #cb2d09;
 }
 
 .color9 {
-    color: #002C3D;
+    color: #1accae;
 }
 
 .color10 {
     color: #002229;
 }
+.color11{
+    color:aqua;
+}
+.color12{
+    color:#61751a;
+}
+.color13{
+    color:#11a748;
+}
+.color14{
+    color:rgb(181, 32, 148);
+}
+
+

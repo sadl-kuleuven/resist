@@ -80,7 +80,7 @@
 
 <div>
     <button type="button" class="btn btn-default btn-sm btn-link  btn-icon" (click)="type.toggle()"
-        [attr.aria-expanded]="!tas.solutiontypeVisible" placement="bottom" ngbTooltip="Filter by the type of solution.">
+        [attr.aria-expanded]="!tas.solutiontypeVisible" placement="bottom" ngbTooltip="Filter by the type of solution, classified according to the Key Types of Measure (KTM) EU.">
         Solution types
         <i [ngClass]="tas.solutiontypeVisible? 'fa fa-chevron-down' : 'fa fa-chevron-up'"> </i></button>
 </div>
@@ -88,7 +88,7 @@
 
     <div class="row right-chart">
         <ngx-charts-bar-horizontal-stacked *ngIf="!tas.solutiontypeVisible" [view]="view" [results]="solutiontypeGraph"
-            [scheme]="colorScheme5" (select)="onSelect($event)">
+            [scheme]="colorScheme10" (select)="onSelect($event)">
         </ngx-charts-bar-horizontal-stacked>
         <br>
     </div>
@@ -104,68 +104,80 @@
     <div class="form-check-radio">
         <label class="form-check-label">
             <input class="form-check-input" type="radio" name="solutiontypeRadios" id="solutiontypeRadios2" value="2"
-                (change)="cs.filterBySolutionType('naturebased')" [(checked)]="tas.solutiontype.naturebased ">
+                (change)="cs.filterBySolutionType('Governance and Institutional')" [(checked)]="tas.solutiontype.governanceAndInstitutional ">
 
             <span class="form-check-sign"></span>
             <i class="fa fa-circle color1"> </i>
-            Nature-based ({{cs.resultCases.solutiontype.naturebased}})
+            Governance and Institutional ({{cs.resultCases.solutiontype.governanceAndInstitutional}})
         </label>
     </div>
     <div class="form-check-radio">
         <label class="form-check-label">
             <input class="form-check-input" type="radio" name="solutiontypeRadios" id="solutiontypeRadios3" value="3"
-                (change)="cs.filterBySolutionType('grey')" [(checked)]="tas.solutiontype.grey">
+                (change)="cs.filterBySolutionType('Economic and Finance')" [(checked)]="tas.solutiontype.economicAndFinance">
 
             <span class="form-check-sign"></span>
-            <i class="fa fa-circle color4"> </i>
-            Grey ({{cs.resultCases.solutiontype.grey}})
+            <i class="fa fa-circle color5"> </i>
+            Economic and Finance ({{cs.resultCases.solutiontype.economicAndFinance}})
         </label>
     </div>
     <div class="form-check-radio">
         <label class="form-check-label">
             <input class="form-check-input" type="radio" name="solutiontypeRadios" id="solutiontypeRadios4" value="4"
-                (change)="cs.filterBySolutionType('technological')" [(checked)]="tas.solutiontype.technological">
+                (change)="cs.filterBySolutionType('Physical and Technological')" [(checked)]="tas.solutiontype.physicalAndTechnological">
 
             <span class="form-check-sign"></span>
-            <i class="fa fa-circle color5"> </i>
-            Technological({{cs.resultCases.solutiontype.technological}})
+            <i class="fa fa-circle color8"> </i>
+            Physical and Technological({{cs.resultCases.solutiontype.physicalAndTechnological}})
         </label>
     </div>
     <div class="form-check-radio">
         <label class="form-check-label">
             <input class="form-check-input" type="radio" name="solutiontypeRadios" id="solutiontypeRadios5" value="5"
-                (change)="cs.filterBySolutionType('nontechnological')" [(checked)]="tas.solutiontype.nontechnological">
+                (change)="cs.filterBySolutionType('Nature Based Solutions and Ecosystem-based Approaches')" [(checked)]="tas.solutiontype.natureBasedSolutionsAndEcosystemBasedApproaches">
 
             <span class="form-check-sign"></span>
-            <i class="fa fa-circle color6"> </i>
-            Non-technological({{cs.resultCases.solutiontype.nontechnological}})
+            <i class="fa fa-circle color9"> </i>
+            Nature Based Solutions and Ecosystem-based Approaches({{cs.resultCases.solutiontype.natureBasedSolutionsAndEcosystemBasedApproaches}})
+        </label>
+    </div>
+    <div class="form-check-radio">
+        <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="solutiontypeRadios" id="solutiontypeRadios6" value="6"
+                (change)="cs.filterBySolutionType('Knowledge and Behavioural change')" [(checked)]="tas.solutiontype.knowledgeAndBehaviouralChange">
+
+            <span class="form-check-sign"></span>
+            <i class="fa fa-circle color10"> </i>
+            Knowledge and Behavioural change({{cs.resultCases.solutiontype.knowledgeAndBehaviouralChange}})
         </label>
     </div>
 </div>
 
+
+
  <div>
-    <button type="button" class="btn btn-default btn-sm btn-link  btn-icon" (click)="nature.toggle()"
-        [attr.aria-expanded]="!tas.natureVisible" placement="bottom"
+    <button type="button" class="btn btn-default btn-sm btn-link  btn-icon" (click)="solution.toggle()"
+        [attr.aria-expanded]="!tas.solutionVisible" placement="bottom"
         ngbTooltip="Filter by type of Solution Goals.">
         Solution Goals
-        <i [ngClass]="tas.natureVisible? 'fa fa-chevron-down' : 'fa fa-chevron-up'"> </i></button>
+        <i [ngClass]="tas.solutionVisible? 'fa fa-chevron-down' : 'fa fa-chevron-up'"> </i></button>
 </div>
-<div #nature="ngbCollapse" [(ngbCollapse)]="tas.natureVisible">
+<div #solution="ngbCollapse" [(ngbCollapse)]="tas.solutionVisible">
 
     <div class="row right-chart">
-        <ngx-charts-bar-horizontal-stacked *ngIf="!tas.natureVisible" [view]="view" [results]="goalGraph"
+        <ngx-charts-bar-horizontal-stacked *ngIf="!tas.solutionVisible" [view]="view" [results]="solutionGoalGraph"
             [scheme]="colorScheme10" (select)="onSelect($event)">
         </ngx-charts-bar-horizontal-stacked>
         <br>
     </div>
 
-    <div *ngFor=" let na of tas.natureSolution" class="form-check">
+    <div *ngFor=" let sol of tas.solutionGoals" class="form-check">
         <label class="form-check-label">
-            <input class="form-check-input" type="checkbox" value="" [(ngModel)]="na.active"
-                (change)="cs.filterByNatureSolution()">
+            <input class="form-check-input" type="checkbox" value="" [(ngModel)]="sol.active"
+                (change)="cs.filterBySolutionGoals()">
             <span class="form-check-sign"></span>
-            <i class="fa fa-circle" class="{{na.class}}"> </i>
-            <i class="fa fa-{{na.icon}}"> </i> {{na.name}} ({{cs.resultCases.solution[na.result]}})
+            <i class="fa fa-circle" class="{{sol.class}}"> </i>
+            <i class="fa fa-{{sol.icon}}"> </i> {{sol.name}} ({{cs.resultCases.solutionGoal[sol.result]}})
         </label>
     </div>
 </div>
@@ -206,14 +218,17 @@
 
 </div>
 
+
+<!--filtering supported ecosystem services -->
+
 <div>
-    <button type="button" class="btn btn-default btn-sm btn-link  btn-icon" (click)="ogc.toggle()"
+    <button type="button" class="btn btn-default btn-sm btn-link  btn-icon" (click)="eco.toggle()"
         [attr.aria-expanded]="!tas.ecosystemVisible" placement="bottom"
-        ngbTooltip="Filter by Potential Supported Ecosystem Services to pinpoint vital natural services essential for climate change adaptation and fostering environmental resilience.">
+        ngbTooltip="Filter by supported ecosystem services according to the CICES_V5.2 classification by the European Environment Agency (EEA).">
         Supported Ecosystem Services
         <i [ngClass]="tas.ecosystemVisible? 'fa fa-chevron-down' : 'fa fa-chevron-up'"> </i></button>
 </div>
-<div #ogc="ngbCollapse" [(ngbCollapse)]="tas.ecosystemVisible">
+<div #eco="ngbCollapse" [(ngbCollapse)]="tas.ecosystemVisible">
 
     <div class="row right-chart">
         <ngx-charts-bar-horizontal-stacked *ngIf="!tas.ecosystemVisible" [view]="view" [results]="ecosystemGraph"
@@ -222,38 +237,42 @@
         <br>
     </div>
 
-    <div *ngFor=" let ogc of tas.ecosystemServices" class="form-check">
-        <label class="form-check-label">
-            <input class="form-check-input" type="checkbox" value="" [(ngModel)]="ogc.active"
-                (change)="cs.filterByEcosystemService()">
+    <div *ngFor=" let eco of tas.ecosystemServices; let i=index;" class="form-check">
+        <label class="form-check-label smaller-text" [ngClass]="!eco.section? 'ml-4' : 'mt-2'">
+            <input class="form-check-input" type="checkbox" value="" [(ngModel)]="eco.active"
+                 (change)="ticksSubgroups(i);">
             <span class="form-check-sign"></span>
-            <i class="fa fa-circle" class="{{ogc.class}}"> </i>
-            <i class="fa fa-{{ogc.icon}}"> </i> {{ogc.name}} ({{cs.resultCases.trendWatch[ogc.result]}})
+            <i *ngIf="eco.result == 'ec01'" class="fa fa-circle color1"> </i>
+            <i *ngIf="eco.result == 'ec17'" class="fa fa-circle color4"> </i>
+            <i *ngIf="eco.result == 'ec20'" class="fa fa-circle color5"> </i>
+            {{eco.name}} ({{cs.resultCases.ecosystemServices[eco.result]}})
         </label>
     </div>
 </div>
+
+
 <div>
-    <button type="button" class="btn btn-default btn-sm btn-link  btn-icon" (click)="emerging.toggle()"
-        [attr.aria-expanded]="!tas.trendVisible" placement="bottom"
-        ngbTooltip="Filter by Data Categories to explore diverse datasets crucial for climate change adaptation.">
+    <button type="button" class="btn btn-default btn-sm btn-link  btn-icon" (click)="data.toggle()"
+        [attr.aria-expanded]="!tas.dataVisible" placement="bottom"
+        ngbTooltip="Filter by Data Categories according to INSPIRE themes allows for the exploration of diverse datasets used by regions for climate change adaptation activities.">
         Data Categories
-        <i [ngClass]="tas.trendVisible? 'fa fa-chevron-down' : 'fa fa-chevron-up'"> </i></button>
+        <i [ngClass]="tas.dataVisible? 'fa fa-chevron-down' : 'fa fa-chevron-up'"> </i></button>
 </div>
-<div #emerging="ngbCollapse" [(ngbCollapse)]="tas.trendVisible">
+<div #data="ngbCollapse" [(ngbCollapse)]="tas.dataVisible">
 
     <div class="row right-chart">
-        <ngx-charts-bar-horizontal-stacked *ngIf="!tas.trendVisible" [view]="view" [results]="trendGraph"
+        <ngx-charts-bar-horizontal-stacked *ngIf="!tas.dataVisible" [view]="view" [results]="dataGraph"
             [scheme]="colorScheme10" (select)="onSelect($event)">
         </ngx-charts-bar-horizontal-stacked>
         <br>
     </div>
-    <div *ngFor=" let em of tas.dataCategories" class="form-check">
+    <div *ngFor=" let da of tas.dataCategories" class="form-check">
         <label class="form-check-label">
-            <input class="form-check-input" type="checkbox" value="" [(ngModel)]="em.active"
+            <input class="form-check-input" type="checkbox" value="" [(ngModel)]="da.active"
                 (change)="cs.filterByDataCategory()">
             <span class="form-check-sign"></span>
-            <i class="fa fa-circle" class="{{em.class}}"> </i>
-            <i class="fa fa-{{em.icon}}"> </i> {{em.name}} ({{cs.resultCases.emerging[em.result]}})
+            <i class="fa fa-circle" class="{{da.class}}"> </i>
+            <i class="fa fa-{{da.icon}}"> </i> {{da.name}} ({{cs.resultCases.dataCategories[da.result]}})
         </label>
     </div>
 </div>
@@ -263,11 +282,10 @@
     <button type="button" class="btn btn-default btn-sm btn-link  btn-icon" (click)="tools.toggle()"
         [attr.aria-expanded]="!tas.toolsVisible" placement="bottom"
         ngbTooltip="Filter by type of tools/platforms.">
-        Tools/Platforms
+        Tools/platforms
         <i [ngClass]="tas.toolsVisible? 'fa fa-chevron-down' : 'fa fa-chevron-up'"> </i></button>
 </div>
 <div #tools="ngbCollapse" [(ngbCollapse)]="tas.toolsVisible">
-
     <div class="row right-chart">
         <ngx-charts-bar-horizontal-stacked *ngIf="!tas.toolsVisible" [view]="view" [results]="toolsGraph"
             [scheme]="colorScheme5" (select)="onSelect($event)">
@@ -275,13 +293,18 @@
         <br>
     </div>
 
-    <div *ngFor=" let too of tas.toolsPlatforms" class="form-check">
-        <label class="form-check-label">
+    
+
+    <div *ngFor=" let too of tas.toolsPlatforms; let i=index;"  class="form-check">
+        <label class="form-check-label smaller-text" [ngClass]="!too.section? 'ml-4' : 'mt-2'">
             <input class="form-check-input" type="checkbox" value="" [(ngModel)]="too.active"
-                (change)="cs.filterByToolsPlatforms()">
+                (change)="tickSubgroups(i);">
             <span class="form-check-sign"></span>
-            <i class="fa fa-circle" class="{{too.class}}"> </i>
-            <i class="fa fa-{{too.icon}}"> </i> {{too.name}} ({{cs.resultCases.tools[too.result]}})
+            <i *ngIf="too.result == 'tp01'" class="fa fa-circle color1"> </i>
+            <i *ngIf="too.result == 'tp07'" class="fa fa-circle color2"> </i>
+            <i *ngIf="too.result == 'tp14'" class="fa fa-circle color3"> </i>
+            <i *ngIf="too.result == 'tp17'" class="fa fa-circle color4"> </i>
+            {{too.name}} ({{cs.resultCases.toolsPlatforms[too.result]}})
         </label>
     </div>
 </div>

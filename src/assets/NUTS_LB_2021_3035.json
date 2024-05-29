@@ -18244,6 +18244,72 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    8.202700,
+                    56.436940
+                ]
+            },
+            "properties": {
+                "NUTS_ID": "DK0411",
+                "LEVL_CODE": 3,
+                "CNTR_CODE": "DK",
+                "NAME_LATN": "Bøvlingbjerg",
+                "NUTS_NAME": "Bøvlingbjerg",
+                "MOUNT_TYPE": 4,
+                "URBN_TYPE": 2,
+                "COAST_TYPE": 1,
+                "FID": "DK0411"
+            },
+            "id": "DK0411"
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.011590,
+                    55.714590
+                ]
+            },
+            "properties": {
+                "NUTS_ID": "DK0421",
+                "LEVL_CODE": 3,
+                "CNTR_CODE": "DK",
+                "NAME_LATN": "Juelsminde",
+                "NUTS_NAME": "Juelsminde",
+                "MOUNT_TYPE": 4,
+                "URBN_TYPE": 2,
+                "COAST_TYPE": 1,
+                "FID": "DK0421"
+            },
+            "id": "DK0421"
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.294809,
+                    55.755682
+                ]
+            },
+            "properties": {
+                "NUTS_ID": "DK0422",
+                "LEVL_CODE": 3,
+                "CNTR_CODE": "DK",
+                "NAME_LATN": "Endelave",
+                "NUTS_NAME": "Endelave",
+                "MOUNT_TYPE": 4,
+                "URBN_TYPE": 2,
+                "COAST_TYPE": 1,
+                "FID": "DK0422"
+            },
+            "id": "DK0422"
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     9.953,
                     57.2719
                 ]
@@ -18832,6 +18898,50 @@
                 "FID": "EL515"
             },
             "id": "EL515"
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    24.769830,
+                    40.928187
+                ]
+            },
+            "properties": {
+                "NUTS_ID": "EL5121",
+                "LEVL_CODE": 3,
+                "CNTR_CODE": "EL",
+                "NAME_LATN": "Laspias basin",
+                "NUTS_NAME": "Lekáni Laspías",
+                "MOUNT_TYPE": 3,
+                "URBN_TYPE": 3,
+                "COAST_TYPE": 1,
+                "FID": "EL5121"
+            },
+            "id": "EL5121"
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    24.919860,
+                    41.132763
+                ]
+            },
+            "properties": {
+                "NUTS_ID": "EL5122",
+                "LEVL_CODE": 3,
+                "CNTR_CODE": "EL",
+                "NAME_LATN": "Kosynthos basin",
+                "NUTS_NAME": "Lekáni Kósynthou",
+                "MOUNT_TYPE": 3,
+                "URBN_TYPE": 3,
+                "COAST_TYPE": 1,
+                "FID": "EL5122"
+            },
+            "id": "EL5122"
         },
         {
             "type": "Feature",
@@ -25372,6 +25482,50 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -6.6525065,
+                    40.1954818
+                ]
+            },
+            "properties": {
+                "NUTS_ID": "ES4321",
+                "LEVL_CODE": 2,
+                "CNTR_CODE": "ES",
+                "NAME_LATN": "Sierra de Gata",
+                "NUTS_NAME": "Sierra de Gata",
+                "MOUNT_TYPE": 0,
+                "URBN_TYPE": null,
+                "COAST_TYPE": 0,
+                "FID": "ES4321"
+            },
+            "id": "ES4321"
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -6.278312,
+                    40.374792
+                ]
+            },
+            "properties": {
+                "NUTS_ID": "ES4322",
+                "LEVL_CODE": 2,
+                "CNTR_CODE": "ES",
+                "NAME_LATN": "Las Hurdes",
+                "NUTS_NAME": "Las Hurdes",
+                "MOUNT_TYPE": 0,
+                "URBN_TYPE": null,
+                "COAST_TYPE": 0,
+                "FID": "ES4322"
+            },
+            "id": "ES4322"
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     1.9719,
                     41.7075
                 ]
@@ -25454,6 +25608,50 @@
                 "FID": "ES514"
             },
             "id": "ES514"
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    2.0100492,
+                    41.5629623
+                ]
+            },
+            "properties": {
+                "NUTS_ID": "ES5111",
+                "LEVL_CODE": 3,
+                "CNTR_CODE": "ES",
+                "NAME_LATN": "Terrassa Municipality",
+                "NUTS_NAME": "Terrassa Municipality",
+                "MOUNT_TYPE": 2,
+                "URBN_TYPE": 2,
+                "COAST_TYPE": 1,
+                "FID": "ES5111"
+            },
+            "id": "ES5111"
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    2.7932391,
+                    41.6756178
+                ]
+            },
+            "properties": {
+                "NUTS_ID": "ES5121",
+                "LEVL_CODE": 3,
+                "CNTR_CODE": "ES",
+                "NAME_LATN": "Blanes Municipality",
+                "NUTS_NAME": "Blanes Municipality",
+                "MOUNT_TYPE": 2,
+                "URBN_TYPE": 2,
+                "COAST_TYPE": 1,
+                "FID": "ES5121"
+            },
+            "id": "ES5121"
         },
         {
             "type": "Feature",
@@ -26202,6 +26400,28 @@
                 "FID": "FI995"
             },
             "id": "FI995"
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    24.346780,
+                    61.015745 
+                ]
+            },
+            "properties": {
+                "NUTS_ID": "FI996",
+                "LEVL_CODE": 3,
+                "CNTR_CODE": "FI",
+                "NAME_LATN": "Myllyoja",
+                "NUTS_NAME": "Myllyoja",
+                "MOUNT_TYPE": 4,
+                "URBN_TYPE": 2,
+                "COAST_TYPE": 1,
+                "FID": "FI996"
+            },
+            "id": "FI996"
         },
         {
             "type": "Feature",
@@ -27022,6 +27242,94 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -1.087064,
+                    49.115185
+                ]
+            },
+            "properties": {
+                "NUTS_ID": "FRD121",
+                "LEVL_CODE": 3,
+                "CNTR_CODE": "FR",
+                "NAME_LATN": "Saint-Lô",
+                "NUTS_NAME": "Saint-Lô",
+                "MOUNT_TYPE": 4,
+                "URBN_TYPE": 3,
+                "COAST_TYPE": 3,
+                "FID": "FRD121"
+            },
+            "id": "FRD121"
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.376899,
+                    49.294987
+                ]
+            },
+            "properties": {
+                "NUTS_ID": "FRD111",
+                "LEVL_CODE": 3,
+                "CNTR_CODE": "FR",
+                "NAME_LATN": "Cœur de Nacre Business Park",
+                "NUTS_NAME": "Cœur de Nacre Business Park",
+                "MOUNT_TYPE": 4,
+                "URBN_TYPE": 3,
+                "COAST_TYPE": 3,
+                "FID": "FRD111"
+            },
+            "id": "FRD111"
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.22523,
+                    49.27775
+                ]
+            },
+            "properties": {
+                "NUTS_ID": "FRD112",
+                "LEVL_CODE": 3,
+                "CNTR_CODE": "FR",
+                "NAME_LATN": "Estuaire de l'Orne",
+                "NUTS_NAME": "Estuaire de l'Orne",
+                "MOUNT_TYPE": 4,
+                "URBN_TYPE": 3,
+                "COAST_TYPE": 3,
+                "FID": "FRD112"
+            },
+            "id": "FRD112"
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.472905,
+                    48.986615
+                ]
+            },
+            "properties": {
+                "NUTS_ID": "FRD113",
+                "LEVL_CODE": 3,
+                "CNTR_CODE": "FR",
+                "NAME_LATN": "Community of communes Cingal-Suisse Normandy",
+                "NUTS_NAME": "Community of communes Cingal-Suisse Normandy",
+                "MOUNT_TYPE": 4,
+                "URBN_TYPE": 3,
+                "COAST_TYPE": 3,
+                "FID": "FRD113"
+            },
+            "id": "FRD113"
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     1.0056,
                     48.9954
                 ]
@@ -27060,6 +27368,50 @@
                 "FID": "FRD22"
             },
             "id": "FRD22"
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    0.955711,
+                    49.547641
+                ]
+            },
+            "properties": {
+                "NUTS_ID": "FRD221",
+                "LEVL_CODE": 3,
+                "CNTR_CODE": "FR",
+                "NAME_LATN": "Barentin",
+                "NUTS_NAME": "Barentin",
+                "MOUNT_TYPE": 4,
+                "URBN_TYPE": 2,
+                "COAST_TYPE": 1,
+                "FID": "FRD221"
+            },
+            "id": "FRD221"
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    0.936700,
+                    49.903387
+                ]
+            },
+            "properties": {
+                "NUTS_ID": "FRD222",
+                "LEVL_CODE": 3,
+                "CNTR_CODE": "FR",
+                "NAME_LATN": "Saâne Valley",
+                "NUTS_NAME": "Saâne Valley",
+                "MOUNT_TYPE": 4,
+                "URBN_TYPE": 2,
+                "COAST_TYPE": 1,
+                "FID": "FRD222"
+            },
+            "id": "FRD222"
         },
         {
             "type": "Feature",
@@ -44309,6 +44661,7 @@
             },
             "id": "NO074"
         },
+
         {
             "type": "Feature",
             "geometry": {
@@ -44330,6 +44683,50 @@
                 "FID": "NO071"
             },
             "id": "NO071"
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.416018,
+                    68.696331
+                ]
+            },
+            "properties": {
+                "NUTS_ID": "NO0712",
+                "LEVL_CODE": 3,
+                "CNTR_CODE": "NO",
+                "NAME_LATN": "Vesterålen",
+                "NUTS_NAME": "Vesterålen",
+                "MOUNT_TYPE": 3,
+                "URBN_TYPE": 3,
+                "COAST_TYPE": 1,
+                "FID": "NO0712"
+            },
+            "id": "NO0712"
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    14.665462,
+                    68.340422
+                ]
+            },
+            "properties": {
+                "NUTS_ID": "NO0715",
+                "LEVL_CODE": 3,
+                "CNTR_CODE": "NO",
+                "NAME_LATN": "Lofoten",
+                "NUTS_NAME": "Lofoten",
+                "MOUNT_TYPE": 3,
+                "URBN_TYPE": 3,
+                "COAST_TYPE": 1,
+                "FID": "NO0715"
+            },
+            "id": "NO0715"
         },
         {
             "type": "Feature",

@@ -24,12 +24,12 @@ export class CasesService {
 
   private textFilter = '';
   private geoExtentFilter = [];
-  private scopeFilter = null;
+  private typeFilter = null;
   private regiHazardFilter = null;
   private dataCategoryFilter = [];
-  private ogcTrendFilter = [];
+  private ecosystemServicesFilter = [];
   private toolsPlatformsFilter = [];
-  private natureSolutionFilter = [];
+  private solutionGoalFilter = [];
 
   public selectedCase = null;
 
@@ -42,84 +42,14 @@ export class CasesService {
 
   public resultCases = {
     solutiontype: {
-      naturebased: 0,
-      grey: 0,
-      technological: 0,
-      nontechnological: 0
+      governanceAndInstitutional: 0,
+      economicAndFinance: 0,
+      physicalAndTechnological: 0,
+      natureBasedSolutionsAndEcosystemBasedApproaches: 0,
+      knowledgeAndBehaviouralChange: 0
     },
     
     solutionGoal: {
-      t01: 0,
-      t02: 0,
-      t03: 0,
-      t04: 0,
-      t05: 0,
-      t06: 0,
-      t07: 0,
-      t08: 0,
-      t09: 0,
-      t10: 0
-    },
-    trendWatch: {
-      w01: 0,
-      w02: 0,
-      w03: 0,
-      w04: 0,
-      w05: 0,
-      w06: 0,
-      w07: 0,
-      w08: 0
-    },
-    emerging: {
-      e01: 0,
-      e02: 0,
-      e03: 0,
-      e04: 0,
-      e05: 0
-    },
-    /*
-    publicValue: {
-      p01: 0,
-      p02: 0,
-      p03: 0,
-      p04: 0,
-      p05: 0,
-      p06: 0,
-      p07: 0,
-      p08: 0,
-      p09: 0,
-      p10: 0,
-      p11: 0,
-      p12: 0,
-      p13: 0,
-      p14: 0,
-      p15: 0,
-      p16: 0,
-      p17: 0,
-      p18: 0
-    },
-    */
-
-    hazardss: {
-      r01: 0,
-      r02: 0,
-      r03: 0,
-      r04: 0
-    },
-    
-    tools: {
-      tp01: 0,
-      tp02: 0,
-      tp03: 0,
-      tp04: 0,
-      tp05: 0,
-      tp06: 0,
-      tp07: 0,
-      tp08: 0,
-      tp09: 0
-    }, 
-
-    solution: {
       s01: 0,
       s02: 0,
       s03: 0,
@@ -130,6 +60,78 @@ export class CasesService {
       s08: 0,
       s09: 0
     },
+    ecosystemServices: {
+      ec01: 0,
+      ec02: 0,
+      ec03: 0,
+      ec04: 0,
+      ec05: 0,
+      ec06: 0,
+      ec07: 0,
+      ec08: 0,
+      ec09: 0,
+      ec10: 0,
+      ec11: 0,
+      ec12: 0,
+      ec13: 0,
+      ec14: 0,
+      ec15: 0,
+      ec16: 0,
+      ec17: 0,
+      ec18: 0,
+      ec19: 0,
+      ec20: 0,
+      ec21: 0,
+      ec22: 0
+    },
+    dataCategories: {
+      d01: 0,
+      d02: 0,
+      d03: 0,
+      d04: 0,
+      d05: 0,
+      d06: 0,
+      d07: 0,
+      d08: 0,
+      d09: 0,
+      d10: 0,
+      d11: 0,
+      d12: 0,
+      d13: 0,
+      d14: 0
+    },
+
+
+    hazardss: {
+      r01: 0,
+      r02: 0,
+      r03: 0,
+      r04: 0
+    },
+    
+    toolsPlatforms: {
+      tp01: 0,
+      tp02: 0,
+      tp03: 0,
+      tp04: 0,
+      tp05: 0,
+      tp06: 0,
+      tp07: 0,
+      tp08: 0,
+      tp09: 0,
+      tp10: 0,
+      tp11: 0,
+      tp12: 0,
+      tp13: 0,
+      tp14: 0,
+      tp15: 0,
+      tp16: 0,
+      tp17: 0,
+      tp18: 0,
+      tp19: 0,
+      tp20: 0,
+      tp21: 0
+    }, 
 
   };
 
@@ -206,7 +208,7 @@ export class CasesService {
     this.filterByEcosystemService();
     this.filterByRegionHazard();
     this.filterByToolsPlatforms();
-    this.filterByNatureSolution();
+    this.filterBySolutionGoals();
     this.filterByMapExtent(this.lastBounds);
   }
 
@@ -237,43 +239,56 @@ export class CasesService {
 
   filterBySolutionType(sc = null) {
     if (sc == null) {
-      if (this.tas.solutiontype.naturebased) {
-        this.scopeFilter = 'naturebased';
-      } else if (this.tas.solutiontype.grey) {
-        this.scopeFilter = 'grey';
-      } else if (this.tas.solutiontype.technological) {
-        this.scopeFilter = 'technological';
-      } else if (this.tas.solutiontype.nontechnological) {
-        this.scopeFilter = 'nontechnological';
+      if (this.tas.solutiontype.governanceAndInstitutional) {
+        this.typeFilter = 'Governance and Institutional';
+      } else if (this.tas.solutiontype.economicAndFinance) {
+        this.typeFilter = 'Economic and Finance';
+      } else if (this.tas.solutiontype.physicalAndTechnological) {
+        this.typeFilter = 'Physical and Technological';
+      } else if (this.tas.solutiontype.natureBasedSolutionsAndEcosystemBasedApproaches) {
+        this.typeFilter = 'Nature Based Solutions and Ecosystem-based Approaches';
+      } else if (this.tas.solutiontype.knowledgeAndBehaviouralChange) {
+        this.typeFilter = 'Knowledge and Behavioural change';
       }
     } else {
-      if (sc === 'naturebased') {
-        this.tas.solutiontype.naturebased = true;
-        this.tas.solutiontype.grey = false;
-        this.tas.solutiontype.technological = false;
-        this.tas.solutiontype.nontechnological = false;
-      } else if (sc === 'grey') {
-        this.tas.solutiontype.naturebased = false;
-        this.tas.solutiontype.grey = true;
-        this.tas.solutiontype.technological = false;
-        this.tas.solutiontype.nontechnological = false;
-      } else if (sc === 'technological') {
-        this.tas.solutiontype.naturebased = false;
-        this.tas.solutiontype.grey = false;
-        this.tas.solutiontype.technological = true;
-        this.tas.solutiontype.nontechnological = false;
-      } else if (sc === 'nontechnological') {
-        this.tas.solutiontype.naturebased = false;
-        this.tas.solutiontype.grey = false;
-        this.tas.solutiontype.technological = false;
-        this.tas.solutiontype.nontechnological = true;
+      if (sc === 'governanceAndInstitutional') {
+        this.tas.solutiontype.governanceAndInstitutional = true;
+        this.tas.solutiontype.economicAndFinance = false;
+        this.tas.solutiontype.physicalAndTechnological= false;
+        this.tas.solutiontype.natureBasedSolutionsAndEcosystemBasedApproaches = false;
+        this.tas.solutiontype.knowledgeAndBehaviouralChange = false;
+      } else if (sc === 'economicAndFinance') {
+        this.tas.solutiontype.governanceAndInstitutional = false;
+        this.tas.solutiontype.economicAndFinance = true;
+        this.tas.solutiontype.physicalAndTechnological= false;
+        this.tas.solutiontype.natureBasedSolutionsAndEcosystemBasedApproaches = false;
+        this.tas.solutiontype.knowledgeAndBehaviouralChange = false;
+      } else if (sc === 'physicalAndTechnological') {
+        this.tas.solutiontype.governanceAndInstitutional = false;
+        this.tas.solutiontype.economicAndFinance = false;
+        this.tas.solutiontype.physicalAndTechnological= true;
+        this.tas.solutiontype.natureBasedSolutionsAndEcosystemBasedApproaches = false;
+        this.tas.solutiontype.knowledgeAndBehaviouralChange = false;
+      } else if (sc === 'natureBasedSolutionsAndEcosystemBasedApproaches') {
+        this.tas.solutiontype.governanceAndInstitutional = false;
+        this.tas.solutiontype.economicAndFinance = false;
+        this.tas.solutiontype.physicalAndTechnological= false;
+        this.tas.solutiontype.natureBasedSolutionsAndEcosystemBasedApproaches = true;
+        this.tas.solutiontype.knowledgeAndBehaviouralChange = false;
+      } else if (sc === 'knowledgeAndBehaviouralChange') {
+        this.tas.solutiontype.governanceAndInstitutional = false;
+        this.tas.solutiontype.economicAndFinance = false;
+        this.tas.solutiontype.physicalAndTechnological= false;
+        this.tas.solutiontype.natureBasedSolutionsAndEcosystemBasedApproaches = true;  
+        this.tas.solutiontype.knowledgeAndBehaviouralChange = true;
       } else {
-        this.tas.solutiontype.naturebased = false;
-        this.tas.solutiontype.grey = false;
-        this.tas.solutiontype.technological = false;
-        this.tas.solutiontype.nontechnological = false;
+        this.tas.solutiontype.governanceAndInstitutional = false;
+        this.tas.solutiontype.economicAndFinance = false;
+        this.tas.solutiontype.physicalAndTechnological= false;
+        this.tas.solutiontype.natureBasedSolutionsAndEcosystemBasedApproaches = false;
+        this.tas.solutiontype.knowledgeAndBehaviouralChange = false;
       }
-      this.scopeFilter = sc;
+      this.typeFilter = sc;
     }
     this.applyFilters();
   }
@@ -291,26 +306,16 @@ export class CasesService {
   }
 
   filterByEcosystemService() {
-    this.ogcTrendFilter = [];
+    this.ecosystemServicesFilter = [];
     this.tas.ecosystemServices.forEach(a => {
       if (a.active) {
-        this.ogcTrendFilter.push(a.name);
+        this.ecosystemServicesFilter.push(a.name);
       }
     });
 
     this.applyFilters();
   }
-/*
-  filterBysolutionGoal() {
-    this.solutionGoalFilter = [];
-    this.tas.solutionGoals.forEach(a => {
-      if (a.active) {
-        this.solutionGoalFilter.push(a.number);
-      }
-    });
-    this.applyFilters();
-  }
-*/
+
   filterByRegionHazard(tr = null) {
     if (tr == null) {
       if (this.tas.hazardss.r01) {
@@ -375,11 +380,11 @@ export class CasesService {
     this.applyFilters();
   }
 
-  filterByNatureSolution() {
-    this.natureSolutionFilter= [];
-    this.tas.natureSolution.forEach(a => {
+  filterBySolutionGoals() {
+    this.solutionGoalFilter= [];
+    this.tas.solutionGoals.forEach(a => {
       if (a.active) {
-        this.natureSolutionFilter.push(a.name);
+        this.solutionGoalFilter.push(a.number);
       }
     });
     this.applyFilters();
@@ -419,65 +424,75 @@ export class CasesService {
 
       }
 
-      // console.log('Filtering by theme area: ' + this.solutionGoalFilter);
-/*
-      if (this.solutionGoalFilter.length > 0) {
-        const filterGoals = [];
-        this.filteredCases.forEach(fc => {
-          fc.solution_goal.forEach(ta => {
-            this.solutionGoalFilter.forEach(t => {
-              if (Math.floor(ta) === t) {
-                if (!filterGoals.includes(fc)) {
-                  filterGoals.push(fc);
-                }
-              }
-            });
-          });
-        });
-        this.filteredCases = filterGoals;
-      }
-*/
-      // console.log('Filtering by emerging tech: ' + this.dataCategoryFilter);
+
+      // console.log('Filtering by data cat: ' + this.dataCategoryFilter);
 
       if (this.dataCategoryFilter.length > 0) {
-        const filterEmerging = [];
+        const filterData = [];
         this.filteredCases.forEach(fc => {
-          fc.data_categories.forEach(em => {
+          fc.data_categories.forEach(da => {
             this.dataCategoryFilter.forEach(f => {
-              if (em === f) {
-                if (!filterEmerging.includes(fc)) {
-                  filterEmerging.push(fc);
+              if (da === f) {
+                if (!filterData.includes(fc)) {
+                  filterData.push(fc);
                 }
               }
             });
           });
         });
-        this.filteredCases = filterEmerging;
+        this.filteredCases = filterData;
       }
-            // console.log('Filtering by nature solution: ' + this.natureSolutionFilter);
+            // console.log('Filtering by tools/platform: ' + this.toolsPlatformsFilter);
             if (this.toolsPlatformsFilter.length > 0) {
               const filterTools = [];
               this.filteredCases.forEach(fc => {
-                fc.tools_platforms.forEach(em => {
+                fc.tools_platforms[0].forEach(too0 => {
                   this.toolsPlatformsFilter.forEach(f => {
-                    if (em === f) {
+                    if (too0 === f) {
                       if (!filterTools.includes(fc)) {
                         filterTools.push(fc);
                       }
                     }
                   });
                 });
+                fc.tools_platforms[1].forEach(too1 => {
+                 this.toolsPlatformsFilter.forEach(f => {
+                  if (too1 === f) {
+                    if (!filterTools.includes(fc)) {
+                      filterTools.push(fc);
+                    }
+                   }
+                 });
+                });
+                fc.tools_platforms[2].forEach(too2 => {
+                 this.toolsPlatformsFilter.forEach(f => {
+                 if (too2 === f) {
+                  if (!filterTools.includes(fc)) {
+                    filterTools.push(fc);
+                  }
+                 }
+               });
               });
+                fc.tools_platforms[3].forEach(too3 => {
+                this.toolsPlatformsFilter.forEach(f => {
+                 if (too3 === f) {
+                 if (!filterTools.includes(fc)) {
+                   filterTools.push(fc);
+                 }
+                }
+              });
+             });
+            });
               this.filteredCases = filterTools;
-            }
+          }
 
 
-            if (this.natureSolutionFilter.length > 0) {
+            if (this.solutionGoalFilter.length > 0) {
               const filterSolution = [];
               this.filteredCases.forEach(fc => {
-                fc.solution_goals.forEach(em => {
-                  this.natureSolutionFilter.forEach(f => {
-                    if (em === f) {
+                fc.solution_goals.forEach(sol => {
+                  this.solutionGoalFilter.forEach(s => {
+                    if (Math.floor(sol) === s) {
                       if (!filterSolution.includes(fc)) {
                         filterSolution.push(fc);
                       }
@@ -488,72 +503,55 @@ export class CasesService {
               this.filteredCases = filterSolution;
             }
 
-      // console.log('Filtering by OGC: ' + this.ogcTrendFilter);
+      // console.log('Filtering by ecosystem service: ' + this.ecosystemServicesFilter);
 
-      if (this.ogcTrendFilter.length > 0) {
-        const filterOGC = [];
+      if (this.ecosystemServicesFilter.length > 0) {
+        const filterECO = [];
         this.filteredCases.forEach(fc => {
-          fc.ecosystem_service.forEach(em => {
-            this.ogcTrendFilter.forEach(f => {
-              if (em === f) {
-                if (!filterOGC.includes(fc)) {
-                  filterOGC.push(fc);
+          fc.ecosystem_service[0].forEach(eco0 => {
+            this.ecosystemServicesFilter.forEach(f => {
+              if (eco0 === f) {
+                if (!filterECO.includes(fc)) {
+                  filterECO.push(fc);
                 }
               }
             });
+          });
+        fc.ecosystem_service[1].forEach(eco1 => {
+          this.ecosystemServicesFilter.forEach(f => {
+            if (eco1 === f) {
+              if (!filterECO.includes(fc)) {
+                filterECO.push(fc);
+              }
+            }
           });
         });
-
-        this.filteredCases = filterOGC;
-      }
-
-      // console.log('Filtering by public Value: ' + this.publicValueFilter);
-      /*
-      if (this.publicValueFilter.length > 0) {
-        const filterPV = [];
-        this.filteredCases.forEach(fc => {
-          fc.public_value[0].forEach(pv0 => {
-            this.publicValueFilter.forEach(f => {
-              if (pv0 === f) {
-                if (!filterPV.includes(fc)) {
-                  filterPV.push(fc);
-                }
+        fc.ecosystem_service[2].forEach(eco2 => {
+          this.ecosystemServicesFilter.forEach(f => {
+            if (eco2 === f) {
+              if (!filterECO.includes(fc)) {
+                filterECO.push(fc);
               }
-            });
-          });
-          fc.public_value[1].forEach(pv1 => {
-            this.publicValueFilter.forEach(f => {
-              if (pv1 === f) {
-                if (!filterPV.includes(fc)) {
-                  filterPV.push(fc);
-                }
-              }
-            });
-          });
-          fc.public_value[2].forEach(pv2 => {
-            this.publicValueFilter.forEach(f => {
-              if (pv2 === f) {
-                if (!filterPV.includes(fc)) {
-                  filterPV.push(fc);
-                }
-              }
-            });
+            }
           });
         });
-        this.filteredCases = filterPV;
-      }
-      */
+      });
 
-      // console.log("filters")
+        this.filteredCases = filterECO;
+      }
+
+
+
+   
 
       // console.log('Filtering by technology hazardss: ' + this.regiHazardFilter);
       if (this.regiHazardFilter) {
         this.filteredCases = this.filteredCases.filter(c => c.region_hazard_level === this.regiHazardFilter);
       }
 
-      // console.log('Filtering by solutiontype: ' + this.scopeFilter);
-      if (this.scopeFilter && this.scopeFilter != 'all') {
-        this.filteredCases = this.filteredCases.filter(c => c.solution_type === this.scopeFilter);
+      // console.log('Filtering by solutiontype: ' + this.typeFilter);
+      if (this.typeFilter && this.typeFilter != 'all') {
+        this.filteredCases = this.filteredCases.filter(c => c.solution_type === this.typeFilter);
       }
 
       this.allFilteredCases = this.filteredCases;
@@ -597,42 +595,22 @@ export class CasesService {
       return toFilter;
     }
   }
-/*
-  applyFilterssolutionGoal(toFilter) {
-    if (this.solutionGoalFilter.length > 0) {
-      const filterGoals = [];
-      toFilter.forEach(fc => {
-        fc.solution_goal.forEach(ta => {
-          this.solutionGoalFilter.forEach(t => {
-            if (Math.floor(ta) === t) {
-              if (!filterGoals.includes(fc)) {
-                filterGoals.push(fc);
-              }
-            }
-          });
-        });
-      });
-      return filterGoals;
-    } else {
-      return toFilter;
-    }
-  }
-*/
-  applyFiltersEmergingTech(toFilter) {
+
+  applyFiltersDataCategory(toFilter) {
     if (this.dataCategoryFilter.length > 0) {
-      const filterEmerging = [];
+      const filterData = [];
       toFilter.forEach(fc => {
-        fc.data_categories.forEach(em => {
+        fc.data_categories.forEach(da => {
           this.dataCategoryFilter.forEach(f => {
-            if (em === f) {
-              if (!filterEmerging.includes(fc)) {
-                filterEmerging.push(fc);
+            if (da=== f) {
+              if (!filterData.includes(fc)) {
+                filterData.push(fc);
               }
             }
           });
         });
       });
-      return filterEmerging;
+      return filterData;
     } else {
       return toFilter;
     }
@@ -642,9 +620,36 @@ export class CasesService {
     if (this.toolsPlatformsFilter.length > 0) {
       const filterTools = [];
       toFilter.forEach(fc => {
-        fc.tools_platforms.forEach(em => {
+        fc.tools_platforms[0].forEach(too0 => {
           this.toolsPlatformsFilter.forEach(f => {
-            if (em === f) {
+            if (too0 === f) {
+              if (!filterTools.includes(fc)) {
+                filterTools.push(fc);
+              }
+            }
+          });
+        });
+        fc.tools_platforms[1].forEach(too1 => {
+          this.toolsPlatformsFilter.forEach(f => {
+            if (too1 === f) {
+              if (!filterTools.includes(fc)) {
+                filterTools.push(fc);
+              }
+            }
+          });
+        });
+        fc.tools_platforms[2].forEach(too2 => {
+          this.toolsPlatformsFilter.forEach(f => {
+            if (too2 === f) {
+              if (!filterTools.includes(fc)) {
+                filterTools.push(fc);
+              }
+            }
+          });
+        });
+        fc.tools_platforms[3].forEach(too3 => {
+          this.toolsPlatformsFilter.forEach(f => {
+            if (too3 === f) {
               if (!filterTools.includes(fc)) {
                 filterTools.push(fc);
               }
@@ -658,13 +663,13 @@ export class CasesService {
     }
   }
 
-  applyFiltersNatureSolution(toFilter) {
-    if (this.natureSolutionFilter.length > 0) {
+  applyFiltersSolutionGoals(toFilter) {
+    if (this.solutionGoalFilter.length > 0) {
       const filterSolution = [];
       toFilter.forEach(fc => {
-        fc.solution_goals.forEach(em => {
-          this.natureSolutionFilter.forEach(f => {
-            if (em === f) {
+        fc.solution_goals.forEach(sol => {
+          this.solutionGoalFilter.forEach(s => {
+            if (Math.floor(sol) === s) {
               if (!filterSolution.includes(fc)) {
                 filterSolution.push(fc);
               }
@@ -678,64 +683,44 @@ export class CasesService {
     }
   }
 
-  applyFiltersOGC(toFilter) {
-    if (this.ogcTrendFilter.length > 0) {
-      const filterOGC = [];
+  applyFiltersEcosystemServices(toFilter) {
+    if (this.ecosystemServicesFilter.length > 0) {
+      const filterECO = [];
       toFilter.forEach(fc => {
-        fc.ecosystem_service.forEach(em => {
-          this.ogcTrendFilter.forEach(f => {
-            if (em === f) {
-              if (!filterOGC.includes(fc)) {
-                filterOGC.push(fc);
+        fc.ecosystem_service[0].forEach(eco0 => {
+          this.ecosystemServicesFilter.forEach(f => {
+            if (eco0 === f) {
+              if (!filterECO.includes(fc)) {
+                filterECO.push(fc);
+              }
+            }
+          });
+        });
+        fc.ecosystem_service[1].forEach(eco1 => {
+          this.ecosystemServicesFilter.forEach(f => {
+            if (eco1 === f) {
+              if (!filterECO.includes(fc)) {
+                filterECO.push(fc);
+              }
+            }
+          });
+        });
+        fc.ecosystem_service[2].forEach(eco2 => {
+          this.ecosystemServicesFilter.forEach(f => {
+            if (eco2 === f) {
+              if (!filterECO.includes(fc)) {
+                filterECO.push(fc);
               }
             }
           });
         });
       });
-      return filterOGC;
+      return filterECO;
     } else {
       return toFilter;
     }
   }
-/*
-  applyFiltersPublicValue(toFilter) {
-    if (this.publicValueFilter.length > 0) {
-      const filterPV = [];
-      toFilter.forEach(fc => {
-        fc.public_value[0].forEach(pv0 => {
-          this.publicValueFilter.forEach(f => {
-            if (pv0 === f) {
-              if (!filterPV.includes(fc)) {
-                filterPV.push(fc);
-              }
-            }
-          });
-        });
-        fc.public_value[1].forEach(pv1 => {
-          this.publicValueFilter.forEach(f => {
-            if (pv1 === f) {
-              if (!filterPV.includes(fc)) {
-                filterPV.push(fc);
-              }
-            }
-          });
-        });
-        fc.public_value[2].forEach(pv2 => {
-          this.publicValueFilter.forEach(f => {
-            if (pv2 === f) {
-              if (!filterPV.includes(fc)) {
-                filterPV.push(fc);
-              }
-            }
-          });
-        });
-      });
-      return filterPV;
-    } else {
-      return toFilter;
-    }
-  }
-*/
+
   applyFiltersTechReady(toFilter) {
     if (this.regiHazardFilter && this.regiHazardFilter != 0) {
       toFilter = toFilter.filter(c => c.region_hazard_level === this.regiHazardFilter);
@@ -743,9 +728,9 @@ export class CasesService {
     return toFilter;
   }
 
-  applyFiltersScope(toFilter) {
-    if (this.scopeFilter && this.scopeFilter != 'all') {
-      toFilter = toFilter.filter(c => c.solution_type === this.scopeFilter);
+  applyFiltersType(toFilter) {
+    if (this.typeFilter && this.typeFilter != 'all') {
+      toFilter = toFilter.filter(c => c.solution_type === this.typeFilter);
     }
     return toFilter;
   }
@@ -801,62 +786,14 @@ export class CasesService {
     if (this.allCases) {
 
       this.resultCases.solutiontype = {
-        naturebased : 0,
-        grey: 0,
-        technological: 0,
-        nontechnological: 0
+        governanceAndInstitutional : 0,
+        economicAndFinance: 0,
+        physicalAndTechnological: 0,
+        natureBasedSolutionsAndEcosystemBasedApproaches: 0,
+        knowledgeAndBehaviouralChange: 0
       };
       
       this.resultCases.solutionGoal = {
-        t01: 0,
-        t02: 0,
-        t03: 0,
-        t04: 0,
-        t05: 0,
-        t06: 0,
-        t07: 0,
-        t08: 0,
-        t09: 0,
-        t10: 0
-      };
-      this.resultCases.trendWatch = {
-        w01: 0,
-        w02: 0,
-        w03: 0,
-        w04: 0,
-        w05: 0,
-        w06: 0,
-        w07: 0,
-        w08: 0
-      };
-      this.resultCases.emerging = {
-        e01: 0,
-        e02: 0,
-        e03: 0,
-        e04: 0,
-        e05: 0
-      };
-
-      this.resultCases.hazardss = {
-        r01: 0,
-        r02: 0,
-        r03: 0,
-        r04: 0
-      };
-
-      this.resultCases.tools= {
-        tp01: 0,
-        tp02: 0,
-        tp03: 0,
-        tp04: 0,
-        tp05: 0,
-        tp06: 0,
-        tp07: 0,
-        tp08: 0,
-        tp09: 0
-      }, 
-
-      this.resultCases.solution = {
         s01: 0,
         s02: 0,
         s03: 0,
@@ -867,57 +804,211 @@ export class CasesService {
         s08: 0,
         s09: 0
       };
+      this.resultCases.ecosystemServices = {
+        ec01: 0,
+        ec02: 0,
+        ec03: 0,
+        ec04: 0,
+        ec05: 0,
+        ec06: 0,
+        ec07: 0,
+        ec08: 0,
+        ec09: 0,
+        ec10: 0,
+        ec11: 0,
+        ec12: 0,
+        ec13: 0,
+        ec14: 0,
+        ec15: 0,
+        ec16: 0,
+        ec17: 0,
+        ec18: 0,
+        ec19: 0,
+        ec20: 0,
+        ec21: 0,
+        ec22: 0
+      },
+      this.resultCases.dataCategories = {
+        d01: 0,
+        d02: 0,
+        d03: 0,
+        d04: 0,
+        d05: 0,
+        d06: 0,
+        d07: 0,
+        d08: 0,
+        d09: 0,
+        d10: 0,
+        d11: 0,
+        d12: 0,
+        d13: 0,
+        d14: 0
+      },
+
+      this.resultCases.hazardss = {
+        r01: 0,
+        r02: 0,
+        r03: 0,
+        r04: 0
+      };
+
+      this.resultCases.toolsPlatforms= {
+        tp01: 0,
+        tp02: 0,
+        tp03: 0,
+        tp04: 0,
+        tp05: 0,
+        tp06: 0,
+        tp07: 0,
+        tp08: 0,
+        tp09: 0,
+        tp10: 0,
+        tp11: 0,
+        tp12: 0,
+        tp13: 0,
+        tp14: 0,
+        tp15: 0,
+        tp16: 0,
+        tp17: 0,
+        tp18: 0,
+        tp19: 0,
+        tp20: 0,
+        tp21: 0
+      };
 
 
-      let casesScope = this.allCases;
 
-      casesScope = this.applyFiltersText(casesScope);
-      casesScope = this.applyFiltersGeo(casesScope);
-      casesScope = this.applyFiltersEmergingTech(casesScope);
-      casesScope = this.applyFiltersOGC(casesScope);
-      casesScope = this.applyFiltersTechReady(casesScope);
-      casesScope = this.applyFiltersToolsPlatforms(casesScope);
-      casesScope = this.applyFiltersNatureSolution(casesScope);
 
-      casesScope.forEach(c => {
+      let casesType = this.allCases;
+
+      casesType = this.applyFiltersText(casesType);
+      casesType = this.applyFiltersGeo(casesType);
+      casesType = this.applyFiltersDataCategory(casesType);
+      casesType = this.applyFiltersEcosystemServices(casesType);
+      casesType = this.applyFiltersTechReady(casesType);
+      casesType = this.applyFiltersToolsPlatforms(casesType);
+      casesType = this.applyFiltersSolutionGoals(casesType);
+
+      casesType.forEach(c => {
         if (c.solution_type) {
-          if (c.solution_type === 'naturebased') {
-            this.resultCases.solutiontype.naturebased++;
-          } else if (c.solution_type === 'grey') {
-            this.resultCases.solutiontype.grey++;
-          } else if (c.solution_type === 'technological') {
-            this.resultCases.solutiontype.technological++;
-          } else if (c.solution_type === 'nontechnological') {
-            this.resultCases.solutiontype.nontechnological++;
-          }
+          if (c.solution_type === 'Governance and Institutional') {
+            this.resultCases.solutiontype.governanceAndInstitutional++;
+          } else if (c.solution_type === 'Economic and Finance') {
+            this.resultCases.solutiontype.economicAndFinance++;
+          } else if (c.solution_type === 'Physical and Technological') {
+            this.resultCases.solutiontype.physicalAndTechnological++;
+          } else if (c.solution_type === 'Nature Based Solutions and Ecosystem-based Approaches') {
+            this.resultCases.solutiontype.natureBasedSolutionsAndEcosystemBasedApproaches++;
+          } else if (c.solution_type === 'Knowledge and Behavioural change') {
+            this.resultCases.solutiontype.knowledgeAndBehaviouralChange++;
         }
-      });
+      }});
 
-      let casesTrend = this.allCases;
+      let casesEcosystem = this.allCases;
 
-      casesTrend = this.applyFiltersText(casesTrend);
-      casesTrend = this.applyFiltersGeo(casesTrend);
-      casesTrend = this.applyFiltersTechReady(casesTrend);
-      casesTrend = this.applyFiltersEmergingTech(casesTrend);
-      casesTrend = this.applyFiltersScope(casesTrend);
-      casesTrend = this. applyFiltersToolsPlatforms(casesTrend);
-      casesTrend = this.applyFiltersNatureSolution(casesTrend);
+      casesEcosystem = this.applyFiltersText(casesEcosystem);
+      casesEcosystem = this.applyFiltersGeo(casesEcosystem);
+      casesEcosystem = this.applyFiltersTechReady(casesEcosystem);
+      casesEcosystem = this.applyFiltersDataCategory(casesEcosystem);
+      casesEcosystem = this.applyFiltersType(casesEcosystem);
+      casesEcosystem = this. applyFiltersToolsPlatforms(casesEcosystem);
+      casesEcosystem = this.applyFiltersSolutionGoals(casesEcosystem);
 
-      casesTrend.forEach(c => {
-        if (c.ecosystem_service.includes('Water Retention')) {
-          this.resultCases.trendWatch.w01++;
+      casesEcosystem.forEach(c => {
+        let ecoReg = false;
+        let ecoPro = false;
+        let ecoCul = false;
+
+        //  Regulation and Maintenance Services
+        if (c.ecosystem_service[0].includes('Flood Protection')) {
+          this.resultCases.ecosystemServices.ec02++;
+          ecoReg = true;
         }
-        if (c.ecosystem_service.includes('Biodiversity Conservation')) {
-          this.resultCases.trendWatch.w02++;
+        if (c.ecosystem_service[0].includes('Water Purification')) {
+          this.resultCases.ecosystemServices.ec03++;
+          ecoReg = true;
         }
-        if (c.ecosystem_service.includes('Pollution Control')) {
-          this.resultCases.trendWatch.w03++;
+        if (c.ecosystem_service[0].includes('Water Retention')) {
+          this.resultCases.ecosystemServices.ec04++;
+          ecoReg = true;
         }
-        if (c.ecosystem_service.includes('Flood Control')) {
-          this.resultCases.trendWatch.w04++;
+        if (c.ecosystem_service[0].includes('Filtering Wastes or Sequestering Pollutants')) {
+          this.resultCases.ecosystemServices.ec05++;
+          ecoReg = true;
         }
-        if (c.ecosystem_service.includes('Sustainable Forestry')) {
-          this.resultCases.trendWatch.w05++;
+        if (c.ecosystem_service[0].includes('Control of Erosion Risk')) {
+          this.resultCases.ecosystemServices.ec06++;
+          ecoReg = true;
+        }
+        if (c.ecosystem_service[0].includes('Microclimate Regulation')) {
+          this.resultCases.ecosystemServices.ec07++;
+          ecoReg = true;
+        }
+        if (c.ecosystem_service[0].includes('Coastal Protection')) {
+          this.resultCases.ecosystemServices.ec08++;
+          ecoReg = true;
+        }
+        if (c.ecosystem_service[0].includes('Global Climate Regulation (terrestrial)')) {
+          this.resultCases.ecosystemServices.ec09++;
+          ecoReg = true;
+        }
+        if (c.ecosystem_service[0].includes('Hazard Mitigation')) {
+          this.resultCases.ecosystemServices.ec10++;
+          ecoReg = true;
+        }
+        if (c.ecosystem_service[0].includes('Fire Protection')) {
+          this.resultCases.ecosystemServices.ec11++;
+          ecoReg = true;
+        }
+        if (c.ecosystem_service[0].includes('Pest Control')) {
+          this.resultCases.ecosystemServices.ec12++;
+          ecoReg = true;
+        }
+        if (c.ecosystem_service[0].includes('Disease Control')) {
+          this.resultCases.ecosystemServices.ec13++;
+          ecoReg = true;
+        }
+        if (c.ecosystem_service[0].includes('Sustainable Disposal of Wastes')) {
+          this.resultCases.ecosystemServices.ec14++;
+          ecoReg = true;
+        }
+        if (c.ecosystem_service[0].includes('Decomposing Waste')) {
+          this.resultCases.ecosystemServices.ec15++;
+          ecoReg = true;
+        }
+        if (c.ecosystem_service[0].includes('Maintenance of Nursery Population and Habitat')) {
+          this.resultCases.ecosystemServices.ec16++;
+          ecoReg = true;
+        }
+        
+        // Provisioning Services
+        if (c.ecosystem_service[1].includes('Agro-biomass Growing')) {
+          this.resultCases.ecosystemServices.ec18++;
+          ecoPro = true;
+        }
+        if (c.ecosystem_service[1].includes('Biomass Growing')) {
+          this.resultCases.ecosystemServices.ec19++;
+          ecoPro = true;
+        }
+
+        // Cultural Services
+        if (c.ecosystem_service[2].includes('Education and Information')) {
+          this.resultCases.ecosystemServices.ec21++;
+          ecoCul= true;
+        }
+        if (c.ecosystem_service[2].includes('Reduction in Damage Costs')) {
+          this.resultCases.ecosystemServices.ec22++;
+          ecoCul = true;
+        }
+
+        if (ecoReg) {
+          this.resultCases.ecosystemServices.ec01++;
+        }
+        if (ecoPro) {
+          this.resultCases.ecosystemServices.ec17++;
+        }
+        if (ecoCul) {
+          this.resultCases.ecosystemServices.ec20++;
         }
       });
 
@@ -925,27 +1016,54 @@ export class CasesService {
 
       casesData = this.applyFiltersText(casesData);
       casesData = this.applyFiltersGeo(casesData);
-      casesData = this.applyFiltersOGC(casesData);
+      casesData = this.applyFiltersEcosystemServices(casesData);
       casesData = this.applyFiltersTechReady(casesData);
-      casesData = this.applyFiltersScope(casesData);
+      casesData = this.applyFiltersType(casesData);
       casesData = this.applyFiltersToolsPlatforms(casesData);
-      casesData = this.applyFiltersNatureSolution(casesData);
+      casesData = this.applyFiltersSolutionGoals(casesData);
 
       casesData.forEach(c => {
-        if (c.data_categories.includes('Geospatial Data')) {
-          this.resultCases.emerging.e01++;
+        if (c.data_categories.includes('Meteorological Geographical Features')) {
+          this.resultCases.dataCategories.d01++;
         }
-        if (c.data_categories.includes('Hydrological Data')) {
-          this.resultCases.emerging.e02++;
+        if (c.data_categories.includes('Environmental Monitoring Facilities')) {
+          this.resultCases.dataCategories.d02++;
         }
-        if (c.data_categories.includes('Meteorological Data')) {
-          this.resultCases.emerging.e03++;
+        if (c.data_categories.includes('Population Distribution - Demography')) {
+          this.resultCases.dataCategories.d03++;
         }
-        if (c.data_categories.includes('Statistical and Population Data')) {
-          this.resultCases.emerging.e04++;
+        if (c.data_categories.includes('Atmospheric Conditions')) {
+          this.resultCases.dataCategories.d04++;
         }
-        if (c.data_categories.includes('Land Use Data')) {
-          this.resultCases.emerging.e05++;
+        if (c.data_categories.includes('Natural Risk Zones')) {
+          this.resultCases.dataCategories.d05++;
+        }
+        if (c.data_categories.includes('Transport Networks')) {
+          this.resultCases.dataCategories.d06++;
+        }
+        if (c.data_categories.includes('Protected Sites')) {
+          this.resultCases.dataCategories.d07++;
+        }
+        if (c.data_categories.includes('Orthoimagery')) {
+          this.resultCases.dataCategories.d08++;
+        }
+        if (c.data_categories.includes('Elevation')) {
+          this.resultCases.dataCategories.d09++;
+        }
+        if (c.data_categories.includes('Land Use')) {
+          this.resultCases.dataCategories.d10++;
+        }
+        if (c.data_categories.includes('Land Cover')) {
+          this.resultCases.dataCategories.d11++;
+        }
+        if (c.data_categories.includes('Geology')) {
+          this.resultCases.dataCategories.d12++;
+        }
+        if (c.data_categories.includes('Hydrography')) {
+          this.resultCases.dataCategories.d13++;
+        }
+        if (c.data_categories.includes('Soil')) {
+          this.resultCases.dataCategories.d14++;
         }
       });
 
@@ -953,11 +1071,11 @@ export class CasesService {
 
       casesRegionHazard = this.applyFiltersText(casesRegionHazard);
       casesRegionHazard = this.applyFiltersGeo(casesRegionHazard);
-      casesRegionHazard = this.applyFiltersEmergingTech(casesRegionHazard);
-      casesRegionHazard = this.applyFiltersOGC(casesRegionHazard);
-      casesRegionHazard = this.applyFiltersScope(casesRegionHazard);
+      casesRegionHazard = this.applyFiltersDataCategory(casesRegionHazard);
+      casesRegionHazard = this.applyFiltersEcosystemServices(casesRegionHazard);
+      casesRegionHazard = this.applyFiltersType(casesRegionHazard);
       casesRegionHazard = this.applyFiltersToolsPlatforms(casesRegionHazard);
-      casesRegionHazard = this.applyFiltersNatureSolution(casesRegionHazard);
+      casesRegionHazard = this.applyFiltersSolutionGoals(casesRegionHazard);
 
       casesRegionHazard.forEach(c => {
         if (c.region_hazard_level === 1) {
@@ -975,70 +1093,159 @@ export class CasesService {
 
       casesToolsPlatforms = this.applyFiltersText(casesToolsPlatforms);
       casesToolsPlatforms = this.applyFiltersGeo(casesToolsPlatforms);
-      casesToolsPlatforms = this.applyFiltersEmergingTech(casesToolsPlatforms);
-      casesToolsPlatforms = this.applyFiltersOGC(casesToolsPlatforms);
+      casesToolsPlatforms = this.applyFiltersDataCategory(casesToolsPlatforms);
+      casesToolsPlatforms = this.applyFiltersEcosystemServices(casesToolsPlatforms);
       casesToolsPlatforms = this.applyFiltersTechReady(casesToolsPlatforms);
-      casesToolsPlatforms = this.applyFiltersScope(casesToolsPlatforms);
-      casesToolsPlatforms = this.applyFiltersNatureSolution(casesToolsPlatforms);
+      casesToolsPlatforms = this.applyFiltersType(casesToolsPlatforms);
+      casesToolsPlatforms = this.applyFiltersSolutionGoals(casesToolsPlatforms);
+
 
       casesToolsPlatforms.forEach(c => {
-        if (c.tools_platforms.includes('Web Application')) {
-          this.resultCases.tools.tp01++;
+        let tooMap = false;
+        let tooSoft = false;
+        let tooPlan = false;
+        let tooData = false;
+
+        // Mapping and Visualization Tools
+       if (c.tools_platforms[0] && c.tools_platforms[0].includes('Web map application')) {
+          this.resultCases.toolsPlatforms.tp02++;
+          tooMap = true;
         }
-        if (c.tools_platforms.includes('Data Portal')) {
-          this.resultCases.tools.tp02++;
+        if (c.tools_platforms[0] && c.tools_platforms[0].includes('Geoportal')) {
+          this.resultCases.toolsPlatforms.tp03++;
+          tooMap = true;
         }
-        if (c.tools_platforms.includes('Mapping and Visualization Tools')) {
-          this.resultCases.tools.tp03++;
+        if (c.tools_platforms[0] && c.tools_platforms[0].includes('Story map')) {
+          this.resultCases.toolsPlatforms.tp04++;
+          tooMap = true;
         }
-        if (c.tools_platforms.includes('Modeling Tools')) {
-          this.resultCases.tools.tp04++;
+        if (c.tools_platforms[0] && c.tools_platforms[0].includes('Map viewer')) {
+          this.resultCases.toolsPlatforms.tp05++;
+          tooMap = true;
         }
-        if (c.tools_platforms.includes('Other Tools')) {
-          this.resultCases.tools.tp05++;
+        if (c.tools_platforms[0] && c.tools_platforms[0].includes('Web portal')) {
+          this.resultCases.toolsPlatforms.tp06++;
+          tooMap = true;
+        }
+        // Software and Modeling Tools
+        if (c.tools_platforms[1] && c.tools_platforms[1].includes('Software')) {
+          this.resultCases.toolsPlatforms.tp08++;
+          tooSoft = true;
+        }
+        if (c.tools_platforms[1] && c.tools_platforms[1].includes('Decision support tool')) {
+          this.resultCases.toolsPlatforms.tp09++;
+          tooSoft = true;
+        }
+        if (c.tools_platforms[1] && c.tools_platforms[1].includes('Hydrological design tool')) {
+          this.resultCases.toolsPlatforms.tp10++;
+          tooSoft = true;
+        }
+        if (c.tools_platforms[1] && c.tools_platforms[1].includes('Machine Learning/IoT/Extended Reality (XR)')) {
+          this.resultCases.toolsPlatforms.tp11++;
+          tooSoft = true;
+        }
+        if (c.tools_platforms[1] && c.tools_platforms[1].includes('Software (Fire modelling)')) {
+          this.resultCases.toolsPlatforms.tp12++;
+          tooSoft = true;
+        }
+        if (c.tools_platforms[1] && c.tools_platforms[1].includes('Data analysis tools')) {
+          this.resultCases.toolsPlatforms.tp13++;
+          tooSoft = true;
+        }
+        // Planning and Management Documents
+        if (c.tools_platforms[2] && c.tools_platforms[2].includes('Master plan/ Action plan')) {
+          this.resultCases.toolsPlatforms.tp15++;
+          tooPlan = true;
+        }
+        if (c.tools_platforms[2] && c.tools_platforms[2].includes('Support program')) {
+          this.resultCases.toolsPlatforms.tp16++;
+          tooPlan = true;
+        }
+        // Data Management Platforms
+        if (c.tools_platforms[3] && c.tools_platforms[3].includes('Website (video)')) {
+          this.resultCases.toolsPlatforms.tp18++;
+          tooData = true;
+        }
+        if (c.tools_platforms[3] && c.tools_platforms[3].includes('Project website')) {
+          this.resultCases.toolsPlatforms.tp19++;
+          tooData = true;
+        }
+        if (c.tools_platforms[3] && c.tools_platforms[3].includes('Data portal')) {
+          this.resultCases.toolsPlatforms.tp20++;
+          tooData = true;
+        }
+        if (c.tools_platforms[3] && c.tools_platforms[3].includes('Sensor network')) {
+          this.resultCases.toolsPlatforms.tp21++;
+          tooData = true;
+        }
+
+
+        if (tooMap) {
+          this.resultCases.toolsPlatforms.tp01++;
+        }
+        if (tooSoft) {
+          this.resultCases.toolsPlatforms.tp07++;
+        }
+        if (tooPlan) {
+          this.resultCases.toolsPlatforms.tp14++;
+        }
+        if (tooData) {
+          this.resultCases.toolsPlatforms.tp17++;
         }
       });
 
-      let casesNatureSolution = this.allCases;
+      let casesSolutionGoals = this.allCases;
 
-      casesNatureSolution = this.applyFiltersText(casesNatureSolution);
-      casesNatureSolution = this.applyFiltersGeo(casesNatureSolution);
-      casesNatureSolution = this.applyFiltersEmergingTech(casesNatureSolution);
-      casesNatureSolution = this.applyFiltersOGC(casesNatureSolution);
-      casesNatureSolution = this.applyFiltersTechReady(casesNatureSolution);
-      casesNatureSolution = this.applyFiltersScope(casesNatureSolution);
-      casesNatureSolution = this.applyFiltersToolsPlatforms(casesNatureSolution);
-    
+      casesSolutionGoals = this.applyFiltersText(casesSolutionGoals);
+      casesSolutionGoals = this.applyFiltersGeo(casesSolutionGoals);
+      casesSolutionGoals = this.applyFiltersDataCategory(casesSolutionGoals);
+      casesSolutionGoals = this.applyFiltersEcosystemServices(casesSolutionGoals);
+      casesSolutionGoals = this.applyFiltersTechReady(casesSolutionGoals);
+      casesSolutionGoals = this.applyFiltersType(casesSolutionGoals);
+      casesSolutionGoals = this.applyFiltersToolsPlatforms(casesSolutionGoals);
 
-      casesNatureSolution.forEach(c => {
-        if (c.solution_goals.includes('Flood Prevention')) {
-          this.resultCases.solution.s01++;
-        }
-        if (c.solution_goals.includes('Nature Conservation')) {
-          this.resultCases.solution.s02++;
-        }
-        if (c.solution_goals.includes('Pollution Reduction')) {
-          this.resultCases.solution.s03++;
-        }
-        if (c.solution_goals.includes('Hydrological Balance')) {
-          this.resultCases.solution.s04++;
-        }
-        if (c.solution_goals.includes('Advocacy and Awareness')) {
-          this.resultCases.solution.s05++;
-        }
-        if (c.solution_goals.includes('Economic Protection')) {
-          this.resultCases.solution.s06++;
-        }
-        if (c.solution_goals.includes('Community Engagement')) {
-          this.resultCases.solution.s07++;
-        }
-        if (c.solution_goals.includes('Sustainable Land Use')) {
-          this.resultCases.solution.s08++;
-        }
-        if (c.solution_goals.includes('Biomass Management')) {
-          this.resultCases.solution.s09++;
-        }
-      });
+      let uniqueSolutions = [];
+      // subsections of solution goals can be repeated
+      casesSolutionGoals.forEach(c => {
+        uniqueSolutions = [];
+        c.solution_goals.forEach(sol => {
+          if (!uniqueSolutions.includes(Math.floor(sol))) {
+            uniqueSolutions.push(Math.floor(sol));
+          }
+        });
+
+        uniqueSolutions.forEach(sol => {
+          switch (Math.floor(sol)) {
+            case 1:
+              this.resultCases.solutionGoal.s01++;
+              break;
+            case 2:
+              this.resultCases.solutionGoal.s02++;
+              break;
+            case 3:
+              this.resultCases.solutionGoal.s03++;
+              break;
+            case 4:
+              this.resultCases.solutionGoal.s04++;
+              break;
+            case 5:
+              this.resultCases.solutionGoal.s05++;
+              break;
+            case 6:
+              this.resultCases.solutionGoal.s06++;
+              break;
+            case 7:
+              this.resultCases.solutionGoal.s07++;
+              break;
+            case 8:
+              this.resultCases.solutionGoal.s08++;
+              break;
+            case 9:
+              this.resultCases.solutionGoal.s09++;
+              break;
+          }
+        });
+      })
     }
   }
 
@@ -1051,10 +1258,10 @@ export class CasesService {
       a.active = false;
     });
 
-    this.tas.toolsPlatforms.forEach(a => {
-      a.active = false;
+    this.tas.toolsPlatforms.forEach(too => {
+      too.active = false;
     });
-    this.tas.natureSolution.forEach(a => {
+    this.tas.solutionGoals.forEach(a => {
       a.active = false;
     });
 
@@ -1065,12 +1272,12 @@ export class CasesService {
 
     this.textFilter = '';
     this.geoExtentFilter = [];
-    this.scopeFilter = null;
+    this.typeFilter = null;
     this.regiHazardFilter = null;
     this.dataCategoryFilter = [];
-    this.ogcTrendFilter = [];
+    this.ecosystemServicesFilter = [];
     this.toolsPlatformsFilter = [];
-    this.natureSolutionFilter = [];
+    this.solutionGoalFilter = [];
 
 
     this.applyFilters();

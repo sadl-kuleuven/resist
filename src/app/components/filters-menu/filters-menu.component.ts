@@ -45,11 +45,9 @@ export class FiltersMenuComponent implements OnInit, AfterViewInit {
   solutiontypeGraph = [];
   solutionGoalGraph = [];
   ecosystemGraph = [];
-  trendGraph = [];
-  pvGraph = [];
+  dataGraph = [];
   hazardGraph = [];
   toolsGraph = [];
-  goalGraph = [];
 
   @ViewChild('filters') filters: ElementRef;
  // toolsGraph: { name: string; series: { name: string; value: any; }[]; }[];
@@ -63,151 +61,114 @@ export class FiltersMenuComponent implements OnInit, AfterViewInit {
         'name': 'Solution Type',
         'series': [
           {
-            'name': 'Nature-based ',
-            'value': this.cs.resultCases.solutiontype.naturebased 
+            'name': 'Governance and Institutional',
+            'value': this.cs.resultCases.solutiontype.governanceAndInstitutional
           },
           {
-            'name': 'Grey',
-            'value': this.cs.resultCases.solutiontype.grey
+            'name': 'Economic and Finance',
+            'value': this.cs.resultCases.solutiontype.economicAndFinance
           },
           {
-            'name': 'Technological',
-            'value': this.cs.resultCases.solutiontype.technological
+            'name': 'Physical and Technological',
+            'value': this.cs.resultCases.solutiontype.physicalAndTechnological
           },
           {
-            'name': 'Non-technological',
-            'value': this.cs.resultCases.solutiontype.nontechnological
+            'name': 'Nature Based Solutions and Ecosystem-based Approaches',
+            'value': this.cs.resultCases.solutiontype.natureBasedSolutionsAndEcosystemBasedApproaches
+          },
+          {
+            'name': 'Knowledge and Behavioural change',
+            'value': this.cs.resultCases.solutiontype.knowledgeAndBehaviouralChange
           }
 
         ]
       }
     ];
-    /*
-    this.solutionGoalGraph = [
-      {
-        'name': 'Solution Goal',
-        'series': [
-          {
-            'name': '1 - Flood Prevention ',
-            'value': this.cs.resultCases.solutionGoal.t01
-          },
-          {
-            'name': '2 - Nature conservation',
-            'value': this.cs.resultCases.solutionGoal.t02
-          },
-          {
-            'name': '3 - Pollution reduction  ',
-            'value': this.cs.resultCases.solutionGoal.t03
-          },
-          {
-            'name': '4 - Hydrological balance',
-            'value': this.cs.resultCases.solutionGoal.t04
-          },
-          {
-            'name': '5 - Advocacy and awareness',
-            'value': this.cs.resultCases.solutionGoal.t05
-          },
-          {
-            'name': '6 - Economic protection ',
-            'value': this.cs.resultCases.solutionGoal.t06
-          },
-          {
-            'name': '7 - Community engagement',
-            'value': this.cs.resultCases.solutionGoal.t07
-          },
-          {
-            'name': '8 - Sustainable land use',
-            'value': this.cs.resultCases.solutionGoal.t08
-          },
-          {
-            'name': '9 - Biomass management',
-            'value': this.cs.resultCases.solutionGoal.t09
-          },
-          {
-            'name': '10 - Social protection',
-            'value': this.cs.resultCases.solutionGoal.t10
-          }
-        ]
-      }
-    ];
-*/
+
     this.ecosystemGraph = [
       {
-        'name': 'ecosystem',
+        'name': 'Supported Ecosystem Services',
         'series': [
           {
-            'name': 'Water Retention',
-            'value': this.cs.resultCases.trendWatch.w01
+            'name': ' Regulation and Maintainance Services',
+            'value': this.cs.resultCases.ecosystemServices.ec01
           },
           {
-            'name': 'Biodiversity Conservation',
-            'value': this.cs.resultCases.trendWatch.w02
+            'name': 'Provisioning Services',
+            'value': this.cs.resultCases.ecosystemServices.ec17
           },
           {
-            'name': 'Pollution Control',
-            'value': this.cs.resultCases.trendWatch.w03
-          },
-          {
-            'name': 'Flood Control',
-            'value': this.cs.resultCases.trendWatch.w04
-          },
-          {
-            'name': 'Sustainable Forestry',
-            'value': this.cs.resultCases.trendWatch.w05
+            'name': 'Cultural Services',
+            'value': this.cs.resultCases.ecosystemServices.ec20
           }
 
         ]
       }
     ];
-    this.trendGraph = [
+    this.dataGraph = [
       {
         'name': 'Data Categories',
         'series': [
           {
-            'name': 'Geospatial Data',
-            'value': this.cs.resultCases.emerging.e01
+            'name': 'Meteorological Geographical Features',
+            'value': this.cs.resultCases.dataCategories.d01
           },
           {
-            'name': 'Hydrological Data',
-            'value': this.cs.resultCases.emerging.e02
+            'name': 'Environmental Monitoring Facilities',
+            'value': this.cs.resultCases.dataCategories.d02
           },
           {
-            'name': 'Meteorological Data',
-            'value': this.cs.resultCases.emerging.e03
+            'name': 'Population Distribution - Demography',
+            'value': this.cs.resultCases.dataCategories.d03
           },
           {
-            'name': 'Statistical and Population Data',
-            'value': this.cs.resultCases.emerging.e04
+            'name': 'Atmospheric Conditions',
+            'value': this.cs.resultCases.dataCategories.d04
           },
           {
-            'name': 'Land Use Data',
-            'value': this.cs.resultCases.emerging.e05
+            'name': 'Natural Risk Zones',
+            'value': this.cs.resultCases.dataCategories.d05
           },
- 
+          {
+            'name': 'Transport Networks',
+            'value': this.cs.resultCases.dataCategories.d06
+          },
+          {
+            'name': 'Protected Sites',
+            'value': this.cs.resultCases.dataCategories.d07
+          },
+          {
+            'name': 'Orthoimagery',
+            'value': this.cs.resultCases.dataCategories.d08
+          },
+          {
+            'name': 'Elevation',
+            'value': this.cs.resultCases.dataCategories.d09
+          },
+          {
+            'name': 'Land Use',
+            'value': this.cs.resultCases.dataCategories.d10
+          },
+          {
+            'name': 'Land Cover',
+            'value': this.cs.resultCases.dataCategories.d11
+          },
+          {
+            'name': 'Geology',
+            'value': this.cs.resultCases.dataCategories.d12
+          },
+          {
+            'name': 'Hydrography',
+            'value': this.cs.resultCases.dataCategories.d13
+          },
+          {
+            'name': 'Soil',
+            'value': this.cs.resultCases.dataCategories.d14
+          },
         ]
       }
     ];
-     /*
-    this.pvGraph = [
-      {
-        'name': 'Public value type',
-        'series': [
-          {
-            'name': 'Operational',
-            'value': this.cs.resultCases.publicValue.p01
-          },
-          {
-            'name': 'Political',
-            'value': this.cs.resultCases.publicValue.p06
-          },
-          {
-            'name': 'Social',
-            'value': this.cs.resultCases.publicValue.p13
-          }
-        ]
-      }
-    ];
-    */
+
     this.hazardGraph = [
       {
         'name': 'Region Hazards',
@@ -233,73 +194,64 @@ export class FiltersMenuComponent implements OnInit, AfterViewInit {
     ];
     this.toolsGraph = [
       {
-        'name': 'tools/platforms',
+        'name': 'Tools/Platforms',
         'series': [
           {
-            'name': 'Web Application',
-            'value': this.cs.resultCases.tools.tp01
-          },
-          {
-            'name': 'Data Portal',
-            'value': this.cs.resultCases.tools.tp02
-          },
-          {
             'name': 'Mapping and Visualization Tools',
-            'value': this.cs.resultCases.tools.tp03
+            'value': this.cs.resultCases.toolsPlatforms.tp01
           },
           {
-            'name': 'Modeling Tools',
-            'value': this.cs.resultCases.tools.tp04
+            'name': 'Software and Modeling Tools',
+            'value': this.cs.resultCases.toolsPlatforms.tp07
           },
           {
-            'name': 'Other Tools',
-            'value': this.cs.resultCases.tools.tp05
+            'name': 'Planning and Management Documents',
+            'value': this.cs.resultCases.toolsPlatforms.tp14
+          },
+          {
+            'name': 'Data Management Platforms',
+            'value': this.cs.resultCases.toolsPlatforms.tp17
           },
         ]
       }
     ];
 
-    this.goalGraph = [
+    this.solutionGoalGraph = [
       {
         'name': 'Solution Goals',
         'series': [
           {
-            'name': 'Flood Prevention',
-            'value': this.cs.resultCases.solution.s01
+            'name': '1 - Water Management and Flood Prevention',
+            'value': this.cs.resultCases.solutionGoal.s01
           },
           {
-            'name': 'Nature Conservation',
-            'value': this.cs.resultCases.solution.s02
+            'name': '2 - Community Engagement and Advocacy',
+            'value': this.cs.resultCases.solutionGoal.s02
           },
           {
-            'name': 'Pollution Reduction ',
-            'value': this.cs.resultCases.solution.s03
+            'name': '3 - Nature Conservation and Biodiversity',
+            'value': this.cs.resultCases.solutionGoal.s03
           },
           {
-            'name': 'Hydrological Balance',
-            'value': this.cs.resultCases.solution.s04
+            'name': '4 - Climate Risk Identification and Adaptation',
+            'value': this.cs.resultCases.solutionGoal.s04
           },
           {
-            'name': 'Advocacy and Awareness',
-            'value': this.cs.resultCases.solution.s05
+            'name': '5 - Pollution Reduction and Environmental Enhancement',
+            'value': this.cs.resultCases.solutionGoal.s05
           },
           {
-            'name': 'Economic Protection ',
-            'value': this.cs.resultCases.solution.s06
+            'name': '6 - Forest Fire Reduction and Management',
+            'value': this.cs.resultCases.solutionGoal.s06
           },
           {
-            'name': 'Community Engagement',
-            'value': this.cs.resultCases.solution.s07
+            'name': '7 - Urban Planning',
+            'value': this.cs.resultCases.solutionGoal.s07
           },
           {
-            'name': 'Sustainable Land Use',
-            'value': this.cs.resultCases.solution.s08
+            'name': '8 - Other Solutions',
+            'value': this.cs.resultCases.solutionGoal.s08
           },
-          {
-            'name': 'Biomass Management',
-            'value': this.cs.resultCases.solution.s09
-
-          }
         ]
       }
     ];
@@ -311,150 +263,115 @@ export class FiltersMenuComponent implements OnInit, AfterViewInit {
           'name': 'Solution Type',
           'series': [
             {
-              'name': 'Nature-based ',
-              'value': this.cs.resultCases.solutiontype.naturebased 
+              'name': 'Governance and Institutional',
+              'value': this.cs.resultCases.solutiontype.governanceAndInstitutional
             },
             {
-              'name': 'Grey',
-              'value': this.cs.resultCases.solutiontype.grey
+              'name': 'Economic and Finance',
+              'value': this.cs.resultCases.solutiontype.economicAndFinance
             },
             {
-              'name': 'Technological',
-              'value': this.cs.resultCases.solutiontype.technological
+              'name': 'Physical and Technological',
+              'value': this.cs.resultCases.solutiontype.physicalAndTechnological
             },
             {
-              'name': 'Non-technological',
-              'value': this.cs.resultCases.solutiontype.nontechnological
+              'name': 'Nature Based Solutions and Ecosystem-based Approaches',
+              'value': this.cs.resultCases.solutiontype.natureBasedSolutionsAndEcosystemBasedApproaches
+            },
+            {
+              'name': 'Knowledge and Behavioural change',
+              'value': this.cs.resultCases.solutiontype.knowledgeAndBehaviouralChange
             }
+  
           ]
         }
       ];
-      /*
-      this.solutionGoalGraph = [
-        {
-          'name': 'Solution Goal',
-          'series': [
-            {
-              'name': '1 - Flood Prevention ',
-              'value': this.cs.resultCases.solutionGoal.t01
-            },
-            {
-              'name': '2 - Nature conservation',
-              'value': this.cs.resultCases.solutionGoal.t02
-            },
-            {
-              'name': '3 - Pollution reduction ',
-              'value': this.cs.resultCases.solutionGoal.t03
-            },
-            {
-              'name': '4 - Hydrological balance',
-              'value': this.cs.resultCases.solutionGoal.t04
-            },
-            {
-              'name': '5 - Advocacy and awareness',
-              'value': this.cs.resultCases.solutionGoal.t05
-            },
-            {
-              'name': '6 - Economic protection ',
-              'value': this.cs.resultCases.solutionGoal.t06
-            },
-            {
-              'name': '7 - Community engagement',
-              'value': this.cs.resultCases.solutionGoal.t07
-            },
-            {
-              'name': '8 - Sustainable land use',
-              'value': this.cs.resultCases.solutionGoal.t08
-            },
-            {
-              'name': '9 - Biomass management',
-              'value': this.cs.resultCases.solutionGoal.t09
-            },
-            {
-              'name': '10 - Social protection',
-              'value': this.cs.resultCases.solutionGoal.t10
-            }
-          ]
-        }
-      ];
-      */
 
       this.ecosystemGraph = [
         {
-          'name': 'ecosystem',
+          'name': 'Supported Ecosystem Services',
           'series': [
             {
-              'name': 'Water Retention',
-              'value': this.cs.resultCases.trendWatch.w01
+              'name': ' Regulation and Maintainance Services',
+              'value': this.cs.resultCases.ecosystemServices.ec01
             },
             {
-              'name': 'Biodiversity Conservation',
-              'value': this.cs.resultCases.trendWatch.w02
+              'name': 'Provisioning Services',
+              'value': this.cs.resultCases.ecosystemServices.ec17
             },
             {
-              'name': 'Pollution Control',
-              'value': this.cs.resultCases.trendWatch.w03
-            },
-            {
-              'name': 'Flood Control',
-              'value': this.cs.resultCases.trendWatch.w04
-            },
-            {
-              'name': 'Sustainable Forestry',
-              'value': this.cs.resultCases.trendWatch.w05
+              'name': 'Cultural Services',
+              'value': this.cs.resultCases.ecosystemServices.ec20
             }
+  
           ]
         }
       ];
 
-      this.trendGraph = [
+      this.dataGraph = [
         {
           'name': 'Data Categories',
           'series': [
             {
-              'name': 'Geospatial Data',
-              'value': this.cs.resultCases.emerging.e01
+              'name': 'Meteorological Geographical Features',
+              'value': this.cs.resultCases.dataCategories.d01
             },
             {
-              'name': 'Hydrological Data',
-              'value': this.cs.resultCases.emerging.e02
+              'name': 'Environmental Monitoring Facilities',
+              'value': this.cs.resultCases.dataCategories.d02
             },
             {
-              'name': 'Meteorological Data',
-              'value': this.cs.resultCases.emerging.e03
+              'name': 'Population Distribution - Demography',
+              'value': this.cs.resultCases.dataCategories.d03
             },
             {
-              'name': 'Statistical and Population Data',
-              'value': this.cs.resultCases.emerging.e04
+              'name': 'Atmospheric Conditions',
+              'value': this.cs.resultCases.dataCategories.d04
             },
             {
-              'name': 'Land Use Data',
-              'value': this.cs.resultCases.emerging.e05
+              'name': 'Natural Risk Zones',
+              'value': this.cs.resultCases.dataCategories.d05
+            },
+            {
+              'name': 'Transport Networks',
+              'value': this.cs.resultCases.dataCategories.d06
+            },
+            {
+              'name': 'Protected Sites',
+              'value': this.cs.resultCases.dataCategories.d07
+            },
+            {
+              'name': 'Orthoimagery',
+              'value': this.cs.resultCases.dataCategories.d08
+            },
+            {
+              'name': 'Elevation',
+              'value': this.cs.resultCases.dataCategories.d09
+            },
+            {
+              'name': 'Land Use',
+              'value': this.cs.resultCases.dataCategories.d10
+            },
+            {
+              'name': 'Land Cover',
+              'value': this.cs.resultCases.dataCategories.d11
+            },
+            {
+              'name': 'Geology',
+              'value': this.cs.resultCases.dataCategories.d12
+            },
+            {
+              'name': 'Hydrography',
+              'value': this.cs.resultCases.dataCategories.d13
+            },
+            {
+              'name': 'Soil',
+              'value': this.cs.resultCases.dataCategories.d14
             },
           ]
         }
       ];
-       /*
-      this.pvGraph = [
-        {
-          'name': 'Public value type',
-          'series': [
-            {
-              'name': 'Operational',
-              'value': this.cs.resultCases.publicValue.p01
-            },
-            {
-              'name': 'Political',
-              'value': this.cs.resultCases.publicValue.p06
-            },
-            {
-              'name': 'Social',
-              'value': this.cs.resultCases.publicValue.p13
-            }
-          ]
-        }
-      ];
-      */
+
       this.hazardGraph = [
         {
           'name': 'Region Hazards',
@@ -480,72 +397,63 @@ export class FiltersMenuComponent implements OnInit, AfterViewInit {
       ];
       this.toolsGraph = [
         {
-          'name': 'tools/platforms',
+          'name': 'Tools/Platforms',
           'series': [
             {
-              'name': 'Web Application',
-              'value': this.cs.resultCases.tools.tp01
-            },
-            {
-              'name': 'Data Portal',
-              'value': this.cs.resultCases.tools.tp02
-            },
-            {
               'name': 'Mapping and Visualization Tools',
-              'value': this.cs.resultCases.tools.tp03
+              'value': this.cs.resultCases.toolsPlatforms.tp01
             },
             {
-              'name': 'Modeling Tools',
-              'value': this.cs.resultCases.tools.tp04
+              'name': 'Software and Modeling Tools',
+              'value': this.cs.resultCases.toolsPlatforms.tp07
             },
             {
-              'name': 'Other Tools',
-              'value': this.cs.resultCases.tools.tp05
+              'name': 'Planning and Management Documents',
+              'value': this.cs.resultCases.toolsPlatforms.tp14
+            },
+            {
+              'name': 'Data Management Platforms',
+              'value': this.cs.resultCases.toolsPlatforms.tp17
             },
           ]
         }
       ];
-      this.goalGraph = [
+      this.solutionGoalGraph = [
         {
           'name': 'Solution Goals',
           'series': [
             {
-              'name': 'Flood Prevention',
-              'value': this.cs.resultCases.solution.s01
+              'name': '1 - Water Management and Flood Prevention',
+              'value': this.cs.resultCases.solutionGoal.s01
             },
             {
-              'name': 'Nature Conservation',
-              'value': this.cs.resultCases.solution.s02
+              'name': '2 - Community Engagement and Advocacy',
+              'value': this.cs.resultCases.solutionGoal.s02
             },
             {
-              'name': 'Pollution Reduction ',
-              'value': this.cs.resultCases.solution.s03
+              'name': '3 - Nature Conservation and Biodiversity',
+              'value': this.cs.resultCases.solutionGoal.s03
             },
             {
-              'name': 'Hydrological Balance',
-              'value': this.cs.resultCases.solution.s04
+              'name': '4 - Climate Risk Identification and Adaptation',
+              'value': this.cs.resultCases.solutionGoal.s04
             },
             {
-              'name': 'Advocacy and Awareness',
-              'value': this.cs.resultCases.solution.s05
+              'name': '5 - Pollution Reduction and Environmental Enhancement',
+              'value': this.cs.resultCases.solutionGoal.s05
             },
             {
-              'name': 'Economic Protection ',
-              'value': this.cs.resultCases.solution.s06
+              'name': '6 - Forest Fire Reduction and Management',
+              'value': this.cs.resultCases.solutionGoal.s06
             },
             {
-              'name': 'Community Engagement',
-              'value': this.cs.resultCases.solution.s07
+              'name': '7 - Urban Planning',
+              'value': this.cs.resultCases.solutionGoal.s07
             },
             {
-              'name': 'Sustainable Land Use',
-              'value': this.cs.resultCases.solution.s08
+              'name': '8 - Other Solutions',
+              'value': this.cs.resultCases.solutionGoal.s08
             },
-            {
-              'name': 'Biomass Management',
-              'value': this.cs.resultCases.solution.s09
-  
-            }
           ]
         }
       ];
@@ -560,38 +468,77 @@ export class FiltersMenuComponent implements OnInit, AfterViewInit {
     this.view = [width - 15, 50];
   }
 
-/*
+
   tickSubgroups(i) {
 
-    if (i > 0 && i <= 4) {
+    if (i > 0 && i <= 5) {
       // tslint:disable-next-line:max-line-length
-      this.tas.publicValue[0].active = this.tas.publicValue[1].active && this.tas.publicValue[2].active && this.tas.publicValue[3].active && this.tas.publicValue[4].active;
-    } else if (i > 5 && i <= 11) {
+      this.tas.toolsPlatforms[0].active = this.tas.toolsPlatforms[1].active && this.tas.toolsPlatforms[2].active && this.tas.toolsPlatforms[3].active && this.tas.toolsPlatforms[4].active && this.tas.toolsPlatforms[5].active;
+    } else if (i > 6 && i <= 12) {
       // tslint:disable-next-line:max-line-length
-      this.tas.publicValue[5].active = this.tas.publicValue[6].active && this.tas.publicValue[7].active && this.tas.publicValue[8].active && this.tas.publicValue[9].active && this.tas.publicValue[10].active && this.tas.publicValue[11].active;
-    } else if (i > 12 && i <= 17) {
+      this.tas.toolsPlatforms[6].active = this.tas.toolsPlatforms[7].active && this.tas.toolsPlatforms[8].active && this.tas.toolsPlatforms[9].active && this.tas.toolsPlatforms[10].active && this.tas.toolsPlatforms[11].active && this.tas.toolsPlatforms[12].active;
+    } else if (i > 13 && i <= 15) {
       // tslint:disable-next-line:max-line-length
-      this.tas.publicValue[12].active = this.tas.publicValue[13].active && this.tas.publicValue[14].active && this.tas.publicValue[15].active && this.tas.publicValue[16].active && this.tas[17].active;
+      this.tas.toolsPlatforms[13].active = this.tas.toolsPlatforms[14].active && this.tas.toolsPlatforms[15].active;
+    } else if (i > 16 && i <= 20) {
+      // tslint:disable-next-line:max-line-length
+      this.tas.toolsPlatforms[16].active = this.tas.toolsPlatforms[17].active && this.tas.toolsPlatforms[18].active && this.tas.toolsPlatforms[19].active && this.tas.toolsPlatforms[20].active;
     }
+    
 
-    if (i === 0 || i === 5 || i === 12) {
+    if (i === 0 || i === 6 || i === 13 || i === 16) {
       let sectionActive = false;
-      this.tas.publicValue.forEach(pv => {
-        if (pv.section && pv.active) {
+      this.tas.toolsPlatforms.forEach((too, index) => {
+        if (too.section && too.active) {
           sectionActive = true;
-        } else if (pv.section && !pv.active) {
+        } else if (too.section && !too.active) {
           sectionActive = false;
-        } else if (!pv.section && sectionActive) {
-          pv.active = true;
-        } else if (!pv.section && !sectionActive) {
-          pv.active = false;
+        } else if (!too.section && sectionActive) {
+          too.active = true;
+        } else if (!too.section && !sectionActive) {
+          too.active = false;
         }
       });
     }
-
-    this.cs.filterByPublicValue();
+  
+    this.cs.filterByToolsPlatforms();
   }
-*/
+  ticksSubgroups(i) {
+
+    if (i > 0 && i <= 15) {
+      // tslint:disable-next-line:max-line-length
+      this.tas.ecosystemServices[0].active = this.tas.ecosystemServices[1].active && this.tas.ecosystemServices[2].active && this.tas.ecosystemServices[3].active && this.tas.ecosystemServices[4].active && this.tas.ecosystemServices[5].active && this.tas.ecosystemServices[6].active
+      && this.tas.ecosystemServices[7].active && this.tas.ecosystemServices[8].active && this.tas.ecosystemServices[9].active && this.tas.ecosystemServices[10].active && this.tas.ecosystemServices[11].active && this.tas.ecosystemServices[12].active && this.tas.ecosystemServices[13].active
+      && this.tas.ecosystemServices[14].active && this.tas.ecosystemServices[15].active;
+    } else if (i > 16 && i <= 18) {
+      // tslint:disable-next-line:max-line-length
+      this.tas.ecosystemServices[16].active = this.tas.ecosystemServices[17].active && this.tas.ecosystemServices[18].active;
+    } else if (i > 19 && i <= 21) {
+      // tslint:disable-next-line:max-line-length
+      this.tas.ecosystemServices[19].active = this.tas.ecosystemServices[20].active && this.tas.ecosystemServices[21].active;
+    }
+    
+
+    if (i === 0 || i === 16 || i === 19) {
+      let sectionActive = false;
+      this.tas.ecosystemServices.forEach((eco, index) => {
+        if (eco.section && eco.active) {
+          sectionActive = true;
+        } else if (eco.section && !eco.active) {
+          sectionActive = false;
+        } else if (!eco.section && sectionActive) {
+          eco.active = true;
+        } else if (!eco.section && !sectionActive) {
+          eco.active = false;
+        }
+      });
+    }
+  
+    this.cs.filterByToolsPlatforms();
+  }
+
+
+
   copyURLConfig(selCase = null, pinCase = null, mapBounds = null, mapZoom = null) {
     const selBox = document.createElement('textarea');
     selBox.style.position = 'fixed';
@@ -647,35 +594,37 @@ export class FiltersMenuComponent implements OnInit, AfterViewInit {
       });
     }
 
-    if (this.tas.solutiontype.naturebased) {
-      params += 'solutiontype=naturebased&';
-    } else if (this.tas.solutiontype.grey) {
-      params += 'solutiontype=grey&';
-    } else if (this.tas.solutiontype.technological) {
-      params += 'solutiontype=technological&';
-    } else if (this.tas.solutiontype.nontechnological) {
-      params += 'solutiontype=nontechnological&';
+    if (this.tas.solutiontype.governanceAndInstitutional) {
+      params += 'solutiontype=governanceAndInstitutional&';
+    } else if (this.tas.solutiontype.economicAndFinance) {
+      params += 'solutiontype=economicAndFinance&';
+    } else if (this.tas.solutiontype.physicalAndTechnological) {
+      params += 'solutiontype=physicalAndTechnological&';
+    } else if (this.tas.solutiontype.natureBasedSolutionsAndEcosystemBasedApproaches) {
+      params += 'solutiontype=natureBasedSolutionsAndEcosystemBasedApproaches&';
+    }else if (this.tas.solutiontype.knowledgeAndBehaviouralChange) {
+      params += 'solutiontype=knowledgeAndBehaviouralChange&';
     }
     
 
-    this.tas.ecosystemServices.forEach(tec => {
-      if (tec.active) {
-        params += 'tec=' + tec.result + '&';
+    this.tas.ecosystemServices.forEach(eco => {
+      if (eco.active) {
+        params += 'eco=' + eco.result + '&';
       }
     });
-    this.tas.dataCategories.forEach(em => {
-      if (em.active) {
-        params += 'em=' + em.result + '&';
+    this.tas.dataCategories.forEach(da => {
+      if (da.active) {
+        params += 'da=' + da.result + '&';
       }
     });
-    this.tas.toolsPlatforms.forEach(to => {
-      if (to.active) {
-        params += 'to=' + to.result + '&';
+    this.tas.toolsPlatforms.forEach(too => {
+      if (too.active) {
+        params += 'too=' + too.result + '&';
       }
     });
-    this.tas.natureSolution.forEach(na => {
-      if (na.active) {
-        params += 'na=' + na.result + '&';
+    this.tas.solutionGoals.forEach(sol => {
+      if (sol.active) {
+        params += 'sol=' + sol.result + '&';
       }
     });
   

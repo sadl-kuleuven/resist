@@ -826,6 +826,9 @@ DK,DK032,Sydjylland,Sydjylland,"4","2","1",Denmark
 DK,DK04,Midtjylland,Midtjylland,"0",,"0",Denmark
 DK,DK041,Vestjylland,Vestjylland,"4","3","1",Denmark
 DK,DK042,Østjylland,Østjylland,"4","2","1",Denmark
+DK,DK0411,Bøvlingbjerg,Bøvlingbjerg,"4","3","1",Denmark
+DK,DK0421,Juelsminde,Juelsminde,"4","2","1",Denmark
+DK,DK0422,Endelave,Endelave,"4","2","1",Denmark
 DK,DK05,Nordjylland,Nordjylland,"0",,"0",Denmark
 DK,DK050,Nordjylland,Nordjylland,"4","3","1",Denmark
 EE,EE,Eesti,Eesti,"0",,"0",Estonia
@@ -866,6 +869,8 @@ EL,EL512,Xanthi,Ξάνθη,"2","2","1",Greece
 EL,EL513,Rodopi,Ροδόπη,"2","3","1",Greece
 EL,EL514,Drama,Δράμα,"2","2","2",Greece
 EL,EL515,"Thasos, Kavala","Θάσος, Καβάλα","3","3","1",Greece
+EL,EL5121,Laspias basin,Lekáni Laspías,"2","2","1",Greece
+EL,EL5122,Kosynthos basin,Lekáni Kósynthou,"2","2","1",Greece
 EL,EL52,Kentriki Makedonia,Κεντρική Μακεδονία,"0",,"0",Greece
 EL,EL521,Imathia,Ημαθία,"2","2","1",Greece
 EL,EL522,Thessaloniki,Θεσσαλονίκη,"2","1","1",Greece
@@ -953,12 +958,16 @@ ES,ES425,Toledo,Toledo,"4","2","3",Spain
 ES,ES43,Extremadura,Extremadura,"0",,"0",Spain
 ES,ES431,Badajoz,Badajoz,"4","2","3",Spain
 ES,ES432,Cáceres,Cáceres,"4","2","3",Spain
+ES,ES4321,Sierra de Gata,Sierra de Gata,"4","2","3",Spain
+ES,ES4322,Las Hurdes,Las Hurdes,"4","2","3",Spain
 ES,ES5,Este,Este,"0",,"0",Spain
 ES,ES51,Cataluña,Cataluña,"0",,"0",Spain
 ES,ES511,Barcelona,Barcelona,"2","1","1",Spain
 ES,ES512,Girona,Girona,"2","2","1",Spain
 ES,ES513,Lleida,Lleida,"2","2","3",Spain
 ES,ES514,Tarragona,Tarragona,"2","2","1",Spain
+ES,ES5111,Terrassa Municipality,Terrassa Municipality,"2","1","1",Spain
+ES,ES5121,Blanes Municipality,Blanes Municipality,"2","2","1",Spain
 ES,ES52,Comunitat Valenciana,Comunitat Valenciana,"0",,"0",Spain
 ES,ES521,Alicante/Alacant,Alicante/Alacant,"2","1","1",Spain
 ES,ES522,Castellón/Castelló,Castellón/Castelló,"2","2","1",Spain
@@ -1055,9 +1064,15 @@ FR,FRD1,Basse-Normandie,Basse-Normandie,"0",,"0",France
 FR,FRD11,Calvados,Calvados,"4","2","1",France
 FR,FRD12,Manche,Manche,"4","3","1",France
 FR,FRD13,Orne,Orne,"4","3","3",France
+FR,FRD121,Saint-Lô,Saint-Lô,"4","3","1",France
+FR,FRD111,Cœur de Nacre Business Park,Cœur de Nacre Business Park,"4","2","1",France
+FR,FRD112,Estuaire de l'Orne,Estuaire de l'Orne,"4","2","1",France
+FR,FRD113,Community of communes Cingal-Suisse Normandy,Community of communes Cingal-Suisse Normandy,"4","2","1",France
 FR,FRD2,Haute-Normandie,Haute-Normandie,"0",,"0",France
 FR,FRD21,Eure,Eure,"4","3","1",France
 FR,FRD22,Seine-Maritime,Seine-Maritime,"4","2","1",France
+FR,FRD221,Barentin,Barentin,"4","2","1",France
+FR,FRD222,Saâne Valley,Saâne Valley,"4","2","1",France
 FR,FRE,Hauts-de-France,Hauts-de-France,"0",,"0",France
 FR,FRE1,Nord-Pas de Calais,Nord-Pas de Calais,"0",,"0",France
 FR,FRE11,Nord,Nord,"4","1","1",France
@@ -1491,6 +1506,8 @@ NO,NO060,Trøndelag,Trøndelag,"2","2","1",Norway
 NO,NO07,Nord-Norge,Nord-Norge,"0",,"0",Norway
 NO,NO071,Nordland,Nordland,"3","3","1",Norway
 NO,NO074,Troms og Finnmark,Troms og Finnmark,"3","3","1",Norway
+NO,NO0712,Vesterålen,Vesterålen,"3","3","1",Norway
+NO,NO0715,Lofoten,Lofoten,"3","3","1",Norway
 NO,NO08,Oslo og Viken,Oslo og Viken,"0","0","0",Norway
 NO,NO081,Oslo,Oslo,"3","1","1",Norway
 NO,NO082,Viken,Viken,"2","2","1",Norway

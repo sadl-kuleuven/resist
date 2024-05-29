@@ -2026,11 +2026,11 @@ $wt.extend({
                     "status": true
                 },
                 "testing": {
-                    "url": "https:\/\/webanalytics.acc.fpfis.tech.ec.europa.eu\/",
+                    "url": "https:\/\/webanalytics.acc.fpfis.cat.ec.europa.eu\/",
                     "status": true
                 },
                 "awstesting": {
-                    "url": "https:\/\/webanalytics.acc.fpfis.tech.ec.europa.eu\/",
+                    "url": "https:\/\/webanalytics.acc.fpfis.cat.ec.europa.eu\/",
                     "status": true
                 },
                 "optin": ["ema.europa.eu"]
