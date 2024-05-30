@@ -12,9 +12,9 @@
     margin-left: 10px;
 }
 .btn-custom {
-    background-color: #0453a2; 
+    background-color: #a6cef5; 
     border-color: #004488; 
-    color: #ffffff; 
+    color: #090909; 
 }
 
 .btn-custom:hover {
@@ -27,55 +27,57 @@
 }
 
 .color1 {
-    color: #61751a;
+    color: #295aa8;
 }
 
 .color2 {
-    color: #BB3E03;
+    color: #d1b762;
 }
 
 .color3 {
-    color: #CA6702;
+    color: #cb5c0d;
 }
 
 .color4 {
-    color: #EE9B00;
+    color: #e01010;
 }
 
 .color5 {
-    color: #E9D8A6;
+    color: #4e11a9;
 }
 
 .color6 {
-    color: #94D2BD;
+    color: #1b252e;
 }
 
 .color7 {
-    color: #0A9396;
+    color: #b11dc4;
 }
 
 .color8 {
-    color: #cb2d09;
+    color: #d18776;
 }
 
 .color9 {
-    color: #1accae;
+    color: #999dae;
 }
 
 .color10 {
-    color: #002229;
+    color: #2d7887;
 }
 .color11{
-    color:aqua;
+    color: #20e20b;
 }
 .color12{
-    color:#61751a;
+    color:#4e6657;
 }
 .color13{
-    color:#11a748;
+    color:#dbde10;
 }
 .color14{
-    color:rgb(181, 32, 148);
+    color:#c5d4d7;
 }
+
+
 
 

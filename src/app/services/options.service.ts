@@ -57,16 +57,16 @@ export class OptionsService {
   ];
 
   dataCategories = [
-    { name: 'Meteorological Geographical Features', active: false, icon: 'cloud', result: 'd01', class: 'color1' },
-    { name: 'Environmental Monitoring Facilities', active: false, icon: 'desktop', result: 'd02', class: 'color6' },
-    { name: 'Population Distribution - Demography', active: false, icon: 'users', result: 'd03', class: 'color5' },
-    { name: 'Atmospheric Conditions', active: false, icon: 'thermometer-empty', result: 'd04', class: 'color4' },
-    { name: 'Natural Risk Zones', active: false, icon: 'info ', result: 'd05', class: 'color2' },
-    { name: 'Transport Networks', active: false, icon: 'road', result: 'd06', class: 'color3' },
-    { name: 'Protected Sites', active: false, icon: 'map-marker', result: 'd07', class: 'color7' },
-    { name: 'Orthoimagery', active: false, icon: 'file-image-o', result: 'd08', class: 'color8' },
-    { name: 'Elevation', active: false, icon: 'area-chart', result: 'd09', class: 'color9' },
-    { name: 'Land Use', active: false, icon: 'th-large', result: 'd10', class: 'color10' },
+    { name: 'Meteorological Geographical Features', active: false, icon: 'cloud', result: 'd01', class: 'color6' },
+    { name: 'Environmental Monitoring Facilities', active: false, icon: 'desktop', result: 'd02', class: 'color7' },
+    { name: 'Population Distribution - Demography', active: false, icon: 'users', result: 'd03', class: 'color8' },
+    { name: 'Atmospheric Conditions', active: false, icon: 'thermometer-empty', result: 'd04', class: 'color9' },
+    { name: 'Natural Risk Zones', active: false, icon: 'info ', result: 'd05', class: 'color10' },
+    { name: 'Transport Networks', active: false, icon: 'road', result: 'd06', class: 'color1' },
+    { name: 'Protected Sites', active: false, icon: 'map-marker', result: 'd07', class: 'color2' },
+    { name: 'Orthoimagery', active: false, icon: 'file-image-o', result: 'd08', class: 'color3' },
+    { name: 'Elevation', active: false, icon: 'area-chart', result: 'd09', class: 'color4' },
+    { name: 'Land Use', active: false, icon: 'th-large', result: 'd10', class: 'color5' },
     { name: 'Land Cover', active: false, icon: 'globe', result: 'd11', class: 'color11' },
     { name: 'Geology', active: false, icon: 'map', result: 'd12', class: 'color12' },
     { name: 'Hydrography', active: false, icon: 'tint', result: 'd13', class: 'color13' },
@@ -110,14 +110,14 @@ export class OptionsService {
     { name: 'Sensor network', active: false, section: false, result: 'tp21'}
   ];
   solutionGoals =[
-    { name: '1 - Water Management and Flood Prevention', number: 1, active: false, icon: 'bars', result: 's01', class: 'color1' },
-    { name: '2 - Community Engagement and Advocacy', number: 2, active: false, icon: 'leaf', result: 's02', class: 'color2' },
-    { name: '3 - Nature Conservation and Biodiversity', number: 3, active: false, icon: 'fire', result: 's03', class: 'color3' },
-    { name: '4 - Climate Risk Identification and Adaptation', number: 4, active: false, icon: 'balance-scale', result: 's04', class: 'color4' },
-    { name: '5 - Pollution Reduction and Environmental Enhancement', number: 5, active: false, icon: 'eye', result: 's05', class: 'color5' },
-    { name: '6 - Forest Fire Reduction and Management', number: 6, active: false, icon: 'eur', result: 's06', class: 'color6' },
-    { name: '7 - Urban Planning', number: 7, active: false, icon: 'users', result: 's07', class: 'color7' },
-    { name: '8 - Other Solutions', number: 8, active: false, icon: 'square', result: 's08', class: 'color8' }
+    { name: '1 - Water Management and Flood Prevention', number: 1, active: false, icon: 'bars', result: 's01', class: 'color6' },
+    { name: '2 - Community Engagement and Advocacy', number: 2, active: false, icon: 'leaf', result: 's02', class: 'color7' },
+    { name: '3 - Nature Conservation and Biodiversity', number: 3, active: false, icon: 'fire', result: 's03', class: 'color8' },
+    { name: '4 - Climate Risk Identification and Adaptation', number: 4, active: false, icon: 'balance-scale', result: 's04', class: 'color9' },
+    { name: '5 - Pollution Reduction and Environmental Enhancement', number: 5, active: false, icon: 'eye', result: 's05', class: 'color10' },
+    { name: '6 - Forest Fire Reduction and Management', number: 6, active: false, icon: 'eur', result: 's06', class: 'color1' },
+    { name: '7 - Urban Planning', number: 7, active: false, icon: 'users', result: 's07', class: 'color2' },
+    { name: '8 - Other Solutions', number: 8, active: false, icon: 'square', result: 's08', class: 'color3' }
     
   ];
 

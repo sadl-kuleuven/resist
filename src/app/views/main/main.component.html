@@ -4,12 +4,17 @@
 
         <div class="row resist-header">
             <div class="col-md-10">
-                <h3>Information on Climate Change Adaptation Solutions, Tools and Technologies <br> Collection of Case Studies
-                </h3>
                 <br>
-                <h4 style="margin-top: -5px; margin-bottom: 20px;"> <a
-                        href="https://resist-project.eu/"
-                        target="_blank" rel="noopener noreferrer">RESIST</a> Visualisation Tool of CCA Solutions</h4>
+                <h3 style="margin-bottom: 40px;">
+                    <span style="font-weight: bold; color: blue;">
+                        <a href="https://resist-project.eu/" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+                            RESIST
+                        </a>
+                    </span> Visualization Tool: Overview ofInnovative Climate Change Adaptation
+                    <br>
+                    Solutions, Data, and Tools/Platforms
+                </h3>
+               
             </div>
             <div class="col-md-2 text-right" style="margin-top: 40px !important;">
                 <ng-template #tipContent>
@@ -185,7 +190,7 @@
                             <!-- Data Categories -->
                             <p *ngIf="cs.selectedCase.data_categories.length > 0" class="label-description">Data Categories</p>
                             <span *ngFor="let dat of cs.selectedCase.data_categories">
-                                <span placement="bottom" class="label label-default label-icon">
+                                <span placement="bottom" class="label label-icon label-warning">
                                       <i class="fa fa-{{iconsData[dat]}}"></i>{{dat}}
                                 </span>
                             </span>
@@ -446,7 +451,7 @@
                     <p *ngIf="pinnedCase.data_categories.length > 0" class="label-description">Data Categories
                     </p>
                     <span *ngFor="let dat of pinnedCase.data_categories">
-                        <span placement="bottom" class="label label-danger label-icon"><i
+                        <span placement="bottom" class="label label-icon label-warning"><i
                                 class="fa fa-{{iconsData[dat]}}"></i>{{dat}}</span>
                     </span>
 
@@ -456,7 +461,7 @@
         <div class="row">
 
             <div *ngIf="cs.allFilteredCases" class="col-md-3 mt-4 resist-filters">
-                Total results: {{cs.allFilteredCases.length}}
+                <span style="font-weight: bold;">Total results: {{cs.allFilteredCases.length}}</span>
                 <app-filters-menu></app-filters-menu>
             </div>
             <div class="col-md-9">
@@ -488,19 +493,19 @@
                             </span>
                         </span>
                         <span *ngFor="let eco of tas.ecosystemServices">
-                            <span *ngIf="eco.active" class="label label-secondary label-close"
+                            <span *ngIf="eco.active" class="label label-warning label-close"
                                 (click)="eco.active = false; cs.filterByEcosystemService()">{{eco.name}}
                                 <i class="nc-icon nc-simple-remove"></i> </span>
                         </span>
                         <span *ngFor="let da of tas.dataCategories">
-                            <span *ngIf="da.active" class="label label-danger label-close"
+                            <span *ngIf="da.active" class="label label-warning label-close"
                                 (click)="da.active = false; cs.filterByDataCategory()">
                                 <i class="fa fa-{{iconsData[da.name]}}"></i>
                                 {{da.name}}
                                 <i class="nc-icon nc-simple-remove"></i> </span>
                         </span>
                         <span *ngFor="let too of tas.toolsPlatforms">
-                            <span *ngIf="too.active" class="label label-secondary label-close"
+                            <span *ngIf="too.active" class="label label-warning label-close"
                                 (click)="too.active = false; cs.filterByToolsPlatforms()">{{too.name}}
                                 <i class="nc-icon nc-simple-remove"></i> </span>
                         </span>
@@ -558,11 +563,16 @@
                                     
 
                                     <div class="col-4">
-
                                         <span *ngFor="let dat of c.data_categories">
-                                            <span placement="bottom" ngbTooltip="{{dat}}"
-                                                class="label label-default label-icon"><i
-                                                    class="fa fa-{{iconsData[dat]}}"></i></span>
+                                            <span placement="bottom" ngbTooltip="{{dat}}" class="label label-default label-icon">
+                                                <i class="fa fa-{{iconsData[dat]}}"></i>
+                                            </span>
+                                        </span>
+                                        <span *ngFor="let sol of c.solution_goals">
+                                            <span placement="bottom" ngbTooltip="{{tas.solutionGoalExpanded[sol.toString()]}}"
+                                                class="label label-warning label-icon" style="width: 25px; height: 25px; display: inline-block; text-align: center; line-height: 25px; border-radius: 50%;">
+                                                {{sol}}
+                                            </span>
                                         </span>
                                     </div>
  
@@ -571,25 +581,17 @@
                                             slice:0:120}}
                                             [...]</p>
                                     </div> 
-                                    <div class="col-4">
-                                      <span *ngFor="let sol of c.solution_goals">
-                                        <span placement="bottom" 
-                                            ngbTooltip="{{tas.solutionGoalExpanded[sol.toString()]}}"
-                                            class="label label-warning label-icon">{{sol}}</span>
-                                      </span>
-                                    </div>
-                                    <div class="col-12">
+                                    <div class="col-8">
                                         <!--    <p class="label-description">Value:</p>  -->
                                         <span *ngIf="c.ecosystem_service[0].length > 0"
-                                             class="label label-secondary">Regulation and Maintenance Services</span>
+                                             class="label label-secondary" style="font-size: 10px;">Regulation and Maintenance Services</span>
                                         <span *ngIf="c.ecosystem_service[1].length > 0"
-                                            class="label label-secondary">Provisioning Services</span>
+                                            class="label label-secondary"style="font-size: 10px;">Provisioning Services</span>
                                         <span *ngIf="c.ecosystem_service[2].length > 0"
-                                            class="label label-secondary">Cultural Services</span>
-    
-                                        
+                                            class="label label-secondary"style="font-size: 10px;">Cultural Services</span>
                                     </div>  
-                                    <div class="col-5">
+
+                                    <div class="col-4">
                                         <span *ngIf="c.region_hazard_level === 1"
                                         class="label label-secondary" >Flood</span>
                                         <span *ngIf="c.region_hazard_level === 2"
@@ -599,6 +601,8 @@
                                         <span *ngIf="c.region_hazard_level === 4"
                                         class="label label-secondary">Heat Stress</span>
                                     </div>
+
+                                    
                                     <!--
                                     <div class="col-12">
                                         <p class="label-description">Value:</p> 

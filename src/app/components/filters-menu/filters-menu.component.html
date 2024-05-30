@@ -7,6 +7,9 @@
 </div>
 
 
+
+
+
 <div>
     <button type="button" class="btn btn-default btn-sm btn-link  btn-icon" (click)="regiHazard.toggle()"
         [attr.aria-expanded]="!tas.regiHazardVisible" placement="bottom"
@@ -36,7 +39,7 @@
             <span class="form-check-sign"></span>
             <i class="fa fa-circle color1"> </i>
             Flood
-            <!--  (~ TLR1 - TLR2) --> ({{cs.resultCases.hazardss.r01}})
+             ({{cs.resultCases.hazardss.r01}})
 
 
         </label>
@@ -46,9 +49,9 @@
             <input class="form-check-input" type="radio" name="regiHazardRadios" id="regiHazardRadios2" value="2"
                 (change)="cs.filterByRegionHazard(2)" [(checked)]="tas.hazardss.r02">
             <span class="form-check-sign"></span>
-            <i class="fa fa-circle color4"> </i>
+            <i class="fa fa-circle color2"> </i>
            Drought
-            <!-- (~ TLR3 - TLR4)  -->
+           
             ({{cs.resultCases.hazardss.r02}})
 
         </label>
@@ -58,9 +61,9 @@
             <input class="form-check-input" type="radio" name="regiHazardRadios" id="regiHazardRadios3" value="3"
                 (change)="cs.filterByRegionHazard(3)" [(checked)]="tas.hazardss.r03">
             <span class="form-check-sign"></span>
-            <i class="fa fa-circle color5"> </i>
+            <i class="fa fa-circle color3"> </i>
             Wildfire
-            <!-- (~ TLR5 - TLR7) --> ({{cs.resultCases.hazardss.r03}})
+             ({{cs.resultCases.hazardss.r03}})
         </label>
     </div>
     <div class="form-check-radio">
@@ -68,9 +71,9 @@
             <input class="form-check-input" type="radio" name="regiHazardRadios" id="regiHazardRadios4" value="4"
                 (change)="cs.filterByRegionHazard(4)" [(checked)]="tas.hazardss.r04">
             <span class="form-check-sign"></span>
-            <i class="fa fa-circle color6"> </i>
+            <i class="fa fa-circle color4"> </i>
             Heat Stress
-            <!-- (~ TLR8 - TLR9) --> ({{cs.resultCases.hazardss.r04}})
+            ({{cs.resultCases.hazardss.r04}})
         </label>
     </div>
 </div>
@@ -107,7 +110,7 @@
                 (change)="cs.filterBySolutionType('Governance and Institutional')" [(checked)]="tas.solutiontype.governanceAndInstitutional ">
 
             <span class="form-check-sign"></span>
-            <i class="fa fa-circle color1"> </i>
+            <i class="fa fa-circle color6"> </i>
             Governance and Institutional ({{cs.resultCases.solutiontype.governanceAndInstitutional}})
         </label>
     </div>
@@ -117,7 +120,7 @@
                 (change)="cs.filterBySolutionType('Economic and Finance')" [(checked)]="tas.solutiontype.economicAndFinance">
 
             <span class="form-check-sign"></span>
-            <i class="fa fa-circle color5"> </i>
+            <i class="fa fa-circle color7"> </i>
             Economic and Finance ({{cs.resultCases.solutiontype.economicAndFinance}})
         </label>
     </div>
@@ -232,7 +235,7 @@
 
     <div class="row right-chart">
         <ngx-charts-bar-horizontal-stacked *ngIf="!tas.ecosystemVisible" [view]="view" [results]="ecosystemGraph"
-            [scheme]="colorScheme10" (select)="onSelect($event)">
+            [scheme]="colorScheme5" (select)="onSelect($event)">
         </ngx-charts-bar-horizontal-stacked>
         <br>
     </div>
@@ -243,8 +246,8 @@
                  (change)="ticksSubgroups(i);">
             <span class="form-check-sign"></span>
             <i *ngIf="eco.result == 'ec01'" class="fa fa-circle color1"> </i>
-            <i *ngIf="eco.result == 'ec17'" class="fa fa-circle color4"> </i>
-            <i *ngIf="eco.result == 'ec20'" class="fa fa-circle color5"> </i>
+            <i *ngIf="eco.result == 'ec17'" class="fa fa-circle color2"> </i>
+            <i *ngIf="eco.result == 'ec20'" class="fa fa-circle color3"> </i>
             {{eco.name}} ({{cs.resultCases.ecosystemServices[eco.result]}})
         </label>
     </div>

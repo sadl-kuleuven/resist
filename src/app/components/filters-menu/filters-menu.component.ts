@@ -36,10 +36,10 @@ export class FiltersMenuComponent implements OnInit, AfterViewInit {
   isURLCopied = false;
 
   colorScheme10 = {
-    domain: ['#61751a', '#AE2012', '#CA6702', '#EE9B00', '#E9D8A6', '#94D2BD', '#0A9396', '#005F73', '#002E3D', '#002229']
+    domain: ['#1b252e', '#b11dc4', '#d18776', '#999dae', '#2d7887', '#295aa8', '#d1b762', '#cb5c0d', '#e01010', '#4e11a9', "#20e20b", "#4e6657", "#dbde10", "#c5d4d7"]
   };
   colorScheme5 = {
-    domain: ['#61751a', '#EE9B00', '#E9D8A6', '#94D2BD', '#002E3D']
+    domain: ['#295aa8', '#d1b762', '#cb5c0d', '#e01010', '#4e11a9']
   };
 
   solutiontypeGraph = [];
