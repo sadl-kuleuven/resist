@@ -6,7 +6,7 @@
         "solution_name":"Stormwater solutions in residential area",
         "pilot_name":"Rauvolanlahti",
         "region_name": "Soutwest Finland",
-        "region_hazard_level": 1,
+        "region_hazard_level":1,
         "description": "This solution involves implementing nature-based stormwater solutions in the Rauvolanlahti residential area to support ecosystem services through drafting a drainage basin stormwater plan, restoring ditches with NbS, and assessing stormwater retention, biodiversity, and recreation via CBA.",
         "geographic_extent": [
             [
