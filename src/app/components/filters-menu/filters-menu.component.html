@@ -38,7 +38,7 @@
                 (change)="cs.filterByRegionHazard(1)" [(checked)]="tas.hazardss.r01">
             <span class="form-check-sign"></span>
             <i class="fa fa-circle color1"> </i>
-            Flood
+            Floods
              ({{cs.resultCases.hazardss.r01}})
 
 
@@ -50,7 +50,7 @@
                 (change)="cs.filterByRegionHazard(2)" [(checked)]="tas.hazardss.r02">
             <span class="form-check-sign"></span>
             <i class="fa fa-circle color2"> </i>
-           Drought
+           Droughts
            
             ({{cs.resultCases.hazardss.r02}})
 
@@ -72,8 +72,18 @@
                 (change)="cs.filterByRegionHazard(4)" [(checked)]="tas.hazardss.r04">
             <span class="form-check-sign"></span>
             <i class="fa fa-circle color4"> </i>
-            Heat Stress
+            Heatwaves
             ({{cs.resultCases.hazardss.r04}})
+        </label>
+    </div>
+    <div class="form-check-radio">
+        <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="regiHazardRadios" id="regiHazardRadios5" value="5"
+                (change)="cs.filterByRegionHazard(5)" [(checked)]="tas.hazardss.r05">
+            <span class="form-check-sign"></span>
+            <i class="fa fa-circle color5"> </i>
+            Soil Erosion
+            ({{cs.resultCases.hazardss.r05}})
         </label>
     </div>
 </div>
@@ -247,7 +257,7 @@
             <span class="form-check-sign"></span>
             <i *ngIf="eco.result == 'ec01'" class="fa fa-circle color1"> </i>
             <i *ngIf="eco.result == 'ec17'" class="fa fa-circle color2"> </i>
-            <i *ngIf="eco.result == 'ec20'" class="fa fa-circle color3"> </i>
+            <i *ngIf="eco.result == 'ec20'" class="fa fa-circle color5"> </i>
             {{eco.name}} ({{cs.resultCases.ecosystemServices[eco.result]}})
         </label>
     </div>

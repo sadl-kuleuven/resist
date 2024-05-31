@@ -10,7 +10,7 @@
                         <a href="https://resist-project.eu/" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
                             RESIST
                         </a>
-                    </span> Visualization Tool: Overview ofInnovative Climate Change Adaptation
+                    </span> Visualization Tool: Overview of Innovative Climate Change Adaptation
                     <br>
                     Solutions, Data, and Tools/Platforms
                 </h3>
@@ -83,10 +83,11 @@
                             <p *ngIf="cs.selectedCase.region_name" class="text-left">Region: {{cs.selectedCase.region_name}}</p>
                     
                             <!-- Region-specific Hazard -->
-                            <p *ngIf="cs.selectedCase.region_hazard_level === 1" class="data-label">Region-specific hazard: Flood</p>
-                            <p *ngIf="cs.selectedCase.region_hazard_level === 2" class="data-label">Region-specific hazard: Drought</p>
+                            <p *ngIf="cs.selectedCase.region_hazard_level === 1" class="data-label">Region-specific hazard: Floods</p>
+                            <p *ngIf="cs.selectedCase.region_hazard_level === 2" class="data-label">Region-specific hazard: Droughts</p>
                             <p *ngIf="cs.selectedCase.region_hazard_level === 3" class="data-label">Region-specific hazard: Wildfire</p>
-                            <p *ngIf="cs.selectedCase.region_hazard_level === 4" class="data-label">Region-specific hazard: Heat Stress</p>
+                            <p *ngIf="cs.selectedCase.region_hazard_level === 4" class="data-label">Region-specific hazard: Heatwaves</p>
+                            <p *ngIf="cs.selectedCase.region_hazard_level === 5" class="data-label">Region-specific hazard: Soil Erosion</p>
                     
                             <!-- Description -->
                             <p *ngIf="collapseSelDesc" style="white-space: break-spaces;">
@@ -357,17 +358,20 @@
                     <div class="tim-title ">
                         <h3>{{pinnedCase.solution_name}}  </h3>
                     </div>
-                    <p *ngIf="pinnedCase.region_hazard_level === 1" class="text-muted"> Flood
+                    <p *ngIf="pinnedCase.region_hazard_level === 1" class="text-muted"> Floods
                         <!-- (~ TLR1 - TLR2) -->
                     </p>
-                    <p *ngIf="pinnedCase.region_hazard_level === 2" class="text-muted"> Drought
+                    <p *ngIf="pinnedCase.region_hazard_level === 2" class="text-muted"> Droughts
                         <!-- (~ TLR3 - TLR4) -->
                     </p>
                     <p *ngIf="pinnedCase.region_hazard_level === 3" class="text-muted"> Wildfire
                         <!-- (~ TLR5
                         - TLR7) -->
                     </p>
-                    <p *ngIf="pinnedCase.region_hazard_level === 4" class="text-muted"> Heat Stress
+                    <p *ngIf="pinnedCase.region_hazard_level === 4" class="text-muted"> Heatwaves
+                        <!-- (~ TLR8 - TLR9) -->
+                    </p>
+                    <p *ngIf="pinnedCase.region_hazard_level === 5" class="text-muted"> Soil Erosion
                         <!-- (~ TLR8 - TLR9) -->
                     </p>
                     <p *ngIf="collapsePinDesc" style="white-space: break-spaces;">
@@ -593,13 +597,15 @@
 
                                     <div class="col-4">
                                         <span *ngIf="c.region_hazard_level === 1"
-                                        class="label label-secondary" >Flood</span>
+                                        class="label label-secondary" >Floods</span>
                                         <span *ngIf="c.region_hazard_level === 2"
-                                        class="label label-secondary">Drought</span>
+                                        class="label label-secondary">Droughts</span>
                                         <span *ngIf="c.region_hazard_level === 3"
                                         class="label label-secondary">Wildfire</span>
                                         <span *ngIf="c.region_hazard_level === 4"
-                                        class="label label-secondary">Heat Stress</span>
+                                        class="label label-secondary">Heatwaves</span>
+                                        <span *ngIf="c.region_hazard_level === 5"
+                                        class="label label-secondary">Soil Erosion</span>
                                     </div>
 
                                     

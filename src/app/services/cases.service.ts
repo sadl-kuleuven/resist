@@ -106,7 +106,8 @@ export class CasesService {
       r01: 0,
       r02: 0,
       r03: 0,
-      r04: 0
+      r04: 0,
+      r05: 0
     },
     
     toolsPlatforms: {
@@ -326,6 +327,8 @@ export class CasesService {
         this.regiHazardFilter = 3;
       } else if (this.tas.hazardss.r04) {
         this.regiHazardFilter = 4;
+      }else if (this.tas.hazardss.r05) {
+        this.regiHazardFilter = 5;
       }
     } else {
       if (tr === 1) {
@@ -333,26 +336,37 @@ export class CasesService {
         this.tas.hazardss.r02 = false;
         this.tas.hazardss.r03 = false;
         this.tas.hazardss.r04 = false;
+        this.tas.hazardss.r05 = false;
       } else if (tr === 2) {
         this.tas.hazardss.r01 = false;
         this.tas.hazardss.r02 = true;
         this.tas.hazardss.r03 = false;
         this.tas.hazardss.r04 = false;
+        this.tas.hazardss.r05 = false;
       } else if (tr === 3) {
         this.tas.hazardss.r01 = false;
         this.tas.hazardss.r02 = false;
         this.tas.hazardss.r03 = true;
         this.tas.hazardss.r04 = false;
+        this.tas.hazardss.r05 = false;
       } else if (tr === 4) {
         this.tas.hazardss.r01 = false;
         this.tas.hazardss.r02 = false;
         this.tas.hazardss.r03 = false;
         this.tas.hazardss.r04 = true;
+        this.tas.hazardss.r05 = false;
+      } else if (tr === 5) {
+        this.tas.hazardss.r01 = false;
+        this.tas.hazardss.r02 = false;
+        this.tas.hazardss.r03 = false;
+        this.tas.hazardss.r04 = false;
+        this.tas.hazardss.r05 = true;
       } else {
         this.tas.hazardss.r01 = false;
         this.tas.hazardss.r02 = false;
         this.tas.hazardss.r03 = false;
         this.tas.hazardss.r04 = false;
+        this.tas.hazardss.r05 = false;
       }
 
       this.regiHazardFilter = tr;
@@ -849,7 +863,8 @@ export class CasesService {
         r01: 0,
         r02: 0,
         r03: 0,
-        r04: 0
+        r04: 0,
+        r05: 0
       };
 
       this.resultCases.toolsPlatforms= {
@@ -1086,6 +1101,8 @@ export class CasesService {
           this.resultCases.hazardss.r03++;
         } else if (c.region_hazard_level === 4) {
           this.resultCases.hazardss.r04++;
+        } else if (c.region_hazard_level === 5) {
+          this.resultCases.hazardss.r05++;
         }
       });
 

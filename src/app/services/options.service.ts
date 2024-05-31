@@ -79,7 +79,8 @@ export class OptionsService {
     r01: false,
     r02: false,
     r03: false,
-    r04: false
+    r04: false,
+    r05: false,
   };
 
   toolsPlatforms =[
@@ -143,7 +144,7 @@ export class OptionsService {
     '3.3': 'NbS potentiality enhancement',
     '3.4': 'Coastal protection',
     '4': ' Climate Risk Identification and Adaptation',
-    '4.1': 'Drought mitigation',
+    '4.1': 'Droughts mitigation',
     '4.2': 'Erosion reduction',
     '4.3': 'Heat stress mitigation',
     '4.4': 'Vulnerable areas identification',

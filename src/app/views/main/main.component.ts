@@ -357,21 +357,31 @@ export class MainComponent implements OnInit, AfterContentInit {
               this.tas.hazardss.r02 = false;
               this.tas.hazardss.r03 = false;
               this.tas.hazardss.r04 = false;
+              this.tas.hazardss.r05 = false;
             } else if (params.ready === 'r02') {
               this.tas.hazardss.r01 = false;
               this.tas.hazardss.r02 = true;
               this.tas.hazardss.r03 = false;
               this.tas.hazardss.r04 = false;
+              this.tas.hazardss.r05 = false;
             } else if (params.ready === 'r03') {
               this.tas.hazardss.r01 = false;
               this.tas.hazardss.r02 = false;
               this.tas.hazardss.r03 = true;
               this.tas.hazardss.r04 = false;
+              this.tas.hazardss.r05 = false;
             } else if (params.ready === 'r04') {
               this.tas.hazardss.r01 = false;
               this.tas.hazardss.r02 = false;
               this.tas.hazardss.r03 = false;
               this.tas.hazardss.r04 = true;
+              this.tas.hazardss.r05 = false;
+            }else if (params.ready === 'r05') {
+              this.tas.hazardss.r01 = false;
+              this.tas.hazardss.r02 = false;
+              this.tas.hazardss.r03 = false;
+              this.tas.hazardss.r04 = false;
+              this.tas.hazardss.r05 = true;
             }
           }
 

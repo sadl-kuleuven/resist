@@ -224,7 +224,7 @@
       "solution_name":"Multi-beneficial water retention plan",
       "pilot_name":"Savijoki",
       "region_name": "Soutwest Finland",
-      "region_hazard_level": 1,
+      "region_hazard_level": 5,
       "description": "This solution involves implementing Nature-based Solutions (NbS) in the rural Savijoki river basin to restore hydrological balance, mitigate floods and droughts, and reduce nutrient releases to the vulnerable Archipelago Sea. Engaging stakeholders, establishing a water retention plan, and assessing NbS cost-effectiveness are key activities.",
       "geographic_extent": [
           [
@@ -548,7 +548,7 @@
       "solution_name":"Nature-based Solutions for climate resilience",
       "pilot_name":["Barentin", "Saint-Lo", "Cœur de Nacre Business Park"],
       "region_name": "Normandy",
-      "region_hazard_level": 1,
+      "region_hazard_level": 5,
       "description": "This solution encompasses the implementation of nature-based approaches to address climate change challenges, with a specific focus on water runoff management and the conduct of cost-benefit analyses. It involves the integration of NBS into spatial and urban development plans, as well as advocacy efforts to promote their adoption among local stakeholders and elected representatives.",
       "geographic_extent": [
           [
@@ -2011,7 +2011,7 @@
       "solution_name":"City Expo Karlskrona (VR proof-of concept)",
       "pilot_name": "N/A",
       "region_name": "Blekinge",
-      "region_hazard_level": 1,
+      "region_hazard_level": 2,
       "description": "The City Expo Karlskrona project features various demonstrations aimed at engaging the public and stakeholders in understanding the impacts of climate change. The project includes:Underwater Malmö: A VR proof-of-concept that allows users to experience a city under different water level rise scenarios.Time Machine: A VR proof-of-concept combined with a physical device that visualizes sea level rise, informing citizens about the hidden consequences of climate change. Invite the Water: A physical model of the old fishing harbor in Karlskrona that showcases rising sea levels as an opportunity for urban development and adaptation.",
       "geographic_extent": [
         [
@@ -2099,7 +2099,7 @@
       "solution_name":"Implementing decision-making tools ",
       "pilot_name": "N/A",
       "region_name": "Blekinge",
-      "region_hazard_level": 1,
+      "region_hazard_level": 2,
       "description": "The solution focuses on implementing decision-making tools supported by accurate and comprehensive data for informed decision-making in Blekinge. The region aims to test these tools in at least two municipalities concerning their risk management plans.",
       "geographic_extent": [
         [
@@ -5283,7 +5283,7 @@
       "solution_name": "FIREPOCTEP Project",
       "pilot_name": "The transboundary areas of Spain and Portugal",
       "region_name": "Extremadura",
-      "region_hazard_level": 3,
+      "region_hazard_level": 4,
       "description": "The FIREPOCTEP project aims to promote adaptation to climate change and address specific risks associated with disasters, particularly focusing on strengthening forest fire prevention and extinction systems in the border regions of Spain and Portugal. Additionally, it seeks to enhance resources for generating rural employment following the Covid-19 health crisis. (https://www.cartif.es/en/firepoctep-en/)",
       "geographic_extent": [
         [
@@ -5372,7 +5372,7 @@
       "solution_name": "Life Landscape Fire project",
       "pilot_name": "Viseu Dão Lafõe (PORTUGALs), Extremadura",
       "region_name": "Extremadura",
-      "region_hazard_level": 3,
+      "region_hazard_level": 4,
       "description": "Implementing large-scale measures to prevent forest fires, preserve biodiversity, enhance forest resilience, and empower decision-makers with the benefits of prevention. Additionally, identifying local adaptation options to reduce current and future territorial vulnerability. (https://life.cimvdl.pt/)",
       "geographic_extent": [
         [

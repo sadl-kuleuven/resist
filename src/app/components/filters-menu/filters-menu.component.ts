@@ -174,11 +174,11 @@ export class FiltersMenuComponent implements OnInit, AfterViewInit {
         'name': 'Region Hazards',
         'series': [
           {
-            'name': 'Flood',
+            'name': 'Floods',
             'value': this.cs.resultCases.hazardss.r01
           },
           {
-            'name': 'Drought',
+            'name': 'Droughts',
             'value': this.cs.resultCases.hazardss.r02
           },
           {
@@ -186,8 +186,12 @@ export class FiltersMenuComponent implements OnInit, AfterViewInit {
             'value': this.cs.resultCases.hazardss.r03
           },
           {
-            'name': 'Heat Stress',
+            'name': 'Heatwaves',
             'value': this.cs.resultCases.hazardss.r04
+          },
+          {
+            'name': 'Soil Erosion',
+            'value': this.cs.resultCases.hazardss.r05
           }
         ]
       }
@@ -377,11 +381,11 @@ export class FiltersMenuComponent implements OnInit, AfterViewInit {
           'name': 'Region Hazards',
           'series': [
             {
-              'name': 'Flood',
+              'name': 'Floods',
               'value': this.cs.resultCases.hazardss.r01
             },
             {
-              'name': 'Drought',
+              'name': 'Droughts',
               'value': this.cs.resultCases.hazardss.r02
             },
             {
@@ -389,8 +393,12 @@ export class FiltersMenuComponent implements OnInit, AfterViewInit {
               'value': this.cs.resultCases.hazardss.r03
             },
             {
-              'name': 'Heat Stress',
+              'name': 'Heatwaves',
               'value': this.cs.resultCases.hazardss.r04
+            },
+            {
+              'name': 'Soil Erosion',
+              'value': this.cs.resultCases.hazardss.r05
             }
           ]
         }
@@ -636,7 +644,8 @@ export class FiltersMenuComponent implements OnInit, AfterViewInit {
       params += 'ready=r03&';
     } else if (this.tas.hazardss.r04) {
       params += 'ready=r04&';
-    }
+    }else if (this.tas.hazardss.r05) {
+      params += 'ready=r05&';
 
  
 
@@ -653,4 +662,5 @@ export class FiltersMenuComponent implements OnInit, AfterViewInit {
 
 
 
+}
 }
