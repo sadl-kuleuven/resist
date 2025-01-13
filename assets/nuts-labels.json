@@ -6351,6 +6351,27 @@
     },
     {
         "CNTR_CODE": "SE",
+        "NUTS_ID": "SE2211",
+        "NAME_LATN": "Karlshamn",
+        "NUTS_NAME": "Karlshamn",
+        "MOUNT_TYPE": 4,
+        "URBN_TYPE": 2,
+        "COAST_TYPE": 1,
+        "NAME_ENGLISH": "Sweden"
+    },
+    {
+        "CNTR_CODE": "SE",
+        "NUTS_ID": "SE2211",
+        "NAME_LATN": "Karlskrona",
+        "NUTS_NAME": "Karlskrona",
+        "MOUNT_TYPE": 4,
+        "URBN_TYPE": 2,
+        "COAST_TYPE": 1,
+        "NAME_ENGLISH": "Sweden"
+    },
+
+    {
+        "CNTR_CODE": "SE",
         "NUTS_ID": "SE224",
         "NAME_LATN": "Skåne län",
         "NUTS_NAME": "Skåne län",
