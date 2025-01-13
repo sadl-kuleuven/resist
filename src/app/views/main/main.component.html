@@ -10,9 +10,12 @@
                         <a href="https://resist-project.eu/" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
                             RESIST
                         </a>
-                    </span> Visualization Tool: Overview of Innovative Climate Change Adaptation
+                    </span>
+                    Visualization Tool: Overview of Innovative Climate Change Adaptation Solutions
                     <br>
-                    Solutions, Data, and Tools/Platforms
+                    <span style="font-size: 0.8em; font-weight: normal; color: #333;">
+                        Data and Tools/Platforms
+                    </span>
                 </h3>
                
             </div>
@@ -55,6 +58,9 @@
                         <li class="nav-item">
                             <a class="nav-link" id="tools-tab" data-toggle="tab" href="#tools" role="tab" aria-controls="tools" aria-selected="false">Tools/Platforms Information</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="delineation-tab" data-toggle="tab" href="#delineation" role="tab" aria-controls="delineation" aria-selected="false">View Delineation</a>
+                        </li>
                     </ul>
 
                     <!-- Tab content sections -->
@@ -79,16 +85,31 @@
                             </div>
                     
                             <!-- Pilot and Region Information -->
+                            <p *ngIf="cs.selectedCase.project_affiliation || cs.selectedCase.solution_status" class="data-label">
+                                {{cs.selectedCase.project_affiliation}}
+                                <span *ngIf="cs.selectedCase.solution_status"> ({{cs.selectedCase.solution_status}})</span>
+                            </p>
                             <p *ngIf="cs.selectedCase.pilot_name" class="text-left">Pilot: {{cs.selectedCase.pilot_name}}</p>
                             <p *ngIf="cs.selectedCase.region_name" class="text-left">Region: {{cs.selectedCase.region_name}}</p>
+                            <p *ngIf="cs.selectedCase.region_hazard_level" class="data-label">Region-specific hazard: {{cs.selectedCase.region_hazard_level}}</p>
+                            
                     
-                            <!-- Region-specific Hazard -->
+                            <!-- Region-specific Hazard 
                             <p *ngIf="cs.selectedCase.region_hazard_level === 1" class="data-label">Region-specific hazard: Floods</p>
                             <p *ngIf="cs.selectedCase.region_hazard_level === 2" class="data-label">Region-specific hazard: Droughts</p>
                             <p *ngIf="cs.selectedCase.region_hazard_level === 3" class="data-label">Region-specific hazard: Wildfire</p>
                             <p *ngIf="cs.selectedCase.region_hazard_level === 4" class="data-label">Region-specific hazard: Heatwaves</p>
                             <p *ngIf="cs.selectedCase.region_hazard_level === 5" class="data-label">Region-specific hazard: Soil Erosion</p>
-                    
+                            
+
+                            <p *ngIf="cs.selectedCase.region_hazard_level.length > 0" class="label-description">Region-specific hazard</p>
+                            <span *ngFor="let haz of cs.selectedCase.region_hazard_level">
+                                <span placement="bottom" class="label label-icon label-warning">
+                                      <i class="fa fa-{{iconsHazard[haz]}}"></i>{{haz}}
+                                </span>
+                            </span>
+-->
+                            
                             <!-- Description -->
                             <p *ngIf="collapseSelDesc" style="white-space: break-spaces;">
                                 {{cs.selectedCase.description | slice:0:150}} [...]
@@ -100,9 +121,12 @@
                             </p>
                             <br>
 
-                            <p *ngIf="cs.selectedCase.solution_type" class="text-right data-label">
-                                <strong>Solution Type:</strong> {{cs.selectedCase.solution_type | titlecase}}
-                            </p>
+                            <p *ngIf="cs.selectedCase.solution_type?.length" class="text-right data-label">
+                                <strong>Solution Type:</strong>
+                                <span *ngFor="let type of cs.selectedCase.solution_type; let i = index">
+                                  {{type | titlecase}}{{i < cs.selectedCase.solution_type.length - 1 ? ', ' : ''}}
+                                </span>
+                              </p>
                             
                             <span *ngIf="collapseLocSelDesc">
                                 <p *ngFor="let extent of cs.selectedCase.geographic_extent | slice:0:3" class="text-right text-muted">
@@ -196,6 +220,11 @@
                                 </span>
                             </span>
                         </div>
+                      
+
+
+
+                       
 
                         
                     
@@ -253,6 +282,15 @@
                                 </table>
                             </div>
                         </div>
+
+                        <div class="tab-pane fade" id="delineation" role="tabpanel" aria-labelledby="delineation-tab">
+                            <h4>Delineation Details</h4>
+                            <p>Click the link below to view the delineation for this solution.</p>
+                            <a [routerLink]="['/delineation', cs.selectedCase._id.$oid]" class="btn btn-primary">
+                                View Delineation
+                            </a>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -358,22 +396,35 @@
                     <div class="tim-title ">
                         <h3>{{pinnedCase.solution_name}}  </h3>
                     </div>
+
+                    <p *ngIf="pinnedCase.region_hazard_level" class="text-right label-description"> {{pinnedCase.region_hazard_level}} </p>
+                    
+                    <!--
                     <p *ngIf="pinnedCase.region_hazard_level === 1" class="text-muted"> Floods
-                        <!-- (~ TLR1 - TLR2) -->
+                        
                     </p>
                     <p *ngIf="pinnedCase.region_hazard_level === 2" class="text-muted"> Droughts
-                        <!-- (~ TLR3 - TLR4) -->
+                        
                     </p>
                     <p *ngIf="pinnedCase.region_hazard_level === 3" class="text-muted"> Wildfire
-                        <!-- (~ TLR5
-                        - TLR7) -->
+                        
                     </p>
                     <p *ngIf="pinnedCase.region_hazard_level === 4" class="text-muted"> Heatwaves
-                        <!-- (~ TLR8 - TLR9) -->
+                        
                     </p>
                     <p *ngIf="pinnedCase.region_hazard_level === 5" class="text-muted"> Soil Erosion
-                        <!-- (~ TLR8 - TLR9) -->
+                        
                     </p>
+                   
+
+                   <p *ngIf="pinnedCase.region_hazard_level.length > 0" class="label-description">Region-specific hazard
+                   </p>
+                   <span *ngFor="let dat of pinnedCase.region_hazard_level">
+                    <span placement="bottom" class="label label-icon label-warning"><i
+                            class="fa fa-{{iconsHazard[haz]}}"></i>{{haz}}</span>
+                    </span>
+                    -->
+                   
                     <p *ngIf="collapsePinDesc" style="white-space: break-spaces;">
                         {{pinnedCase.description |slice:0:150}} [...]
                         <a href="#" (click)="collapsePinDesc = !collapsePinDesc"> Show more </a>
@@ -508,6 +559,13 @@
                                 {{da.name}}
                                 <i class="nc-icon nc-simple-remove"></i> </span>
                         </span>
+                        <span *ngFor="let ha of tas.hazardss">
+                            <span *ngIf="ha.active" class="label label-warning label-close"
+                                (click)="ha.active = false; cs.filterByRegionHazard()">
+                                <i class="fa fa-{{iconsHazard[ha.name]}}"></i>
+                                {{ha.name}}
+                                <i class="nc-icon nc-simple-remove"></i> </span>
+                        </span>
                         <span *ngFor="let too of tas.toolsPlatforms">
                             <span *ngIf="too.active" class="label label-warning label-close"
                                 (click)="too.active = false; cs.filterByToolsPlatforms()">{{too.name}}
@@ -560,9 +618,16 @@
                                 [ngClass]="cs.selectedCase && selectedIndex === i + (cs.pagination - 1) * pageLength ? 'card-selected' : ''">
                                 <div class="card-body row">
                                     <div class="col-12">
-                                        <p class="solution-text">{{c.solution_name}}</p> 
-                                        <p *ngIf="c.region_name" class="label-text">
-                                            {{c.region_name}}</p><!-- TODO: add id? {{c._id.$oid}} -  -->
+                                        <p class="solution-text">{{c.solution_name}}</p>
+                                        <p style="display: flex; justify-content: space-between; align-items: center; margin: 0; font-weight: bold;">
+                                            <span *ngIf="c.project_affiliation || c.solution_status" style="font-size: 0.9em; color: #007bff;">
+                                                {{c.project_affiliation}}
+                                                <span *ngIf="c.solution_status"> ({{c.solution_status}})</span>
+                                            </span>
+                                            <span *ngIf="c.region_name" style="font-size: 0.9em; color: #333; text-align: right;">
+                                                {{c.region_name}}
+                                            </span>
+                                        </p>
                                     </div>
                                     
 
@@ -593,8 +658,15 @@
                                             class="label label-secondary"style="font-size: 10px;">Provisioning Services</span>
                                         <span *ngIf="c.ecosystem_service[2].length > 0"
                                             class="label label-secondary"style="font-size: 10px;">Cultural Services</span>
-                                    </div>  
+                                    </div> 
+                                    
+                                    <div class="col-4">
+                                        <span *ngFor="let hazard of c.region_hazard_level" class="label label-warning label-icon">
+                                            {{ hazard }}
+                                        </span>
+                                    </div>
 
+<!--
                                     <div class="col-4">
                                         <span *ngIf="c.region_hazard_level === 1"
                                         class="label label-secondary" >Floods</span>
@@ -607,7 +679,7 @@
                                         <span *ngIf="c.region_hazard_level === 5"
                                         class="label label-secondary">Soil Erosion</span>
                                     </div>
-
+-->
                                     
                                     <!--
                                     <div class="col-12">
@@ -627,14 +699,14 @@
 
 
                                     <div class="col-12">
-                                        <p *ngIf="c.solution_type" class="label-text"
-                                            [ngClass]="c.geographic_extent.length > 1? 'locations-span' : ''">{{c.solution_type
-                                            | titlecase}} <i *ngIf="c.features && c.features.length > 0"
-                                                class="fa fa-map-marker text-primary" ngbTooltip="Has location"></i>
-                                            <span *ngIf="c.geographic_extent.length > 1"> <br>
-                                                {{c.geographic_extent.length}} locations &nbsp;&nbsp;&nbsp;</span>
+                                        <p *ngIf="c.solution_type?.length" class="label-text">
+                                            <strong>Solution Type:</strong>
+                                            <span *ngFor="let type of c.solution_type; let i = index">
+                                                {{type | titlecase}}{{i < c.solution_type.length - 1 ? ', ' : ''}}
+                                            </span>
                                         </p>
                                     </div>
+    
                                     <br>
                                 </div>
                             </a>

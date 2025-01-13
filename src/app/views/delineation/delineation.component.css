@@ -1,0 +1,42 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Ensure body and html take full height */
+}
+
+#map {
+  height: calc(100vh - 100px); /* Adjust height based on other content */
+  width: 100%; /* Ensure this is set */
+  position: relative; /* Ensure relative positioning for any absolute positioning of controls */
+}
+
+.back-button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background-color: #007bff; /* Blue background */
+  color: white;
+  font-size: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Soft shadow */
+  outline: none; /* Remove default focus outline */
+  transition: background-color 0.3s, transform 0.2s;
+  position: absolute; /* Position it in a fixed location */
+  top: 10px;
+  left: 20px;
+  z-index: 1000; /* Ensure it is on top of other content */
+}
+
+.back-button:hover {
+  background-color: black; /* Change background color on hover */
+  color: white; /* Change text color on hover */
+  transform: scale(1.1); /* Slightly enlarge the button on hover */
+}
+
+
+

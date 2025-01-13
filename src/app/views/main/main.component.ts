@@ -50,13 +50,7 @@ export class MainComponent implements OnInit, AfterContentInit {
 
   listMapVisible = 1; // 1 is half, 0 - only list, 2 - only map
 
-// iconsServices = {
-    //'Water Retention': 'tint',
-    //'Biodiversity Conservation': 'globe',
-    //'Pollution Control': 'flask',
-    //'Flood Control': 'home',
-    //'Sustainable Forestry': 'tree'
-  //};
+
 
 
   iconsData = {
@@ -75,6 +69,15 @@ export class MainComponent implements OnInit, AfterContentInit {
     'Hydrography': 'tint',
     'Soil': 'circle-o'
   };
+
+  iconsHazard = {
+    'Floods': 'map-marker',
+    'Droughts': 'tint',
+    'Wildfire': 'cloud',
+    'Heatwaves': 'bar-chart',
+    'Soil Erosion': 'square',
+
+  }
 
   iconsSolution = {
     '1 - Water Management and Flood Prevention' : 'bars',
@@ -236,6 +239,8 @@ export class MainComponent implements OnInit, AfterContentInit {
             }
           }
 
+          /*
+
 
           if (params.solutiontype) {
             this.tas.solutiontypeVisible = false;
@@ -273,9 +278,27 @@ export class MainComponent implements OnInit, AfterContentInit {
             }
           }
 
-          
+          */
 
-          
+          if (params.sty) {
+            this.tas.solutiontypeVisible = false;
+
+            this.tas.solutionTypes.forEach(sty => {
+              if (typeof params.sty === 'string') {
+                if (sty.result === params.sty) {
+                  sty.active = true;
+                }
+              } else {
+                params.sty.forEach(p => {
+                  if (sty.result === p) {
+                    sty.active = true;
+                  }
+                });
+              }
+            });
+          }
+
+        
 
           if (params.eco) {
             this.tas.ecosystemVisible = false;
@@ -348,6 +371,26 @@ export class MainComponent implements OnInit, AfterContentInit {
             });
           }
 
+          if (params.ha) {
+            this.tas.regiHazardVisible = false;
+
+            this.tas.hazardss.forEach(ha => {
+              if (typeof params.ha === 'string') {
+                if (ha.result === params.ha) {
+                  ha.active = true;
+                }
+              } else {
+                params.ha.forEach(p => {
+                  if (ha.result === p) {
+                    ha.active = true;
+                  }
+                });
+              }
+            });
+          }
+          /*
+        
+
 
           if (params.ready) {
             this.tas.regiHazardVisible = false;
@@ -384,6 +427,7 @@ export class MainComponent implements OnInit, AfterContentInit {
               this.tas.hazardss.r05 = true;
             }
           }
+          */
 
           this.cs.applyAllFilters();
 
@@ -529,7 +573,7 @@ export class MainComponent implements OnInit, AfterContentInit {
 
           if (map) {
             this.map = map;
-            map.setMaxZoom(12);
+            map.setMaxZoom(14);
             this.loadingMap = false;
 
             this.setBoundsFromURL();
@@ -576,7 +620,7 @@ export class MainComponent implements OnInit, AfterContentInit {
                       } else {
                         return {
                           name: prop.name,
-                          color: '#128570'
+                          color: 'red'
                         }
                       }
                     },
@@ -618,7 +662,7 @@ export class MainComponent implements OnInit, AfterContentInit {
                       } else {
                         return {
                           name: prop.name,
-                          color: '#128570'
+                          color: 'red'
                         }
                       }
                     },
@@ -670,7 +714,7 @@ export class MainComponent implements OnInit, AfterContentInit {
                     } else {
                       return {
                         name: prop.name,
-                        color: '#128570'
+                        color: 'red'
                       }
                     }
                   },

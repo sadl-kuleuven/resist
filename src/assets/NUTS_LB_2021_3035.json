@@ -25658,6 +25658,28 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    0.4819,
+                    40.5434
+                ]
+            },
+            "properties": {
+                "NUTS_ID": "ES5131",
+                "LEVL_CODE": 3,
+                "CNTR_CODE": "ES",
+                "NAME_LATN": "Alcanar Municipality",
+                "NUTS_NAME": "Alcanar Municipality",
+                "MOUNT_TYPE": 2,
+                "URBN_TYPE": 2,
+                "COAST_TYPE": 1,
+                "FID": "ES5131"
+            },
+            "id": "ES5131"
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -0.5783,
                     38.485
                 ]
@@ -27412,6 +27434,28 @@
                 "FID": "FRD222"
             },
             "id": "FRD222"
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    0.2298,
+                    49.1466
+                ]
+            },
+            "properties": {
+                "NUTS_ID": "FRD223",
+                "LEVL_CODE": 3,
+                "CNTR_CODE": "FR",
+                "NAME_LATN": "Lisieux",
+                "NUTS_NAME": "Lisieux",
+                "MOUNT_TYPE": 4,
+                "URBN_TYPE": 2,
+                "COAST_TYPE": 1,
+                "FID": "FRD223"
+            },
+            "id": "FRD223"
         },
         {
             "type": "Feature",
@@ -37906,6 +37950,50 @@
                 "FID": "SE221"
             },
             "id": "SE221"
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    14.8616,
+                    56.1709
+                ]
+            },
+            "properties": {
+                "NUTS_ID": "SE2211",
+                "LEVL_CODE": 3,
+                "CNTR_CODE": "SE",
+                "NAME_LATN": "Karlshamn",
+                "NUTS_NAME": "Karlshamn",
+                "MOUNT_TYPE": 4,
+                "URBN_TYPE": 2,
+                "COAST_TYPE": 1,
+                "FID": "SE2211"
+            },
+            "id": "SE2211"
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.5869,
+                    56.1612
+                ]
+            },
+            "properties": {
+                "NUTS_ID": "SE2212",
+                "LEVL_CODE": 3,
+                "CNTR_CODE": "SE",
+                "NAME_LATN": "Karlskrona",
+                "NUTS_NAME": "Karlskrona",
+                "MOUNT_TYPE": 4,
+                "URBN_TYPE": 2,
+                "COAST_TYPE": 1,
+                "FID": "SE2212"
+            },
+            "id": "SE2212"
         },
         {
             "type": "Feature",
