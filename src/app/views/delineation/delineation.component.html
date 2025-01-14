@@ -1,0 +1,23 @@
+<!-- Back button with hover text -->
+<div class="back-button-container">
+  <button 
+    (click)="goBack()" 
+    class="back-button"
+    title="Click here to go back to the main page"
+    (mouseover)="hoverButton($event)"
+    (mouseout)="unhoverButton($event)"
+  >
+  <!--&lArr;-->
+  &lsaquo;
+  </button>
+</div>
+
+<!-- Pilot name and region name section -->
+<div style="padding: 10px; text-align: center;">
+  <p><strong>Pilot Name:</strong> {{ pilot_name }}</p>
+  <p><strong>Region Name:</strong> {{ region_name }}</p>
+</div>
+
+<!-- Map container -->
+<div id="map"></div>
+
