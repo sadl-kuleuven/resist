@@ -36,7 +36,7 @@
     "@types/mapbox-gl": "^2.1.1",
     "bootstrap": "4.5.3",
     "core-js": "3.8.1",
-    "esri-leaflet": "^3.0.12",
+    "esri-leaflet": "^3.0.14",
     "jquery": "3.5.1",
     "jw-bootstrap-switch-ng2": "2.0.5",
     "leaflet": "^1.9.4",
