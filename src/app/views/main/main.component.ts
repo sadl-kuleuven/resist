@@ -50,13 +50,7 @@ export class MainComponent implements OnInit, AfterContentInit {
 
   listMapVisible = 1; // 1 is half, 0 - only list, 2 - only map
 
-// iconsServices = {
-    //'Water Retention': 'tint',
-    //'Biodiversity Conservation': 'globe',
-    //'Pollution Control': 'flask',
-    //'Flood Control': 'home',
-    //'Sustainable Forestry': 'tree'
-  //};
+
 
 
   iconsData = {
@@ -579,7 +573,7 @@ export class MainComponent implements OnInit, AfterContentInit {
 
           if (map) {
             this.map = map;
-            map.setMaxZoom(12);
+            map.setMaxZoom(14);
             this.loadingMap = false;
 
             this.setBoundsFromURL();
@@ -626,7 +620,7 @@ export class MainComponent implements OnInit, AfterContentInit {
                       } else {
                         return {
                           name: prop.name,
-                          color: '#128570'
+                          color: 'red'
                         }
                       }
                     },
@@ -668,7 +662,7 @@ export class MainComponent implements OnInit, AfterContentInit {
                       } else {
                         return {
                           name: prop.name,
-                          color: '#128570'
+                          color: 'red'
                         }
                       }
                     },
@@ -720,7 +714,7 @@ export class MainComponent implements OnInit, AfterContentInit {
                     } else {
                       return {
                         name: prop.name,
-                        color: '#128570'
+                        color: 'red'
                       }
                     }
                   },

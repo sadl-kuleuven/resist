@@ -10,11 +10,14 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
+import { map } from 'rxjs/operators'; 
 
 @Injectable({
   providedIn: 'root'
 })
 export class CasesService {
+
+
 
   public allCases: any = null;
   public filteredCases: any;
@@ -42,6 +45,8 @@ export class CasesService {
 
   private isFilteredCasesChanged = false;
   public filteredCasesChange: Subject<boolean> = new Subject<boolean>();
+
+  
 
   public resultCases = {
 

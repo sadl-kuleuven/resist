@@ -58,6 +58,9 @@
                         <li class="nav-item">
                             <a class="nav-link" id="tools-tab" data-toggle="tab" href="#tools" role="tab" aria-controls="tools" aria-selected="false">Tools/Platforms Information</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="delineation-tab" data-toggle="tab" href="#delineation" role="tab" aria-controls="delineation" aria-selected="false">View Delineation</a>
+                        </li>
                     </ul>
 
                     <!-- Tab content sections -->
@@ -217,6 +220,11 @@
                                 </span>
                             </span>
                         </div>
+                      
+
+
+
+                       
 
                         
                     
@@ -274,6 +282,15 @@
                                 </table>
                             </div>
                         </div>
+
+                        <div class="tab-pane fade" id="delineation" role="tabpanel" aria-labelledby="delineation-tab">
+                            <h4>Delineation Details</h4>
+                            <p>Click the link below to view the delineation for this solution.</p>
+                            <a [routerLink]="['/delineation', cs.selectedCase._id.$oid]" class="btn btn-primary">
+                                View Delineation
+                            </a>
+                        </div>
+
                     </div>
                 </div>
             </div>

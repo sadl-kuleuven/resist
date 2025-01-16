@@ -217,7 +217,6 @@ export class OptionsService {
     '7': ' Urban Planning',
     '7.1': 'Urban farming',
     '7.2': 'Economic protection',
-    '7.3': 'Sustainable landuse',
     '8': ' Other Solutions',
     '8.1': 'Disease mitigation',
     '8.2': 'Pest and disease control measures',

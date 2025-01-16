@@ -20,6 +20,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { HttpClientModule } from '@angular/common/http';
 
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { DelineationComponent } from './views/delineation/delineation.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     NavbarComponent,
     FooterComponent,
     MainComponent,
-    FiltersMenuComponent
+    FiltersMenuComponent,
+    DelineationComponent
   ],
   imports: [
     BrowserModule,
