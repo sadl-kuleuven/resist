@@ -54,11 +54,11 @@ export class MainComponent implements OnInit, AfterContentInit {
 
 
   iconsData = {
-    'Meteorological Geographical Features': 'map-marker',
-    'Environmental Monitoring Facilities': 'tint',
-    'Population Distribution - Demography': 'cloud',
-    'Atmospheric Conditions': 'bar-chart',
-    'Natural Risk Zones': 'square',
+    'Meteorological Geographical Features': 'cloud',
+    'Environmental Monitoring Facilities': 'desktop',
+    'Population Distribution - Demography': 'users',
+    'Atmospheric Conditions': 'thermometer-empty',
+    'Natural Risk Zones': 'info',
     'Transport Networks': 'road',
     'Protected Sites': 'map-marker',
     'Orthoimagery': 'file-image-o',
@@ -67,27 +67,49 @@ export class MainComponent implements OnInit, AfterContentInit {
     'Land Cover': 'globe',
     'Geology': 'map',
     'Hydrography': 'tint',
-    'Soil': 'circle-o'
+    'Soil': 'circle-o',
+    'Addresses': 'address-book',
+    'Administrative units': 'globe',
+    'Cadastral parcels': 'th-large',
+    'Geographical grid systems': 'th',
+    'Geographical names': 'language',
+    'Coordinate reference systems': 'location-arrow',
+    'Agricultural and aquaculture facilities': 'map-marker',
+    'Area management/restriction/regulation zones and reporting units': 'ban',
+    'Bio-geographical regions': 'pagelines',
+    'Buildings': 'home',
+    'Energy resources': 'globe',
+    'Habitats and biotopes': 'map',
+    'Human health and safety': 'heartbeat',
+    'Mineral resources': 'diamond',
+    'Oceanographic geographical features': 'area-chart',
+    'Production and industrial facilities': 'industry',
+    'Species distribution': 'globe',
+    'Sea regions': 'map',
+    'Statistical units': 'bar-chart',
+    'Utility and governmental servicess': 'circle-o'
+
+
   };
 
   iconsHazard = {
-    'Floods': 'map-marker',
+    'Floods': 'bolt',
     'Droughts': 'tint',
-    'Wildfire': 'cloud',
-    'Heatwaves': 'bar-chart',
-    'Soil Erosion': 'square',
+    'Wildfire': 'fire',
+    'Heatwaves': 'thermometer-three-quarters',
+    'Soil Erosion': 'info'
 
   }
 
   iconsSolution = {
     '1 - Water Management and Flood Prevention' : 'bars',
-    '2 - Community Engagement and Advocacy' : 'leaf',
-    '3 - Nature Conservation and Biodiversity' : 'eur',
-    '4 - Climate Risk Identification and Adaptation' : 'balance-scale',
-    '5 - Pollution Reduction and Environmental Enhancement' : 'eye',
-    '6 - Forest Fire Reduction and Management' : 'fire',
-    '7 - Urban Planning' : 'users',
-    '8 - Other Solutions' : 'square'
+    '2 - Community Engagement and Advocacy' : 'users',
+    '3 - Nature Conservation and Biodiversity' : 'leaf',
+    '4 - Climate Risk Identification and Adaptation' : 'sun-o',
+    '5 - Pollution Reduction and Environmental Enhancement' : 'arrow-down',
+    '6 - Forest Fire Reduction and Management' : 'fire-extinguisher',
+    '7 - Urban Planning' : 'building-o',
+    '8 - Other Solutions' : 'circle-o-notch'
   };
 
   data = {

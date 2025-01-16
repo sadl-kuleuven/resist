@@ -82,7 +82,7 @@ export class OptionsService {
     { name: 'Environmental monitoring facilities', active: false, icon: 'desktop', result: 'd02', class: 'color7' },
     { name: 'Population distribution - demography', active: false, icon: 'users', result: 'd03', class: 'color8' },
     { name: 'Atmospheric conditions', active: false, icon: 'thermometer-empty', result: 'd04', class: 'color9' },
-    { name: 'Natural risk zones', active: false, icon: 'info ', result: 'd05', class: 'color10' },
+    { name: 'Natural risk zones', active: false, icon: 'info', result: 'd05', class: 'color10' },
     { name: 'Transport networks', active: false, icon: 'road', result: 'd06', class: 'color1' },
     { name: 'Protected sites', active: false, icon: 'map-marker', result: 'd07', class: 'color2' },
     { name: 'Orthoimagery', active: false, icon: 'file-image-o', result: 'd08', class: 'color3' },
@@ -94,7 +94,7 @@ export class OptionsService {
     { name: 'Soil', active: false, icon: 'circle-o', result: 'd14', class: 'color14' },
     { name: 'Addresses', active: false, icon: 'address-book', result: 'd15', class: 'color6' },
     { name: 'Administrative units', active: false, icon: 'globe', result: 'd16', class: 'color7' },
-    { name: 'Cadastral parcels', active: false, icon: 'th-large ', result: 'd17', class: 'color8' },
+    { name: 'Cadastral parcels', active: false, icon: 'th-large', result: 'd17', class: 'color8' },
     { name: 'Geographical grid systems', active: false, icon: 'th', result: 'd18', class: 'color9' },
     { name: 'Geographical names', active: false, icon: 'language', result: 'd19', class: 'color10' },
     { name: 'Coordinate reference systems', active: false, icon: 'location-arrow', result: 'd20', class: 'color1' },
@@ -120,7 +120,7 @@ export class OptionsService {
     { name: 'Droughts', active: false, icon: 'tint', result: 'r02', class: 'color2' },
     { name: 'Wildfire', active: false, icon: 'fire', result: 'r03', class: 'color3' },
     { name: 'Heatwaves', active: false, icon: 'thermometer-three-quarters', result: 'r04', class: 'color4' },
-    { name: 'Soil Erosion', active: false, icon: 'info ', result: 'r05', class: 'color5' }
+    { name: 'Soil Erosion', active: false, icon: 'info', result: 'r05', class: 'color5' }
 
   ];
 
@@ -172,7 +172,7 @@ export class OptionsService {
     { name: '5 - Pollution Reduction and Environmental Enhancement', number: 5, active: false, icon: 'arrow-down', result: 's05', class: 'color10' },
     { name: '6 - Forest Fire Reduction and Management', number: 6, active: false, icon: 'fire-extinguisher', result: 's06', class: 'color1' },
     { name: '7 - Urban Planning', number: 7, active: false, icon: 'building-o', result: 's07', class: 'color2' },
-    { name: '8 - Other Solutions', number: 8, active: false, icon: 'circle-o-notch ', result: 's08', class: 'color3' }
+    { name: '8 - Other Solutions', number: 8, active: false, icon: 'circle-o-notch', result: 's08', class: 'color3' }
     
   ];
 
