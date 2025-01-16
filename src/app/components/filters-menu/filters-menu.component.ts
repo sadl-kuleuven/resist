@@ -48,6 +48,8 @@ export class FiltersMenuComponent implements OnInit, AfterViewInit {
   dataGraph = [];
   hazardGraph = [];
   toolsGraph = [];
+  projectAffiliationGraph = [];
+  solutionStatusGraph = [];
 
   @ViewChild('filters') filters: ElementRef;
  // toolsGraph: { name: string; series: { name: string; value: any; }[]; }[];
@@ -62,23 +64,23 @@ export class FiltersMenuComponent implements OnInit, AfterViewInit {
         'series': [
           {
             'name': 'Governance and Institutional',
-            'value': this.cs.resultCases.solutiontype.governanceAndInstitutional
+            'value': this.cs.resultCases.solutionTypes.st01
           },
           {
             'name': 'Economic and Finance',
-            'value': this.cs.resultCases.solutiontype.economicAndFinance
+            'value': this.cs.resultCases.solutionTypes.st02
           },
           {
             'name': 'Physical and Technological',
-            'value': this.cs.resultCases.solutiontype.physicalAndTechnological
+            'value': this.cs.resultCases.solutionTypes.st03
           },
           {
             'name': 'Nature Based Solutions and Ecosystem-based Approaches',
-            'value': this.cs.resultCases.solutiontype.natureBasedSolutionsAndEcosystemBasedApproaches
+            'value': this.cs.resultCases.solutionTypes.st04
           },
           {
             'name': 'Knowledge and Behavioural change',
-            'value': this.cs.resultCases.solutiontype.knowledgeAndBehaviouralChange
+            'value': this.cs.resultCases.solutionTypes.st05
           }
 
         ]
@@ -110,31 +112,31 @@ export class FiltersMenuComponent implements OnInit, AfterViewInit {
         'name': 'Data Categories',
         'series': [
           {
-            'name': 'Meteorological Geographical Features',
+            'name': 'Meteorological geographical features',
             'value': this.cs.resultCases.dataCategories.d01
           },
           {
-            'name': 'Environmental Monitoring Facilities',
+            'name': 'Environmental monitoring facilities',
             'value': this.cs.resultCases.dataCategories.d02
           },
           {
-            'name': 'Population Distribution - Demography',
+            'name': 'Population distribution - demography',
             'value': this.cs.resultCases.dataCategories.d03
           },
           {
-            'name': 'Atmospheric Conditions',
+            'name': 'Atmospheric conditions',
             'value': this.cs.resultCases.dataCategories.d04
           },
           {
-            'name': 'Natural Risk Zones',
+            'name': 'Natural risk zones',
             'value': this.cs.resultCases.dataCategories.d05
           },
           {
-            'name': 'Transport Networks',
+            'name': 'Transport networks',
             'value': this.cs.resultCases.dataCategories.d06
           },
           {
-            'name': 'Protected Sites',
+            'name': 'Protected sites',
             'value': this.cs.resultCases.dataCategories.d07
           },
           {
@@ -146,11 +148,11 @@ export class FiltersMenuComponent implements OnInit, AfterViewInit {
             'value': this.cs.resultCases.dataCategories.d09
           },
           {
-            'name': 'Land Use',
+            'name': 'Land use',
             'value': this.cs.resultCases.dataCategories.d10
           },
           {
-            'name': 'Land Cover',
+            'name': 'Land cover',
             'value': this.cs.resultCases.dataCategories.d11
           },
           {
@@ -165,13 +167,94 @@ export class FiltersMenuComponent implements OnInit, AfterViewInit {
             'name': 'Soil',
             'value': this.cs.resultCases.dataCategories.d14
           },
+          {
+            'name': 'Addresses',
+            'value': this.cs.resultCases.dataCategories.d15
+          },
+          {
+            'name': 'Administrative units',
+            'value': this.cs.resultCases.dataCategories.d16
+          },
+          {
+            'name': 'Cadastral parcels',
+            'value': this.cs.resultCases.dataCategories.d17
+          },
+          {
+            'name': 'Geographical grid systems',
+            'value': this.cs.resultCases.dataCategories.d18
+          },
+          {
+            'name': 'Geographical names',
+            'value': this.cs.resultCases.dataCategories.d19
+          },
+          {
+            'name': 'Coordinate reference systems',
+            'value': this.cs.resultCases.dataCategories.d20
+          },
+          {
+            'name': 'Agricultural and aquaculture facilities',
+            'value': this.cs.resultCases.dataCategories.d21
+          },
+          {
+            'name': 'Area management/restriction/regulation zones and reporting units',
+            'value': this.cs.resultCases.dataCategories.d22
+          },
+          {
+            'name': 'Bio-geographical regions',
+            'value': this.cs.resultCases.dataCategories.d23
+          },
+          {
+            'name': 'Buildings',
+            'value': this.cs.resultCases.dataCategories.d24
+          },
+          {
+            'name': 'Energy resources',
+            'value': this.cs.resultCases.dataCategories.d25
+          },
+          {
+            'name': 'Habitats and biotopes',
+            'value': this.cs.resultCases.dataCategories.d26
+          },
+          {
+            'name': 'Human health and safety',
+            'value': this.cs.resultCases.dataCategories.d27
+          },
+          {
+            'name': 'Mineral resources',
+            'value': this.cs.resultCases.dataCategories.d28
+          },
+          {
+            'name': ' Oceanographic geographical features',
+            'value': this.cs.resultCases.dataCategories.d29
+          },
+          {
+            'name': 'Production and industrial facilities',
+            'value': this.cs.resultCases.dataCategories.d30
+          },
+          {
+            'name': 'Species distribution',
+            'value': this.cs.resultCases.dataCategories.d31
+          },
+          {
+            'name': 'Sea regions',
+            'value': this.cs.resultCases.dataCategories.d32
+          },
+          {
+            'name': 'Statistical units',
+            'value': this.cs.resultCases.dataCategories.d33
+          },
+          {
+            'name': 'Utility and governmental services',
+            'value': this.cs.resultCases.dataCategories.d34
+          },
         ]
       }
     ];
 
+    
     this.hazardGraph = [
       {
-        'name': 'Region Hazards',
+        'name': 'Region-specific Hazards',
         'series': [
           {
             'name': 'Floods',
@@ -196,6 +279,7 @@ export class FiltersMenuComponent implements OnInit, AfterViewInit {
         ]
       }
     ];
+
     this.toolsGraph = [
       {
         'name': 'Tools/Platforms',
@@ -260,6 +344,57 @@ export class FiltersMenuComponent implements OnInit, AfterViewInit {
       }
     ];
 
+    this.projectAffiliationGraph = [
+      {
+        'name': 'Project Affiliation',
+        'series': [
+          {
+            'name': 'RESIST',
+            'value': this.cs.resultCases.projectAffiliation.RESIST
+          },
+          {
+            'name': 'Non-RESIST',
+            'value': this.cs.resultCases.projectAffiliation.nonRESIST
+          }
+        ]
+      }
+    ];
+
+    this.solutionStatusGraph = [
+      {
+        'name': 'Solution Status',
+        'series': [
+          {
+            'name': 'Implemented',
+            'value': this.cs.resultCases.solutionStatus.Implemented
+          },
+          {
+            'name': 'In Development',
+            'value': this.cs.resultCases.solutionStatus.InDevelopment
+          },
+          {
+            'name': 'Planned',
+            'value': this.cs.resultCases.solutionStatus.Planned
+          },
+          {
+            'name': 'Proposed',
+            'value': this.cs.resultCases.solutionStatus.Proposed
+          },
+          {
+            'name': 'Pilot',
+            'value': this.cs.resultCases.solutionStatus.Pilot
+          },
+          {
+            'name': 'Deprecated',
+            'value': this.cs.resultCases.solutionStatus.Deprecated
+          }
+        ]
+      }
+    ];
+    
+
+
+
     // refresh graphs
     this.cs.filteredCasesChange.subscribe(() => {
       this.solutiontypeGraph = [
@@ -268,23 +403,23 @@ export class FiltersMenuComponent implements OnInit, AfterViewInit {
           'series': [
             {
               'name': 'Governance and Institutional',
-              'value': this.cs.resultCases.solutiontype.governanceAndInstitutional
+              'value': this.cs.resultCases.solutionTypes.st01
             },
             {
               'name': 'Economic and Finance',
-              'value': this.cs.resultCases.solutiontype.economicAndFinance
+              'value': this.cs.resultCases.solutionTypes.st02
             },
             {
               'name': 'Physical and Technological',
-              'value': this.cs.resultCases.solutiontype.physicalAndTechnological
+              'value': this.cs.resultCases.solutionTypes.st03
             },
             {
               'name': 'Nature Based Solutions and Ecosystem-based Approaches',
-              'value': this.cs.resultCases.solutiontype.natureBasedSolutionsAndEcosystemBasedApproaches
+              'value': this.cs.resultCases.solutionTypes.st04
             },
             {
               'name': 'Knowledge and Behavioural change',
-              'value': this.cs.resultCases.solutiontype.knowledgeAndBehaviouralChange
+              'value': this.cs.resultCases.solutionTypes.st05
             }
   
           ]
@@ -315,70 +450,150 @@ export class FiltersMenuComponent implements OnInit, AfterViewInit {
       this.dataGraph = [
         {
           'name': 'Data Categories',
-          'series': [
-            {
-              'name': 'Meteorological Geographical Features',
-              'value': this.cs.resultCases.dataCategories.d01
-            },
-            {
-              'name': 'Environmental Monitoring Facilities',
-              'value': this.cs.resultCases.dataCategories.d02
-            },
-            {
-              'name': 'Population Distribution - Demography',
-              'value': this.cs.resultCases.dataCategories.d03
-            },
-            {
-              'name': 'Atmospheric Conditions',
-              'value': this.cs.resultCases.dataCategories.d04
-            },
-            {
-              'name': 'Natural Risk Zones',
-              'value': this.cs.resultCases.dataCategories.d05
-            },
-            {
-              'name': 'Transport Networks',
-              'value': this.cs.resultCases.dataCategories.d06
-            },
-            {
-              'name': 'Protected Sites',
-              'value': this.cs.resultCases.dataCategories.d07
-            },
-            {
-              'name': 'Orthoimagery',
-              'value': this.cs.resultCases.dataCategories.d08
-            },
-            {
-              'name': 'Elevation',
-              'value': this.cs.resultCases.dataCategories.d09
-            },
-            {
-              'name': 'Land Use',
-              'value': this.cs.resultCases.dataCategories.d10
-            },
-            {
-              'name': 'Land Cover',
-              'value': this.cs.resultCases.dataCategories.d11
-            },
-            {
-              'name': 'Geology',
-              'value': this.cs.resultCases.dataCategories.d12
-            },
-            {
-              'name': 'Hydrography',
-              'value': this.cs.resultCases.dataCategories.d13
-            },
-            {
-              'name': 'Soil',
-              'value': this.cs.resultCases.dataCategories.d14
-            },
-          ]
-        }
-      ];
+        'series': [
+          {
+            'name': 'Meteorological geographical features',
+            'value': this.cs.resultCases.dataCategories.d01
+          },
+          {
+            'name': 'Environmental monitoring facilities',
+            'value': this.cs.resultCases.dataCategories.d02
+          },
+          {
+            'name': 'Population distribution - demography',
+            'value': this.cs.resultCases.dataCategories.d03
+          },
+          {
+            'name': 'Atmospheric conditions',
+            'value': this.cs.resultCases.dataCategories.d04
+          },
+          {
+            'name': 'Natural risk zones',
+            'value': this.cs.resultCases.dataCategories.d05
+          },
+          {
+            'name': 'Transport networks',
+            'value': this.cs.resultCases.dataCategories.d06
+          },
+          {
+            'name': 'Protected sites',
+            'value': this.cs.resultCases.dataCategories.d07
+          },
+          {
+            'name': 'Orthoimagery',
+            'value': this.cs.resultCases.dataCategories.d08
+          },
+          {
+            'name': 'Elevation',
+            'value': this.cs.resultCases.dataCategories.d09
+          },
+          {
+            'name': 'Land use',
+            'value': this.cs.resultCases.dataCategories.d10
+          },
+          {
+            'name': 'Land cover',
+            'value': this.cs.resultCases.dataCategories.d11
+          },
+          {
+            'name': 'Geology',
+            'value': this.cs.resultCases.dataCategories.d12
+          },
+          {
+            'name': 'Hydrography',
+            'value': this.cs.resultCases.dataCategories.d13
+          },
+          {
+            'name': 'Soil',
+            'value': this.cs.resultCases.dataCategories.d14
+          },
+          {
+            'name': 'Addresses',
+            'value': this.cs.resultCases.dataCategories.d15
+          },
+          {
+            'name': 'Administrative units',
+            'value': this.cs.resultCases.dataCategories.d16
+          },
+          {
+            'name': 'Cadastral parcels',
+            'value': this.cs.resultCases.dataCategories.d17
+          },
+          {
+            'name': 'Geographical grid systems',
+            'value': this.cs.resultCases.dataCategories.d18
+          },
+          {
+            'name': 'Geographical names',
+            'value': this.cs.resultCases.dataCategories.d19
+          },
+          {
+            'name': 'Coordinate reference systems',
+            'value': this.cs.resultCases.dataCategories.d20
+          },
+          {
+            'name': 'Agricultural and aquaculture facilities',
+            'value': this.cs.resultCases.dataCategories.d21
+          },
+          {
+            'name': 'Area management/restriction/regulation zones and reporting units',
+            'value': this.cs.resultCases.dataCategories.d22
+          },
+          {
+            'name': 'Bio-geographical regions',
+            'value': this.cs.resultCases.dataCategories.d23
+          },
+          {
+            'name': 'Buildings',
+            'value': this.cs.resultCases.dataCategories.d24
+          },
+          {
+            'name': 'Energy resources',
+            'value': this.cs.resultCases.dataCategories.d25
+          },
+          {
+            'name': 'Habitats and biotopes',
+            'value': this.cs.resultCases.dataCategories.d26
+          },
+          {
+            'name': 'Human health and safety',
+            'value': this.cs.resultCases.dataCategories.d27
+          },
+          {
+            'name': 'Mineral resources',
+            'value': this.cs.resultCases.dataCategories.d28
+          },
+          {
+            'name': ' Oceanographic geographical features',
+            'value': this.cs.resultCases.dataCategories.d29
+          },
+          {
+            'name': 'Production and industrial facilities',
+            'value': this.cs.resultCases.dataCategories.d30
+          },
+          {
+            'name': 'Species distribution',
+            'value': this.cs.resultCases.dataCategories.d31
+          },
+          {
+            'name': 'Sea regions',
+            'value': this.cs.resultCases.dataCategories.d32
+          },
+          {
+            'name': 'Statistical units',
+            'value': this.cs.resultCases.dataCategories.d33
+          },
+          {
+            'name': 'Utility and governmental services',
+            'value': this.cs.resultCases.dataCategories.d34
+          },
+        ]
+      }
+    ];
 
       this.hazardGraph = [
         {
-          'name': 'Region Hazards',
+          'name': 'Region-specific Hazards',
           'series': [
             {
               'name': 'Floods',
@@ -403,6 +618,56 @@ export class FiltersMenuComponent implements OnInit, AfterViewInit {
           ]
         }
       ];
+
+      this.projectAffiliationGraph = [
+        {
+          'name': 'Project Affiliation',
+          'series': [
+            {
+              'name': 'RESIST',
+              'value': this.cs.resultCases.projectAffiliation.RESIST
+            },
+            {
+              'name': 'Non-RESIST',
+              'value': this.cs.resultCases.projectAffiliation.nonRESIST
+            }
+          ]
+        }
+      ];
+
+      this.solutionStatusGraph = [
+        {
+          'name': 'Solution Status',
+          'series': [
+            {
+              'name': 'Implemented',
+              'value': this.cs.resultCases.solutionStatus.Implemented
+            },
+            {
+              'name': 'In Development',
+              'value': this.cs.resultCases.solutionStatus.InDevelopment
+            },
+            {
+              'name': 'Planned',
+              'value': this.cs.resultCases.solutionStatus.Planned
+            },
+            {
+              'name': 'Proposed',
+              'value': this.cs.resultCases.solutionStatus.Proposed
+            },
+            {
+              'name': 'Pilot',
+              'value': this.cs.resultCases.solutionStatus.Pilot
+            },
+            {
+              'name': 'Deprecated',
+              'value': this.cs.resultCases.solutionStatus.Deprecated
+            }
+          ]
+        }
+      ];
+      
+
       this.toolsGraph = [
         {
           'name': 'Tools/Platforms',
@@ -426,6 +691,8 @@ export class FiltersMenuComponent implements OnInit, AfterViewInit {
           ]
         }
       ];
+
+
       this.solutionGoalGraph = [
         {
           'name': 'Solution Goals',
@@ -601,7 +868,7 @@ export class FiltersMenuComponent implements OnInit, AfterViewInit {
        params += 'n3=' + n.NUTS_ID + '&';
       });
     }
-
+/*
     if (this.tas.solutiontype.governanceAndInstitutional) {
       params += 'solutiontype=governanceAndInstitutional&';
     } else if (this.tas.solutiontype.economicAndFinance) {
@@ -613,7 +880,12 @@ export class FiltersMenuComponent implements OnInit, AfterViewInit {
     }else if (this.tas.solutiontype.knowledgeAndBehaviouralChange) {
       params += 'solutiontype=knowledgeAndBehaviouralChange&';
     }
-    
+    */
+    this.tas.solutionTypes.forEach(sty => {
+      if (sty.active) {
+        params += 'sty=' + sty.result + '&';
+      }
+    });
 
     this.tas.ecosystemServices.forEach(eco => {
       if (eco.active) {
@@ -623,6 +895,11 @@ export class FiltersMenuComponent implements OnInit, AfterViewInit {
     this.tas.dataCategories.forEach(da => {
       if (da.active) {
         params += 'da=' + da.result + '&';
+      }
+    });
+    this.tas.hazardss.forEach(ha => {
+      if (ha.active) {
+        params += 'ha=' + ha.result + '&';
       }
     });
     this.tas.toolsPlatforms.forEach(too => {
@@ -635,7 +912,43 @@ export class FiltersMenuComponent implements OnInit, AfterViewInit {
         params += 'sol=' + sol.result + '&';
       }
     });
-  
+
+    // Add the new loop for project affiliation
+    // this.tas.projectAffiliation.forEach(proj => {
+    //   if (proj.active) {
+     //    params += 'proj=' + proj.name + '&';
+     //  }
+    // });
+
+    if (this.tas.projectAffiliation.RESIST) {
+      params += 'projectAffiliation.RESIST&';
+    } else if (this.tas.projectAffiliation.nonRESIST) {
+      params += 'projectAffiliation.nonRESIST&';
+    }
+
+    // Solution Status filter
+    if (this.tas.solutionStatus.Implemented) {
+      params += 'solutionStatus.Implemented&';
+    } else if (this.tas.solutionStatus.InDevelopment) {
+      params += 'solutionStatus.InDevelopment&';
+    } else if (this.tas.solutionStatus.Planned) {
+      params += 'solutionStatus.Planned&';
+    } else if (this.tas.solutionStatus.Proposed) {
+      params += 'solutionStatus.Proposed&';
+    } else if (this.tas.solutionStatus.Pilot) {
+      params += 'solutionStatus.Pilot&';
+    } else if (this.tas.solutionStatus.Deprecated) {
+      params += 'solutionStatus.Deprecated&';
+    }
+
+
+    
+
+   
+
+    
+
+  /*
     if (this.tas.hazardss.r01) {
       params += 'ready=r01&';
     } else if (this.tas.hazardss.r02) {
@@ -647,7 +960,7 @@ export class FiltersMenuComponent implements OnInit, AfterViewInit {
     }else if (this.tas.hazardss.r05) {
       params += 'ready=r05&';
 
- 
+ */
 
 
     selBox.value = environment.base_url + params;
@@ -662,5 +975,4 @@ export class FiltersMenuComponent implements OnInit, AfterViewInit {
 
 
 
-}
 }

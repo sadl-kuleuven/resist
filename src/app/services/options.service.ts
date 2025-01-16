@@ -15,16 +15,37 @@ export class OptionsService {
   regiHazardVisible = true;
   toolsVisible = true;
   solutionVisible= true;
+  projectAffiliationVisible = true;
+  solutionStatusVisible = true;
+
 
   textFilter = '';
 
-  solutiontype = {
-    governanceAndInstitutional: false,
-    economicAndFinance: false,
-    physicalAndTechnological: false,
-    natureBasedSolutionsAndEcosystemBasedApproaches: false,
-    knowledgeAndBehaviouralChange: false
+  solutionTypes = [
+    { name: 'Governance and Institutional', active: false, icon: 'university', result: 'st01', class: 'color6' },
+    { name: 'Economic and Finance', active: false, icon: 'money', result: 'st02', class: 'color7' },
+    { name: 'Physical and Technological', active: false, icon: 'image', result: 'st03', class: 'color8' },
+    { name: 'Nature Based Solutions and Ecosystem-based Approaches', active: false, icon: 'tree', result: 'st04', class: 'color9' },
+    { name: 'Knowledge and Behavioural change', active: false, icon: 'graduation-cap ', result: 'st05', class: 'color10' }
+
+  ];
+
+  
+  projectAffiliation = {
+    RESIST: false,
+    nonRESIST: false
   };
+
+  solutionStatus = {
+    Implemented: false,
+    InDevelopment: false,
+    Planned: false,
+    Proposed: false,
+    Pilot: false,
+    Deprecated: false
+ };
+
+  
   
   
 
@@ -57,24 +78,54 @@ export class OptionsService {
   ];
 
   dataCategories = [
-    { name: 'Meteorological Geographical Features', active: false, icon: 'cloud', result: 'd01', class: 'color6' },
-    { name: 'Environmental Monitoring Facilities', active: false, icon: 'desktop', result: 'd02', class: 'color7' },
-    { name: 'Population Distribution - Demography', active: false, icon: 'users', result: 'd03', class: 'color8' },
-    { name: 'Atmospheric Conditions', active: false, icon: 'thermometer-empty', result: 'd04', class: 'color9' },
-    { name: 'Natural Risk Zones', active: false, icon: 'info ', result: 'd05', class: 'color10' },
-    { name: 'Transport Networks', active: false, icon: 'road', result: 'd06', class: 'color1' },
-    { name: 'Protected Sites', active: false, icon: 'map-marker', result: 'd07', class: 'color2' },
+    { name: 'Meteorological geographical features', active: false, icon: 'cloud', result: 'd01', class: 'color6' },
+    { name: 'Environmental monitoring facilities', active: false, icon: 'desktop', result: 'd02', class: 'color7' },
+    { name: 'Population distribution - demography', active: false, icon: 'users', result: 'd03', class: 'color8' },
+    { name: 'Atmospheric conditions', active: false, icon: 'thermometer-empty', result: 'd04', class: 'color9' },
+    { name: 'Natural risk zones', active: false, icon: 'info ', result: 'd05', class: 'color10' },
+    { name: 'Transport networks', active: false, icon: 'road', result: 'd06', class: 'color1' },
+    { name: 'Protected sites', active: false, icon: 'map-marker', result: 'd07', class: 'color2' },
     { name: 'Orthoimagery', active: false, icon: 'file-image-o', result: 'd08', class: 'color3' },
     { name: 'Elevation', active: false, icon: 'area-chart', result: 'd09', class: 'color4' },
-    { name: 'Land Use', active: false, icon: 'th-large', result: 'd10', class: 'color5' },
-    { name: 'Land Cover', active: false, icon: 'globe', result: 'd11', class: 'color11' },
+    { name: 'Land use', active: false, icon: 'th-large', result: 'd10', class: 'color5' },
+    { name: 'Land cover', active: false, icon: 'globe', result: 'd11', class: 'color11' },
     { name: 'Geology', active: false, icon: 'map', result: 'd12', class: 'color12' },
     { name: 'Hydrography', active: false, icon: 'tint', result: 'd13', class: 'color13' },
-    { name: 'Soil', active: false, icon: 'circle-o', result: 'd14', class: 'color14' }
+    { name: 'Soil', active: false, icon: 'circle-o', result: 'd14', class: 'color14' },
+    { name: 'Addresses', active: false, icon: 'address-book', result: 'd15', class: 'color6' },
+    { name: 'Administrative units', active: false, icon: 'globe', result: 'd16', class: 'color7' },
+    { name: 'Cadastral parcels', active: false, icon: 'th-large ', result: 'd17', class: 'color8' },
+    { name: 'Geographical grid systems', active: false, icon: 'th', result: 'd18', class: 'color9' },
+    { name: 'Geographical names', active: false, icon: 'language', result: 'd19', class: 'color10' },
+    { name: 'Coordinate reference systems', active: false, icon: 'location-arrow', result: 'd20', class: 'color1' },
+    { name: 'Agricultural and aquaculture facilities', active: false, icon: 'map-marker', result: 'd21', class: 'color2' },
+    { name: 'Area management/restriction/regulation zones and reporting units', active: false, icon: 'ban', result: 'd22', class: 'color3' },
+    { name: 'Bio-geographical regions', active: false, icon: 'pagelines', result: 'd23', class: 'color4' },
+    { name: 'Buildings', active: false, icon: 'home', result: 'd24', class: 'color5' },
+    { name: 'Energy resources', active: false, icon: 'globe', result: 'd25', class: 'color11' },
+    { name: 'Habitats and biotopes', active: false, icon: 'map', result: 'd26', class: 'color12' },
+    { name: 'Human health and safety', active: false, icon: 'heartbeat', result: 'd27', class: 'color13' },
+    { name: 'Mineral resources', active: false, icon: 'diamond', result: 'd28', class: 'color14' },
+    { name: 'Oceanographic geographical features', active: false, icon: 'area-chart', result: 'd29', class: 'color4' },
+    { name: 'Production and industrial facilities', active: false, icon: 'industry', result: 'd30', class: 'color5' },
+    { name: 'Species distribution', active: false, icon: 'globe', result: 'd31', class: 'color11' },
+    { name: 'Sea regions', active: false, icon: 'map', result: 'd32', class: 'color12' },
+    { name: 'Statistical units', active: false, icon: 'bar-chart', result: 'd33', class: 'color13' },
+    { name: 'Utility and governmental servicess', active: false, icon: 'circle-o', result: 'd34', class: 'color14' }
   
   ];
 
+  hazardss = [
+    { name: 'Floods', active: false, icon: 'bolt', result: 'r01', class: 'color1' },
+    { name: 'Droughts', active: false, icon: 'tint', result: 'r02', class: 'color2' },
+    { name: 'Wildfire', active: false, icon: 'fire', result: 'r03', class: 'color3' },
+    { name: 'Heatwaves', active: false, icon: 'thermometer-three-quarters', result: 'r04', class: 'color4' },
+    { name: 'Soil Erosion', active: false, icon: 'info ', result: 'r05', class: 'color5' }
 
+  ];
+
+
+/*
   hazardss = {
     r01: false,
     r02: false,
@@ -82,6 +133,7 @@ export class OptionsService {
     r04: false,
     r05: false,
   };
+  */
 
   toolsPlatforms =[
     //Mapping and Visualization Tools
@@ -110,15 +162,17 @@ export class OptionsService {
     { name: 'Data portal', active: false, section: false, result: 'tp20'},
     { name: 'Sensor network', active: false, section: false, result: 'tp21'}
   ];
+
+
   solutionGoals =[
     { name: '1 - Water Management and Flood Prevention', number: 1, active: false, icon: 'bars', result: 's01', class: 'color6' },
-    { name: '2 - Community Engagement and Advocacy', number: 2, active: false, icon: 'leaf', result: 's02', class: 'color7' },
-    { name: '3 - Nature Conservation and Biodiversity', number: 3, active: false, icon: 'fire', result: 's03', class: 'color8' },
-    { name: '4 - Climate Risk Identification and Adaptation', number: 4, active: false, icon: 'balance-scale', result: 's04', class: 'color9' },
-    { name: '5 - Pollution Reduction and Environmental Enhancement', number: 5, active: false, icon: 'eye', result: 's05', class: 'color10' },
-    { name: '6 - Forest Fire Reduction and Management', number: 6, active: false, icon: 'eur', result: 's06', class: 'color1' },
-    { name: '7 - Urban Planning', number: 7, active: false, icon: 'users', result: 's07', class: 'color2' },
-    { name: '8 - Other Solutions', number: 8, active: false, icon: 'square', result: 's08', class: 'color3' }
+    { name: '2 - Community Engagement and Advocacy', number: 2, active: false, icon: 'users', result: 's02', class: 'color7' },
+    { name: '3 - Nature Conservation and Biodiversity', number: 3, active: false, icon: 'leaf', result: 's03', class: 'color8' },
+    { name: '4 - Climate Risk Identification and Adaptation', number: 4, active: false, icon: 'sun-o', result: 's04', class: 'color9' },
+    { name: '5 - Pollution Reduction and Environmental Enhancement', number: 5, active: false, icon: 'arrow-down', result: 's05', class: 'color10' },
+    { name: '6 - Forest Fire Reduction and Management', number: 6, active: false, icon: 'fire-extinguisher', result: 's06', class: 'color1' },
+    { name: '7 - Urban Planning', number: 7, active: false, icon: 'building-o', result: 's07', class: 'color2' },
+    { name: '8 - Other Solutions', number: 8, active: false, icon: 'circle-o-notch ', result: 's08', class: 'color3' }
     
   ];
 

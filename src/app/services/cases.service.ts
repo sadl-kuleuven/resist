@@ -24,12 +24,15 @@ export class CasesService {
 
   private textFilter = '';
   private geoExtentFilter = [];
-  private typeFilter = null;
-  private regiHazardFilter = null;
+  private typeFilter = [];
+  private regiHazardFilter = [];
   private dataCategoryFilter = [];
   private ecosystemServicesFilter = [];
   private toolsPlatformsFilter = [];
   private solutionGoalFilter = [];
+  private projectAffiliationFilter = null;
+  private solutionStatusFilter = null;
+
 
   public selectedCase = null;
 
@@ -41,13 +44,14 @@ export class CasesService {
   public filteredCasesChange: Subject<boolean> = new Subject<boolean>();
 
   public resultCases = {
-    solutiontype: {
-      governanceAndInstitutional: 0,
-      economicAndFinance: 0,
-      physicalAndTechnological: 0,
-      natureBasedSolutionsAndEcosystemBasedApproaches: 0,
-      knowledgeAndBehaviouralChange: 0
-    },
+
+    //solutiontype: {
+      //governanceAndInstitutional: 0,
+     // economicAndFinance: 0,
+     // physicalAndTechnological: 0,
+     // natureBasedSolutionsAndEcosystemBasedApproaches: 0,
+     // knowledgeAndBehaviouralChange: 0
+    //},
     
     solutionGoal: {
       s01: 0,
@@ -60,6 +64,15 @@ export class CasesService {
       s08: 0,
       s09: 0
     },
+
+    solutionTypes: {
+      st01: 0,
+      st02: 0,
+      st03: 0,
+      st04: 0,
+      st05: 0
+    },
+
     ecosystemServices: {
       ec01: 0,
       ec02: 0,
@@ -84,6 +97,7 @@ export class CasesService {
       ec21: 0,
       ec22: 0
     },
+
     dataCategories: {
       d01: 0,
       d02: 0,
@@ -98,7 +112,28 @@ export class CasesService {
       d11: 0,
       d12: 0,
       d13: 0,
-      d14: 0
+      d14: 0,
+      d15: 0,
+      d16: 0,
+      d17: 0,
+      d18: 0,
+      d19: 0,
+      d20: 0,
+      d21: 0,
+      d22: 0,
+      d23: 0,
+      d24: 0,
+      d25: 0,
+      d26: 0,
+      d27: 0,
+      d28: 0,
+      d29: 0,
+      d30: 0,
+      d31: 0,
+      d32: 0,
+      d33: 0,
+      d34: 0
+
     },
 
 
@@ -133,6 +168,23 @@ export class CasesService {
       tp20: 0,
       tp21: 0
     }, 
+
+    projectAffiliation: {
+      RESIST: 0,
+      nonRESIST: 0
+    },
+
+    solutionStatus: {
+      Implemented: 0,
+      InDevelopment: 0,
+      Planned: 0,
+      Proposed: 0,
+      Pilot: 0,
+      Deprecated: 0
+    },
+
+
+
 
   };
 
@@ -205,6 +257,8 @@ export class CasesService {
     this.filterByText();
     this.filterByGeoExtent();
     this.filterBySolutionType();
+    this.filterByProjectAffiliation();
+    this.filterBySolutionStatus();
     this.filterByDataCategory();
     this.filterByEcosystemService();
     this.filterByRegionHazard();
@@ -237,7 +291,7 @@ export class CasesService {
     });
     this.applyFilters();
   }
-
+/*
   filterBySolutionType(sc = null) {
     if (sc == null) {
       if (this.tas.solutiontype.governanceAndInstitutional) {
@@ -293,7 +347,17 @@ export class CasesService {
     }
     this.applyFilters();
   }
-  
+  */
+
+  filterBySolutionType() {
+    this.typeFilter = [];
+    this.tas.solutionTypes.forEach(a => {
+      if (a.active) {
+        this.typeFilter.push(a.name);
+      }
+    });
+    this.applyFilters();
+  }
 
 
   filterByDataCategory() {
@@ -301,6 +365,16 @@ export class CasesService {
     this.tas.dataCategories.forEach(a => {
       if (a.active) {
         this.dataCategoryFilter.push(a.name);
+      }
+    });
+    this.applyFilters();
+  }
+
+  filterByRegionHazard() {
+    this.regiHazardFilter = [];
+    this.tas.hazardss.forEach(a => {
+      if (a.active) {
+        this.regiHazardFilter.push(a.name);
       }
     });
     this.applyFilters();
@@ -316,6 +390,70 @@ export class CasesService {
 
     this.applyFilters();
   }
+
+  //filterByProjectAffiliation() {
+   // this.projectAffiliationFilter = [];
+    //this.tas.projectAffiliation.forEach(a => {
+     // if (a.active) {
+     //   this.projectAffiliationFilter.push(a.name);
+     // }
+    //});
+   // this.applyFilters();
+ // }
+
+  filterByProjectAffiliation(sc = null) {
+    if (sc == null) {
+      if (this.tas.projectAffiliation.RESIST) {
+        this.projectAffiliationFilter = 'RESIST';
+      } else if (this.tas.projectAffiliation.nonRESIST) {
+        this.projectAffiliationFilter = 'Non-RESIST';
+      }
+    } else {
+      if (sc === 'RESIST') {
+        this.tas.projectAffiliation.RESIST = true;
+        this.tas.projectAffiliation.nonRESIST = false;
+      } else if (sc === 'nonRESIST') {
+        this.tas.projectAffiliation.RESIST = false;
+        this.tas.projectAffiliation.nonRESIST = true;
+      } else {
+        this.tas.projectAffiliation.RESIST = false;
+        this.tas.projectAffiliation.nonRESIST = false;
+      }
+      this.projectAffiliationFilter = sc;
+    }
+    this.applyFilters();
+  }
+
+  filterBySolutionStatus(status = null) {
+    if (status == null) {
+      if (this.tas.solutionStatus.Implemented) {
+        this.solutionStatusFilter = 'Implemented';
+      } else if (this.tas.solutionStatus.InDevelopment) {
+        this.solutionStatusFilter = 'In Development';
+      } else if (this.tas.solutionStatus.Planned) {
+        this.solutionStatusFilter = 'Planned';
+      } else if (this.tas.solutionStatus.Proposed) {
+        this.solutionStatusFilter = 'Proposed';
+      } else if (this.tas.solutionStatus.Pilot) {
+        this.solutionStatusFilter = 'Pilot';
+      } else if (this.tas.solutionStatus.Deprecated) {
+        this.solutionStatusFilter = 'Deprecated';
+      }
+    } else {
+      this.tas.solutionStatus.Implemented = (status === 'Implemented');
+      this.tas.solutionStatus.InDevelopment = (status === 'In Development');
+      this.tas.solutionStatus.Planned = (status === 'Planned');
+      this.tas.solutionStatus.Proposed = (status === 'Proposed');
+      this.tas.solutionStatus.Pilot = (status === 'Pilot');
+      this.tas.solutionStatus.Deprecated = (status === 'Deprecated');
+      
+      this.solutionStatusFilter = status;
+    }
+    this.applyFilters();
+  }
+
+
+/*
 
   filterByRegionHazard(tr = null) {
     if (tr == null) {
@@ -373,6 +511,8 @@ export class CasesService {
     }
     this.applyFilters();
   }
+*/
+
 /*
   filterByPublicValue() {
     this.publicValueFilter = [];
@@ -456,6 +596,66 @@ export class CasesService {
         });
         this.filteredCases = filterData;
       }
+
+      // console.log('Filtering by technology hazardss: ' + this.regiHazardFilter);
+
+
+      if (this.regiHazardFilter.length > 0) {
+        const filterHazard = [];
+        this.filteredCases.forEach(fc => {
+          fc.region_hazard_level.forEach(ha => {
+            this.regiHazardFilter.forEach(f => {
+              if (ha === f) {
+                if (!filterHazard.includes(fc)) {
+                  filterHazard.push(fc);
+                }
+              }
+            });
+          });
+        });
+        this.filteredCases = filterHazard;
+      }
+
+      // console.log('Filtering by solution types: ' + this.typeFilter);
+
+
+      if (this.typeFilter.length > 0) {
+        const filterType = [];
+        this.filteredCases.forEach(fc => {
+          fc.solution_type.forEach(sty => {
+            this.typeFilter.forEach(f => {
+              if (sty === f) {
+                if (!filterType.includes(fc)) {
+                  filterType.push(fc);
+                }
+              }
+            });
+          });
+        });
+        this.filteredCases = filterType;
+      }
+
+      // New code for filtering by project affiliation
+      /*if (this.projectAffiliationFilter.length > 0) {
+        const filterAffiliation = [];
+        this.filteredCases.forEach(fc => {
+          this.projectAffiliationFilter.forEach(f => {
+            if (fc.project_affiliation === f) {  // Assuming `project_affiliation` is a property in each case
+              if (!filterAffiliation.includes(fc)) {
+                filterAffiliation.push(fc);
+              }
+            }
+          });
+        });
+        this.filteredCases = filterAffiliation;
+      }
+
+*/
+      
+
+
+
+
             // console.log('Filtering by tools/platform: ' + this.toolsPlatformsFilter);
             if (this.toolsPlatformsFilter.length > 0) {
               const filterTools = [];
@@ -554,20 +754,35 @@ export class CasesService {
         this.filteredCases = filterECO;
       }
 
+      // console.log('Filtering by projectaffiliationfilter: ' + this.projectAffiliationFilter);
+      if (this.projectAffiliationFilter && this.projectAffiliationFilter != 'all') {
+        this.filteredCases = this.filteredCases.filter(c => c.project_affiliation === this.projectAffiliationFilter);
+      }
+
+      // Filtering by solution status
+      if (this.solutionStatusFilter && this.solutionStatusFilter != 'all') {
+        this.filteredCases = this.filteredCases.filter(c => c.solution_status === this.solutionStatusFilter);
+      }
 
 
-   
+      
+
+
+
+   /*
 
       // console.log('Filtering by technology hazardss: ' + this.regiHazardFilter);
       if (this.regiHazardFilter) {
         this.filteredCases = this.filteredCases.filter(c => c.region_hazard_level === this.regiHazardFilter);
       }
 
+      
+
       // console.log('Filtering by solutiontype: ' + this.typeFilter);
       if (this.typeFilter && this.typeFilter != 'all') {
         this.filteredCases = this.filteredCases.filter(c => c.solution_type === this.typeFilter);
       }
-
+*/
       this.allFilteredCases = this.filteredCases;
 
       this.addMarkersCollection();
@@ -625,6 +840,83 @@ export class CasesService {
         });
       });
       return filterData;
+    } else {
+      return toFilter;
+    }
+  }
+
+  applyFiltersTechReady(toFilter) {
+    if (this.regiHazardFilter.length > 0) {
+      const filterHazard = [];
+      toFilter.forEach(fc => {
+        fc.region_hazard_level.forEach(ha => {
+          this.regiHazardFilter.forEach(f => {
+            if (ha=== f) {
+              if (!filterHazard.includes(fc)) {
+                filterHazard.push(fc);
+              }
+            }
+          });
+        });
+      });
+      return filterHazard;
+    } else {
+      return toFilter;
+    }
+  }
+
+ /* applyFiltersProjectAffiliation(toFilter) {
+    if (this.projectAffiliationFilter.length > 0) {
+      const filterAffiliation = [];
+      toFilter.forEach(fc => {
+        this.projectAffiliationFilter.forEach(f => {
+          if (fc.project_affiliation === f) {  // Assuming `project_affiliation` is a property in each case
+            if (!filterAffiliation.includes(fc)) {
+              filterAffiliation.push(fc);
+            }
+          }
+        });
+      });
+      return filterAffiliation;
+    } else {
+      return toFilter;
+    }
+  }
+*/
+
+applyFiltersProjectAffiliation(toFilter) {
+  if (this.projectAffiliationFilter && this.projectAffiliationFilter != 'all') {
+    toFilter = toFilter.filter(c => c.project_affiliation === this.projectAffiliationFilter);
+  }
+  return toFilter;
+}
+
+
+// Apply solution status filter
+applyFiltersSolutionStatus(toFilter){
+if (this.solutionStatusFilter && this.solutionStatusFilter != 'all') {
+  toFilter = toFilter.filter(c => c.solution_status === this.solutionStatusFilter);
+}
+
+return toFilter;
+}
+
+  
+  applyFiltersType(toFilter) {
+    if (this.typeFilter.length > 0) {
+      const filterType = [];
+      toFilter.forEach(fc => {
+        fc.solution_type.forEach(sty => {
+          this.typeFilter.forEach(f => {
+            if (sty=== f) {
+              if (!filterType.includes(fc)) {
+                filterType.push(fc);
+              }
+            }
+          });
+        });
+      });
+      return filterType;
     } else {
       return toFilter;
     }
@@ -735,6 +1027,9 @@ export class CasesService {
     }
   }
 
+
+
+  /*
   applyFiltersTechReady(toFilter) {
     if (this.regiHazardFilter && this.regiHazardFilter != 0) {
       toFilter = toFilter.filter(c => c.region_hazard_level === this.regiHazardFilter);
@@ -742,12 +1037,15 @@ export class CasesService {
     return toFilter;
   }
 
+  
+
   applyFiltersType(toFilter) {
     if (this.typeFilter && this.typeFilter != 'all') {
       toFilter = toFilter.filter(c => c.solution_type === this.typeFilter);
     }
     return toFilter;
   }
+*/
 
   addMarkersCollection() {
     this.ns.updateNUTSActive();
@@ -799,12 +1097,12 @@ export class CasesService {
 
     if (this.allCases) {
 
-      this.resultCases.solutiontype = {
-        governanceAndInstitutional : 0,
-        economicAndFinance: 0,
-        physicalAndTechnological: 0,
-        natureBasedSolutionsAndEcosystemBasedApproaches: 0,
-        knowledgeAndBehaviouralChange: 0
+      this.resultCases.solutionTypes = {
+        st01 : 0,
+        st02: 0,
+        st03: 0,
+        st04: 0,
+        st05: 0
       };
       
       this.resultCases.solutionGoal = {
@@ -856,7 +1154,27 @@ export class CasesService {
         d11: 0,
         d12: 0,
         d13: 0,
-        d14: 0
+        d14: 0,
+        d15: 0,
+        d16: 0,
+        d17: 0,
+        d18: 0,
+        d19: 0,
+        d20: 0,
+        d21: 0,
+        d22: 0,
+        d23: 0,
+        d24: 0,
+        d25: 0,
+        d26: 0,
+        d27: 0,
+        d28: 0,
+        d29: 0,
+        d30: 0,
+        d31: 0,
+        d32: 0,
+        d33: 0,
+        d34: 0
       },
 
       this.resultCases.hazardss = {
@@ -865,7 +1183,7 @@ export class CasesService {
         r03: 0,
         r04: 0,
         r05: 0
-      };
+      },
 
       this.resultCases.toolsPlatforms= {
         tp01: 0,
@@ -889,6 +1207,20 @@ export class CasesService {
         tp19: 0,
         tp20: 0,
         tp21: 0
+      },
+
+      this.resultCases.projectAffiliation = {
+        RESIST: 0,
+        nonRESIST: 0
+      },
+
+      this.resultCases.solutionStatus = {
+        Implemented: 0,
+        InDevelopment: 0,
+        Planned: 0,
+        Proposed: 0,
+        Pilot: 0,
+        Deprecated: 0
       };
 
 
@@ -903,21 +1235,27 @@ export class CasesService {
       casesType = this.applyFiltersTechReady(casesType);
       casesType = this.applyFiltersToolsPlatforms(casesType);
       casesType = this.applyFiltersSolutionGoals(casesType);
+      casesType = this.applyFiltersProjectAffiliation(casesType);
+      casesType = this.applyFiltersSolutionStatus(casesType); 
+
 
       casesType.forEach(c => {
-        if (c.solution_type) {
-          if (c.solution_type === 'Governance and Institutional') {
-            this.resultCases.solutiontype.governanceAndInstitutional++;
-          } else if (c.solution_type === 'Economic and Finance') {
-            this.resultCases.solutiontype.economicAndFinance++;
-          } else if (c.solution_type === 'Physical and Technological') {
-            this.resultCases.solutiontype.physicalAndTechnological++;
-          } else if (c.solution_type === 'Nature Based Solutions and Ecosystem-based Approaches') {
-            this.resultCases.solutiontype.natureBasedSolutionsAndEcosystemBasedApproaches++;
-          } else if (c.solution_type === 'Knowledge and Behavioural change') {
-            this.resultCases.solutiontype.knowledgeAndBehaviouralChange++;
+        if (c.solution_type.includes('Governance and Institutional')) {
+          this.resultCases.solutionTypes.st01++;
         }
-      }});
+        if (c.solution_type.includes('Economic and Finance')) {
+          this.resultCases.solutionTypes.st02++;
+        }
+        if (c.solution_type.includes('Physical and Technological')) {
+          this.resultCases.solutionTypes.st03++;
+        }
+        if (c.solution_type.includes('Nature Based Solutions and Ecosystem-based Approaches')) {
+          this.resultCases.solutionTypes.st04++;
+        }
+        if (c.solution_type.includes('Knowledge and Behavioural change')) {
+          this.resultCases.solutionTypes.st05++;
+        }
+      });
 
       let casesEcosystem = this.allCases;
 
@@ -928,6 +1266,8 @@ export class CasesService {
       casesEcosystem = this.applyFiltersType(casesEcosystem);
       casesEcosystem = this. applyFiltersToolsPlatforms(casesEcosystem);
       casesEcosystem = this.applyFiltersSolutionGoals(casesEcosystem);
+      casesEcosystem = this.applyFiltersProjectAffiliation(casesEcosystem);
+      casesEcosystem = this.applyFiltersSolutionStatus(casesEcosystem); 
 
       casesEcosystem.forEach(c => {
         let ecoReg = false;
@@ -1036,27 +1376,31 @@ export class CasesService {
       casesData = this.applyFiltersType(casesData);
       casesData = this.applyFiltersToolsPlatforms(casesData);
       casesData = this.applyFiltersSolutionGoals(casesData);
+      casesData = this.applyFiltersProjectAffiliation(casesData);
+      casesData = this.applyFiltersSolutionStatus(casesData); 
+      
+      
 
       casesData.forEach(c => {
-        if (c.data_categories.includes('Meteorological Geographical Features')) {
+        if (c.data_categories.includes('Meteorological geographical features')) {
           this.resultCases.dataCategories.d01++;
         }
-        if (c.data_categories.includes('Environmental Monitoring Facilities')) {
+        if (c.data_categories.includes('Environmental monitoring facilities')) {
           this.resultCases.dataCategories.d02++;
         }
-        if (c.data_categories.includes('Population Distribution - Demography')) {
+        if (c.data_categories.includes('Population distribution - demography')) {
           this.resultCases.dataCategories.d03++;
         }
-        if (c.data_categories.includes('Atmospheric Conditions')) {
+        if (c.data_categories.includes('Atmospheric conditions')) {
           this.resultCases.dataCategories.d04++;
         }
-        if (c.data_categories.includes('Natural Risk Zones')) {
+        if (c.data_categories.includes('Natural risk zones')) {
           this.resultCases.dataCategories.d05++;
         }
-        if (c.data_categories.includes('Transport Networks')) {
+        if (c.data_categories.includes('Transport networks')) {
           this.resultCases.dataCategories.d06++;
         }
-        if (c.data_categories.includes('Protected Sites')) {
+        if (c.data_categories.includes('Protected sites')) {
           this.resultCases.dataCategories.d07++;
         }
         if (c.data_categories.includes('Orthoimagery')) {
@@ -1065,10 +1409,10 @@ export class CasesService {
         if (c.data_categories.includes('Elevation')) {
           this.resultCases.dataCategories.d09++;
         }
-        if (c.data_categories.includes('Land Use')) {
+        if (c.data_categories.includes('Land use')) {
           this.resultCases.dataCategories.d10++;
         }
-        if (c.data_categories.includes('Land Cover')) {
+        if (c.data_categories.includes('Land cover')) {
           this.resultCases.dataCategories.d11++;
         }
         if (c.data_categories.includes('Geology')) {
@@ -1080,7 +1424,155 @@ export class CasesService {
         if (c.data_categories.includes('Soil')) {
           this.resultCases.dataCategories.d14++;
         }
+        if (c.data_categories.includes('Addresses')) {
+          this.resultCases.dataCategories.d15++;
+        }
+        if (c.data_categories.includes('Administrative units')) {
+          this.resultCases.dataCategories.d16++;
+        }
+        if (c.data_categories.includes('Cadastral parcels')) {
+          this.resultCases.dataCategories.d17++;
+        }
+        if (c.data_categories.includes('Geographical grid systems')) {
+          this.resultCases.dataCategories.d18++;
+        }
+        if (c.data_categories.includes('Geographical names')) {
+          this.resultCases.dataCategories.d19++;
+        }
+        if (c.data_categories.includes('Coordinate reference systems')) {
+          this.resultCases.dataCategories.d20++;
+        }
+        if (c.data_categories.includes('Agricultural and aquaculture facilities')) {
+          this.resultCases.dataCategories.d21++;
+        }
+        if (c.data_categories.includes('Area management/restriction/regulation zones and reporting units')) {
+          this.resultCases.dataCategories.d22++;
+        }
+        if (c.data_categories.includes('Bio-geographical regions')) {
+          this.resultCases.dataCategories.d23++;
+        }
+        if (c.data_categories.includes('Buildings')) {
+          this.resultCases.dataCategories.d24++;
+        }
+        if (c.data_categories.includes('Energy resources')) {
+          this.resultCases.dataCategories.d25++;
+        }
+        if (c.data_categories.includes('Habitats and biotopes')) {
+          this.resultCases.dataCategories.d26++;
+        }
+        if (c.data_categories.includes('Human health and safety')) {
+          this.resultCases.dataCategories.d27++;
+        }
+        if (c.data_categories.includes('Mineral resources')) {
+          this.resultCases.dataCategories.d28++;
+        }
+        if (c.data_categories.includes('Oceanographic geographical features')) {
+          this.resultCases.dataCategories.d29++;
+        }
+        if (c.data_categories.includes('Production and industrial facilities')) {
+          this.resultCases.dataCategories.d30++;
+        }
+        if (c.data_categories.includes('Species distribution')) {
+          this.resultCases.dataCategories.d31++;
+        }
+        if (c.data_categories.includes('Sea regions')) {
+          this.resultCases.dataCategories.d32++;
+        }
+        if (c.data_categories.includes('Statistical units')) {
+          this.resultCases.dataCategories.d33++;
+        }
+        if (c.data_categories.includes('Utility and governmental services')) {
+          this.resultCases.dataCategories.d34++;
+        }
+        
       });
+
+
+      let casesRegionHazard = this.allCases;
+
+      casesRegionHazard = this.applyFiltersText(casesRegionHazard);
+      casesRegionHazard = this.applyFiltersGeo(casesRegionHazard);
+      casesRegionHazard = this.applyFiltersDataCategory(casesRegionHazard);
+      casesRegionHazard = this.applyFiltersEcosystemServices(casesRegionHazard);
+      casesRegionHazard = this.applyFiltersType(casesRegionHazard);
+      casesRegionHazard = this.applyFiltersToolsPlatforms(casesRegionHazard);
+      casesRegionHazard = this.applyFiltersSolutionGoals(casesRegionHazard); 
+      casesRegionHazard = this.applyFiltersProjectAffiliation(casesRegionHazard);
+      casesRegionHazard = this.applyFiltersSolutionStatus(casesRegionHazard);
+
+      casesRegionHazard.forEach(c => {
+        if (c.region_hazard_level.includes('Floods')) {
+          this.resultCases.hazardss.r01++;
+        }
+        if (c.region_hazard_level.includes('Droughts')) {
+          this.resultCases.hazardss.r02++;
+        }
+        if (c.region_hazard_level.includes('Wildfire')) {
+          this.resultCases.hazardss.r03++;
+        }
+        if (c.region_hazard_level.includes('Heatwaves')) {
+          this.resultCases.hazardss.r04++;
+        }
+        if (c.region_hazard_level.includes('Soil Erosion')) {
+          this.resultCases.hazardss.r05++;
+        }
+      });
+
+
+      let casesProjectAffiliation = this.allCases;
+
+      casesProjectAffiliation = this.applyFiltersText(casesProjectAffiliation);
+      casesProjectAffiliation = this.applyFiltersGeo(casesProjectAffiliation);
+      casesProjectAffiliation = this.applyFiltersDataCategory(casesProjectAffiliation);
+      casesProjectAffiliation = this.applyFiltersEcosystemServices(casesProjectAffiliation);
+      casesProjectAffiliation = this.applyFiltersTechReady(casesProjectAffiliation);
+      casesProjectAffiliation = this.applyFiltersType(casesProjectAffiliation);
+      casesProjectAffiliation = this.applyFiltersToolsPlatforms(casesProjectAffiliation);
+      casesProjectAffiliation = this.applyFiltersSolutionGoals(casesProjectAffiliation);
+      casesProjectAffiliation= this.applyFiltersSolutionStatus(casesProjectAffiliation);
+
+      casesProjectAffiliation.forEach(c => {
+        if (c.project_affiliation === 'RESIST') {
+            this.resultCases.projectAffiliation.RESIST++;
+        } else if (c.project_affiliation === 'Non-RESIST') {
+            this.resultCases.projectAffiliation.nonRESIST++;
+        }
+    });
+
+    let casesStatus = this.allCases;
+
+    casesStatus = this.applyFiltersText(casesStatus);
+    casesStatus = this.applyFiltersGeo(casesStatus);
+    casesStatus = this.applyFiltersDataCategory(casesStatus);
+    casesStatus = this.applyFiltersEcosystemServices(casesStatus);
+    casesStatus = this.applyFiltersTechReady(casesStatus);
+    casesStatus = this.applyFiltersType(casesStatus);
+    casesStatus = this.applyFiltersToolsPlatforms(casesStatus);
+    casesStatus = this.applyFiltersSolutionGoals(casesStatus);
+    casesStatus = this.applyFiltersProjectAffiliation(casesStatus);
+
+    casesStatus.forEach(c => {
+      // Count by solution status
+      if (c.solution_status === 'Implemented') {
+        this.resultCases.solutionStatus.Implemented++;
+      } else if (c.solution_status === 'In Development') {
+        this.resultCases.solutionStatus.InDevelopment++;
+      } else if (c.solution_status === 'Planned') {
+        this.resultCases.solutionStatus.Planned++;
+      } else if (c.solution_status === 'Proposed') {
+        this.resultCases.solutionStatus.Proposed++;
+      } else if (c.solution_status === 'Pilot') {
+        this.resultCases.solutionStatus.Pilot++;
+      } else if (c.solution_status === 'Deprecated') {
+        this.resultCases.solutionStatus.Deprecated++;
+      }
+    });
+
+    
+
+    
+
+      /*
 
       let casesRegionHazard = this.allCases;
 
@@ -1104,7 +1596,8 @@ export class CasesService {
         } else if (c.region_hazard_level === 5) {
           this.resultCases.hazardss.r05++;
         }
-      });
+        
+        */
 
       let casesToolsPlatforms = this.allCases;
 
@@ -1115,7 +1608,8 @@ export class CasesService {
       casesToolsPlatforms = this.applyFiltersTechReady(casesToolsPlatforms);
       casesToolsPlatforms = this.applyFiltersType(casesToolsPlatforms);
       casesToolsPlatforms = this.applyFiltersSolutionGoals(casesToolsPlatforms);
-
+      casesToolsPlatforms = this.applyFiltersProjectAffiliation(casesToolsPlatforms);
+      casesToolsPlatforms = this.applyFiltersSolutionStatus(casesToolsPlatforms);
 
       casesToolsPlatforms.forEach(c => {
         let tooMap = false;
@@ -1220,6 +1714,8 @@ export class CasesService {
       casesSolutionGoals = this.applyFiltersTechReady(casesSolutionGoals);
       casesSolutionGoals = this.applyFiltersType(casesSolutionGoals);
       casesSolutionGoals = this.applyFiltersToolsPlatforms(casesSolutionGoals);
+      casesSolutionGoals = this.applyFiltersProjectAffiliation(casesSolutionGoals);
+      casesSolutionGoals = this.applyFiltersSolutionStatus(casesSolutionGoals);
 
       let uniqueSolutions = [];
       // subsections of solution goals can be repeated
@@ -1267,8 +1763,18 @@ export class CasesService {
   }
 
   clearFilters() {
-    this.filteredCases = this.allCases;
+    this.filteredCases = [...this.allCases];
+
+
     this.tas.dataCategories.forEach(a => {
+      a.active = false;
+    });
+    this.filteredCases = this.allCases;
+    this.tas.hazardss.forEach(a => {
+      a.active = false;
+    });
+    this.filteredCases = this.allCases;
+    this.tas.solutionTypes.forEach(a => {
       a.active = false;
     });
     this.tas.ecosystemServices.forEach(a => {
@@ -1281,6 +1787,9 @@ export class CasesService {
     this.tas.solutionGoals.forEach(a => {
       a.active = false;
     });
+    
+    
+    
 
     this.ns.nuts0Active = [];
     this.ns.nuts1Active = [];
@@ -1290,11 +1799,14 @@ export class CasesService {
     this.textFilter = '';
     this.geoExtentFilter = [];
     this.typeFilter = null;
-    this.regiHazardFilter = null;
+    this.regiHazardFilter = [];
     this.dataCategoryFilter = [];
     this.ecosystemServicesFilter = [];
     this.toolsPlatformsFilter = [];
     this.solutionGoalFilter = [];
+    this.projectAffiliationFilter = null;
+    this.solutionStatusFilter = null;
+
 
 
     this.applyFilters();
