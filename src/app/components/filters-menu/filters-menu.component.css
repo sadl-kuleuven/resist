@@ -1,0 +1,83 @@
+.btn-icon {
+    width: 100%;
+    text-align: left;
+}
+
+.btn-icon i {
+    float: right;
+}
+
+.right-chart {
+    margin-top: -15px;
+    margin-left: 10px;
+}
+.btn-custom {
+    background-color: #a6cef5; 
+    border-color: #004488; 
+    color: #090909; 
+}
+
+.btn-custom:hover {
+    background-color: #063a72; /* Change this hex code to a darker shade for hover effect */
+    border-color: #003366; /* Set hover border color if needed */
+}
+
+.smaller-text {
+    font-size: 0.8rem;
+}
+
+.color1 {
+    color: #295aa8;
+}
+
+.color2 {
+    color: #d1b762;
+}
+
+.color3 {
+    color: #cb5c0d;
+}
+
+.color4 {
+    color: #e01010;
+}
+
+.color5 {
+    color: #4e11a9;
+}
+
+.color6 {
+    color: #1b252e;
+}
+
+.color7 {
+    color: #b11dc4;
+}
+
+.color8 {
+    color: #d18776;
+}
+
+.color9 {
+    color: #999dae;
+}
+
+.color10 {
+    color: #2d7887;
+}
+.color11{
+    color: #20e20b;
+}
+.color12{
+    color:#4e6657;
+}
+.color13{
+    color:#dbde10;
+}
+.color14{
+    color:#c5d4d7;
+}
+
+
+
+

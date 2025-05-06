@@ -1,0 +1,137 @@
+.color-default {
+    color: #a00a78
+}
+
+.label-text{
+    color: #1919c2;
+    text-align: right;
+    font-size: smaller;
+    font-weight: bold;
+}
+
+.solution-text{
+    color: #1919c2;
+    text-align: left;
+    font-size: 16;
+    font-weight: bold;
+}
+
+.label-icon {
+    padding: 0.2em !important;
+    margin: 1px;
+}
+
+.label-description {
+    color: #1f031a;
+    text-align: left;
+    font-size: smaller;
+    padding-top: 5px;
+    margin-bottom: 5px;
+}
+
+span.label {
+    margin: 1px;
+}
+
+.btn-icon {
+    margin-bottom: 5px;
+}
+
+section.leaflet-control-layers-list {
+    text-align: start !important;
+}
+
+.label-secondary {
+    background-color: #0453a2
+}
+
+.label-tertiary {
+    background-color: #11a99a
+}
+
+.label-nuts0 {
+    background-color: #309b39
+}
+
+.label-nuts1 {
+    background-color: #0E8F82
+}
+
+.label-nuts2 {
+    background-color: #12B5A5
+}
+
+.label-nuts3 {
+    background-color: #18F5DF
+}
+
+.label-close {
+    cursor: pointer;
+}
+
+.card-selected {
+    border: 5px solid #127285 !important;
+}
+
+h3 {
+    line-height: 1.1 !important;
+    
+}
+
+.modal-footer {
+    justify-content: center !important;
+    padding: 10px !important;
+}
+
+.modal-header {
+    padding: 5px !important;
+}
+
+.locations-span {
+    margin-bottom: -5px !important;
+}
+
+.x-large {
+    font-size: x-large !important;
+    width: 30px !important;
+}
+
+.data-label {
+    color: blue;
+    font-size: 12px; 
+    font-weight: bold;
+}
+
+
+.data-link {
+    color: red;
+    font-size: 12px; 
+}
+
+.format-text {
+    color: blue;
+    font-size: smaller;
+}
+
+
+.tool-label {
+    font-size: 12px; 
+    font-weight: bold; 
+    color: rgb(134, 73, 13); 
+}
+
+.tool-desc {
+    font-size: 12px; 
+    color: black; 
+}
+
+.tool-link {
+    font-size: 12px; 
+    color: red; 
+}
+
+
+
+.card:hover .solution-text {
+    color: rgb(87, 181, 200); 
+}
