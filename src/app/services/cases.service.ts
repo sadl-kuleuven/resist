@@ -308,7 +308,7 @@ export class CasesService {
       } else if (this.tas.solutiontype.natureBasedSolutionsAndEcosystemBasedApproaches) {
         this.typeFilter = 'Nature Based Solutions and Ecosystem-based Approaches';
       } else if (this.tas.solutiontype.knowledgeAndBehaviouralChange) {
-        this.typeFilter = 'Knowledge and Behavioural change';
+        this.typeFilter = 'Knowledge and Behavioural Change';
       }
     } else {
       if (sc === 'governanceAndInstitutional') {
@@ -1257,7 +1257,7 @@ return toFilter;
         if (c.solution_type.includes('Nature Based Solutions and Ecosystem-based Approaches')) {
           this.resultCases.solutionTypes.st04++;
         }
-        if (c.solution_type.includes('Knowledge and Behavioural change')) {
+        if (c.solution_type.includes('Knowledge and Behavioural Change')) {
           this.resultCases.solutionTypes.st05++;
         }
       });

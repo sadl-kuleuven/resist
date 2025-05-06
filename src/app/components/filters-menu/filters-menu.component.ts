@@ -79,7 +79,7 @@ export class FiltersMenuComponent implements OnInit, AfterViewInit {
             'value': this.cs.resultCases.solutionTypes.st04
           },
           {
-            'name': 'Knowledge and Behavioural change',
+            'name': 'Knowledge and Behavioural Change',
             'value': this.cs.resultCases.solutionTypes.st05
           }
 
@@ -418,7 +418,7 @@ export class FiltersMenuComponent implements OnInit, AfterViewInit {
               'value': this.cs.resultCases.solutionTypes.st04
             },
             {
-              'name': 'Knowledge and Behavioural change',
+              'name': 'Knowledge and Behavioural Change',
               'value': this.cs.resultCases.solutionTypes.st05
             }
   

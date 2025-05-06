@@ -26,7 +26,7 @@ export class OptionsService {
     { name: 'Economic and Finance', active: false, icon: 'money', result: 'st02', class: 'color7' },
     { name: 'Physical and Technological', active: false, icon: 'image', result: 'st03', class: 'color8' },
     { name: 'Nature Based Solutions and Ecosystem-based Approaches', active: false, icon: 'tree', result: 'st04', class: 'color9' },
-    { name: 'Knowledge and Behavioural change', active: false, icon: 'graduation-cap ', result: 'st05', class: 'color10' }
+    { name: 'Knowledge and Behavioural Change', active: false, icon: 'graduation-cap ', result: 'st05', class: 'color10' }
 
   ];
 

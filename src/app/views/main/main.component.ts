@@ -291,7 +291,7 @@ export class MainComponent implements OnInit, AfterContentInit {
               this.tas.solutiontype.physicalAndTechnological = false;
               this.tas.solutiontype.natureBasedSolutionsAndEcosystemBasedApproaches = true;
               this.tas.solutiontype.knowledgeAndBehaviouralChange = false;
-            } else if (params.solutiontype === 'Knowledge and Behavioural change') {
+            } else if (params.solutiontype === 'Knowledge and Behavioural Change') {
               this.tas.solutiontype.governanceAndInstitutional = false;
               this.tas.solutiontype.economicAndFinance = false;
               this.tas.solutiontype.physicalAndTechnological = false;
