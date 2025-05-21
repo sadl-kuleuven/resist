@@ -261,46 +261,7 @@ export class MainComponent implements OnInit, AfterContentInit {
             }
           }
 
-          /*
-
-
-          if (params.solutiontype) {
-            this.tas.solutiontypeVisible = false;
-          
-            if (params.solutiontype === 'Governance and Institutional ') {
-              this.tas.solutiontype.governanceAndInstitutional = true;
-              this.tas.solutiontype.economicAndFinance = false;
-              this.tas.solutiontype.physicalAndTechnological = false;
-              this.tas.solutiontype.natureBasedSolutionsAndEcosystemBasedApproaches = false;
-              this.tas.solutiontype.knowledgeAndBehaviouralChange = false;
-            } else if (params.solutiontype === 'Economic and Finance') {
-              this.tas.solutiontype.governanceAndInstitutional = false;
-              this.tas.solutiontype.economicAndFinance = true;
-              this.tas.solutiontype.physicalAndTechnological = false;
-              this.tas.solutiontype.natureBasedSolutionsAndEcosystemBasedApproaches = false;
-              this.tas.solutiontype.knowledgeAndBehaviouralChange = false;
-            } else if (params.solutiontype === 'Physical and Technological') {
-              this.tas.solutiontype.governanceAndInstitutional = false;
-              this.tas.solutiontype.economicAndFinance = false;
-              this.tas.solutiontype.physicalAndTechnological = true;
-              this.tas.solutiontype.natureBasedSolutionsAndEcosystemBasedApproaches = false;
-              this.tas.solutiontype.knowledgeAndBehaviouralChange = false;
-            } else if (params.solutiontype === 'Nature Based Solutions and Ecosystem-based Approaches') {
-              this.tas.solutiontype.governanceAndInstitutional = false;
-              this.tas.solutiontype.economicAndFinance = false;
-              this.tas.solutiontype.physicalAndTechnological = false;
-              this.tas.solutiontype.natureBasedSolutionsAndEcosystemBasedApproaches = true;
-              this.tas.solutiontype.knowledgeAndBehaviouralChange = false;
-            } else if (params.solutiontype === 'Knowledge and Behavioural Change') {
-              this.tas.solutiontype.governanceAndInstitutional = false;
-              this.tas.solutiontype.economicAndFinance = false;
-              this.tas.solutiontype.physicalAndTechnological = false;
-              this.tas.solutiontype.natureBasedSolutionsAndEcosystemBasedApproaches = false;
-              this.tas.solutiontype.knowledgeAndBehaviouralChange = true;
-            }
-          }
-
-          */
+         
 
           if (params.sty) {
             this.tas.solutiontypeVisible = false;
@@ -410,102 +371,46 @@ export class MainComponent implements OnInit, AfterContentInit {
               }
             });
           }
-          /*
-        
+          
 
-
-          if (params.ready) {
-            this.tas.regiHazardVisible = false;
-
-            if (params.ready === 'r01') {
-              this.tas.hazardss.r01 = true;
-              this.tas.hazardss.r02 = false;
-              this.tas.hazardss.r03 = false;
-              this.tas.hazardss.r04 = false;
-              this.tas.hazardss.r05 = false;
-            } else if (params.ready === 'r02') {
-              this.tas.hazardss.r01 = false;
-              this.tas.hazardss.r02 = true;
-              this.tas.hazardss.r03 = false;
-              this.tas.hazardss.r04 = false;
-              this.tas.hazardss.r05 = false;
-            } else if (params.ready === 'r03') {
-              this.tas.hazardss.r01 = false;
-              this.tas.hazardss.r02 = false;
-              this.tas.hazardss.r03 = true;
-              this.tas.hazardss.r04 = false;
-              this.tas.hazardss.r05 = false;
-            } else if (params.ready === 'r04') {
-              this.tas.hazardss.r01 = false;
-              this.tas.hazardss.r02 = false;
-              this.tas.hazardss.r03 = false;
-              this.tas.hazardss.r04 = true;
-              this.tas.hazardss.r05 = false;
-            }else if (params.ready === 'r05') {
-              this.tas.hazardss.r01 = false;
-              this.tas.hazardss.r02 = false;
-              this.tas.hazardss.r03 = false;
-              this.tas.hazardss.r04 = false;
-              this.tas.hazardss.r05 = true;
-            }
-          }
-          */
-
+         
           this.cs.applyAllFilters();
 
-          if (params.page) {
-            this.cs.pagination = params.page;
-          }
+          const waitForCases = setInterval(() => {
+              if (this.cs.filteredCases && this.cs.filteredCases.length > 0) {
+                clearInterval(waitForCases);
 
-          if (this.cs.filteredCases && this.cs.filteredCases.length > 0) {
-            if (params.sc || params.pc) {
-              let index = 0;
-              this.cs.filteredCases.forEach(c => {
-                if (params.sc) {
-                  if (c._id.$oid == this.paramsObj.sc) {
+                // Restore pagination
+                if (params.page) {
+                  this.cs.pagination = parseInt(params.page.toString(), 10);
+                }
+
+                // Restore selected and pinned case
+                let index = 0;
+                this.cs.filteredCases.forEach(c => {
+                  if (params.sc && c._id?.$oid === params.sc.toString()) {
                     this.cs.selectedCase = c;
                     this.selectedIndex = index;
                   }
-                }
-                if (params.pc) {
-                  if (c._id.$oid == this.paramsObj.pc) {
+                  if (params.pc && c._id?.$oid === params.pc.toString()) {
                     this.pinnedCase = c;
-                  }
-                }
-                index++;
-              });
-            }
-
-            if (this.paramsObj && this.paramsObj.nelat) {
-              this.map.fitBounds([
-                [this.paramsObj.nelat, this.paramsObj.nelng],
-                [this.paramsObj.swlat, this.paramsObj.swlng]
-              ]);
-            }
-
-
-          } else {
-            // first time loading cases
-            setTimeout(() => {
-              if (params.sc || params.pc) {
-                let index = 0;
-                this.cs.filteredCases.forEach(c => {
-                  if (params.sc) {
-                    if (c._id.$oid == this.paramsObj.sc) {
-                      this.cs.selectedCase = c;
-                      this.selectedIndex = index;
-                    }
-                  }
-                  if (params.pc) {
-                    if (c._id.$oid == this.paramsObj.pc) {
-                      this.pinnedCase = c;
-                    }
                   }
                   index++;
                 });
+
+                // Restore map bounds
+                if (params.nelat && params.nelng && params.swlat && params.swlng && this.map) {
+                  this.map.fitBounds([
+                    [parseFloat(params.nelat), parseFloat(params.nelng)],
+                    [parseFloat(params.swlat), parseFloat(params.swlng)]
+                  ]);
+                }
+
+                this.updateMarkerSel();
               }
-            }, 3000)
-          }
+            }, 100);
+
+        
         }
 
       });

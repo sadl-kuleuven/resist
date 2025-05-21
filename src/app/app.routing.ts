@@ -7,20 +7,18 @@ import { DelineationComponent } from './views/delineation/delineation.component'
 import { MainComponent } from './views/main/main.component';
 
 const routes: Routes = [
-  { path: 'main', component: MainComponent },
-  { path: 'delineation', component: DelineationComponent },
-  { path: '', redirectTo: '/main', pathMatch: 'full' },
-  // Add other routes as needed
+  { path: 'home', component: MainComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '**', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'delineation', component: DelineationComponent }
+  
 ];
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forRoot(routes),
     BrowserModule,
-    RouterModule.forRoot(routes, {
-      useHash: true
-    })
+    RouterModule.forRoot(routes, { useHash: true }) 
   ],
   exports: [RouterModule]
 })
