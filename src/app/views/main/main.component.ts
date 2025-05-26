@@ -274,6 +274,16 @@ export class MainComponent implements OnInit, AfterViewInit {
       // Refresh markers and region layers based on updated filtered data
       this.refreshMapLayers();
       this.loadingMap = false;
+
+       // ✅ Apply selected case from URL if present
+      const selectedId = this.route.snapshot.queryParamMap.get('sc');
+      if (selectedId && !this.cs.selectedCase) {
+        const found = this.cs.filteredCases.find(c => c._id?.$oid === selectedId);
+        if (found) {
+          this.cs.selectedCase = found;
+          this.updateMarkerSel(); // Will also zoom and update UI
+        }
+      }
     });
 
     // Handle map zoom end: update bounds/zoom and filter cases by map extent
