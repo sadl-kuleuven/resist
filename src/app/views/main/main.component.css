@@ -1,3 +1,6 @@
+/* If not globally included via angular.json, add this */
+@import "~leaflet/dist/leaflet.css";
+
 .color-default {
     color: #a00a78
 }
@@ -135,3 +138,10 @@ h3 {
 .card:hover .solution-text {
     color: rgb(87, 181, 200); 
 }
+
+.mapContainer {
+  height: 80vh;
+  width: 100%;
+  z-index: 0;
+}
+
