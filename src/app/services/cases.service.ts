@@ -11,6 +11,8 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { map } from 'rxjs/operators'; 
+import { BehaviorSubject } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -44,7 +46,7 @@ export class CasesService {
   public lastBounds = null;
 
   private isFilteredCasesChanged = false;
-  public filteredCasesChange: Subject<boolean> = new Subject<boolean>();
+  public filteredCasesChange: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
 
   
 
@@ -278,6 +280,7 @@ export class CasesService {
       this.textFilter = this.tas.textFilter;
     }
     this.applyFilters();
+    this.filteredCasesChange.next(this.filteredCases);
   }
 
   filterByGeoExtent() {
@@ -295,6 +298,7 @@ export class CasesService {
       this.geoExtentFilter.push(a.NUTS_ID);
     });
     this.applyFilters();
+    this.filteredCasesChange.next(this.filteredCases);
   }
 /*
   filterBySolutionType(sc = null) {
@@ -362,6 +366,8 @@ export class CasesService {
       }
     });
     this.applyFilters();
+    this.filteredCasesChange.next(this.filteredCases);;
+    
   }
 
 
@@ -373,6 +379,8 @@ export class CasesService {
       }
     });
     this.applyFilters();
+    this.filteredCasesChange.next(this.filteredCases);
+    
   }
 
   filterByRegionHazard() {
@@ -383,6 +391,8 @@ export class CasesService {
       }
     });
     this.applyFilters();
+    this.filteredCasesChange.next(this.filteredCases);
+    
   }
 
   filterByEcosystemService() {
@@ -394,6 +404,8 @@ export class CasesService {
     });
 
     this.applyFilters();
+    this.filteredCasesChange.next(this.filteredCases);
+    
   }
 
   //filterByProjectAffiliation() {
@@ -427,6 +439,8 @@ export class CasesService {
       this.projectAffiliationFilter = sc;
     }
     this.applyFilters();
+    this.filteredCasesChange.next(this.filteredCases);
+    
   }
 
   filterBySolutionStatus(status = null) {
@@ -455,6 +469,8 @@ export class CasesService {
       this.solutionStatusFilter = status;
     }
     this.applyFilters();
+    this.filteredCasesChange.next(this.filteredCases);
+    
   }
 
 
@@ -537,6 +553,8 @@ export class CasesService {
       }
     });
     this.applyFilters();
+    this.filteredCasesChange.next(this.filteredCases);
+    
   }
 
   filterBySolutionGoals() {
@@ -547,6 +565,8 @@ export class CasesService {
       }
     });
     this.applyFilters();
+    this.filteredCasesChange.next(this.filteredCases);
+    
   }
 
 
@@ -792,8 +812,9 @@ export class CasesService {
 
       this.addMarkersCollection();
       this.calculateResults();
+      this.filteredCasesChange.next(this.filteredCases);
 
-      // this.filteredCasesChange.next(!this.isFilteredCasesChanged);
+     
     }
 
   }
@@ -1094,7 +1115,7 @@ return toFilter;
     this.filteredCasesMapJSON += ']';
     this.filteredCasesMapJSON = this.filteredCasesMapJSON.replace(']}},]', ']}}]}');
 
-    this.filteredCasesChange.next(!this.isFilteredCasesChanged);
+    // this.filteredCasesChange.next(!this.isFilteredCasesChanged);
 
   }
 
@@ -1768,58 +1789,40 @@ return toFilter;
   }
 
   clearFilters() {
-    this.filteredCases = [...this.allCases];
+  // 1. Reset both filtered and total tracking arrays
+  this.filteredCases = [...this.allCases];
+  this.allFilteredCases = [...this.allCases]; // ✅ THIS was missing from your previous logic
 
+  // 2. Deactivate UI filters
+  this.tas.dataCategories.forEach(a => a.active = false);
+  this.tas.hazardss.forEach(a => a.active = false);
+  this.tas.solutionTypes.forEach(a => a.active = false);
+  this.tas.ecosystemServices.forEach(a => a.active = false);
+  this.tas.toolsPlatforms.forEach(too => too.active = false);
+  this.tas.solutionGoals.forEach(a => a.active = false);
 
-    this.tas.dataCategories.forEach(a => {
-      a.active = false;
-    });
-    this.filteredCases = this.allCases;
-    this.tas.hazardss.forEach(a => {
-      a.active = false;
-    });
-    this.filteredCases = this.allCases;
-    this.tas.solutionTypes.forEach(a => {
-      a.active = false;
-    });
-    this.tas.ecosystemServices.forEach(a => {
-      a.active = false;
-    });
+  // 3. Clear NUTS filters
+  this.ns.nuts0Active = [];
+  this.ns.nuts1Active = [];
+  this.ns.nuts2Active = [];
+  this.ns.nuts3Active = [];
 
-    this.tas.toolsPlatforms.forEach(too => {
-      too.active = false;
-    });
-    this.tas.solutionGoals.forEach(a => {
-      a.active = false;
-    });
-    
-    
-    
+  // 4. Clear actual filter variables
+  this.textFilter = '';
+  this.geoExtentFilter = [];
+  this.typeFilter = null;
+  this.regiHazardFilter = [];
+  this.dataCategoryFilter = [];
+  this.ecosystemServicesFilter = [];
+  this.toolsPlatformsFilter = [];
+  this.solutionGoalFilter = [];
+  this.projectAffiliationFilter = null;
+  this.solutionStatusFilter = null;
 
-    this.ns.nuts0Active = [];
-    this.ns.nuts1Active = [];
-    this.ns.nuts2Active = [];
-    this.ns.nuts3Active = [];
-
-    this.textFilter = '';
-    this.geoExtentFilter = [];
-    this.typeFilter = null;
-    this.regiHazardFilter = [];
-    this.dataCategoryFilter = [];
-    this.ecosystemServicesFilter = [];
-    this.toolsPlatformsFilter = [];
-    this.solutionGoalFilter = [];
-    this.projectAffiliationFilter = null;
-    this.solutionStatusFilter = null;
-
-
-
-    this.applyFilters();
-    this.calculateResults();
-
-    this.addMarkersCollection();
-
-    
+  // 5. Refresh everything
+  this.applyFilters();
+  this.calculateResults();
+  this.addMarkersCollection();
 
   }
 
@@ -1843,6 +1846,7 @@ return toFilter;
 
       this.calculateResults();
       this.addMarkersCollection();
+      //this.filteredCasesChange.emit(this.filteredCases);
     }
   }
 

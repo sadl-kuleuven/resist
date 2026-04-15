@@ -141,7 +141,7 @@
           ]
       ],
       
-      "solution_type": ["Nature Based Solutions and Ecosystem-based Approaches", "Physical and Technological", "Knowledge and Behavioural Change"],
+      "solution_type": ["Nature Based Solutions and Ecosystem-based Approaches", "Physical and Technological"],
       "solution_goals": [
         1.1,
         2.2,
@@ -366,7 +366,7 @@
     "_id": {
         "$oid": "4"
     },
-    "solution_name":"2-stage ditch / 2-stage drainage",
+    "solution_name":"2-Stage Ditch / 2-Stage Drainage",
     "pilot_name":"N/A",
     "region_name": "Soutwest Finland",
     "region_hazard_level": ["Floods", "Droughts", "Heatwaves", "Soil Erosion"],
@@ -379,7 +379,7 @@
     ]
     ],
     
-    "solution_type": ["Nature Based Solutions and Ecosystem-based Approaches", "Physical and Technological"],
+    "solution_type": ["Nature Based Solutions and Ecosystem-based Approaches"],
     "solution_goals": [
       1.1,
       1.4,
@@ -488,7 +488,7 @@
     "_id": {
         "$oid": "5"
     },
-    "solution_name": "Blue-green factor (BGF) ",
+    "solution_name": "Blue-Green Factor (BGF)",
     "pilot_name":"Turku",
     "region_name": "Soutwest Finland",
     "region_hazard_level": ["Floods", "Droughts", "Heatwaves", "Soil Erosion"],
@@ -609,7 +609,7 @@
     "pilot_name":"N/A",
     "region_name": "Soutwest Finland",
     "region_hazard_level": ["Floods", "Droughts", "Heatwaves", "Soil Erosion"],
-    "description": "Raingarden is a nature-based climate change adaptation measure fit for a residential property.Raingarden provides: Water retention (decreasing storm water flow peaks & flooding), regeneration of ground water, (aesthetic values, biodiversity). Stormwaters from property are directed to vegetated water retention and filtration system. Filtered waters can be collected and redirected to stormwater system. Part of waters will infiltrate or evaporate.",
+    "description": "A raingarden is a nature-based stormwater management solution designed to store, filter, and infiltrate excess runoff, improving groundwater recharge, water quality, and biodiversity. The Raingarden Catalogue provides practical guidance for private landowners, outlining raingarden benefits, recommended vegetation, and implementation requirements. Its purpose is to raise awareness, lower barriers to adoption, and promote more sustainable stormwater management in residential areas. Raingardens direct stormwater into vegetated retention and filtration systems, where water is partly infiltrated, evaporated, or redirected to stormwater networks.",
     "geographic_extent": [
       [
         "FI",
@@ -618,19 +618,20 @@
     ]
     ],
     
-    "solution_type": ["Nature Based Solutions and Ecosystem-based Approaches","Knowledge and Behavioural Change", "Physical and Technological"],
+    "solution_type": ["Nature Based Solutions and Ecosystem-based Approaches","Knowledge and Behavioural Change"],
     "solution_goals": [
       1.1,
       1.2,
       1.4,
       4.1,
-      4.2,
       4.3
     ],
     "ecosystem_service": [
       [ "Flood Protection",
         "Water Retention",
-        "Microclimate Regulation"
+        "Water Purification",
+        "Microclimate Regulation",
+        "Maintenance of Nursery Population and Habitat"
 
       ],
       [],
@@ -847,7 +848,7 @@
     "pilot_name":"Rauvolanlahti",
     "region_name": "Soutwest Finland",
     "region_hazard_level": ["Floods", "Droughts", "Heatwaves", "Soil Erosion"],
-    "description": "CBA is a well-established economic analysis framework that is used to evaluate the economic effectiveness of a given project, typically from society’s perspective. The objective of a CBA is to identify, measure, and monetize the impacts of a project over its life cycle as comprehensively as possible, and to define whom these impacts affect.",
+    "description": "CBA evaluates the economic effectiveness of nature-based stormwater solutions by integrating both market and non-market values. In Southwest Finland, a study in the Rauvolanlahti area assessed residents’ willingness to contribute financially and through personal effort to increase vegetation in private yards for improved stormwater management. The results show strong public support for vegetation-based NbS, and these valuation insights are used as inputs for CBA to guide evidence-based planning and the design of residential NbS programs.",
     "geographic_extent": [
       [
         "FI",
@@ -857,7 +858,7 @@
     ]
     ],
     
-    "solution_type": ["Governance and Institutional", "Economic and Finance"],
+    "solution_type": ["Economic and Finance"],
     "solution_goals": [
       1.1,
       2.4,
@@ -980,7 +981,7 @@
     ]
     ],
     
-    "solution_type": ["Physical and Technological","Governance and Institutional"],
+    "solution_type": ["Physical and Technological"],
     "solution_goals": [
       1.1,
       2.4,
@@ -1102,7 +1103,7 @@
         ]
     ],
     
-    "solution_type": ["Nature Based Solutions and Ecosystem-based Approaches", "Knowledge and Behavioural Change"],
+    "solution_type": ["Nature Based Solutions and Ecosystem-based Approaches"],
     "solution_goals": [
       1.1,
       1.2,
@@ -1220,7 +1221,7 @@
     "pilot_name":["Barentin"],
     "region_name": "Normandy",
     "region_hazard_level": ["Floods", "Soil Erosion"],
-    "description": "This tool targets desilting and renaturation in urban areas, developed by Cerema for Barentin. Based on a detailed breakdown of the green and blue framework at the municipal level, the challenges of limiting the risk of runoff and flooding, the nature in the city and the quality of life will be spatialised, and their development prospects will be examined in the light of climate change. The results of this diagnosis will be used to target the potential for soil desilting and renaturation, and the methodology implemented will be capitalised.",
+    "description": "This tool targets desilting and renaturation in urban areas, developed by Cerema for Barentin. It identifies impermeable surfaces and multi-issue sectors affected by runoff, flooding, and heatwaves, and spatialises the green–blue framework to assess renaturation potential under climate change. The results feed into a graphical digital twin to support decision-making and prioritisation of NBS implementation.",
     "geographic_extent": [
         [
             "FR",
@@ -1230,7 +1231,7 @@
         ]
     ],
     
-    "solution_type": ["Governance and Institutional","Knowledge and Behavioural Change"] ,
+    "solution_type": ["Physical and Technological"] ,
     "solution_goals": [
       1.1,
       1.3,
@@ -1453,7 +1454,7 @@
     "pilot_name":["Lisieux (Petit Lieu river bank)"],
     "region_name": "Normandy",
     "region_hazard_level": ["Floods", "Soil Erosion"],
-    "description": "This ongoing study focuses on the redevelopment of the riverbank of the Petit Lieu stream in Lisieux, addressing the need for relocation of houses and implementation of NBS to prevent future floods. Following the 2019 floods, the study simulates various scenarios, including the renaturation of the stream and the relocation of buildings to manage flooding effectively. The selected scenario proposes significant changes to the riverbank, involving demolition of specific structures, creation of a new riverbed, and implementation of NBS to enhance flood resilience.",
+    "description": "This ongoing study focuses on  the redevelopment of the Petit Lieu riverbank in Lisieux, combining house relocation and NBS to reduce future flood risks. Several scenarios were simulated following the 2019 floods, including stream renaturation and building removal. The selected scenario redesigns the riverbank with a new riverbed and targeted NBS. Visualisation through a digital twin supports decision-making, communication with local actors, and future renaturation planning.",
     "geographic_extent": [
         [
             "FR",
@@ -1463,7 +1464,7 @@
         ]
     ],
     
-    "solution_type": ["Nature Based Solutions and Ecosystem-based Approaches","Physical and Technological", "Governance and Institutional"] ,
+    "solution_type": ["Nature Based Solutions and Ecosystem-based Approaches", "Governance and Institutional"] ,
     "solution_goals": [
       1.1,
       2.3,
@@ -1565,10 +1566,10 @@
         "$oid": "14"
     },
     "solution_name":"Planting Hedgerows with Local Species",
-    "pilot_name":["N/A"],
+    "pilot_name":["Saint-Lô Agglo (Intermunicipality)"],
     "region_name": "Normandy",
     "region_hazard_level": ["Floods", "Soil Erosion"],
-    "description": "Actions focused on preserving, planting, and managing hedgerows aim to provide an affordable Nature-Based Solution (NbS) to combat soil erosion and runoff. As a characteristic feature of the Normandy bocage, hedgerows have proven effective in regional preservation and development projects. These successful approaches can be adapted and applied to other rural areas across Europe.",
+    "description": "Planting and managing hedgerows provides a cost-effective Nature-based Solution for reducing runoff, soil erosion, and flooding in rural Normandy. Hedgerows enhance water infiltration, improve soil quality, store carbon, protect crops and livestock, and strengthen biodiversity. In Saint-Lô Agglo, hedgerow preservation is integrated into urban planning documents, supported by recovery, valorisation, and community planting actions to reinforce the bocage landscape.",
     "geographic_extent": [
         [
             "FR",
@@ -1579,13 +1580,18 @@
     "solution_type": ["Nature Based Solutions and Ecosystem-based Approaches"] ,
     "solution_goals": [
       1.1,
+      2.1,
       3.3,
-      4.2
+      4.2,
+      5.2
     ],
     "ecosystem_service": [
       [ "Flood Protection",
         "Maintenance of Nursery Population and Habitat",
-        "Water Retention"
+        "Water Retention",
+        "Water Purification",
+        "Microclimate Regulation",
+        "Global Climate Regulation (terrestrial)"
       ],
       [],
       []
@@ -1680,7 +1686,7 @@
     "pilot_name":["Barentin"],
     "region_name": "Normandy",
     "region_hazard_level": ["Floods", "Soil Erosion"],
-    "description": "The Blue Green Factor (BGF) is a factor-based policy instrument designed to ensure and maintain adequate levels of green and blue infrastructure in new urban development projects. In this case, it is combined with a methodological tool to assess areas suitable for desilting and renaturation. The aim is to enhance the integration of Nature-based Solutions (NbS) into urban planning processes. This combined approach will serve as a demonstration and be replicated in other Normandy localities involved in similar planning efforts.",
+    "description": "The Blue-Green Factor (BGF) is a policy tool that guides territorial planning by ensuring sufficient green-blue infrastructure in new developments. In Normandy, the transferred BGF method supports awareness-raising among local authorities and helps integrate NbS into land-use planning, supported by methodological guidance from Finnish pilots.",
     "geographic_extent": [
       [
         "FR",
@@ -1795,7 +1801,7 @@
     "pilot_name":["Lisieux"],
     "region_name": "Normandy",
     "region_hazard_level": ["Floods", "Soil Erosion"],
-    "description": "Cost-Benefit Analysis (CBA) is a well-established economic evaluation framework used to assess the overall effectiveness of a project from a societal perspective. In this case, CBA will complement the study on the redevelopment and renaturation of the Petit Lieu stream, offering urban planners a decision-support tool to evaluate the economic viability and long-term benefits of the proposed renaturation project.",
+    "description": "Cost-Benefit Analysis (CBA) is used to assess the societal value and long-term cost-effectiveness of Nature-based Solutions. In Normandy, CBA supports local authorities in comparing NbS options and strengthens decision-making for renaturation and stormwater projects transferred from Southwest Finland.",
     "geographic_extent": [
       [
         "FR",
@@ -1805,7 +1811,7 @@
     ]
     ],
     
-    "solution_type": ["Governance and Institutional", "Economic and Finance"] ,
+    "solution_type": ["Economic and Finance"] ,
     "solution_goals": [
       1.1,
       2.4,
@@ -1814,7 +1820,9 @@
     ],
     "ecosystem_service": [
       [ "Flood Protection",
-        "Water Retention"
+        "Water Retention",
+        "Water Purification",
+        "Microclimate Regulation"
       ],
       [],
       []
@@ -1909,7 +1917,7 @@
     "pilot_name":["Lisieux", "Barentin"],
     "region_name": "Normandy",
     "region_hazard_level": ["Floods", "Soil Erosion"],
-    "description": "Raingarden is a Nature-based Solution (NbS) for climate change adaptation, particularly suited to residential areas. It supports water retention by reducing stormwater flow peaks and flooding, aids groundwater recharge, and contributes to biodiversity and visual appeal. Beyond its physical function, it serves as an awareness-raising tool, demonstrating how NbS can be integrated into local adaptation strategies to help reduce flood risks, runoff, and soil erosion across the territory.",
+    "description": "Raingardens are a Nature-based Solution that reduce stormwater runoff, flooding, and soil erosion while enhancing groundwater recharge and biodiversity. The transferred raingarden approach in Normandy focuses on implementation in public areas, identifying success factors, and supporting local authorities with governance and decision-making tools for integrating NbS into adaptation strategies.",
     "geographic_extent": [
       [
         "FR",
@@ -2760,7 +2768,7 @@
     "_id": {
         "$oid": "27"
     },
-    "solution_name":"NbS Catalogue",
+    "solution_name":"Nature-based Solutions Catalogue",
     "pilot_name":["Laspias basin", "Kosynthos basin"],
     "region_name": "Eastern Macedonia and Thrace",
     "region_hazard_level": ["Floods", "Droughts"],
@@ -2845,7 +2853,7 @@
         "EL5121"
       ]
     ],
-    "solution_type": ["Nature Based Solutions and Ecosystem-based Approaches", "Physical and Technological"],
+    "solution_type": ["Nature Based Solutions and Ecosystem-based Approaches"],
     "solution_goals": [
       1.1,
       1.4,
@@ -2920,7 +2928,7 @@
         "EL5121"
       ]
     ],
-    "solution_type": ["Nature Based Solutions and Ecosystem-based Approaches", "Physical and Technological"],
+    "solution_type": ["Nature Based Solutions and Ecosystem-based Approaches"],
     "solution_goals": [
       1.1,
       1.4,
@@ -3001,7 +3009,7 @@
         "EL5122"
       ]
     ],
-    "solution_type": ["Nature Based Solutions and Ecosystem-based Approaches", "Physical and Technological"],
+    "solution_type": ["Nature Based Solutions and Ecosystem-based Approaches"],
     "solution_goals": [
       1.1,
       1.4,
@@ -3087,7 +3095,7 @@
         "EL5122"
       ]
     ],
-    "solution_type": ["Nature Based Solutions and Ecosystem-based Approaches", "Physical and Technological"],
+    "solution_type": ["Nature Based Solutions and Ecosystem-based Approaches"],
     "solution_goals": [
       1.1,
       1.4,
@@ -3173,7 +3181,7 @@
         "EL5122"
       ]
     ],
-    "solution_type": ["Nature Based Solutions and Ecosystem-based Approaches", "Physical and Technological"],
+    "solution_type": ["Nature Based Solutions and Ecosystem-based Approaches"],
     "solution_goals": [
       1.1,
       1.4,
@@ -3259,7 +3267,7 @@
         "EL5122"
       ]
     ],
-    "solution_type": ["Nature Based Solutions and Ecosystem-based Approaches", "Physical and Technological"],
+    "solution_type": ["Nature Based Solutions and Ecosystem-based Approaches"],
     "solution_goals": [
       1.1,
       1.4,
@@ -3340,7 +3348,7 @@
         "EL5122"
       ]
     ],
-    "solution_type": ["Nature Based Solutions and Ecosystem-based Approaches", "Physical and Technological"],
+    "solution_type": ["Nature Based Solutions and Ecosystem-based Approaches"],
     "solution_goals": [
       1.1,
       1.4,
@@ -3426,7 +3434,7 @@
         "EL5122"
       ]
     ],
-    "solution_type": ["Nature Based Solutions and Ecosystem-based Approaches", "Physical and Technological"],
+    "solution_type": ["Nature Based Solutions and Ecosystem-based Approaches"],
     "solution_goals": [
       1.1,
       1.4,
@@ -3579,7 +3587,7 @@
     "pilot_name":["Laspias basin", "Kosynthos basin"],
     "region_name": "Eastern Macedonia and Thrace",
     "region_hazard_level": ["Floods", "Droughts"],
-    "description": "The Blue Green Factor is a factor-based policy instrument to ensure and maintain desired levels of green and blue in new development projects. Implemented by DUTH with the support of ENORA and RDF-EMT.",
+    "description": "The Blue-Green Factor (BGF) is a planning tool originally developed in Southwest Finland and adapted for Eastern Macedonia & Thrace to ensure adequate green-blue infrastructure in new developments. The EMT team (DUTH, ENORA, RDF-EMT) customises the tool through mapping existing blue-green spaces, applying hydrological and hydraulic simulations, and integrating Earth Observation data. The adapted BGF supports informed urban planning, enhances stakeholder engagement, and aligns local decisions with regional environmental and climate adaptation policies.",
     "geographic_extent": [
       [
         "EL",
@@ -3662,7 +3670,7 @@
     "pilot_name":["Laspias basin", "Kosynthos basin"],
     "region_name": "Eastern Macedonia and Thrace",
     "region_hazard_level": ["Floods", "Droughts"],
-    "description": "Approach to evaluate the costs and, benefits and efficiency of NbS in economic terms. Provided by LUKE partner (SWF). Implemented by DUTH with support of ENORA and RDFEMT.",
+    "description": "The Cost-Benefit Analysis (CBA) method evaluates the economic costs and benefits of Nature-based Solutions (NbS) to support long-term adaptation planning in Eastern Macedonia & Thrace. Originally introduced by Southwest Finland, the approach is now being adapted in EMT by DUTH, with support from ENORA and RDF-EMT. The solution establishes a structured framework for identifying, monetising, and comparing the impacts of NbS—such as leaky dams, detention basins, floodplain restoration, and regenerative agriculture—to inform evidence-based decision-making under climate uncertainty.",
     "geographic_extent": [
       [
         "EL",
@@ -3677,7 +3685,7 @@
         "EL5122"
       ]
     ],
-    "solution_type": ["Governance and Institutional", "Economic and Finance"],
+    "solution_type": ["Economic and Finance"],
     "solution_goals": [
       1.1,
       2.1,
@@ -3747,7 +3755,7 @@
     "pilot_name": "Lemvig Municipality",
     "region_name": "Central Denmark",
     "region_hazard_level": ["Floods"],
-    "description": "It involves exploring various construction techniques aimed at developing flood-resistant infrastructures and advocating for their adoption within the construction sector and among individual property owners. The goal is to enhance resilience against flooding by promoting the use of effective building techniques that can withstand flood events, thereby minimizing damage and ensuring the safety of communities and their assets.",
+    "description": "This solution explores and tests flood-resistant construction techniques through two demonstration houses built at Lemvig Harbour in Central Denmark. Developed by VIA University College and the Danish Coastal Authority, the project showcases five key design principles for climate-robust buildings: structural zoning that separates wet and dry areas, use of climate-friendly and water-resistant materials, adaptable interior layouts, drainage-oriented design that accepts temporary flooding, and accessible constructions that allow easy repair and replacement after events. The demo houses engage residents, visitors, and practitioners, promoting practical, scalable approaches to building resilience against increasing flood risks.",
     "geographic_extent": [
       [
         "DK",
@@ -3825,7 +3833,7 @@
     "pilot_name": ["Bøvlingbjerg","Juelsminde"],
     "region_name": "Central Denmark",
     "region_hazard_level": ["Floods"],
-    "description": "This solution integrates machine learning technology to monitor shallow groundwater levels, acting as an early warning system against the impacts of rising sea levels on groundwater. Continuous scientific and technical support is provided for physical installation, data collection, and database setup through regular online working group meetings, site visits, and knowledge workshops.",
+    "description": "This solution uses a network of IoT groundwater loggers and machine learning models to monitor near-surface water levels and forecast groundwater flooding. In the Juelsminde region, IoT sensors record data every 10 minutes, which is combined with sea-level and precipitation data using Support Vector Regression and LSTM models to predict short- and long-term flood risks. The approach supports early warning through a cross-platform app that visualises real-time and forecasted groundwater levels, helping communities and authorities prepare for flooding.",
     "geographic_extent": [
       [
         "DK",
@@ -3915,7 +3923,7 @@
     "pilot_name": ["Randers Municipality","Horsens Municipality"],
     "region_name": "Central Denmark",
     "region_hazard_level": ["Floods"],
-    "description": "The 'BEST Adapt' tool enhancement project involves integrating factors like recreational value, essential for accurate assessments. Initially developed for pluvial flooding, the tool has been expanded to cover various flood sources. It calculates damage costs and defines necessary services for flood protection, aiming for optimal economic benefits. The BEST ADAPT tool will help policymakers understand co-benefits and trade-offs between climate adaptation solutions.",
+    "description": "BEST ADAPT is a socio-economic tool that calculates damages from multiple flood sources and performs cost-benefit analysis of adaptation options. Using updated climate data, vulnerability maps, and local knowledge, it provides rapid economic screening, visual summaries, and tailored reports to help municipalities identify the most cost-effective and resilient solutions.",
     "geographic_extent": [
       [
         "DK",
@@ -3932,7 +3940,7 @@
 
     ],
     
-    "solution_type": ["Governance and Institutional", "Knowledge and Behavioural Change", "Economic and Finance"],
+    "solution_type": ["Economic and Finance", "Governance and Institutional"],
     "solution_goals": [
       1.1,
       2.4,
@@ -4023,7 +4031,7 @@
     "pilot_name": ["Endelave", "Juelsminde"],
     "region_name": "Central Denmark",
     "region_hazard_level": ["Floods"],
-    "description": "XR Pathfinder is a web-based guide designed to help municipal and regional stakeholders identify the most suitable Extended Reality (XR) technologies. Drawing from the experiences of the RESIST project, it provides a collection of adaptable solutions demonstrating how XR can enhance decision-making and stakeholder engagement across various contexts.",
+    "description": "XR Pathfinder is a web-based guide that helps municipal and regional stakeholders identify the most suitable Extended Reality (XR) technologies for their needs. It showcases adaptable XR applications—such as AR tabletop flood visualisations, AR overlays for nature-based solutions, and XR tools illustrating climate-robust building principles—demonstrating how immersive formats can support decision-making, communication, and stakeholder engagement.",
     "geographic_extent": [
       [
         "DK",
@@ -4322,7 +4330,7 @@
 
     ],
     
-    "solution_type": ["Knowledge and Behavioural Change"],
+    "solution_type": ["Governance and Institutional","Knowledge and Behavioural Change"],
     "solution_goals": [
       2.1,
       2.2
@@ -4451,7 +4459,7 @@
 
     ],
     
-    "solution_type": ["Knowledge and Behavioural Change","Governance and Institutional"],
+    "solution_type": ["Knowledge and Behavioural Change"],
     "solution_goals": [
       1.1,
       2.1,
@@ -4623,7 +4631,7 @@
 
     ],
     
-    "solution_type": ["Governance and Institutional"],
+    "solution_type": ["Knowledge and Behavioural Change"],
     "solution_goals": [
       1.1,
       2.1,
@@ -4714,7 +4722,7 @@
 
     ],
     
-    "solution_type": ["Knowledge and Behavioural Change","Governance and Institutional"],
+    "solution_type": ["Governance and Institutional", "Knowledge and Behavioural Change"],
     "solution_goals": [
       2.1,
       2.6,
@@ -4794,7 +4802,7 @@
 
     ],
     
-    "solution_type": ["Knowledge and Behavioural Change"],
+    "solution_type": ["Governance and Institutional","Knowledge and Behavioural Change"],
     "solution_goals": [
       2.1,
       2.2,
@@ -4863,7 +4871,7 @@
     "pilot_name": "Climate Tech Tour (CTT)",
     "region_name": "Blekinge",
     "region_hazard_level": ["Floods", "Droughts"],
-    "description": "The Climate Tech Tour (CTT) is a concept based on raising awareness of climate change and showcasing new technology. By informing citizens and policy makers about the hidden consequences of climate change related to floods and droughts, they can make informed decisions.  Typical demos and proof-of-concepts presented may include the use of VR technology to visualize how rising sea levels will be reflected on the shoreline of a specific area in the year 2100, an opportunity for urban development and adaptation to understand and make informed decisions.",
+    "description": "The Climate Tech Tour (CTT) is a concept designed to raise awareness of climate change and showcase new technology to citizens and policy makers. By highlighting hidden consequences of floods and droughts, it supports more informed decision-making. The CTT operates as a mobile pop-up that engages diverse stakeholders across different communities, immersing them in the world of XR through hands-on demos, inspiring experiences, and clear insights into climate risks and adaptation needs.",
     "geographic_extent": [
       [
         "SE",
@@ -5062,10 +5070,10 @@
         "$oid": "54"
     },
     "solution_name": "Future Scenario (FS)",
-    "pilot_name": "N/A",
+    "pilot_name": "Trossö",
     "region_name": "Blekinge",
     "region_hazard_level": ["Floods", "Droughts"],
-    "description": "A gathering of decision-makers to establish a shared vision and roadmap for climate resilience, utilizing visual decision tools and platforms like Karlskrona Blue Port Studios and the GDT. The XR-Pathfinder can be integrated into this process to enhance internal decision-making and support quintuple helix collaboration.",
+    "description": "During scenario development workshops, decision-makers use visualisation tools such as Karlskrona Blue Port Studios’ XR environments and the AugmentCity GDT. XR demonstrators—such as the virtual reconstruction of the historic 1683 coastal wall concept for Trossö—are integrated to support discussions on long-term adaptation pathways. These immersive tools help participants understand alternative futures and evaluate planning choices under sea-level rise and flood risk conditions.",
     "geographic_extent": [
       [
         "SE",
@@ -5076,7 +5084,7 @@
 
     ],
     
-    "solution_type": ["Governance and Institutional", "Knowledge and Behavioural Change"],
+    "solution_type": ["Knowledge and Behavioural Change"],
     "solution_goals": [
       2.1,
       2.2,
@@ -5170,7 +5178,7 @@
     "pilot_name": "Karlshamn, Karlskrona",
     "region_name": "Blekinge",
     "region_hazard_level": ["Floods", "Droughts"],
-    "description": "The solution focuses on implementing decision-making tools supported by accurate and comprehensive data for informed decision-making in Blekinge. The region aims to test these tools in at least two municipalities concerning their risk management plans.",
+    "description": "The region complements data-driven decision-making with XR-powered simulations, enabling stakeholders to visualise flood dynamics along rivers such as Lyckebyån using MSB datasets integrated into a GDT environment. These immersive simulations enhance risk communication and support scenario testing within municipal risk management plans.",
     "geographic_extent": [
       [
         "SE",
@@ -5187,7 +5195,7 @@
 
     ],
     
-    "solution_type": ["Governance and Institutional", "Knowledge and Behavioural Change"],
+    "solution_type": ["Physical and Technological", "Knowledge and Behavioural Change"],
     "solution_goals": [
       1.1,
       2.4,
@@ -5281,7 +5289,7 @@
     "pilot_name": "Scenario exploration infrastructure (VPS)",
     "region_name": "Blekinge",
     "region_hazard_level": ["Floods", "Droughts"],
-    "description": "This solution leverages a large-scale Virtual Production Studio (VPS) to create an immersive, arena-like environment that facilitates collaboration among decision-makers. By visually simulating climate-related scenarios, it supports interactive engagement, informed planning, and joint exploration of adaptation strategies.",
+    "description": "This solution leverages a large-scale Virtual Production Studio (VPS) to provide an immersive, XR-based environment where climate adaptation solutions can be collaboratively explored. By offering hands-on, visually rich experiences, the VPS supports engagement among decision-makers and citizens. Its interactive setup helps stakeholders better understand climate risks, test adaptation options, and discuss strategies in an accessible, arena-like setting.",
     "geographic_extent": [
       [
         "SE",
@@ -5292,7 +5300,7 @@
 
     ],
     
-    "solution_type": ["Governance and Institutional", "Knowledge and Behavioural Change"],
+    "solution_type": ["Physical and Technological", "Knowledge and Behavioural Change"],
     "solution_goals": [
       1.1,
       2.1,
@@ -5466,7 +5474,7 @@
     "pilot_name": "Karlshamn, Karlskrona",
     "region_name": "Blekinge",
     "region_hazard_level": ["Floods", "Droughts"],
-    "description": "This solution facilitates dialogue and collaboration among regional stakeholders to address conflicts between urban development goals and climate adaptation needs. It promotes multi-stakeholder engagement to enhance policy coherence, knowledge exchange, and collective risk management through the establishment of a regional governance network.",
+    "description": "XR Pathfinder is a web-based guide designed to help municipal and regional stakeholders identify the most suitable Extended Reality (XR) technologies. Drawing from the experiences of the RESIST project, it provides a collection of adaptable solutions demonstrating how XR can enhance decision-making and stakeholder engagement in designing climate change adaptation solutions.",
     "geographic_extent": [
       [
         "SE",
@@ -5552,7 +5560,7 @@
 
     ],
     
-    "solution_type": ["Governance and Institutional", "Knowledge and Behavioural Change"],
+    "solution_type": ["Governance and Institutional"],
     "solution_goals": [
       2.1,
       2.8,
@@ -5782,7 +5790,7 @@
 
     ],
     
-    "solution_type": ["Knowledge and Behavioural Change","Knowledge and Behavioural Change"],
+    "solution_type": ["Nature Based Solutions and Ecosystem-based Approaches","Knowledge and Behavioural Change"],
     "solution_goals": [
       1.1,
       2.1,
@@ -6046,10 +6054,10 @@
         "$oid": "65"
     },
     "solution_name": "Soil Moisture Dynamics Monitoring",
-    "pilot_name": "Zemgales Planosanas Regions",
+    "pilot_name": "Zemgales Planosanas Regions, Bauska municipality (former airport area), Valle village (recreation site)",
     "region_name": "Zemgale",
     "region_hazard_level": ["Floods"],
-    "description": "Riga Technical University and Zemgales Planosanas Regions will conduct soil sampling and deploy soil moisture sensors to analyze water infiltration into the soil. They will also create a digital platform to assess building conditions and the impact of stormwater flooding.",
+    "description": "This solution combines soil sampling, groundwater measurements, and soil moisture sensors to assess water infiltration and waterlogging risks in two pilot sites in Bauska municipality. The collected data supports land-use planning, helps identify suitable CCA and NbS measures, and informs hydrological modelling using HEC-RAS and HEC-HMS. By providing essential local data on groundwater dynamics, the solution strengthens the municipality’s capacity to prevent flooding and plan climate-resilient development.",
     "geographic_extent": [
       [
         "LV",
@@ -6063,16 +6071,18 @@
     "solution_type": ["Physical and Technological"],
     "solution_goals": [
       1.1,
-      4.2,
-      4.7,
-      6.2
+      1.2,
+      1.3,
+      2.7,
+      4.7
     ],
     "ecosystem_service": [
       ["Flood Protection",
        "Water Retention",
-       "Control of Erosion Risk"],
+       "Hazard Mitigation"],
       [],
-      []
+      ["Reduction in Damage Costs",
+       "Education and Information"]
 
     ],
     "project_affiliation" : "RESIST",
@@ -6156,7 +6166,7 @@
 
     ],
     
-    "solution_type": ["Physical and Technological", "Knowledge and Behavioural Change"],
+    "solution_type": ["Physical and Technological"],
     "solution_goals": [
       1.1,
       1.2,
@@ -6351,7 +6361,7 @@
 
     ],
     
-    "solution_type": ["Nature Based Solutions and Ecosystem-based Approaches","Physical and Technological", "Knowledge and Behavioural Change"],
+    "solution_type": ["Nature Based Solutions and Ecosystem-based Approaches"],
     "solution_goals": [
       1.1,
       2.6,
@@ -6435,7 +6445,7 @@
     "pilot_name": "Terrassa Municipality, Blanes Municipality, Alcanar Municipality",
     "region_name": "Catalonia",
     "region_hazard_level": ["Floods","Droughts", "Wildfire", "Heatwaves"],
-    "description": "Site-Specific Warning is a tool that offers customized risk information to activate action protocols or guide decisions for improved emergency preparedness related to extreme weather. It combines local data and knowledge specific to vulnerable areas, groups, or infrastructure, enabling tailored risk assessments and evaluations for extreme weather and climate events.",
+    "description": "Site-Specific Warning is a tool that provides customised, impact-based risk information to activate action protocols or guide emergency preparedness during extreme weather events. It integrates local data and knowledge about vulnerable areas, groups, and infrastructure to produce tailored assessments for specific sites. This tool supports improved decision-making by linking hazard information with exposure and vulnerability at the local level, enabling more precise evaluations of potential impacts. By offering clear, site-specific insights, it helps authorities and communities anticipate risks, reduce false alarms, and enhance preparedness for severe weather and climate-related events.",
     "geographic_extent": [
       [
         "ES",
@@ -6458,7 +6468,7 @@
 
     ],
     
-    "solution_type": ["Physical and Technological", "Governance and Institutional", "Knowledge and Behavioural Change"],
+    "solution_type": ["Physical and Technological"],
     "solution_goals": [
       1.1,
       2.1,
@@ -6601,7 +6611,7 @@
     "pilot_name": "Terrassa Municipality, Blanes Municipality, Alcanar Municipality",
     "region_name": "Catalonia",
     "region_hazard_level": ["Floods","Droughts", "Wildfire", "Heatwaves"],
-    "description": "Argos is an advanced early warning and decision-support system designed to aid emergency managers and stakeholders in preparing for and responding to extreme weather events driven by climate change. Developed on top of the H2020 ANYWHERE project, it integrates real-time data and forecasting tools to anticipate climate-related risks, enabling timely decision-making and efficient emergency response.",
+    "description": "Argos is an advanced early warning and decision-support system designed to help emergency managers prepare for and respond to extreme weather events. Developed on top of the H2020 ANYWHERE project, it integrates real-time data, hazard forecasts, and impact-based products to anticipate climate-related risks and support timely emergency response. Argos is being adapted to local needs in Catalonia, with site-specific warnings linked to self-protection actions, enhanced user interfaces, and extended dissemination capabilities. It is implemented and tested in municipalities such as Terrassa and Blanes, and is undergoing replication both within Catalonia and in twinning regions, tailored to their specific data and operational contexts.",
     "geographic_extent": [
       [
         "ES",
@@ -6624,7 +6634,7 @@
 
     ],
     
-    "solution_type": ["Physical and Technological", "Governance and Institutional", "Knowledge and Behavioural Change"],
+    "solution_type": ["Physical and Technological"],
     "solution_goals": [
       1.1,
       2.1,
@@ -6766,7 +6776,7 @@
     "pilot_name": "Catalonia regional level",
     "region_name": "Catalonia",
     "region_hazard_level": ["Floods","Droughts", "Wildfire", "Heatwaves"],
-    "description": "This solution aims to develop an adaptable and accessible toolkit for municipalities across Catalonia, enabling them to implement awareness campaigns on climate change and natural risks. Targeted at both urban and rural areas, regardless of available civil protection resources, the toolkit promotes inclusive participation. It fosters citizen engagement in natural hazard response, climate action, and civil protection, empowering communities through collaborative processes and localized social initiatives.",
+    "description": "This solution aims to develop an adaptable and accessible toolkit for municipalities across Catalonia, enabling them to implement awareness campaigns on climate change and natural risks. It promotes inclusive participation across urban and rural areas, regardless of available civil protection resources. The approach integrates social knowledge and focuses on engaging hard-to-reach groups through citizen dialogues, co-creation, and collaborative processes. The toolkit strengthens community preparedness by fostering participation in natural hazard response, climate action, and civil protection.",
     "geographic_extent": [
       [
         "ES",
@@ -7202,7 +7212,7 @@
 
     ],
     
-    "solution_type": ["Knowledge and Behavioural Change"],
+    "solution_type": ["Governance and Institutional","Knowledge and Behavioural Change"],
     "solution_goals": [
       2.1,
       2.2,
@@ -7741,7 +7751,7 @@
 
     ],
     
-    "solution_type": ["Nature Based Solutions and Ecosystem-based Approaches"],
+    "solution_type": ["Nature Based Solutions and Ecosystem-based Approaches","Governance and Institutional"],
     "solution_goals": [
       2.5,
       2.7,
@@ -7850,7 +7860,7 @@
 
     ],
     
-    "solution_type": ["Physical and Technological","Knowledge and Behavioural Change"],
+    "solution_type": ["Physical and Technological"],
     "solution_goals": [
       1.1,
       2.1,
@@ -8081,10 +8091,10 @@
         "$oid": "81"
     },
     "solution_name": "AIGP: Integrated Areas for Landscape Management",
-    "pilot_name": "N/A",
+    "pilot_name": "Contenda farm",
     "region_name": "Baixo Alentejo",
     "region_hazard_level": ["Floods","Droughts", "Wildfire", "Heatwaves"],
-    "description": "This solution improves landscape resilience to wildfires and climate impacts through fuel management and land use changes, using an integrated territorial approach across a continuous area.",
+    "description": "This solution is a planning and management tool designed to promote the shared use of agroforestry spaces with high fire risk. It combines landscape planning, forest management, and community engagement to enhance resilience to fires, boost natural capital, and support the rural economy. In this region it includssupport for crop reconversion operations (e.g. reconversion to species that are more adapted and resilient to water scarcity and high temperatures such as the arbutus tree) and actions that promote the enhancement and revitalisation of the territory.",
     "geographic_extent": [
       [
         "PT",
@@ -8095,7 +8105,7 @@
 
     ],
     
-    "solution_type": ["Governance and Institutional","Knowledge and Behavioural Change"],
+    "solution_type": ["Nature Based Solutions and Ecosystem-based Approaches","Governance and Institutional"],
     "solution_goals": [
       2.2,
       2.3,
@@ -8204,11 +8214,11 @@
     "_id": {
         "$oid": "82"
     },
-    "solution_name": "Designing Climate-Resilient Urban Spaces: Collaborative Nature-Based Solutions to Address Heat Stress in Puglia",
-    "pilot_name": "N/A",
+    "solution_name": "Designing Climate-Resilient Urban Spaces: Collaborative Nature-based Solutions to Address Heat Stress in Puglia",
+    "pilot_name": "Bari",
     "region_name": "Puglia",
     "region_hazard_level": ["Floods","Heatwaves"],
-    "description": "The solution focuses on collaboratively designing nature-based solutions (NbS) to address heat stress and mitigate urban heat island effects in tourist areas in Puglia. It will engage a wide range of stakeholders, including urban planners, environmental scientists, architects, local government officials, community members, and tourist operators, as well as tourists. By combining local knowledge and technical expertise, the project aims to develop strategies for adapting urban areas, making them more resilient to rising summer temperatures. Informal support will also come from the CoP, specifically from Normandie, one of the regions in RESIST.",
+    "description": "This solution focuses on collaboratively designing Nature-based Solutions (NbS) to reduce heat stress and mitigate urban heat island effects in tourist areas of Bari. Through co-design workshops with planners, scientists, local authorities, tourism operators, and communities, the project develops strategies for climate-resilient public spaces. NbS design is complemented by the identification of potential climate shelters, improving comfort and safety for residents and tourists during extreme heat events, with informal support from Normandie’s CoP.",
     "geographic_extent": [
       [
         "IT",
@@ -8218,7 +8228,7 @@
 
     ],
     
-    "solution_type": ["Governance and Institutional", "Knowledge and Behavioural Change"],
+    "solution_type": ["Nature Based Solutions and Ecosystem-based Approaches","Governance and Institutional"],
     "solution_goals": [
       2.1,
       2.2,
@@ -8319,10 +8329,10 @@
         "$oid": "83"
     },
     "solution_name": "Argos and Site-Specific Early Warning System (SSW)",
-    "pilot_name": "N/A",
+    "pilot_name": "Bari",
     "region_name": "Puglia",
     "region_hazard_level": ["Floods","Heatwaves"],
-    "description": "A digital platform combining the Argos early warning system and Site-Specific Warning (SSW) tool to deliver hyperlocal, real-time alerts for extreme heat in Bari. Designed for tourism operators and civil protection, it integrates European and local data to provide risk-based action protocols and support urban preparedness and response.",
+    "description": "A digital platform combining the ARGOS early warning system with Site-Specific Warnings (SSW) to deliver hyperlocal, real-time heatwave alerts in Bari. The system integrates local microclimate datasets and provides georeferenced guidance for vulnerable touristic areas such as squares, parks, cultural sites, and beaches. ARGOS also supports the identification of potential climate shelters in the city. A mobile application will deliver user-friendly alerts and risk-based action protocols for tourism operators, civil protection, and visitors.",
     "geographic_extent": [
       [
         "IT",
@@ -8332,7 +8342,7 @@
 
     ],
     
-    "solution_type": ["Physical and Technological","Knowledge and Behavioural Change"],
+    "solution_type": ["Physical and Technological"],
     "solution_goals": [
       2.1,
       2.2,
@@ -8432,11 +8442,11 @@
     "_id": {
         "$oid": "84"
     },
-    "solution_name": "Citizen Participatory Toolkit in Natural Risks and Climate Change (Tourism)",
-    "pilot_name": "N/A",
+    "solution_name": "Citizen Participatory Toolkit for Climate and Heatwave Preparedness (Tourism)",
+    "pilot_name": "Bari",
     "region_name": "Puglia",
     "region_hazard_level": ["Floods","Heatwaves"],
-    "description": "A citizen-focused toolkit designed to foster inclusive participation and social action on climate change and civil protection. In Puglia, it promotes bottom-up engagement and awareness in the tourism sector, encouraging adaptive behaviors among residents and visitors.",
+    "description": "A citizen-focused toolkit adapted to the tourism sector to strengthen communication and public action during heatwaves. It promotes bottom-up engagement among residents, visitors, and tourism operators, helping them understand appropriate responses to extreme heat. The toolkit complements ARGOS and SSW by testing inclusive methods for awareness-raising and behavioural adaptation, ensuring messages reach the widest range of stakeholders in Bari.",
     "geographic_extent": [
       [
         "IT",
@@ -8549,7 +8559,7 @@
 
     ],
     
-    "solution_type": ["Physical and Technological", "Governance and Institutional", "Knowledge and Behavioural Change"],
+    "solution_type": ["Physical and Technological"],
     "solution_goals": [
       2.1,
       3.1,
@@ -8662,7 +8672,7 @@
 
     ],
     
-    "solution_type": ["Physical and Technological", "Governance and Institutional"],
+    "solution_type": ["Governance and Institutional"],
     "solution_goals": [
       1.1,
       1.3,
@@ -8783,7 +8793,7 @@
 
     ],
     
-    "solution_type": ["Physical and Technological", "Governance and Institutional", "Knowledge and Behavioural Change"],
+    "solution_type": ["Physical and Technological", "Governance and Institutional"],
     "solution_goals": [
       1.1,
       2.1,
@@ -8903,7 +8913,7 @@
 
     ],
     
-    "solution_type": ["Physical and Technological", "Knowledge and Behavioural Change"],
+    "solution_type": ["Knowledge and Behavioural Change", "Governance and Institutional"],
     "solution_goals": [
       1.1,
       2.1,
@@ -9024,7 +9034,7 @@
 
     ],
     
-    "solution_type": ["Governance and Institutional", "Knowledge and Behavioural Change"],
+    "solution_type": ["Governance and Institutional"],
     "solution_goals": [
       1.1,
       1.3,
@@ -9136,7 +9146,7 @@
     "pilot_name": ["Coimbra Region", "Region Médio Tejo"],
     "region_name": "Centro Portugal",
     "region_hazard_level": ["Wildfire"],
-    "description": "AIGP, implemented by OIGP, presents an innovative approach to large-scale land management (over 100 hectares) focused on reducing wildfire risks and increasing resilience to climate change. These initiatives include landscape transformation, species conversion, and territorial revitalization, all supported by clear financial and operational frameworks. The responsibility rests with the landowners.",
+    "description": "AIGP, implemented by OIGP, presents an innovative approach to large-scale land management (over 100 hectares) focused on reducing wildfire risks and increasing resilience to climate change. These initiatives include landscape transformation, species conversion, and territorial revitalization, all supported by clear financial and operational frameworks. The responsibility rests with the landowners, complemented by participatory engagement strategies that strengthen governance and support implementation across case study areas in the pilot sites.",
     "geographic_extent": [
       [
         "PT",
@@ -9153,7 +9163,7 @@
 
     ],
     
-    "solution_type": ["Governance and Institutional", "Knowledge and Behavioural Change"],
+    "solution_type": ["Nature Based Solutions and Ecosystem-based Approaches","Governance and Institutional"],
     "solution_goals": [
       2.2,
       2.3,
@@ -9331,11 +9341,11 @@
     "_id": {
         "$oid": "91"
     },
-    "solution_name": "VC: Village Condominiums  - Buffer Zones for Rural Villages",
+    "solution_name": "CA: Village Condominiums  - Buffer Zones for Rural Villages",
     "pilot_name": ["Coimbra Region", "Region Médio Tejo"],
     "region_name": "Centro Portugal",
     "region_hazard_level": ["Wildfire"],
-    "description": "Village Condominiums aim to establish 100-meter buffer zones around rural communities to protect residents and enhance resilience against wildfires and climate change. These zones reduce fuel loads and create safe distances between vegetation and buildings, lowering fire risks and safeguarding communities.",
+    "description": "Village Condominiums establish 100-meter buffer zones around rural communities to reduce wildfire risk by lowering biomass loads and creating safer distances between vegetation and homes. This approach also promotes income-generating land uses, supports biodiversity and cultural heritage, and forms part of an integrated landscape management strategy. The model combines community engagement, risk mapping and technical planning, landscape restoration, biomass valorisation, and sustainable business models to strengthen community resilience to climate change and recurrent wildfires.",
     "geographic_extent": [
       [
         "PT",
@@ -9352,12 +9362,11 @@
 
     ],
     
-    "solution_type": ["Nature Based Solutions and Ecosystem-based Approaches","Governance and Institutional","Knowledge and Behavioural Change"],
+    "solution_type": ["Nature Based Solutions and Ecosystem-based Approaches","Governance and Institutional"],
     "solution_goals": [
       2.1,
       2.2,
       2.3,
-      4.3,
       4.4,
       4.6,
       4.7,
@@ -9538,7 +9547,7 @@
     "_id": {
         "$oid": "92"
     },
-    "solution_name": "Valorization of Biomass for Nature-Based Solutions (NbS) and Bio-Based Products",
+    "solution_name": "Valorization of Biomass for Nature-based Solutions (NbS) and Bio-Based Products",
     "pilot_name": ["Medio Tejo Region", "Coimbra Region"],
     "region_name": "Centro Portugal",
     "region_hazard_level": ["Wildfire"],
@@ -9559,7 +9568,7 @@
 
     ],
     
-    "solution_type": ["Nature Based Solutions and Ecosystem-based Approaches","Economic and Finance","Knowledge and Behavioural Change","Physical and Technological"],
+    "solution_type": ["Nature Based Solutions and Ecosystem-based Approaches","Physical and Technological"],
     "solution_goals": [
       2.3,
       2.4,
@@ -9571,7 +9580,7 @@
       7.2
     ],
     "ecosystem_service": [
-      ["Hazard mitigation",
+      ["Hazard Mitigation",
        "Fire Protection",
        "Sustainable Disposal of Waste",
        "Decomposing Waste"],
@@ -9743,6 +9752,210 @@
     "_id": {
         "$oid": "93"
     },
+    "solution_name": "Bioeconomy Decision-Support Tool for Climate Resilience",
+    "pilot_name": ["Medio Tejo Region", "Coimbra Region"],
+    "region_name": "Centro Portugal",
+    "region_hazard_level": ["Wildfire"],
+    "description": "The Bioeconomy Tool is a web-based decision-support system that evaluates climate change impacts and guides sustainable land-use and mitigation planning. It integrates Multi-Criteria Decision Analysis and Life Cycle Assessment to assess environmental, economic, and social dimensions and generate a single integrated value for comparing scenarios. With modelling capabilities, structured indicators, and an adaptable back-office, the tool supports strategic planning, resilience assessment, and long-term resource management.",
+    "geographic_extent": [
+      [
+        "PT",
+        "PT1",
+        "PT16",
+        "PT16E"
+    ],
+    [
+        "PT",
+        "PT1",
+        "PT16",
+        "PT16I"
+    ]
+
+    ],
+    
+    "solution_type": ["Physical and Technological", "Governance and Institutional"],
+    "solution_goals": [
+      2.4,
+      2.5,
+      2.6,
+      2.7,
+      4.5,
+      4.6,
+      4.7,
+      5.2,
+      8.3
+    ],
+    "ecosystem_service": [
+      ["Hazard Mitigation",
+       "Global Climate Regulation (terrestrial)"],
+      [],
+      ["Education and Information",
+       "Reduction in Damage Costs"]
+
+    ],
+    "project_affiliation" : "RESIST",
+    "solution_status" : "In Development",
+    "data_categories": ["Land use","Meteorological geographical features","Elevation", "Hydrography", "Natural risk zones", "Orthoimagery", "Population distribution - demography", "Buildings","Transport networks", "Administrative units"],
+    "data": [
+      {
+        "type": "Land use and Occupation Map (Focus: Forest)",
+        "format": "Vector (SHP)",
+        "provider": "DGT - Direção-Geral do Território",
+        "contact":"Via contact form",
+        "link": "https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b"
+      },
+      {
+        "type": "Digital Elevation Model",
+        "format": "Digital (Raster)",
+        "provider": "CIMT",
+        "contact":"sig@cimt.pt",
+        "link": "https://geoportal.mediotejo.pt/Imagens/CIMT/RESIST/TIN_MedioTejo.zip"
+      },
+      {
+        "type": "Water bodies and water courses (main water lines and lakes - usually used for mapping proposes)",
+        "format": "Vector (SHP)",
+        "provider": "CIMT",
+        "contact":"sig@cimt.pt",
+        "link": "https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b498e89c-1093-4793-ad22-63516062891b"
+      },
+      {
+        "type": "Hydrographic Network",
+        "format": "Vector (SHP)",
+        "provider": "APA - Agência Portuguesa do Ambiente",
+        "contact":"Via contact form",
+        "link": "https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/3A2E0407-A585-472B-91D7-084C6F7EC363"
+      },
+      {
+        "type": "Statistical Data, Population Data",
+        "format": "Numeric (Tabular)",
+        "provider": "INE - Instituto Nacional de Estatística",
+        "contact":"ine@ine.pt",
+        "link": "https://tabulador.ine.pt/censos2021/?lang=EN"
+      },
+      {
+        "type": "Meteorological data",
+        "format": "Numeric and Geographic (Tabular and GIS)",
+        "provider": "CIMT / IPMA",
+        "contact":"sig@cimt.pt",
+        "link": "N/A"
+      },
+      {
+        "type": "Buildings at Scale 1:10000",
+        "format": "Numeric and Geographic (Tabular and GIS)",
+        "provider": "CIMT",
+        "contact":"sig@cimt.pt",
+        "link": "https://geoportal.mediotejo.pt/Imagens/CIMT/RESIST/Buildings.zip"
+      },
+      {
+        "type": "Main Roads, Railways and train stations",
+        "format": "Vector (SHP)",
+        "provider": "CIMT",
+        "contact":"sig@cimt.pt",
+        "link": "https://geoportal.mediotejo.pt/Imagens/CIMT/RESIST/TransportNetworks.zip"
+      },
+      {
+        "type": "Roads Infrastructure",
+        "format": "WFS, WMS",
+        "provider": "CIMT, CIM RC",
+        "contact":"Via contact form",
+        "link": "https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/idroot123049272"
+      },
+      {
+        "type": "Burnt Areas since 1975",
+        "format": "Vector (SHP)",
+        "provider": "ICNF -  Instituto da Conservação da Natureza e das Floresta, IP",
+        "contact":"icnf@icnf.pt",
+        "link": "https://sig.icnf.pt/portal/home/item.html?id=983c4e6c4d5b4666b258a3ad5f3ea5af"
+      },
+      {
+        "type": "OrtoSat 30 cm - Portugal Continental- 2023 ",
+        "format": "Digital Image (Raster)",
+        "provider": "DGT - Direção-Geral do Território",
+        "contact":"Via contact form",
+        "link": "https://snig.dgterritorio.gov.pt/rndg/srv/por/catalog.search#/metadata/b2a1ca02-779b-4189-b895-85d10fff610f"
+      },
+      {
+        "type": "Base Cartography at Scale 1:10000 (includes: buildings, roads, water surfaces, infrastructures…)",
+        "format": "Vector (SHP)",
+        "provider": "CIMT",
+        "contact":"sig@cimt.pt",
+        "link": "https://geoportal.mediotejo.pt/Imagens/CIMT/RESIST/Cartography.zip"
+      },
+      {
+        "type": "Buondaries/borders (Centro Portugal, Médio Tejo, Municipalities and Pilot Areas",
+        "format": "Vector (SHP)",
+        "provider": "CIMT",
+        "contact":"sig@cimt.pt",
+        "link": "https://geoportal.mediotejo.pt/Imagens/CIMT/RESIST/Boundaries.zip"
+      },
+      {
+        "type": "BLignocellulosic biomass characterisation",
+        "format": "Numeric (Tabular, graphical)",
+        "provider": "IPP",
+        "contact":"N/A",
+        "link": "N/A"
+      },
+      {
+        "type": "Cartography of Risks Associated with Climate Change",
+        "format": "Digital Image (Raster)",
+        "provider": "CIMT",
+        "contact":"sig@cimt.pt",
+        "link": "N/A"
+      }
+
+
+    ],
+    "tools_platforms": [
+        ["Web map application",
+         "Geoportal"],
+        ["Software"],
+        [],
+        ["Sensor network"]
+        ],
+    "tools": [
+      {
+        "name": "ArcGIS Server, ArcGIS Pro, ArcGIS Online",
+        "description": "ArcGIS Server shares geographic data within organizations and online via web services. ArcGIS Pro is a desktop GIS application for advanced data visualization and analysis in 2D, 3D, and 4D. ArcGIS Online allows creating interactive maps with smart styles and analysis tools, facilitating data sharing globally or with specific groups.",
+        "contact":"Via contact form",
+        "link": "https://www.esri.com/en-us/arcgis/products/index?rmedium=www_esri_com_EtoF&rsource=/en-us/arcgis/products"
+      },
+      {
+        "name": "Information portal of Médio Tejo (Portal de Informação do Médio Tejo)",
+        "description": "It provides different thematic geographic information related to Médio Tejo.",
+        "contact":"Via contact form",
+        "link": "https://geoportal.mediotejo.pt/portal/apps/sites/#/informacao-geografica"
+      },
+      {
+        "name": "Location plans of Médio Tejo (Plantas de Localização Médio Tejo)",
+        "description": "It provides access to consultation sites and location plan issuance for Médio Tejo Municipalities. Users can view and print plans specific to each Municipality by clicking on the respective logo.",
+        "contact":"Via contact form",
+        "link": "https://geoportal.mediotejo.pt/portal/apps/sites/#/plantaslocalizacao"
+      },
+      {
+        "name": "Internal tools at CIMT",
+        "description": "The tools at CIMT facilitate the analysis, processing, and accessibility of geographic information. These resources empower the creation of models and generation of indicators, providing valuable insights derived from processed data.",
+        "contact":"N/A",
+        "link": "N/A"
+      },
+      {
+        "name": "Decision Support and Emergency Management System",
+        "description": "It  integrates diverse monitoring equipment, aggregating data from CIM-RC's network and other entities. It offers essential geographic information, aiding municipal technicians and fire services in informed decision-making. Operating since December 2017, CIM-RC's 30-sensor network strengthens regional climate change adaptation efforts.",
+        "contact":"N/A",
+        "link": "N/A"
+      },
+      {
+        "name": "Rural fire indicators",
+        "description": "The interactive map shows the rural fires for the current year, obtained from the Forest Fire Information Management System (SGIF).",
+        "contact":"Via contact form",
+        "link": "https://fogos.icnf.pt/localizador/mostragooglemapsheatmaps.asp"
+      }
+
+    ]
+  },
+  {
+    "_id": {
+        "$oid": "94"
+    },
     "solution_name": "Miljøkontrakten (The Environmental Contract)",
     "pilot_name": ["Vesterålen", "Lofoten"],
     "region_name": "Vesterålen",
@@ -9764,7 +9977,7 @@
 
     ],
     
-    "solution_type": ["Physical and Technological", "Knowledge and Behavioural Change"],
+    "solution_type": ["Knowledge and Behavioural Change"],
     "solution_goals": [
       2.1,
       2.2,
@@ -9834,7 +10047,7 @@
   },
   {
     "_id": {
-        "$oid": "94"
+        "$oid": "95"
     },
     "solution_name": "Vesterålsmodellen (The Vesteralen Model)",
     "pilot_name": ["Vesterålen", "Lofoten"],
@@ -9959,7 +10172,7 @@
   },
   {
     "_id": {
-        "$oid": "95"
+        "$oid": "96"
     },
     "solution_name": "Pathfinder on XR Simulations for Stakeholder Involvement – Web-Based Solution",
     "pilot_name": ["Vesterålen", "Lofoten"],
@@ -10065,7 +10278,7 @@
   },
   {
     "_id": {
-        "$oid": "96"
+        "$oid": "97"
     },
     "solution_name": "BEST ADAPT: Socio-Economic Decision-Support Tool to Include Cost-Benefit Analysis",
     "pilot_name": ["Vesterålen", "Lofoten"],
@@ -10088,7 +10301,7 @@
 
     ],
     
-    "solution_type": ["Governance and Institutional", "Knowledge and Behavioural Change", "Economic and Finance"],
+    "solution_type": ["Governance and Institutional", "Economic and Finance"],
     "solution_goals": [
       1.1,
       2.4,
@@ -10174,13 +10387,13 @@
   },
   {
     "_id": {
-        "$oid": "97"
+        "$oid": "98"
     },
-    "solution_name": "Ocean Model Demonstration Workshop Using AR/VR (GaiaVesterålen platform)",
+    "solution_name": "GaiaVesterålen Platform: Immersive Climate Visualization and Adaptation Support",
     "pilot_name": ["Vesterålen", "Lofoten"],
     "region_name": "Vesterålen",
     "region_hazard_level": ["Floods", "Heatwaves"],
-    "description": "Setup of the GaiaVesterålen platform with augmented reality (AR) and virtual reality (VR) technology to create real-time 3D modeling and mapping of sea level rise, climate change impacts (such as algae blooming, effects on fish), and showcase the direct effects and possible solutions, including Andfjords technology, on the coasts and exposed elements under different climate scenarios in Vesterålen and Lofoten.",
+    "description": "The GaiaVesterålen Platform uses interactive 3D models, projection mapping, and VR/XR tools to visualize climate change impacts such as sea level rise, flooding, and temperature projections. It helps municipalities, industries, museums, and citizens understand climate risks through intuitive visualizations and scientifically based datasets. Under RESIST, the platform has expanded its climate theme, added new VR/XR prototypes, and strengthened regional cooperation through workshops and the Gaia Arctic Summit.",
     "geographic_extent": [
       [
         "NO",
@@ -10297,10 +10510,130 @@
 
     ]
   },
+    {
+    "_id": {
+        "$oid": "99"
+    },
+    "solution_name": "Ocean Model Demonstration Workshop Using AR/VR (GaiaVesterålen)",
+    "pilot_name": ["N/A"],
+    "region_name": "Vesterålen",
+    "region_hazard_level": ["Floods", "Heatwaves"],
+    "description": "The Ocean Model is a VR-based application developed in Unity to visualize oceanographic and climate datasets, including temperature, currents, and seafloor structure. It supports the marine sector—such as aquaculture and fisheries—by illustrating how climate change affects ocean conditions and coastal areas. Through interactive workshops, the tool enables users to explore climate impacts, seasonal variability, and future scenarios based on RESIST climate data.",
+    "geographic_extent": [
+      [
+        "NO",
+        "NO0",
+        "NO07",
+        "NO0712"
+      ]
+
+    ],
+    
+    "solution_type": ["Physical and Technological", "Knowledge and Behavioural Change"],
+    "solution_goals": [
+      2.1,
+      2.2,
+      2.7,
+      4.7,
+      7.2
+    ],
+    "ecosystem_service": [
+      ["Hazard Mitigation"],
+      [],
+      ["Education and Information",
+       "Reduction in Damage Costs"]
+
+    ],
+    "project_affiliation" : "RESIST",
+    "solution_status" : "In Development",
+    "data_categories": ["Land cover","Meteorological geographical features", "Orthoimagery", "Transport networks", "Hydrography", "Population distribution - demography", "Atmospheric conditions"],
+    "data": [
+      {
+        "type": "Land cover",
+        "format": "Geographic data (GeoJSON), Digital Image-Raster (TIFF)",
+        "provider": "Norwegian Institute of Bioeconomy Research",
+        "contact":"post@nibio.no",
+        "link": "https://www.nibio.no/tjenester/nedlasting-av-kartdata"
+      },
+      {
+        "type": "Meteorological data",
+        "format": "Numeric and Geographic Data (GeoJSON, CSV), API",
+        "provider": "Norwegian Meteorological Institute",
+        "contact":"weatherapi-adm@met.no",
+        "link": "https://api.met.no/"
+      },
+      {
+        "type": "Satellite imagery",
+        "format": "Digital Image-Raster (TIFF)",
+        "provider": "Norwegian Mapping Authority, Norwegian Meteorological Institute",
+        "contact":"Via contact form",
+        "link": "https://www.satellittdata.no/en%20,%20https:/api.met.no/weatherapi/geosatellite/1.4/documentation"
+      },
+      {
+        "type": "Sea vessels traffic",
+        "format": "Geographic data (GeoJSON)و API",
+        "provider": "Norwegian Coastal Administration , BarentsWatch",
+        "contact":"support.kystdatahuset@kystverket.no, fmc@fiskeridir.no",
+        "link": "https://kystdatahuset.no/, https://www.barentswatch.no/bwapi/"
+      },
+      {
+        "type": "Roads Infrastructure",
+        "format": "Geographic data (GeoJSON)و API",
+        "provider": "Norwegian Public Roads Administration, OpenStreetMap",
+        "contact":"accessibility@openstreetmap.org",
+        "link": "https://www.vegvesen.no/en/about-us/about-the-organisation/open-data/ , https://www.openstreetmap.org/"
+      },
+      {
+        "type": "Flow, Discharge, Water level ",
+        "format": "Geographic data (GeoJSON), Numeric/tabular (CSV), API",
+        "provider": "Norwegian Coastal Administration",
+        "contact":"post@kartverket.no",
+        "link": "https://www.kartverket.no/til-sjos/se-havniva"
+      },
+      {
+        "type": "Bathymetric data and Terrain Models of the Seabed",
+        "format": "Geographic data (GeoJSON), API",
+        "provider": "Mareano",
+        "contact":"mareano@imr.no",
+        "link": "https://www.mareano.no/en/maps-and-data/marine-geospatial-data"
+      },
+      {
+        "type": "Statistical Data, Population Data",
+        "format": "Numeric/tabular (CSV)",
+        "provider": "Statistics Norway",
+        "contact":"Via contact form",
+        "link": "https://www.ssb.no/"
+      },
+      {
+        "type": "Wave forecast",
+        "format": "Geographic data (GeoJSON), API",
+        "provider": "BarentsWatch",
+        "contact":"fmc@fiskeridir.no",
+        "link": "https://www.mareano.no/en/maps-and-data/marine-geospatial-data"
+      }
+
+
+    ],
+    "tools_platforms": [
+        ["Geoportal"],
+        [],
+        [],
+        []
+        ],
+    "tools": [
+      {
+        "name": "GeoNorge",
+        "description": "Geonorge is a map-data repository and aggregator and the national website for map data and other local information in Norway. Here, users of map data can search for and access what is available of such information. Geonorge is part of  a collaboration between public enterprises responsible for establishing and managing map data and other location information. Geonorge is developed and operated by Kartverket.",
+        "contact":"post@norgedigitalt.no",
+        "link": "https://www.geonorge.no/"
+      }
+
+    ]
+  },
 
   {
     "_id": {
-        "$oid": "98"
+        "$oid": "100"
     },
     "solution_name": "The Sunken House",
     "pilot_name": "N/A",
@@ -10403,7 +10736,7 @@
 
   {
     "_id": {
-        "$oid": "99"
+        "$oid": "101"
     },
     "solution_name": "Gaia Arctic Summit",
     "pilot_name": "Vesterålen",
@@ -10507,7 +10840,7 @@
 
   {
     "_id": {
-        "$oid": "100"
+        "$oid": "102"
     },
     "solution_name": "Regional Risk and Vulnerability Assessment",
     "pilot_name": "N/A",
@@ -10612,7 +10945,7 @@
 
   {
     "_id": {
-        "$oid": "101"
+        "$oid": "103"
     },
     "solution_name": "Biowaste recycling by Andfjord salmon",
     "pilot_name": "N/A",
@@ -10629,7 +10962,7 @@
 
     ],
     
-    "solution_type": ["Physical and Technological", "Governance and Institutional"],
+    "solution_type": ["Physical and Technological"],
     "solution_goals": [
       2.5,
       3.1,
@@ -10703,13 +11036,13 @@
   },
   {
     "_id": {
-        "$oid": "102"
+        "$oid": "104"
     },
-    "solution_name": "MOSAICO tool-kit",
+    "solution_name": "MOSAICO Tool-kit",
     "pilot_name": "Sierra de Gata, Las Hurdes",
     "region_name": "Extremadura",
     "region_hazard_level": ["Wildfire", "Droughts","Heatwaves"],
-    "description": "MOSAICO tool-kit is a social engagement tool designed to enhance wildfire resilience through proactive prevention. It offers real-world simulations on living labs with local stakeholder input. Key features include implementing agro-silvo-pastoral practices, forming productive fuel breaks, engaging communities in collaborative planning, using advanced management zone methodologies, and integrating sustainable practices for economic and rural development.",
+    "description": "MOSAICO tool-kit is a participatory governance model that enhances wildfire resilience by coordinating agro-silvo-pastoral practices, productive fuelbreaks, and collaborative land-use planning. In Extremadura, MOSAICO structures community action in Sierra de Gata and Hurdes, linking wildfire prevention with rural development.",
     "geographic_extent": [
       [
         "ES",
@@ -10726,7 +11059,7 @@
 
     ],
     
-    "solution_type": ["Knowledge and Behavioural Change"],
+    "solution_type": ["Knowledge and Behavioural Change", "Governance and Institutional"],
     "solution_goals": [
       2.2,
       6.1,
@@ -10737,7 +11070,7 @@
     "ecosystem_service": [
       ["Hazard Mitigation",
        "Fire Protection"],
-      ["Biomass Growing"],
+      [],
       ["Education and Information",
        "Reduction in Damage Costs"]
 
@@ -10881,13 +11214,13 @@
   },
   {
     "_id": {
-        "$oid": "103"
+        "$oid": "105"
     },
     "solution_name": "Productive Fuelbreaks (PFB)",
     "pilot_name": "Sierra de Gata, Las Hurdes",
     "region_name": "Extremadura",
     "region_hazard_level": ["Wildfire", "Droughts","Heatwaves"],
-    "description": "Productive fuelbreaks (PFB) are interventions in the territory aimed at reducing the risk of wildfires in high-risk areas. This objective is achieved through the economic exploitation (agricultural, livestock, forestry, or mixed) of the intervened surface, whose maintenance and production help to slow the spread of fire by reducing the fuel and its continuity. Additionally, the presence of farmers, livestock breeders, resin collectors, gatherers, etc., increases forest surveillance and early fire detection, complementing conventional suppression infrastructures. ",
+    "description": "Productive fuelbreaks reduce wildfire risk through agricultural, livestock, forestry, or mixed uses that lower fuel continuity while generating rural income. In Extremadura, they follow a structured methodology—from risk assessment to long-term maintenance—and form the building blocks of mosaic landscapes in Sierra de Gata and Hurdes. Their design is replicable across Mediterranean fire-prone regions.",
     "geographic_extent": [
       [
         "ES",
@@ -10904,7 +11237,7 @@
 
     ],
     
-    "solution_type": ["Knowledge and Behavioural Change"],
+    "solution_type": ["Nature Based Solutions and Ecosystem-based Approaches"],
     "solution_goals": [
       2.2,
       6.1,
@@ -11060,13 +11393,13 @@
   },
   {
     "_id": {
-        "$oid": "104"
+        "$oid": "106"
     },
     "solution_name": "AIGP: Integrated Areas for Landscape Management",
     "pilot_name": "Sierra de Gata, Las Hurdes",
     "region_name": "Extremadura",
     "region_hazard_level": ["Wildfire", "Droughts","Heatwaves"],
-    "description": "This solution addresses land abandonment and fragmentation by engaging small-scale landowners in jointly managing over 100 hectares through the AIGP approach. It enhances landscape resilience to wildfires and climate change via fuel management and land use changes, while aiming to secure long-term commitment for collaborative agroforestry and economic scaling.",
+    "description": "AIGP engages small landowners in jointly managing areas over 100 hectares to address land abandonment and reduce wildfire risk through coordinated fuel management and diversified land use. In Extremadura, the AIGP approach is being transferred from Central Portugal due to strong landscape similarities, supporting integrated governance, rural revitalization, and collaborative agroforestry in Sierra de Gata and Las Hurdes.",
     "geographic_extent": [
       [
         "ES",
@@ -11083,7 +11416,7 @@
 
     ],
     
-    "solution_type": ["Governance and Institutional","Knowledge and Behavioural Change"],
+    "solution_type": ["Nature Based Solutions and Ecosystem-based Approaches","Governance and Institutional"],
     "solution_goals": [
       2.2,
       2.3,

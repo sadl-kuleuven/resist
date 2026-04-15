@@ -51,6 +51,29 @@ export class FiltersMenuComponent implements OnInit, AfterViewInit {
   projectAffiliationGraph = [];
   solutionStatusGraph = [];
 
+  resetAllFilters() {
+    this.cs.clearFilters();         // Clears all filtering logic
+    this.tas.textFilter = '';       // Clear text search
+
+    // Reset affiliation radio buttons
+    this.tas.projectAffiliation.RESIST = false;
+    this.tas.projectAffiliation.nonRESIST = false;
+
+    // Reset solution status radio buttons
+    this.tas.solutionStatus.Implemented = false;
+    this.tas.solutionStatus.InDevelopment = false;
+    this.tas.solutionStatus.Planned = false;
+    this.tas.solutionStatus.Proposed = false;
+    this.tas.solutionStatus.Pilot = false;
+    this.tas.solutionStatus.Deprecated = false;
+
+    this.cs.allFilteredCases = [...this.cs.allCases];
+
+    // Notify other components
+    this.cs.filteredCasesChange.next([]);
+  }
+
+
   @ViewChild('filters') filters: ElementRef;
  // toolsGraph: { name: string; series: { name: string; value: any; }[]; }[];
 
@@ -809,7 +832,7 @@ export class FiltersMenuComponent implements OnInit, AfterViewInit {
       });
     }
   
-    this.cs.filterByToolsPlatforms();
+    this.cs.filterByEcosystemService();
   }
 
 

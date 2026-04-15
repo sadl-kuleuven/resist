@@ -268,23 +268,25 @@ export class MainComponent implements OnInit, AfterViewInit {
     this.refreshMapLayers();
 
     // Listen for changes in filtered cases to update map markers and highlights
-    this.cs.filteredCasesChange.subscribe(() => {
-      this.tooltipMsg = 'For sharing your current view, click here to copy URL to your clipboard';
-      this.loadingMap = true;
-      // Refresh markers and region layers based on updated filtered data
-      this.refreshMapLayers();
-      this.loadingMap = false;
+   this.cs.filteredCasesChange.subscribe(filteredCases => {
+  this.tooltipMsg = 'For sharing your current view, click here to copy URL to your clipboard';
+  this.loadingMap = true;
+  this.refreshMapLayers();
+  this.loadingMap = false;
 
-       // ✅ Apply selected case from URL if present
-      const selectedId = this.route.snapshot.queryParamMap.get('sc');
-      if (selectedId && !this.cs.selectedCase) {
-        const found = this.cs.filteredCases.find(c => c._id?.$oid === selectedId);
-        if (found) {
-          this.cs.selectedCase = found;
-          this.updateMarkerSel(); // Will also zoom and update UI
-        }
-      }
-    });
+
+
+  // ✅ Auto-select case from URL
+   const selectedId = this.route.snapshot.queryParamMap.get('sc');
+  if (selectedId && !this.cs.selectedCase) {
+    const found = filteredCases.find(c => c._id?.$oid === selectedId);
+    if (found) {
+      this.cs.selectedCase = found;
+      this.updateMarkerSel();
+      setTimeout(() => this.zoomToSelectedCase(), 300);
+    }
+  }
+});
 
     // Handle map zoom end: update bounds/zoom and filter cases by map extent
     this.map.on('zoomend', () => {
@@ -392,8 +394,60 @@ export class MainComponent implements OnInit, AfterViewInit {
     zoomToCaseControl.addTo(this.map);
   }
 
+  private zoomToSelectedCase(): void {
+  if (!this.cs.selectedCase?.features) return;
+
+  // Remove any existing highlight
+  if (this.selectedCaseMarkerLayer) {
+    this.map.removeLayer(this.selectedCaseMarkerLayer);
+  }
+
+  const markers: L.Marker[] = [];
+
+  this.cs.selectedCase.features.forEach(f => {
+    if (f.geometry?.coordinates) {
+      const [lon, lat] = f.geometry.coordinates;
+      const marker = L.marker([lat, lon], {
+        icon: L.icon({
+          iconUrl: 'assets/marker-icon.png',
+          iconSize: [24, 36],
+          iconAnchor: [12, 36]
+        })
+      });
+      markers.push(marker);
+    }
+  });
+
+  if (markers.length > 0) {
+    this.selectedCaseMarkerLayer = L.layerGroup(markers).addTo(this.map);
+
+    if (markers.length === 1) {
+      const latlng = markers[0].getLatLng();
+      this.map.setView(latlng, 14, { animate: true });
+      setTimeout(() => {
+        this.map.panBy([300, 0], { animate: true }); // Shift to the right
+      }, 400);
+    } else {
+      const group = L.featureGroup(markers);
+      this.map.fitBounds(group.getBounds(), {
+        padding: [40, 40],
+        maxZoom: 14
+      });
+    }
+  }
+}
+
+
   /** 
    * Update (or initialize) the map markers and region highlight layers 
+   * based on the current filtered cases and active NUTS regions.
+   */
+    /**
+   * Update (or initialize) the map markers and region highlight layers
+   * based on the current filtered cases and active NUTS regions.
+   */
+    /**
+   * Update (or initialize) the map markers and region highlight layers
    * based on the current filtered cases and active NUTS regions.
    */
   private refreshMapLayers(): void {
@@ -410,47 +464,64 @@ export class MainComponent implements OnInit, AfterViewInit {
     // If there are filtered cases, add them as markers on the map
       if (this.cs.filteredCases && this.cs.filteredCases.length > 0) {
       const clusterGroup = L.markerClusterGroup({
-       disableClusteringAtZoom: 12,
+       disableClusteringAtZoom:8,
+       maxClusterRadius: 40,
        iconCreateFunction: (cluster) => {
+        const count = cluster.getChildCount();
         return L.divIcon({
-        html: `<div class="custom-cluster">${cluster.getChildCount()}</div>`,
-        className: 'custom-cluster-icon',
-        iconSize: L.point(40, 40)
-      });
-    }
-  });
+          html: `<div class="custom-cluster">${count}</div>`,
+          className: 'custom-cluster-icon',
+          iconSize: L.point(40, 40)
+        });
+      }
+    });
+    
 
     this.cs.filteredCases.forEach((c, index) => {
       if (c.features && c.features.length > 0) {
-        const coord = c.features[0].geometry.coordinates;
-        const latlng = L.latLng(coord[1], coord[0]);
+        // Iterate through all features of the filtered case
+        c.features.forEach(f => {
+          // Add null checks for geometry and coordinates
+          if (f.geometry && f.geometry.coordinates) {
+            const coord = f.geometry.coordinates;
+            const latlng = L.latLng(coord[1], coord[0]);
 
-        const isSelected = this.cs.selectedCase && this.cs.selectedCase._id?.$oid === c._id?.$oid;
-        const marker = L.marker(latlng, {
-          title: c.solution_name,
-          icon: L.icon({
-            iconUrl: isSelected ? 'assets/marker-icon.png' : 'assets/marker-icon-current.png',
-            iconSize: [24, 36],
-            iconAnchor: [12, 36]
-          })
-        }).bindPopup(`<b>${c.solution_name}</b><br>${c.description.slice(0, 100)} [...]`);
+            const isSelected = this.cs.selectedCase && this.cs.selectedCase._id?.$oid === c._id?.$oid;
+            const marker = L.marker(latlng, {
+              title: c.solution_name,
+              icon: L.icon({
+                iconUrl: isSelected ? 'assets/marker-icon.png' : 'assets/marker-icon-current.png',
+                iconSize: [24, 36],
+                iconAnchor: [12, 36]
+              })
+            }).bindPopup(`<b>${c.solution_name}</b><br>${c.description.slice(0, 100)} [...]`);
 
-        marker.on('click', () => {
-          this.cs.selectedCase = c;
-          this.selectedIndex = index;
-          this.updateMarkerSel();
+            marker.on('click', () => {
+              this.cs.selectedCase = c;
+              // Note: index here is the index in filteredCases, not the original allCases
+              this.selectedIndex = index;
+              this.updateMarkerSel();
+            });
+
+            clusterGroup.addLayer(marker);
+          }
         });
-
-        clusterGroup.addLayer(marker);
       }
     });
 
     this.map.addLayer(clusterGroup);
-    this.map.fitBounds(clusterGroup.getBounds(), {
-      paddingTopLeft: [0, 0],
-      paddingBottomRight: [500, 0], // shifts focus right
-      maxZoom: 4 // prevents zooming in too much
-    });
+    // Adjust map bounds to fit the new cluster group
+    if (clusterGroup.getLayers().length > 0) {
+        this.map.fitBounds(clusterGroup.getBounds(), {
+          paddingTopLeft: [0, 0],
+          paddingBottomRight: [500, 0], // shifts focus right
+          maxZoom: 4 // prevents zooming in too much
+        });
+    } else {
+        // If no markers, reset to a default view or previous view
+        // You might want to adjust this based on desired behavior when no cases are filtered
+        this.map.setView([50, 10], 4);
+    }
   }
 
     // Add active NUTS region geometry highlights (if any regions are active)
@@ -493,18 +564,21 @@ export class MainComponent implements OnInit, AfterViewInit {
     this.cs.filterByGeoExtent();
   }
 
-  clickCard(i: number) {
+    clickCard(i: number) {
     // User clicks a case card in the list -> select that case and update map/list state
     this.tooltipMsg = 'For sharing your current view, click here to copy URL to your clipboard';
     const caseIndex = i + (this.cs.pagination - 1) * this.pageLength;
     this.cs.selectedCase = this.cs.filteredCases[caseIndex];
-    this.updateMarkerSel();
-    this.selectedIndex = caseIndex;
+    this.selectedIndex = caseIndex; // Set selectedIndex here
+
     // Optionally center map on the selected case's first feature:
-    // if (this.cs.selectedCase && this.cs.selectedCase.features?.[0]) {
-    //   const coord = this.cs.selectedCase.features[0].geometry.coordinates;
-    //   this.map.setView([coord[1], coord[0]], 9, { animate: true });
-    // }
+    if (this.cs.selectedCase && this.cs.selectedCase.features?.[0]) {
+       const coord = this.cs.selectedCase.features[0].geometry.coordinates;
+       // Center the map on the selected case's location
+       this.map.setView([coord[1], coord[0]], this.map.getZoom(), { animate: true }); // Keep current zoom or set a default
+    }
+
+    this.updateMarkerSel(); // Call updateMarkerSel after setting selectedCase and potentially centering
   }
 
   changePageToSelected() {
