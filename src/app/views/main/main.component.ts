@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Inject, ElementRef, ViewChild, AfterViewInit, NgZone } from '@angular/core';
 import { CasesService } from '../../services/cases.service';
 import { NutsService } from '../../services/nuts.service';
 import { OptionsService } from '../../services/options.service';
@@ -7,6 +7,7 @@ import { DOCUMENT } from '@angular/common';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FiltersMenuComponent } from '../../components/filters-menu/filters-menu.component';
 import { ActivatedRoute } from '@angular/router';
+
 // Import Leaflet library
 import * as L from 'leaflet';
 import 'leaflet.markercluster';
@@ -24,6 +25,7 @@ export class MainComponent implements OnInit, AfterViewInit {
 
   
  private selectedCaseMarkerLayer: L.LayerGroup = L.layerGroup();
+ private hasInitialMapFit = false;
 
   // Slider and state variables
   simpleSlider = 40;
@@ -134,6 +136,7 @@ export class MainComponent implements OnInit, AfterViewInit {
     private modalService: NgbModal,
     private filtersComponent: FiltersMenuComponent,
     private route: ActivatedRoute,
+    private ngZone: NgZone,
     @Inject(DOCUMENT) private _document: Document
   ) {
     this.loadingMap = true;
@@ -250,16 +253,22 @@ export class MainComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     // Initialize Leaflet map on the div with id="mapContainer"
-    this.map = L.map('mapContainer', {
-      zoomControl: true,
-      attributionControl: false
+    this.ngZone.runOutsideAngular(() => {
+      this.map = L.map('mapContainer', {
+        zoomControl: true,
+        attributionControl: false,
+        preferCanvas: true
     }).setView([50, 10], 4);
     this.map.setMaxZoom(14);
     // Add OpenStreetMap tile layer
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 18,
+      updateWhenIdle: true,
+      updateWhenZooming: false,
+      keepBuffer: 2,
       attribution: '© OpenStreetMap contributors'
     }).addTo(this.map);
+  });
 
     // If URL provided map bounds (nelat, nelng, swlat, swlng), fit the map to those bounds
     this.setBoundsFromURL();
@@ -269,25 +278,45 @@ export class MainComponent implements OnInit, AfterViewInit {
 
     // Listen for changes in filtered cases to update map markers and highlights
    this.cs.filteredCasesChange.subscribe(filteredCases => {
-  this.tooltipMsg = 'For sharing your current view, click here to copy URL to your clipboard';
-  this.loadingMap = true;
+    this.tooltipMsg = 'For sharing your current view, click here to copy URL to your clipboard';
+    this.loadingMap = true;
+    this.refreshMapLayers();
+    this.loadingMap = false;
+
+    this.cs.resetMapView.subscribe(reset => {
+  if (!reset || !this.map) return;
+
+  this.hasInitialMapFit = false;
   this.refreshMapLayers();
-  this.loadingMap = false;
+
+  this.cs.resetMapView.next(false);
+});
 
 
 
   // ✅ Auto-select case from URL
-   const selectedId = this.route.snapshot.queryParamMap.get('sc');
-  if (selectedId && !this.cs.selectedCase) {
-    const found = filteredCases.find(c => c._id?.$oid === selectedId);
-    if (found) {
-      this.cs.selectedCase = found;
-      this.updateMarkerSel();
-      setTimeout(() => this.zoomToSelectedCase(), 300);
+    const selectedId = this.route.snapshot.queryParamMap.get('sc');
+    if (selectedId && !this.cs.selectedCase) {
+      const found = filteredCases.find(c => c._id?.$oid === selectedId);
+      if (found) {
+        this.cs.selectedCase = found;
+        this.updateMarkerSel();
+        setTimeout(() => this.zoomToSelectedCase(), 300);
     }
   }
 });
 
+// ✅ 4. Handle resize / DevTools / mobile
+window.addEventListener('resize', () => {
+  if (!this.map) return;
+  this.map.invalidateSize();
+});
+
+  
+
+
+
+/*
     // Handle map zoom end: update bounds/zoom and filter cases by map extent
     this.map.on('zoomend', () => {
       if (this.listMapVisible !== 0) {
@@ -323,7 +352,7 @@ export class MainComponent implements OnInit, AfterViewInit {
       }
     });
 
-    
+    */
 
     
 
@@ -463,66 +492,105 @@ export class MainComponent implements OnInit, AfterViewInit {
 
     // If there are filtered cases, add them as markers on the map
       if (this.cs.filteredCases && this.cs.filteredCases.length > 0) {
-      const clusterGroup = L.markerClusterGroup({
-       disableClusteringAtZoom:8,
-       maxClusterRadius: 40,
-       iconCreateFunction: (cluster) => {
-        const count = cluster.getChildCount();
-        return L.divIcon({
-          html: `<div class="custom-cluster">${count}</div>`,
-          className: 'custom-cluster-icon',
-          iconSize: L.point(40, 40)
-        });
-      }
+     const clusterGroup = L.markerClusterGroup({
+  disableClusteringAtZoom: 16,
+  maxClusterRadius: 40,
+  spiderfyOnMaxZoom: true,
+  showCoverageOnHover: false,
+  zoomToBoundsOnClick: true,
+  spiderLegPolylineOptions: {
+    weight: 1.5,
+    color: '#666',
+    opacity: 0.7
+  },
+  iconCreateFunction: (cluster) => {
+    const count = cluster.getChildCount();
+    return L.divIcon({
+      html: `<div class="custom-cluster">${count}</div>`,
+      className: 'custom-cluster-icon',
+      iconSize: L.point(40, 40)
     });
+  }
+});
     
 
-    this.cs.filteredCases.forEach((c, index) => {
-      if (c.features && c.features.length > 0) {
-        // Iterate through all features of the filtered case
-        c.features.forEach(f => {
-          // Add null checks for geometry and coordinates
-          if (f.geometry && f.geometry.coordinates) {
-            const coord = f.geometry.coordinates;
-            const latlng = L.latLng(coord[1], coord[0]);
+   this.cs.filteredCases.forEach((c, index) => {
+  if (c.features && c.features.length > 0) {
+    const validCoords = c.features
+      .filter(f => f.geometry && f.geometry.coordinates)
+      .map(f => f.geometry.coordinates);
 
-            const isSelected = this.cs.selectedCase && this.cs.selectedCase._id?.$oid === c._id?.$oid;
-            const marker = L.marker(latlng, {
-              title: c.solution_name,
-              icon: L.icon({
-                iconUrl: isSelected ? 'assets/marker-icon.png' : 'assets/marker-icon-current.png',
-                iconSize: [24, 36],
-                iconAnchor: [12, 36]
-              })
-            }).bindPopup(`<b>${c.solution_name}</b><br>${c.description.slice(0, 100)} [...]`);
+    if (validCoords.length > 0) {
+      let lat: number;
+      let lon: number;
 
-            marker.on('click', () => {
-              this.cs.selectedCase = c;
-              // Note: index here is the index in filteredCases, not the original allCases
-              this.selectedIndex = index;
-              this.updateMarkerSel();
-            });
+      if (validCoords.length === 1) {
+        lon = validCoords[0][0];
+        lat = validCoords[0][1];
+      } else {
+        const avgLon =
+          validCoords.reduce((sum, coord) => sum + coord[0], 0) / validCoords.length;
+        const avgLat =
+          validCoords.reduce((sum, coord) => sum + coord[1], 0) / validCoords.length;
 
-            clusterGroup.addLayer(marker);
-          }
-        });
+        lon = avgLon;
+        lat = avgLat;
       }
-    });
 
-    this.map.addLayer(clusterGroup);
-    // Adjust map bounds to fit the new cluster group
-    if (clusterGroup.getLayers().length > 0) {
-        this.map.fitBounds(clusterGroup.getBounds(), {
-          paddingTopLeft: [0, 0],
-          paddingBottomRight: [500, 0], // shifts focus right
-          maxZoom: 4 // prevents zooming in too much
-        });
-    } else {
-        // If no markers, reset to a default view or previous view
-        // You might want to adjust this based on desired behavior when no cases are filtered
-        this.map.setView([50, 10], 4);
+      const latlng = L.latLng(lat, lon);
+
+      const isSelected =
+        this.cs.selectedCase && this.cs.selectedCase._id?.$oid === c._id?.$oid;
+
+      const marker = L.marker(latlng, {
+        title: c.solution_name,
+        icon: L.icon({
+          iconUrl: isSelected
+            ? 'assets/marker-icon.png'
+            : 'assets/marker-icon-current.png',
+          iconSize: [24, 36],
+          iconAnchor: [12, 36]
+        })
+      }).bindPopup(`<b>${c.solution_name}</b><br>${c.description.slice(0, 100)} [...]`);
+
+     marker.on('click', () => {
+      this.ngZone.run(() => {
+        this.cs.selectedCase = c;
+        this.selectedIndex = index;
+        this.updateMarkerSel();
+      });
+  });
+
+      clusterGroup.addLayer(marker);
     }
   }
+});
+
+    this.map.addLayer(clusterGroup);
+    this.markersLayer = clusterGroup;
+
+    
+    // Adjust map bounds to fit the new cluster group
+    if (clusterGroup.getLayers().length > 0) {
+      setTimeout(() => {
+        if (!this.markersLayer) return;
+        
+        const bounds = clusterGroup.getBounds();
+        if (!bounds || !bounds.isValid()) return;
+        
+        this.map.invalidateSize();
+
+       // Only fit once on first load
+       if (!this.hasInitialMapFit) {
+        this.map.fitBounds(bounds, {
+          padding: [20, 20],
+          maxZoom: 5
+        });
+        this.hasInitialMapFit = true;
+      }
+    }, 0);
+  }
+ }
 
     // Add active NUTS region geometry highlights (if any regions are active)
     if (this.ns.nutsActiveGeometry && this.ns.nutsActiveGeometry.features && this.ns.nutsActiveGeometry.features.length > 0) {
@@ -535,10 +603,11 @@ export class MainComponent implements OnInit, AfterViewInit {
         })
       }).addTo(this.map);
     }
+  }
 
     // (Optional: call NutsService to update any URL hash or state if needed)
     // this.ns.addGeometriesToHash();
-  }
+   
 
   /**
    * If map bounds (north-east and south-west coordinates) are provided in URL parameters, 
@@ -552,6 +621,7 @@ export class MainComponent implements OnInit, AfterViewInit {
     }
     // (Pagination restored in constructor if provided; selected case could be handled here if needed)
   }
+
 
   // --- UI Interaction Methods --- //
 

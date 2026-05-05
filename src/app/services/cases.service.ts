@@ -48,6 +48,8 @@ export class CasesService {
   private isFilteredCasesChanged = false;
   public filteredCasesChange: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
 
+  public resetMapView = new BehaviorSubject<boolean>(false);
+
   
 
   public resultCases = {
@@ -429,7 +431,7 @@ export class CasesService {
       if (sc === 'RESIST') {
         this.tas.projectAffiliation.RESIST = true;
         this.tas.projectAffiliation.nonRESIST = false;
-      } else if (sc === 'nonRESIST') {
+      } else if (sc === 'Non-RESIST') {
         this.tas.projectAffiliation.RESIST = false;
         this.tas.projectAffiliation.nonRESIST = true;
       } else {
@@ -1810,7 +1812,7 @@ return toFilter;
   // 4. Clear actual filter variables
   this.textFilter = '';
   this.geoExtentFilter = [];
-  this.typeFilter = null;
+  this.typeFilter = [];
   this.regiHazardFilter = [];
   this.dataCategoryFilter = [];
   this.ecosystemServicesFilter = [];
@@ -1819,10 +1821,16 @@ return toFilter;
   this.projectAffiliationFilter = null;
   this.solutionStatusFilter = null;
 
+  this.lastBounds = null;
+  this.selectedCase = null;
+ 
+
   // 5. Refresh everything
   this.applyFilters();
   this.calculateResults();
   this.addMarkersCollection();
+
+  this.filteredCasesChange.next(this.filteredCases);
 
   }
 

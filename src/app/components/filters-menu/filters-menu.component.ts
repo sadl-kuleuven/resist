@@ -58,6 +58,7 @@ export class FiltersMenuComponent implements OnInit, AfterViewInit {
     // Reset affiliation radio buttons
     this.tas.projectAffiliation.RESIST = false;
     this.tas.projectAffiliation.nonRESIST = false;
+    
 
     // Reset solution status radio buttons
     this.tas.solutionStatus.Implemented = false;
@@ -66,11 +67,11 @@ export class FiltersMenuComponent implements OnInit, AfterViewInit {
     this.tas.solutionStatus.Proposed = false;
     this.tas.solutionStatus.Pilot = false;
     this.tas.solutionStatus.Deprecated = false;
+    this.cs.resetMapView.next(true);
 
-    this.cs.allFilteredCases = [...this.cs.allCases];
+    /*this.cs.allFilteredCases = [...this.cs.allCases]; */
+    
 
-    // Notify other components
-    this.cs.filteredCasesChange.next([]);
   }
 
 

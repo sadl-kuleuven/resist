@@ -145,3 +145,10 @@ h3 {
   z-index: 0;
 }
 
+.resist-header h3 {
+  margin-bottom: 2px;
+}
+
+.resist-header {
+  padding-bottom: -2px;
+}
